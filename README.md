@@ -32,6 +32,22 @@ all be (gracefully) killed on sight. This permits being rather lazy about
 adding and removing defintions and we can be sure that resources are not
 needlessly wasted.
 
+## Multiple Flavors
+
+If you want multiple flavors in a group, just create N different groups with different tags. E.g.
+
+```
+compute_nodes_small:
+    count: 10
+    flavor: c.c10m55
+    tag: compute-small
+
+compute_nodes_large:
+    count: 10
+    flavor: c.c24m120
+    tag: compute-large
+```
+
 ## LICENSE
 
 GPLv3
