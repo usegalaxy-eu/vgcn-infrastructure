@@ -210,8 +210,6 @@ for resource_identifier in DATA['deployment']:
     print("Found %s/%s running, %s to remove" %
           (len(servers_ok), desired_instances, len(servers_rm)))
 
-    if 'end' in resource:
-        import sys; sys.exit()
     # Ok, here we possibly have some that need to be removed, and possibly have
     # some number that need to be added (of the new image version)
 
