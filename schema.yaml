@@ -1,0 +1,34 @@
+---
+type: map
+mapping:
+    "patience":
+        type: int
+        required: true
+        range:
+            min: 0
+    "image":
+        type: str
+        required: true
+    "pubkeys":
+        type: seq
+        sequence:
+          - type: str
+    "deployment":
+        type: map
+        mapping:
+            "=":
+                type: map
+                mapping:
+                    "count":
+                        type: int
+                        required: true
+                    "flavor":
+                        type: str
+                        required: true
+                    "tag":
+                        type: str
+                        required: true
+                    "start":
+                        type: date
+                    "end":
+                        type: date
