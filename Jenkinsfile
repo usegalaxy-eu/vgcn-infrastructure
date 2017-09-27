@@ -24,9 +24,11 @@ pipeline {
         OS_TENANT_NAME  = credentials('OS_TENANT_NAME')
         OS_USERNAME     = credentials('OS_USERNAME')
       }
+
       when {
         branch 'master'
       }
+
       steps {
         sh 'pip install -r requirements.txt'
         sh 'python ensure-enough.py'
