@@ -6,16 +6,6 @@ pipeline {
     }
   }
 
-  environment {
-    OS_AUTH_URL = credentials('OS_AUTH_URL')
-    OS_PASSWORD = credentials('OS_PASSWORD')
-    OS_PROJECT_NAME = credentials('OS_PROJECT_NAME')
-    OS_REGION_NAME = credentials('OS_REGION_NAME ')
-    OS_TENANT_ID = credentials('OS_TENANT_ID')
-    OS_TENANT_NAME = credentials('OS_TENANT_NAME')
-    OS_USERNAME = credentials('OS_USERNAME')
-  }
-
   stages {
     stage('Linting') {
       steps {
@@ -31,7 +21,18 @@ pipeline {
 
       steps {
         sh 'pip install -r requirements.txt'
-        sh 'python ensure-enough.py'
+
+        withCredentials([
+          string(credentialsId: 'OS_AUTH_URL', variable: 'OS_AUTH_URL'),
+          string(credentialsId: 'OS_PASSWORD', variable: 'OS_PASSWORD'),
+          string(credentialsId: 'OS_PROJECT_NAME', variable: 'OS_PROJECT_NAME'),
+          string(credentialsId: 'OS_REGION_NAME', variable: 'OS_REGION_NAME'),
+          string(credentialsId: 'OS_TENANT_ID', variable: 'OS_TENANT_ID'),
+          string(credentialsId: 'OS_TENANT_NAME', variable: 'OS_TENANT_NAME'),
+          string(credentialsId: 'OS_USERNAME', variable: 'OS_USERNAME')
+        ]) {
+            sh 'python ensure-enough.py'
+        }
       }
     }
   }
