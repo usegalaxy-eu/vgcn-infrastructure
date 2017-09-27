@@ -14,8 +14,8 @@ training_event:
     count: 4
     flavor: c.c10m55
     tag: training-fallhts2017
-    starts: 2017-10-01
-    ends:  2017-10-02
+    start: 2017-10-01
+    end:  2017-10-02
 ```
 
 the label `training_event` is arbitrary but must be unique in the file. We
@@ -26,7 +26,7 @@ capacity.
 The `tag` must be specified and is used in constructing the name of the image.
 For a tag of `upload`, images will be named `vgcnbwc-upload-{number}`
 
-We additionally allow supplying a `starts` and `ends` parameter for the VMs.
+We additionally allow supplying a `start` and `end` parameter for the VMs.
 Before this time the VMs will not be launched. After this time, the VMs will
 all be (gracefully) killed on sight. This permits being rather lazy about
 adding and removing defintions and we can be sure that resources are not

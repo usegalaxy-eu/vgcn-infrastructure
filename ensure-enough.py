@@ -124,9 +124,9 @@ def launch_server(name, flavor):
     # Wait for this server to become 'ACTIVE'
     while True:
         # Get the latest listing of servers
-        current_servers = [x.name for x in nova.servers.list()]
+        current_servers = {x.name: x for x in nova.servers.list()}
         # If the server is visible + active, let's exit.
-        if server.name in current_servers and server.status == 'ACTIVE':
+        if name in current_servers and current_servers[name].status == 'ACTIVE':
             break
         time.sleep(10)
 
@@ -210,6 +210,8 @@ for resource_identifier in DATA['deployment']:
     print("Found %s/%s running, %s to remove" %
           (len(servers_ok), desired_instances, len(servers_rm)))
 
+    if 'end' in resource:
+        import sys; sys.exit()
     # Ok, here we possibly have some that need to be removed, and possibly have
     # some number that need to be added (of the new image version)
 

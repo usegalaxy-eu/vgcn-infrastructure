@@ -1,6 +1,6 @@
 ---
 # Wait up to 1h for a server to finish draining before outright terminating.
-patience: 60 * 60
+patience: 3600
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
 image: vgcnbwc7-21
@@ -34,5 +34,5 @@ deployment:
         tag: training-fallhts2017
         # A start and end date is required. Resources will not be available
         # before or after these dates.
-        starts: 2017-10-01
-        ends:  2017-10-02
+        start: 2017-10-01
+        end:  2017-10-02
