@@ -20,13 +20,13 @@ pipeline {
       }
 
       environment {
-        OS_AUTH_URL = credentials('OS_AUTH_URL')
-        OS_PASSWORD = credentials('OS_PASSWORD')
-        OS_PROJECT_NAME = credentials('OS_PROJECT_NAME')
-        OS_REGION_NAME = credentials('OS_REGION_NAME ')
-        OS_TENANT_ID = credentials('OS_TENANT_ID')
-        OS_TENANT_NAME = credentials('OS_TENANT_NAME')
-        OS_USERNAME = credentials('OS_USERNAME')
+        OS_AUTH_URL = "asdf"
+        OS_PASSWORD = "asdf"
+        OS_PROJECT_NAME = "asdf"
+        OS_REGION_NAME = "asdf"
+        OS_TENANT_ID = "asdf"
+        OS_TENANT_NAME = "asdf"
+        OS_USERNAME = "asdf"
       }
 
       steps {
