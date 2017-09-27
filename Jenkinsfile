@@ -25,6 +25,9 @@ pipeline {
     }
 
     stage('Deploy') {
+      when {
+        branch 'master'
+      }
       steps {
         sh 'pip install -r requirements.txt'
         sh 'python ensure-enough.py'
