@@ -150,6 +150,7 @@ def launch_server(name, flavor):
 
 
 def gracefully_terminate(server):
+    log.info("Gracefully terminating %s", server.name)
     # Get the IP address in galaxy-net
     ip = server.networks['galaxy-net'][0]
 
@@ -158,7 +159,7 @@ def gracefully_terminate(server):
         stdout, stderr = remote_command(ip, 'condor_drain `hostname -f`')
 
         if 'Sent request to drain' not in stdout:
-            print("Something might be wrong: %s, %s" % (stdout, stderr))
+            log.warn("Something might be wrong: %s, %s", stdout, stderr)
 
         have_slept = 0
         while True:
@@ -177,7 +178,7 @@ def gracefully_terminate(server):
                 break
 
     # The image is completely drained so we're safe to kill.
-    print(nova.servers.delete(server))
+    log.info(nova.servers.delete(server))
 
     # We'll wait a bit until the server is gone.
     while True:
@@ -200,7 +201,7 @@ def top_up(desired_instances, prefix, flavor):
     # Now we know the difference that we need to launch.
     to_add = max(0, desired_instances - len(num_active))
     for i in range(to_add):
-        print(launch_server(non_conflicting_name(prefix, all_servers), flavor))
+        log.info(launch_server(non_conflicting_name(prefix, all_servers), flavor))
 
 
 def syncronize_infrastructure(DATA):
@@ -213,7 +214,7 @@ def syncronize_infrastructure(DATA):
         #    vgcnbwc-metadata-{number}
         #    vgcnbwc-training-{training_identifier}-{number}
         prefix = 'vgcnbwc-' + resource['tag']
-        print("Processing %s" % prefix)
+        log.info("Processing %s" % prefix)
         # Image flavor
         flavor = FLAVORS[resource['flavor']]
         desired_instances = resource['count']
@@ -240,8 +241,8 @@ def syncronize_infrastructure(DATA):
             servers_ok = []
             desired_instances = 0
 
-        print("Found %s/%s running, %s to remove" %
-              (len(servers_ok), desired_instances, len(servers_rm)))
+        log.info("Found %s/%s running, %s to remove", len(servers_ok),
+                 desired_instances, len(servers_rm))
 
         # Ok, here we possibly have some that need to be removed, and possibly have
         # some number that need to be added (of the new image version)
@@ -258,8 +259,8 @@ def syncronize_infrastructure(DATA):
             # Galaxy-net must be the used network, maybe this check is extraneous
             # but better to only work on things we know are safe to work on.
             if 'galaxy-net' not in server.networks:
-                print(server.networks)
-                print("Not sure how to handle server %s" % server.name)
+                log.warn(server.networks)
+                log.warn("Not sure how to handle server %s", server.name)
                 continue
 
             # Gracefully (or violently, depending on patience) terminate the VM.
