@@ -87,4 +87,4 @@ def test_launch_server():
     server = ensure_enough.launch_server('testing', 'c.c10m55')
     assert server.name == 'testing'
     server = ensure_enough.launch_server('testing2', 'z.c10m55')
-    assert server.name == 'testing'
+    assert server.name == 'testing2'
