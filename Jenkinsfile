@@ -16,9 +16,9 @@ pipeline {
 					[$class: 'StringBinding', credentialsId: 'OS_REGION_NAME' , variable: 'OS_REGION_NAME' ],
 					[$class: 'StringBinding', credentialsId: 'OS_TENANT_ID'   , variable: 'OS_TENANT_ID'   ],
 					[$class: 'StringBinding', credentialsId: 'OS_TENANT_NAME' , variable: 'OS_TENANT_NAME' ],
-					[$class: 'StringBinding', credentialsId: 'OS_USERNAME'    , variable: 'OS_USERNAME'    ],
+					[$class: 'StringBinding', credentialsId: 'OS_USERNAME'    , variable: 'OS_USERNAME'    ]
 				]) {
-					env | sort > /tmp/asdf
+					sh 'env | sort > /tmp/asdf'
 				}
 			}
 		}
