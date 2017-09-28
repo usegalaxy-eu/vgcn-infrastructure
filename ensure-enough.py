@@ -27,7 +27,7 @@ with open('resources.yaml', 'r') as handle:
 SSHKEY = 'cloud2'
 NETWORK = [network for network in nova.networks.list()
            if network.human_id == 'galaxy-net'][0]
-SECGROUPS = 'ufr-only-v2'
+SECGROUPS = ['ufr-only-v2']
 # And some maps of human-name:object
 FLAVORS = {flavor.name: flavor for flavor in nova.flavors.list()}
 IMAGES = {image.name: image for image in glance.images.list()}
@@ -137,6 +137,7 @@ def launch_server(name, flavor):
         flavor=flavor,
         key_name=SSHKEY,
         availability_zone='nova',
+        security_groups=SECGROUPS,
         nics=[{'net-id': NETWORK.id}],
     ))
 
