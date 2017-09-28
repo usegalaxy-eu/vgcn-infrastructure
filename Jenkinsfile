@@ -11,11 +11,6 @@ pipeline {
 			steps {
 				sh 'pip install pyyaml pykwalify'
 				sh 'pykwalify -d resources.yaml -s schema.yaml'
-
-				withCredentials([[$class: 'StringBinding', credentialsId: 'OS_REGION_NAME', variable: 'OS_REGION_NAME']]) {
-					echo "My region is '${OS_REGION_NAME}'!"
-				}
-
 			}
 		}
 
@@ -35,13 +30,13 @@ pipeline {
 				sh 'pip install -r requirements.txt'
 
 				withCredentials([
-					string(credentialsId: 'OS_AUTH_URL', variable: 'OS_AUTH_URL'),
-					string(credentialsId: 'OS_PASSWORD', variable: 'OS_PASSWORD'),
-					string(credentialsId: 'OS_PROJECT_NAME', variable: 'OS_PROJECT_NAME'),
-					string(credentialsId: 'OS_REGION_NAME', variable: 'OS_REGION_NAME'),
-					string(credentialsId: 'OS_TENANT_ID', variable: 'OS_TENANT_ID'),
-					string(credentialsId: 'OS_TENANT_NAME', variable: 'OS_TENANT_NAME'),
-					string(credentialsId: 'OS_USERNAME', variable: 'OS_USERNAME')
+					[$class: 'StringBinding', credentialsId: 'OS_AUTH_URL'    , variable: 'OS_AUTH_URL'    ],
+					[$class: 'StringBinding', credentialsId: 'OS_PASSWORD'    , variable: 'OS_PASSWORD'    ],
+					[$class: 'StringBinding', credentialsId: 'OS_PROJECT_NAME', variable: 'OS_PROJECT_NAME'],
+					[$class: 'StringBinding', credentialsId: 'OS_REGION_NAME' , variable: 'OS_REGION_NAME' ],
+					[$class: 'StringBinding', credentialsId: 'OS_TENANT_ID'   , variable: 'OS_TENANT_ID'   ],
+					[$class: 'StringBinding', credentialsId: 'OS_TENANT_NAME' , variable: 'OS_TENANT_NAME' ],
+					[$class: 'StringBinding', credentialsId: 'OS_USERNAME'    , variable: 'OS_USERNAME'    ],
 				]) {
 						sh 'python ensure-enough.py'
 				}
