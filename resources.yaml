@@ -25,6 +25,14 @@ deployment:
         flavor: c.c10m55
         tag: compute
 
+    # de.NBI http://destair.bioinf.uni-leipzig.de/event/de-stair-1-workshop/
+    training_event:
+        count: 15
+        flavor: c.c10m55
+        tag: training-denbi-stairs-2017
+        start: 2017-10-03
+        end:  2017-10-06
+
     # An (example) training event
     training_event:
         count: 4
