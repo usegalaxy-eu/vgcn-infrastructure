@@ -111,6 +111,25 @@ def identify_server_group(server_identifier):
     return servers_rm, servers_ok
 
 
+def wait_for_state(server_name, target_state):
+    """
+    Wait for a server to reach a specific state.
+
+    :param str server_name: Name of the server
+    :param str target_state: one of https://docs.openstack.org/nova/latest/reference/vm-states.html
+
+    :rtype: None
+    """
+    # TODO: guard against getting stuck.c
+    while True:
+        # Get the latest listing of servers
+        current_servers = {x.name: x for x in nova.servers.list()}
+        # If the server is visible + active, let's exit.
+        if server_name in current_servers and current_servers[server_name].status == target_state:
+            break
+        time.sleep(10)
+
+
 def launch_server(name, flavor):
     print(nova.servers.create(
         name=name,
@@ -122,13 +141,7 @@ def launch_server(name, flavor):
     ))
 
     # Wait for this server to become 'ACTIVE'
-    while True:
-        # Get the latest listing of servers
-        current_servers = {x.name: x for x in nova.servers.list()}
-        # If the server is visible + active, let's exit.
-        if name in current_servers and current_servers[name].status == 'ACTIVE':
-            break
-        time.sleep(10)
+    wait_for_state(name, 'ACTIVE')
 
 
 def gracefully_terminate(server):
@@ -169,6 +182,20 @@ def gracefully_terminate(server):
         if server.name not in current_servers:
             break
         time.sleep(10)
+
+
+def top_up(desired_instances, prefix, flavor):
+    # Fetch the CURRENT state.
+    tmp_servers_rm, tmp_servers_ok = identify_server_group(prefix)
+    # Get all together
+    all_servers = tmp_servers_rm + tmp_servers_ok
+    # Because we care not about how many are currenlty ok, but the number of
+    # ACTIVE servers that can be processing jobs.
+    num_active = [x.state == 'ACTIVE' for x in all_servers]
+    # Now we know the difference that we need to launch.
+    to_add = max(0, desired_instances - num_active)
+    for i in range(to_add):
+        launch_server(non_conflicting_name(prefix, all_servers), flavor)
 
 
 # Now we process our different resources.
@@ -233,17 +260,9 @@ for resource_identifier in DATA['deployment']:
         gracefully_terminate(server)
 
         # With that done, 'top up' to the correct number of VMs.
-        tmp_servers_rm, tmp_servers_ok = identify_server_group(prefix)
-        # If desired_instances is a greater number than the number of 'ok'
-        # servers, we should launch more.
-        to_add = max(0, desired_instances - len(servers_ok))
-        for i in range(to_add):
-            launch_server(non_conflicting_name(prefix, servers_ok), flavor)
+        top_up(desired_instances, prefix, flavor)
 
     # Now that we've removed all that we need to remove, again, try to top-up
     # to make sure we're OK. (Also important in case we had no servers already
     # running.)
-    tmp_servers_rm, tmp_servers_ok = identify_server_group(prefix)
-    to_add = max(0, desired_instances - len(servers_ok))
-    for i in range(to_add):
-        launch_server(non_conflicting_name(prefix, servers_ok), flavor)
+    top_up(desired_instances, prefix, flavor)
