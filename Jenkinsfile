@@ -16,7 +16,7 @@ pipeline {
 
     stage('Testing') {
       steps {
-        sh 'pip install -r requirements.txt'
+        sh 'pip install -r requirements.txt nose'
         sh 'nosetests tests.py -s'
       }
     }
