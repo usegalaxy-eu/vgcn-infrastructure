@@ -5,6 +5,7 @@ import paramiko
 import random
 import time
 import yaml
+import logging
 
 from keystoneauth1 import loading
 from keystoneauth1 import session
@@ -20,9 +21,6 @@ sess = session.Session(auth=auth)
 nova = nova_client.Client('2.0', session=sess)
 glance = glance_client.Client('2', session=sess)
 
-with open('resources.yaml', 'r') as handle:
-    DATA = yaml.load(handle)
-
 # These are hard-coded values.
 SSHKEY = 'cloud2'
 NETWORK = [network for network in nova.networks.list()
@@ -32,9 +30,9 @@ SECGROUPS = ['ufr-only-v2']
 FLAVORS = {flavor.name: flavor for flavor in nova.flavors.list()}
 IMAGES = {image.name: image for image in glance.images.list()}
 # Grab the 'latest' image name.
-CURRENT_IMAGE_NAME = DATA['image']
+CURRENT_IMAGE_NAME = None  # DATA['image']
 CURRENT_IMAGE = IMAGES[CURRENT_IMAGE_NAME]
-VGCN_PUBKEYS = DATA['pubkeys']
+VGCN_PUBKEYS = None  # DATA['pubkeys']
 TODAY = datetime.date.today()
 
 
@@ -194,76 +192,92 @@ def top_up(desired_instances, prefix, flavor):
     # ACTIVE servers that can be processing jobs.
     num_active = [x.state == 'ACTIVE' for x in all_servers]
     # Now we know the difference that we need to launch.
-    to_add = max(0, desired_instances - num_active)
+    to_add = max(0, desired_instances - len(num_active))
     for i in range(to_add):
         launch_server(non_conflicting_name(prefix, all_servers), flavor)
 
 
-# Now we process our different resources.
-for resource_identifier in DATA['deployment']:
-    resource = DATA['deployment'][resource_identifier]
-    # The server names are constructed as:
-    #    vgcnbwc-compute-{number}
-    #    vgcnbwc-upload-{number}
-    #    vgcnbwc-metadata-{number}
-    #    vgcnbwc-training-{training_identifier}-{number}
-    prefix = 'vgcnbwc-' + resource['tag']
-    print("Processing %s" % prefix)
-    # Image flavor
-    flavor = FLAVORS[resource['flavor']]
-    desired_instances = resource['count']
+def syncronize_infrastructure(DATA):
+    # Now we process our different resources.
+    for resource_identifier in DATA['deployment']:
+        resource = DATA['deployment'][resource_identifier]
+        # The server names are constructed as:
+        #    vgcnbwc-compute-{number}
+        #    vgcnbwc-upload-{number}
+        #    vgcnbwc-metadata-{number}
+        #    vgcnbwc-training-{training_identifier}-{number}
+        prefix = 'vgcnbwc-' + resource['tag']
+        print("Processing %s" % prefix)
+        # Image flavor
+        flavor = FLAVORS[resource['flavor']]
+        desired_instances = resource['count']
 
-    # Count the number of existing VMs of this resource group
-    servers_rm, servers_ok = identify_server_group(prefix)
+        # Count the number of existing VMs of this resource group
+        servers_rm, servers_ok = identify_server_group(prefix)
 
-    # If we have more servers allocated than desired, we should remove some.
-    if len(servers_ok) > desired_instances:
-        difference = len(servers_ok) - desired_instances
-        # Take the first `difference` number of servers.
-        servers_rm += servers_ok[0:difference]
-        # And slice the ok list as well.
-        servers_ok = servers_ok[difference:]
+        # If we have more servers allocated than desired, we should remove some.
+        if len(servers_ok) > desired_instances:
+            difference = len(servers_ok) - desired_instances
+            # Take the first `difference` number of servers.
+            servers_rm += servers_ok[0:difference]
+            # And slice the ok list as well.
+            servers_ok = servers_ok[difference:]
 
-    # If the resource has a `start` or `end` and we are not within that range,
-    # then we should move all resources from `servers_ok` to `servers_rm`
-    if 'end' in resource and TODAY > resource['end']:
-        servers_rm = servers_ok
-        servers_ok = []
-        desired_instances = 0
-    elif 'start' in resource and TODAY < resource['start']:
-        servers_rm = servers_ok
-        servers_ok = []
-        desired_instances = 0
+        # If the resource has a `start` or `end` and we are not within that range,
+        # then we should move all resources from `servers_ok` to `servers_rm`
+        if 'end' in resource and TODAY > resource['end']:
+            servers_rm = servers_ok
+            servers_ok = []
+            desired_instances = 0
+        elif 'start' in resource and TODAY < resource['start']:
+            servers_rm = servers_ok
+            servers_ok = []
+            desired_instances = 0
 
-    print("Found %s/%s running, %s to remove" %
-          (len(servers_ok), desired_instances, len(servers_rm)))
+        print("Found %s/%s running, %s to remove" %
+            (len(servers_ok), desired_instances, len(servers_rm)))
 
-    # Ok, here we possibly have some that need to be removed, and possibly have
-    # some number that need to be added (of the new image version)
+        # Ok, here we possibly have some that need to be removed, and possibly have
+        # some number that need to be added (of the new image version)
 
-    # We don't want to abuse resources and we'd like to keep within the
-    # limited number of VMs to make this more reusable. If we say "max 10 VMs"
-    # we should honor that.
+        # We don't want to abuse resources and we'd like to keep within the
+        # limited number of VMs to make this more reusable. If we say "max 10 VMs"
+        # we should honor that.
 
-    # We will start expiring old ones, "topping up" as we go along.
-    for server in servers_rm:
-        # we need to SSH in and condor_drain, wait for queue to empty, and then
-        # kill.
+        # We will start expiring old ones, "topping up" as we go along.
+        for server in servers_rm:
+            # we need to SSH in and condor_drain, wait for queue to empty, and then
+            # kill.
 
-        # Galaxy-net must be the used network, maybe this check is extraneous
-        # but better to only work on things we know are safe to work on.
-        if 'galaxy-net' not in server.networks:
-            print(server.networks)
-            print("Not sure how to handle server %s" % server.name)
-            continue
+            # Galaxy-net must be the used network, maybe this check is extraneous
+            # but better to only work on things we know are safe to work on.
+            if 'galaxy-net' not in server.networks:
+                print(server.networks)
+                print("Not sure how to handle server %s" % server.name)
+                continue
 
-        # Gracefully (or violently, depending on patience) terminate the VM.
-        gracefully_terminate(server)
+            # Gracefully (or violently, depending on patience) terminate the VM.
+            gracefully_terminate(server)
 
-        # With that done, 'top up' to the correct number of VMs.
+            # With that done, 'top up' to the correct number of VMs.
+            top_up(desired_instances, prefix, flavor)
+
+        # Now that we've removed all that we need to remove, again, try to top-up
+        # to make sure we're OK. (Also important in case we had no servers already
+        # running.)
         top_up(desired_instances, prefix, flavor)
 
-    # Now that we've removed all that we need to remove, again, try to top-up
-    # to make sure we're OK. (Also important in case we had no servers already
-    # running.)
-    top_up(desired_instances, prefix, flavor)
+
+def main():
+    global CURRENT_IMAGE_NAME
+    global VGCN_PUBKEYS
+
+    with open('resources.yaml', 'r') as handle:
+        DATA = yaml.load(handle)
+
+    CURRENT_IMAGE_NAME = DATA['image']
+    VGCN_PUBKEYS = DATA['pubkeys']
+    syncronize_infrastructure(DATA)
+
+if __name__ == '__main__':
+    main()
