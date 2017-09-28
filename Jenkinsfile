@@ -38,7 +38,7 @@ pipeline {
 					string(credentialsId: 'OS_TENANT_NAME', variable: 'OS_TENANT_NAME'),
 					string(credentialsId: 'OS_USERNAME', variable: 'OS_USERNAME'),
 				]) {
-						sh 'python ensure-enough.py'
+						sh 'python ensure_enough.py'
 				}
 			}
 		}
