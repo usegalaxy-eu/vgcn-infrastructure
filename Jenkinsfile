@@ -14,6 +14,13 @@ pipeline {
       }
     }
 
+    stage('Testing') {
+      steps {
+        sh 'pip install -r requirements.txt'
+        sh 'nosetests tests.py -s'
+      }
+    }
+
     stage('Deploy') {
       when {
         branch 'master'
