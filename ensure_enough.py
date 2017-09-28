@@ -37,6 +37,8 @@ PATIENCE = 60
 TODAY = datetime.date.today()
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
+# Maximum number of allocatable names. After which it will switch to time.time()
+MAX_SERVER_POOL = 10000
 
 
 class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
@@ -74,7 +76,7 @@ def non_conflicting_name(prefix, existing_servers):
     # Make at least ten tries
     for i in range(10):
         # generate a test name, similar style to jenkins images.
-        test_name = '%s-%04d' % (prefix, random.randint(0, 10000))
+        test_name = '%s-%04d' % (prefix, random.randint(0, MAX_SERVER_POOL))
         # If unused, we can use this.
         if test_name not in server_names:
             return test_name
