@@ -179,6 +179,9 @@ def gracefully_terminate(server):
             if have_slept > PATIENCE:
                 break
 
+        # Ensure we are promptly removed from the pool
+        stdout, stderr = remote_command(ip, 'condor_off -graceful `hostname -f`')
+
     # The image is completely drained so we're safe to kill.
     log.info(nova.servers.delete(server))
 
