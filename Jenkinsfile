@@ -11,6 +11,11 @@ pipeline {
 			steps {
 				sh 'pip install pyyaml pykwalify'
 				sh 'pykwalify -d resources.yaml -s schema.yaml'
+
+				withCredentials([[$class: 'StringBinding', credentialsId: 'OS_REGION_NAME', variable: 'OS_REGION_NAME']]) {
+					echo "My region is '${OS_REGION_NAME}'!"
+				}
+
 			}
 		}
 
@@ -28,10 +33,6 @@ pipeline {
 
 			steps {
 				sh 'pip install -r requirements.txt'
-
-				withCredentials([string(credentialsId: 'OS_REGION_NAME', variable: 'OS_REGION_NAME')]) {
-					echo "My region is '${OS_REGION_NAME}'!"
-				}
 
 				withCredentials([
 					string(credentialsId: 'OS_AUTH_URL', variable: 'OS_AUTH_URL'),
