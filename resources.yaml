@@ -26,7 +26,7 @@ deployment:
         tag: compute
 
     # de.NBI http://destair.bioinf.uni-leipzig.de/event/de-stair-1-workshop/
-    training_event:
+    training_denbi_stairs_2017:
         count: 15
         flavor: c.c10m55
         tag: training-denbi-stairs-2017
@@ -34,7 +34,7 @@ deployment:
         end:  2017-10-06
 
     # An (example) training event
-    training_event:
+    training_example_event:
         count: 4
         flavor: c.c10m55
         # A tag must be specified, and you must create a galaxy role with the
