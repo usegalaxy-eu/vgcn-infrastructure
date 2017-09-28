@@ -33,8 +33,9 @@ IMAGES = {image.name: image for image in glance.images.list()}
 CURRENT_IMAGE_NAME = None  # DATA['image']
 CURRENT_IMAGE = None  # IMAGES[CURRENT_IMAGE_NAME]
 VGCN_PUBKEYS = None  # DATA['pubkeys']
+PATIENCE = 60
 TODAY = datetime.date.today()
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
 
@@ -97,8 +98,8 @@ def identify_server_group(server_identifier):
     servers_ok = []
     # All servers
     for server in nova.servers.list():
-        # Filter by those with our prefix.
-        if server.name.startswith(prefix):
+        # Filter by those with our server_identifier.
+        if server.name.startswith(server_identifier):
             server_image_name = glance.images.get(server.image['id'])['name']
             # if the image isn't the latest / current version, OR if the server
             # isn't running
@@ -172,7 +173,7 @@ def gracefully_terminate(server):
                 have_slept += 10
 
             # At some point we give up.
-            if have_slept > DATA['patience']:
+            if have_slept > PATIENCE:
                 break
 
     # The image is completely drained so we're safe to kill.
@@ -195,7 +196,7 @@ def top_up(desired_instances, prefix, flavor):
     all_servers = tmp_servers_rm + tmp_servers_ok
     # Because we care not about how many are currenlty ok, but the number of
     # ACTIVE servers that can be processing jobs.
-    num_active = [x.state == 'ACTIVE' for x in all_servers]
+    num_active = [x.status == 'ACTIVE' for x in all_servers]
     # Now we know the difference that we need to launch.
     to_add = max(0, desired_instances - len(num_active))
     for i in range(to_add):
@@ -240,7 +241,7 @@ def syncronize_infrastructure(DATA):
             desired_instances = 0
 
         print("Found %s/%s running, %s to remove" %
-            (len(servers_ok), desired_instances, len(servers_rm)))
+              (len(servers_ok), desired_instances, len(servers_rm)))
 
         # Ok, here we possibly have some that need to be removed, and possibly have
         # some number that need to be added (of the new image version)
@@ -277,6 +278,7 @@ def main():
     global CURRENT_IMAGE_NAME
     global CURRENT_IMAGE
     global VGCN_PUBKEYS
+    global PATIENCE
 
     with open('resources.yaml', 'r') as handle:
         DATA = yaml.load(handle)
@@ -284,7 +286,9 @@ def main():
     CURRENT_IMAGE_NAME = DATA['image']
     CURRENT_IMAGE = IMAGES[CURRENT_IMAGE_NAME]
     VGCN_PUBKEYS = DATA['pubkeys']
+    PATIENCE = DATA['patience']
     syncronize_infrastructure(DATA)
+
 
 if __name__ == '__main__':
     main()
