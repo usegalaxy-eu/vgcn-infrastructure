@@ -55,11 +55,11 @@ class MockNova(object):
 
             @classmethod
             def list(cls):
-                return []
+                return cls.servers
 
             @classmethod
             def create(cls, **kwargs):
-                cls.servers.append(MockObject(**kwargs))
+                cls.servers.append(MockObject(status='ACTIVE', **kwargs))
 
 
 class MockGlance(object):
@@ -82,3 +82,9 @@ sys.modules['glanceclient'] = MockGlance
 
 
 import ensure_enough  # noqa
+
+def test_launch_server():
+    server = ensure_enough.launch_server('testing', 'c.c10m55')
+    assert server.name == 'testing'
+    server = ensure_enough.launch_server('testing2', 'z.c10m55')
+    assert server.name == 'testing'

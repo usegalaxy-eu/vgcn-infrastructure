@@ -31,9 +31,11 @@ FLAVORS = {flavor.name: flavor for flavor in nova.flavors.list()}
 IMAGES = {image.name: image for image in glance.images.list()}
 # Grab the 'latest' image name.
 CURRENT_IMAGE_NAME = None  # DATA['image']
-CURRENT_IMAGE = IMAGES[CURRENT_IMAGE_NAME]
+CURRENT_IMAGE = None  # IMAGES[CURRENT_IMAGE_NAME]
 VGCN_PUBKEYS = None  # DATA['pubkeys']
 TODAY = datetime.date.today()
+logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger(__name__)
 
 
 class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
@@ -47,9 +49,10 @@ def remote_command(hostname, command, username='centos', port=22):
     k = paramiko.RSAKey.from_private_key_file("/home/hxr/.ssh/keys/id_rsa_cloud2")
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(VgcnPolicy)
-    print("Connecting to %s@%s:%s" % (username, hostname, port))
+    logging.debug("Connecting to %s@%s:%s", username, hostname, port)
     client.connect(hostname, port=port, username=username, pkey=k)
 
+    logging.debug("executing: %s", command)
     stdin, stdout, stderr = client.exec_command(command)
     # Returned as 'bytes' in py3k
     stdout_decoded = stdout.read().decode('utf-8')
@@ -122,14 +125,16 @@ def wait_for_state(server_name, target_state):
     while True:
         # Get the latest listing of servers
         current_servers = {x.name: x for x in nova.servers.list()}
+        logging.debug("current_servers: %s", current_servers)
         # If the server is visible + active, let's exit.
         if server_name in current_servers and current_servers[server_name].status == target_state:
-            break
+            return current_servers[server_name]
         time.sleep(10)
 
 
 def launch_server(name, flavor):
-    print(nova.servers.create(
+    logging.info("launching %s (%s)", name, flavor)
+    nova.servers.create(
         name=name,
         image=CURRENT_IMAGE,
         flavor=flavor,
@@ -137,10 +142,10 @@ def launch_server(name, flavor):
         availability_zone='nova',
         security_groups=SECGROUPS,
         nics=[{'net-id': NETWORK.id}],
-    ))
+    )
 
     # Wait for this server to become 'ACTIVE'
-    wait_for_state(name, 'ACTIVE')
+    return wait_for_state(name, 'ACTIVE')
 
 
 def gracefully_terminate(server):
@@ -194,7 +199,7 @@ def top_up(desired_instances, prefix, flavor):
     # Now we know the difference that we need to launch.
     to_add = max(0, desired_instances - len(num_active))
     for i in range(to_add):
-        launch_server(non_conflicting_name(prefix, all_servers), flavor)
+        print(launch_server(non_conflicting_name(prefix, all_servers), flavor))
 
 
 def syncronize_infrastructure(DATA):
@@ -270,12 +275,14 @@ def syncronize_infrastructure(DATA):
 
 def main():
     global CURRENT_IMAGE_NAME
+    global CURRENT_IMAGE
     global VGCN_PUBKEYS
 
     with open('resources.yaml', 'r') as handle:
         DATA = yaml.load(handle)
 
     CURRENT_IMAGE_NAME = DATA['image']
+    CURRENT_IMAGE = IMAGES[CURRENT_IMAGE_NAME]
     VGCN_PUBKEYS = DATA['pubkeys']
     syncronize_infrastructure(DATA)
 
