@@ -35,7 +35,7 @@ CURRENT_IMAGE = None  # IMAGES[CURRENT_IMAGE_NAME]
 VGCN_PUBKEYS = None  # DATA['pubkeys']
 PATIENCE = 60
 TODAY = datetime.date.today()
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 # Maximum number of allocatable names. After which it will switch to time.time()
 MAX_SERVER_POOL = 10000
