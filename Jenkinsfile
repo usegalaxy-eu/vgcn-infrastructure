@@ -18,19 +18,6 @@ pipeline {
 			steps {
 				sh 'pip install -r requirements.txt nose'
 				sh 'nosetests tests.py -s'
-				withCredentials([
-					string(credentialsId: 'OS_AUTH_URL', variable: 'OS_AUTH_URL'),
-					string(credentialsId: 'OS_PASSWORD', variable: 'OS_PASSWORD'),
-					string(credentialsId: 'OS_PROJECT_NAME', variable: 'OS_PROJECT_NAME'),
-					string(credentialsId: 'OS_REGION_NAME', variable: 'OS_REGION_NAME'),
-					string(credentialsId: 'OS_TENANT_ID', variable: 'OS_TENANT_ID'),
-					string(credentialsId: 'OS_TENANT_NAME', variable: 'OS_TENANT_NAME'),
-					string(credentialsId: 'OS_USERNAME', variable: 'OS_USERNAME'),
-				]) {
-					sshagent(['cloud2']) {
-						sh 'python ensure_enough.py'
-					}
-				}
 			}
 		}
 

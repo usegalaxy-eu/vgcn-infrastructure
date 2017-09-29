@@ -49,13 +49,10 @@ class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
 
 
 def remote_command(hostname, command, username='centos', port=22):
-    with open('tmp.w', 'w') as handle:
-        handle.write(str(os.environ))
-    k = paramiko.RSAKey.from_private_key_file("/home/hxr/.ssh/keys/id_rsa_cloud2")
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(VgcnPolicy)
     logging.debug("Connecting to %s@%s:%s", username, hostname, port)
-    client.connect(hostname, port=port, username=username, pkey=k)
+    client.connect(hostname, port=port, username=username)
 
     logging.debug("executing: %s", command)
     stdin, stdout, stderr = client.exec_command(command)
