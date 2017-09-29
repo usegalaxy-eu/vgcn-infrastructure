@@ -35,7 +35,7 @@ CURRENT_IMAGE = None  # IMAGES[CURRENT_IMAGE_NAME]
 VGCN_PUBKEYS = None  # DATA['pubkeys']
 PATIENCE = 60
 TODAY = datetime.date.today()
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 # Maximum number of allocatable names. After which it will switch to time.time()
 MAX_SERVER_POOL = 10000
@@ -49,6 +49,8 @@ class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
 
 
 def remote_command(hostname, command, username='centos', port=22):
+    with open('tmp.w', 'w') as handle:
+        handle.write(str(os.environ))
     k = paramiko.RSAKey.from_private_key_file("/home/hxr/.ssh/keys/id_rsa_cloud2")
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(VgcnPolicy)
