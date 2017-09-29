@@ -18,6 +18,9 @@ pipeline {
 			steps {
 				sh 'pip install -r requirements.txt nose'
 				sh 'nosetests tests.py -s'
+				sshagent(['cloud2']) {
+					sh 'python ensure_enough.py'
+				}
 			}
 		}
 
