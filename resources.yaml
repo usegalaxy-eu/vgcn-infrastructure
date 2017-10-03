@@ -11,12 +11,12 @@ pubkeys:
 deployment:
     # Dedicated VMs for running upload jobs.
     upload:
-        count: 1
+        count: 2
         flavor: m1.xlarge2
         tag: upload
     # Dedicated VMs for running metadata setting jobs.
     metadata:
-        count: 1
+        count: 2
         flavor: m1.xlarge2
         tag: metadata
     # VMs for general computation.
