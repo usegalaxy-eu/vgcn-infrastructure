@@ -49,11 +49,10 @@ class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
 
 
 def remote_command(hostname, command, username='centos', port=22):
-    k = paramiko.RSAKey.from_private_key_file("/home/hxr/.ssh/keys/id_rsa_cloud2")
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(VgcnPolicy)
     logging.debug("Connecting to %s@%s:%s", username, hostname, port)
-    client.connect(hostname, port=port, username=username, pkey=k)
+    client.connect(hostname, port=port, username=username)
 
     logging.debug("executing: %s", command)
     stdin, stdout, stderr = client.exec_command(command)
@@ -115,27 +114,50 @@ def identify_server_group(server_identifier):
     return servers_rm, servers_ok
 
 
-def wait_for_state(server_name, target_state):
+def wait_for_state(server_name, target_state, escape_states=None, timeout=600):
     """
     Wait for a server to reach a specific state.
 
     :param str server_name: Name of the server
     :param str target_state: one of https://docs.openstack.org/nova/latest/reference/vm-states.html
+    :param list or None escape_states: A list of status that also trigger an exit without hitting the timeout.
+    :param int timeout: The maximum number of seconds to wait before exiting.
 
-    :rtype: None
+    :returns: The launched server.
+    :rtype: novaclient.v2.servers.Server
     """
+    if escape_states is None:
+        escape_states = []
+
+    slept_for = 0
+
     # TODO: guard against getting stuck.c
     while True:
         # Get the latest listing of servers
         current_servers = {x.name: x for x in nova.servers.list()}
         logging.debug("current_servers: %s", current_servers)
         # If the server is visible + active, let's exit.
-        if server_name in current_servers and current_servers[server_name].status == target_state:
-            return current_servers[server_name]
+        if server_name in current_servers:
+            if current_servers[server_name].status == target_state:
+                return current_servers[server_name]
+            elif current_servers[server_name].status in escape_states:
+                return current_servers[server_name]
+
+        # Sleep
         time.sleep(10)
+        slept_for += 10
+
+        if slept_for > timeout:
+            return current_servers[server_name]
 
 
 def launch_server(name, flavor):
+    """
+    Launch a server with a given name + flavor.
+
+    :returns: The launched server.
+    :rtype: novaclient.v2.servers.Server
+    """
     logging.info("launching %s (%s)", name, flavor)
     nova.servers.create(
         name=name,
@@ -148,7 +170,7 @@ def launch_server(name, flavor):
     )
 
     # Wait for this server to become 'ACTIVE'
-    return wait_for_state(name, 'ACTIVE')
+    return wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
 
 def gracefully_terminate(server):
@@ -206,7 +228,8 @@ def top_up(desired_instances, prefix, flavor):
     # Now we know the difference that we need to launch.
     to_add = max(0, desired_instances - len(num_active))
     for i in range(to_add):
-        log.info(launch_server(non_conflicting_name(prefix, all_servers), flavor))
+        server = launch_server(non_conflicting_name(prefix, all_servers), flavor)
+        log.info('Launched. %s (state=%s)', server, server.status)
 
 
 def syncronize_infrastructure(DATA):
