@@ -6,7 +6,7 @@ pipeline {
 		}
 	}
 
-	triggers { cron('H 4/* * * *')  }
+	triggers { cron('H * * * *')  }
 
 	stages {
 		stage('Linting') {
