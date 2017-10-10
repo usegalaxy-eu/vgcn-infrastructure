@@ -40,7 +40,7 @@ pipeline {
 					string(credentialsId: 'OS_TENANT_NAME', variable: 'OS_TENANT_NAME'),
 					string(credentialsId: 'OS_USERNAME', variable: 'OS_USERNAME'),
 				]) {
-					sshagent(['cloud2']) {
+					sshagent(['cloud2', '0d2474c5-50d6-48fa-81c4-78c7e1f86d57']) {
 						sh 'python ensure_enough.py'
 					}
 				}
