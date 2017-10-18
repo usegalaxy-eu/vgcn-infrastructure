@@ -21,7 +21,7 @@ deployment:
         tag: metadata
     # VMs for general computation.
     compute_nodes:
-        count: 6
+        count: 8
         flavor: c.c10m55
         tag: compute
 
