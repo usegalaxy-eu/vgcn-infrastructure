@@ -28,7 +28,7 @@ deployment:
     compute_nodes_highmem:
         count: 2
         flavor: c.c16m120
-        tag: compute
+        tag: compute-highmem
 
     # de.NBI http://destair.bioinf.uni-leipzig.de/event/de-stair-1-workshop/
     training_denbi_stairs_2017:
