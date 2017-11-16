@@ -75,6 +75,13 @@ class MockGlance(object):
             return cls
 
         class images(object):
+
+            @classmethod
+            def get(cls, image_id):
+                return {
+                    'name': 'vgcnbwc7-22'
+                }
+
             @classmethod
             def list(cls):
                 return [MockObject(name='vgcnbwc7-21'), MockObject(name='vgcnbwc7-22')]
@@ -87,6 +94,9 @@ sys.modules['glanceclient'] = MockGlance
 
 
 import ensure_enough  # noqa
+ensure_enough.CURRENT_IMAGE_NAME = 'vgcnbwc7-22'
+ensure_enough.CURRENT_IMAGE = {'id': 'dead-beef-cafe'}
+
 
 def test_launch_server():
     server = ensure_enough.launch_server('testing', 'c.c10m55')
@@ -119,3 +129,31 @@ def test_nonconflicting_name():
     n = ensure_enough.non_conflicting_name('testing', sys.modules['novaclient'].client.servers.list())
     # Good until 2020.
     assert n.startswith('testing-15')
+
+
+def test_similar_resource_names():
+    sys.modules['novaclient'].client.servers._clear()
+
+    # Clear list of servers.
+    ensure_enough.MAX_SERVER_POOL = 100
+    for i in range(10):
+        ensure_enough.launch_server('compute-general-%04d' % i, 'c.c10m55')
+
+    servers_rm, servers_ok = ensure_enough.identify_server_group('compute-general')
+    assert len(servers_rm) == 0
+    assert len(servers_ok) == 10
+
+    servers_rm, servers_ok = ensure_enough.identify_server_group('compute-highmem')
+    assert len(servers_rm) == 0
+    assert len(servers_ok) == 0
+
+    for i in range(4):
+        ensure_enough.launch_server('compute-highmem-%04d' % i, 'c.c10m55')
+
+    servers_rm, servers_ok = ensure_enough.identify_server_group('compute-general')
+    assert len(servers_rm) == 0
+    assert len(servers_ok) == 10
+
+    servers_rm, servers_ok = ensure_enough.identify_server_group('compute-highmem')
+    assert len(servers_rm) == 0
+    assert len(servers_ok) == 4
