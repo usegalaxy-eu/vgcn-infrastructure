@@ -1,5 +1,6 @@
-import sys
 import os
+import sys
+import yaml
 
 os.environ.update({
     'OS_AUTH_URL': "",
@@ -131,7 +132,7 @@ def test_nonconflicting_name():
     assert n.startswith('testing-15')
 
 
-def test_similar_resource_names():
+def test_nonsimilar_resource_names():
     sys.modules['novaclient'].client.servers._clear()
 
     # Clear list of servers.
@@ -157,3 +158,18 @@ def test_similar_resource_names():
     servers_rm, servers_ok = ensure_enough.identify_server_group('compute-highmem')
     assert len(servers_rm) == 0
     assert len(servers_ok) == 4
+
+
+def test_similar_resource_names():
+    with open('resources.yaml', 'r') as handle:
+        data = yaml.load(handle)
+
+    resource_keys = data['deployment'].keys()
+
+    for key in resource_keys:
+        matching_prefixes = [
+            other_key
+            for other_key in resource_keys
+            if other_key.startswith(key)
+        ]
+        assert len(matching_prefixes) == 1, "(%s) both/all share a common prefix. This will result in machines being erronously deleted and re-added. If you must use this prefix, ensure they both have a suffix making them non-unique. (e.g. compute-general, compute-highmem)" % ", ".join(matching_prefixes)
