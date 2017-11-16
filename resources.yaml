@@ -13,38 +13,35 @@ deployment:
     upload:
         count: 2
         flavor: m1.xlarge2
-        tag: upload
+
     # Dedicated VMs for running metadata setting jobs.
     metadata:
         count: 2
         flavor: m1.xlarge2
-        tag: metadata
+
     # VMs for general computation.
     compute_nodes:
         count: 8
         flavor: c.c10m55
-        tag: compute
+
     # VMs specifically for high memory usage.
     compute_nodes_highmem:
         count: 2
         flavor: c.c16m120
-        tag: compute-highmem
 
     # de.NBI http://destair.bioinf.uni-leipzig.de/event/de-stair-1-workshop/
     training_denbi_stairs_2017:
         count: 15
         flavor: c.c10m55
-        tag: training-denbi-stairs-2017
         start: 2017-10-03
         end:  2017-10-06
 
     # An (example) training event
-    training_example_event:
+    # The name must be specified, and you must create a galaxy role with the
+    # identical name in order to access these resources.
+    training-fallhts2017:
         count: 4
         flavor: c.c10m55
-        # A tag must be specified, and you must create a galaxy role with the
-        # identical name in order to access these resources.
-        tag: training-fallhts2017
         # A start and end date is required. Resources will not be available
         # before or after these dates.
         start: 2017-10-01

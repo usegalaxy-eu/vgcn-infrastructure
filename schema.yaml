@@ -25,9 +25,6 @@ mapping:
                     "flavor":
                         type: str
                         required: true
-                    "tag":
-                        type: str
-                        required: true
                     "start":
                         type: date
                     "end":
