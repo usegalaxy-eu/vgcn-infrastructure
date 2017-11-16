@@ -67,7 +67,7 @@ def non_conflicting_name(prefix, existing_servers):
     Generate a name for the machine that's unique to the machine and not used
     by any existing ones.
 
-    :param str prefix: the name prefix, usually vgcnbwc-{tag}
+    :param str prefix: the name prefix, usually vgcnbwc-{resource_identifier}
     :param list(Nova) existing_servers: list of existing servers against which
                                         we will check the names.
     """
@@ -241,7 +241,7 @@ def syncronize_infrastructure(DATA):
         #    vgcnbwc-upload-{number}
         #    vgcnbwc-metadata-{number}
         #    vgcnbwc-training-{training_identifier}-{number}
-        prefix = 'vgcnbwc-' + resource['tag']
+        prefix = 'vgcnbwc-' + resource_identifier
         log.info("Processing %s" % prefix)
         # Image flavor
         flavor = FLAVORS[resource['flavor']]
