@@ -32,7 +32,7 @@ deployment:
 
     # VMs specifically for high memory usage.
     compute-highmem:
-        count: 2
+        count: 5
         flavor: c.c16m120
 
     # An (example) training event
