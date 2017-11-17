@@ -24,6 +24,12 @@ deployment:
         count: 8
         flavor: c.c10m55
 
+    compute-gen-extra:
+        count: 10
+        flavor: c.c10m55
+        start: 2017-11-17
+        end:  2017-11-20
+
     # VMs specifically for high memory usage.
     compute-highmem:
         count: 5
