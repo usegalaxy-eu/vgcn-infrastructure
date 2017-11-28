@@ -35,6 +35,12 @@ deployment:
         count: 5
         flavor: c.c16m120
 
+    training-tomas-klingstroem-2017:
+        count: 10
+        flavor: c.c10m55
+        start: 2017-11-29
+        end:  2017-12-01
+
     # An (example) training event
     # The name must be specified, and you must create a galaxy role with the
     # identical name in order to access these resources.
