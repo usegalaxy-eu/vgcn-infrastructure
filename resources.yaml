@@ -3,7 +3,7 @@
 patience: 3600
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
-image: vgcnbwc7-22
+image: vgcnbwc7-24a
 # The public key(s) we will accept when SSHing to a machine.
 pubkeys:
     - "AAAAB3NzaC1yc2EAAAABIwAAAQEAuSG1VOumQhbJfOyalJjS4lPC8eeeL02ld/VI2BFApyMfwbB1QxehY3lMBXt/cBTzqU3MxgJQVzNr/AgjHa5rKn2hSGMfKAdaX2tG686k715bBjRm9rJNhmc8KSH9tVS35M0HwRXMfiGvSmb5qJ6utWRZe6RM2JMIbqqI5Oc4tbzPPVKk1+yvT1JdYuyqAOp2yvQbOqKaXmqOhPdPNaJZMI4o+UHmmb8FH6OTDY27G7X7u07ZPwVi1j+6ZFVMQZqg1RhUdg9kmHpHwMX7P6NcD4G9GsISHIh92eva9xgWYGiS0wUsmOWTNgAzzsfRZjMFep+jB2wup6QN7XpMw97eTw=="
