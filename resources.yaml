@@ -21,7 +21,7 @@ deployment:
 
     # VMs for general computation.
     compute-general:
-        count: 8
+        count: 20
         flavor: c.c10m55
 
     compute-gen-extra:
