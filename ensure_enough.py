@@ -189,6 +189,7 @@ def gracefully_terminate(server):
         # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
         if 'Busy' in stdout:
             # The machine is currently busy but will not accept any new jobs. For now, leave it alone.
+            log.info("%s is busy, leaving it alone until next hour." % server.name)
             return
 
         # Ensure we are promptly removed from the pool
