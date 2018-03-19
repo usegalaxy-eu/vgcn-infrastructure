@@ -1,6 +1,4 @@
 ---
-# Wait up to 1h for a server to finish draining before outright terminating.
-patience: 3600
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
 image: vgcnbwc7-26

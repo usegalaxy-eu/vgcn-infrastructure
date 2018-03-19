@@ -33,7 +33,6 @@ IMAGES = {image.name: image for image in glance.images.list()}
 CURRENT_IMAGE_NAME = None  # DATA['image']
 CURRENT_IMAGE = None  # IMAGES[CURRENT_IMAGE_NAME]
 VGCN_PUBKEYS = None  # DATA['pubkeys']
-PATIENCE = 60
 TODAY = datetime.date.today()
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
@@ -185,21 +184,12 @@ def gracefully_terminate(server):
         if 'Sent request to drain' not in stdout:
             log.warn("Something might be wrong: %s, %s", stdout, stderr)
 
-        have_slept = 0
-        while True:
-            # Check the status of the machine.
-            stdout, stderr = remote_command(ip, 'condor_status | grep slot1@`hostname -f`')
-            # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
-            if 'Idle' in stdout:
-                # Safe to kill.
-                break
-            else:
-                time.sleep(10)
-                have_slept += 10
-
-            # At some point we give up.
-            if have_slept > PATIENCE:
-                break
+        # Check the status of the machine.
+        stdout, stderr = remote_command(ip, 'condor_status | grep slot.*@`hostname -f`')
+        # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
+        if 'Busy' in stdout:
+            # The machine is currently busy but will not accept any new jobs. For now, leave it alone.
+            return
 
         # Ensure we are promptly removed from the pool
         stdout, stderr = remote_command(ip, 'condor_off -graceful `hostname -f`')
@@ -307,7 +297,6 @@ def main():
     global CURRENT_IMAGE_NAME
     global CURRENT_IMAGE
     global VGCN_PUBKEYS
-    global PATIENCE
 
     with open('resources.yaml', 'r') as handle:
         DATA = yaml.load(handle)
@@ -315,7 +304,6 @@ def main():
     CURRENT_IMAGE_NAME = DATA['image']
     CURRENT_IMAGE = IMAGES[CURRENT_IMAGE_NAME]
     VGCN_PUBKEYS = DATA['pubkeys']
-    PATIENCE = DATA['patience']
     syncronize_infrastructure(DATA)
 
 
