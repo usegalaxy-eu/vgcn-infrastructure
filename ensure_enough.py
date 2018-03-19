@@ -283,7 +283,12 @@ def syncronize_infrastructure(DATA):
                 continue
 
             # Gracefully (or violently, depending on patience) terminate the VM.
-            gracefully_terminate(server)
+            try:
+                gracefully_terminate(server)
+            except paramiko.ssh_exception.NoValidConnectionsError:
+                # If we can't connect, just skip it.
+                log.warning("Could not kill %s", server.name)
+                pass
 
             # With that done, 'top up' to the correct number of VMs.
             top_up(desired_instances, prefix, flavor)
