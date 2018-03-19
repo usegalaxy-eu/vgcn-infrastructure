@@ -1,11 +1,6 @@
 ---
 type: map
 mapping:
-    "patience":
-        type: int
-        required: true
-        range:
-            min: 0
     "image":
         type: str
         required: true
