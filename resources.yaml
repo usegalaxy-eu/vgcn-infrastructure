@@ -26,7 +26,7 @@ deployment:
         count: 5
         flavor: c.c16m120
         start: 2018-05-01
-        end:  2017-05-10
+        end:  2018-05-10
 
     # VMs specifically for high memory usage.
     compute-highmem:
