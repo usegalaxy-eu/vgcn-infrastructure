@@ -22,7 +22,7 @@ deployment:
         count: 20
         flavor: c.c10m55
 
-    compute-highmem-gen-extra:
+    compute-gen-highmem:
         count: 5
         flavor: c.c16m120
         start: 2018-05-01
