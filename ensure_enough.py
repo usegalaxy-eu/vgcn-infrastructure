@@ -227,7 +227,11 @@ def top_up(desired_instances, prefix, flavor):
     to_add = max(0, desired_instances - len(num_active))
     for i in range(to_add):
         server = launch_server(non_conflicting_name(prefix, all_servers), flavor)
-        log.info('Launched. %s (state=%s)', server, server.status)
+        if server.status == 'ERROR':
+            log.info('Failed to launch, removing. %s (state=%s)', server, server.status)
+            gracefully_terminate(server)
+        else:
+            log.info('Launched. %s (state=%s)', server, server.status)
 
 
 def syncronize_infrastructure(DATA):
