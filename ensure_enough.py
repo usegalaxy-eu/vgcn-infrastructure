@@ -174,10 +174,11 @@ def launch_server(name, flavor):
 
 def gracefully_terminate(server):
     log.info("Gracefully terminating %s", server.name)
-    # Get the IP address in galaxy-net
-    ip = server.networks['galaxy-net'][0]
 
     if server.status == 'ACTIVE':
+        # Get the IP address in galaxy-net
+        ip = server.networks['galaxy-net'][0]
+
         # Drain self
         stdout, stderr = remote_command(ip, 'condor_drain `hostname -f`')
 
@@ -284,6 +285,10 @@ def syncronize_infrastructure(DATA):
             # Galaxy-net must be the used network, maybe this check is extraneous
             # but better to only work on things we know are safe to work on.
             if 'galaxy-net' not in server.networks:
+                if server.status == 'ERROR':
+                    gracefully_terminate(server)
+                    continue
+
                 log.warn(server.networks)
                 log.warn("Not sure how to handle server %s", server.name)
                 continue
