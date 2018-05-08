@@ -203,8 +203,8 @@ def gracefully_terminate(server):
             return
 
         # Ensure we are promptly removed from the pool
-        stdout, stderr = remote_command(ip, 'condor_off -graceful `hostname -f`')
-        log.info('condor_off %s %s', stdout, stderr)
+        stdout, stderr = remote_command(ip, '/usr/sbin/condor_off -graceful `hostname -f`')
+        log.info('/usr/sbin/condor_off %s %s', stdout, stderr)
 
     # The image is completely drained so we're safe to kill.
     log.info(nova.servers.delete(server))
