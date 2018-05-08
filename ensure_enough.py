@@ -184,6 +184,7 @@ def gracefully_terminate(server):
         # Drain self
         log.info("executing condor_drain on %s", server.name)
         stdout, stderr = remote_command(ip, 'condor_drain `hostname -f`')
+        log.info('condor_drain %s %s', stdout, stderr)
 
         if 'Sent request to drain' in stdout:
             # Great, we're draining
@@ -196,6 +197,7 @@ def gracefully_terminate(server):
 
         # Check the status of the machine.
         stdout, stderr = remote_command(ip, 'condor_status | grep slot.*@`hostname -f`')
+        log.info('condor_status %s %s', stdout, stderr)
         # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
         if 'Busy' in stdout:
             # The machine is currently busy but will not accept any new jobs. For now, leave it alone.
