@@ -182,6 +182,7 @@ def gracefully_terminate(server):
         ip = server.networks['galaxy-net'][0]
 
         # Drain self
+        log.info("executing condor_drain on %s", server.name)
         stdout, stderr = remote_command(ip, 'condor_drain `hostname -f`')
 
         if 'Sent request to drain' in stdout:
@@ -203,6 +204,7 @@ def gracefully_terminate(server):
 
         # Ensure we are promptly removed from the pool
         stdout, stderr = remote_command(ip, 'condor_off -graceful `hostname -f`')
+        log.info('condor_off %s %s', stdout, stderr)
 
     # The image is completely drained so we're safe to kill.
     log.info(nova.servers.delete(server))
@@ -231,6 +233,7 @@ def top_up(desired_instances, prefix, flavor):
         server = launch_server(non_conflicting_name(prefix, all_servers), flavor)
         if server.status == 'ERROR':
             log.info('Failed to launch, removing. %s (state=%s)', server, server.status)
+            print(server, dir(server))
             gracefully_terminate(server)
         else:
             log.info('Launched. %s (state=%s)', server, server.status)
