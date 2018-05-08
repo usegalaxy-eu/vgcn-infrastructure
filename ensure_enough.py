@@ -200,7 +200,7 @@ def gracefully_terminate(server):
         condor_statuses = [x.split()[4] for x in stdout.strip().split('\n')]
         log.info('condor_status %s', condor_statuses)
         # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
-        if 'Busy' in stdout:
+        if len(condor_statuses) > 1:
             # The machine is currently busy but will not accept any new jobs. For now, leave it alone.
             log.info("%s is busy, leaving it alone until next hour." % server.name)
             return
