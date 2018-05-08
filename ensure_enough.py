@@ -38,6 +38,7 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 # Maximum number of allocatable names. After which it will switch to time.time()
 MAX_SERVER_POOL = 10000
+USER_DATA = open('userdata.yml', 'r').read()
 
 
 class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
@@ -166,6 +167,7 @@ def launch_server(name, flavor):
         availability_zone='nova',
         security_groups=SECGROUPS,
         nics=[{'net-id': NETWORK.id}],
+        userdata=USER_DATA,
     )
 
     # Wait for this server to become 'ACTIVE'
