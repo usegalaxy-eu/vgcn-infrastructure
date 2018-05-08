@@ -184,6 +184,7 @@ def gracefully_terminate(server):
         # Drain self
         log.info("executing condor_drain on %s", server.name)
         stdout, stderr = remote_command(ip, 'condor_drain `hostname -f`')
+        log.info("drain: %s | %s", stdout, stderr)
 
         if 'Sent request to drain' in stdout:
             # Great, we're draining
