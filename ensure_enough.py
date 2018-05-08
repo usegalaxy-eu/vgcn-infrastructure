@@ -184,14 +184,13 @@ def gracefully_terminate(server):
         # Drain self
         log.info("executing condor_drain on %s", server.name)
         stdout, stderr = remote_command(ip, 'condor_drain `hostname -f`')
-        log.info("drain: %s | %s", stdout, stderr)
 
         if 'Sent request to drain' in stdout:
             # Great, we're draining
             return
         elif 'Draining already in progress' in stderr:
             # This one is still draining.
-            return
+            log.info("Already draining")
         else:
             log.warn("Something might be wrong: %s, %s", stdout, stderr)
 
