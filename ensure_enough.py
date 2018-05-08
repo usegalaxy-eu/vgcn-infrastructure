@@ -236,8 +236,6 @@ def top_up(desired_instances, prefix, flavor):
         if server.status == 'ERROR':
             log.info('Failed to launch, removing. %s (state=%s)', server, server.status)
             print(server)
-            print(server.diagnostics())
-            print(server.fault)
             print(server.to_dict())
             gracefully_terminate(server)
         else:
