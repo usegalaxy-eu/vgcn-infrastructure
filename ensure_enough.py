@@ -197,7 +197,8 @@ def gracefully_terminate(server):
 
         # Check the status of the machine.
         stdout, stderr = remote_command(ip, 'condor_status | grep slot.*@`hostname -f`')
-        log.info('condor_status %s %s', stdout, stderr)
+        condor_statuses = [x.split()[4] for x in stdout.strip().split('\n')]
+        log.info('condor_status %s', condor_statuses)
         # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
         if 'Busy' in stdout:
             # The machine is currently busy but will not accept any new jobs. For now, leave it alone.
