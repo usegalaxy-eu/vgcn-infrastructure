@@ -235,7 +235,10 @@ def top_up(desired_instances, prefix, flavor):
     for i in range(to_add):
         server = launch_server(non_conflicting_name(prefix, all_servers), flavor)
         if server.status == 'ERROR':
-            log.error('Failed to launch %s: %s', server, getattr(server, 'fault', {'message': ''}).fault['message'])
+            fault = ''
+            if hasattr(server, 'fault'):
+                fault = server.fault['message']
+            log.error('Failed to launch %s: %s', server, fault)
             gracefully_terminate(server)
         else:
             log.info('Launched. %s (state=%s)', server, server.status)
