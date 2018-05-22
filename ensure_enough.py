@@ -174,40 +174,50 @@ def launch_server(name, flavor):
     return wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
 
-def gracefully_terminate(server):
+def gracefully_terminate(server, patience=300):
     log.info("Gracefully terminating %s", server.name)
 
     if server.status == 'ACTIVE':
         # Get the IP address in galaxy-net
         ip = server.networks['galaxy-net'][0]
 
-        # Drain self
-        log.info("executing condor_drain on %s", server.name)
-        stdout, stderr = remote_command(ip, 'condor_drain `hostname -f`')
-        log.info('condor_drain %s %s', stdout, stderr)
+        time_slept = 0
+        while True:
+            time.sleep(10)
+            time_slept += 10
+            if time_slept > patience:
+                log.info("%s is busy, giving up for this hour.", server.name)
+                # exit early
+                return
 
-        if 'Sent request to drain' in stdout:
-            # Great, we're draining
-            return
-        elif 'Draining already in progress' in stderr:
-            # This one is still draining.
-            log.info("Already draining")
-        else:
-            log.warn("Something might be wrong: %s, %s", stdout, stderr)
+            # Drain self
+            log.info("executing condor_drain on %s", server.name)
+            stdout, stderr = remote_command(ip, 'condor_drain `hostname -f`')
+            log.info('condor_drain %s %s', stdout, stderr)
 
-        # Check the status of the machine.
-        stdout, stderr = remote_command(ip, 'condor_status | grep slot.*@`hostname -f`')
-        condor_statuses = [x.split()[4] for x in stdout.strip().split('\n')]
-        log.info('condor_status %s', condor_statuses)
-        # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
-        if len(condor_statuses) > 1:
-            # The machine is currently busy but will not accept any new jobs. For now, leave it alone.
-            log.info("%s is busy, leaving it alone until next hour." % server.name)
-            return
+            if 'Sent request to drain' in stdout:
+                # Great, we're draining
+                pass
+            elif 'Draining already in progress' in stderr:
+                # This one is still draining.
+                pass
+            else:
+                log.warn("Something might be wrong: %s, %s", stdout, stderr)
+                break
 
-        # Ensure we are promptly removed from the pool
-        stdout, stderr = remote_command(ip, '/usr/sbin/condor_off -graceful `hostname -f`')
-        log.info('/usr/sbin/condor_off %s %s', stdout, stderr)
+            # Check the status of the machine.
+            stdout, stderr = remote_command(ip, 'condor_status | grep slot.*@`hostname -f`')
+            condor_statuses = [x.split()[4] for x in stdout.strip().split('\n')]
+            log.info('condor_status %s', condor_statuses)
+            # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
+            if len(condor_statuses) > 1:
+                # The machine is currently busy but will not accept any new jobs. For now, leave it alone.
+                log.info("%s is busy, sleeping.", server.name)
+                continue
+            else:
+                # Ensure we are promptly removed from the pool
+                stdout, stderr = remote_command(ip, '/usr/sbin/condor_off -graceful `hostname -f`')
+                log.info('/usr/sbin/condor_off %s %s', stdout, stderr)
 
     # The image is completely drained so we're safe to kill.
     log.info(nova.servers.delete(server))
