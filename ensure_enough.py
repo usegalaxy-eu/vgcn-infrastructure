@@ -201,6 +201,9 @@ def gracefully_terminate(server, patience=300):
             elif 'Draining already in progress' in stderr:
                 # This one is still draining.
                 pass
+            elif "Can't find address" in stderr:
+                # already shut off
+                pass
             else:
                 log.warn("Something might be wrong: %s, %s", stdout, stderr)
                 break
