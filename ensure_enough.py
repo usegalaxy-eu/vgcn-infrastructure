@@ -208,9 +208,13 @@ def gracefully_terminate(server, patience=300):
                 log.warn("Something might be wrong: %s, %s", stdout, stderr)
                 break
 
-            # Check the status of the machine.
-            stdout, stderr = remote_command(ip, 'condor_status | grep slot.*@`hostname -f`')
-            condor_statuses = [x.split()[4] for x in stdout.strip().split('\n')]
+            try:
+                # Check the status of the machine.
+                stdout, stderr = remote_command(ip, 'condor_status | grep slot.*@`hostname -f`')
+                condor_statuses = [x.split()[4] for x in stdout.strip().split('\n')]
+            except IndexError:
+                break
+
             log.info('condor_status %s', condor_statuses)
             # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
             if len(condor_statuses) > 1:
