@@ -19,7 +19,7 @@ deployment:
 
     # VMs for general computation.
     compute-general:
-        count: 20
+        count: 10
         flavor: c.c10m55
 
     compute-gen-highmem:
