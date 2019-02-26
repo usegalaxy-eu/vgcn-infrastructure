@@ -7,7 +7,7 @@ import random
 import time
 import yaml
 import logging
-import json
+import json as Json
 import tempfile
 
 global CURRENT_IMAGE_NAME
@@ -35,12 +35,17 @@ class StateManagement:
         self.vgcn_pubkeys = self.config['pubkeys']
         self.today = datetime.date.today()
 
-    def os_command(self, *args):
-        cmd = ['openstack'] + list(args) + ['-f', 'json']
+    def os_command(self, *args, json=True):
+        cmd = ['openstack'] + list(args)
+        if json:
+            cmd += ['-f', 'json']
         logging.debug(cmd)
         q = subprocess.check_output(cmd)
         logging.debug(q)
-        return json.loads(q)
+        if json:
+            return Json.loads(q)
+        else:
+            return q
 
 
     def remote_command(self, hostname, command, username='centos', port=22):
@@ -118,7 +123,7 @@ class StateManagement:
         :param list or None escape_states: A list of status that also trigger an exit without hitting the timeout.
         :param int timeout: The maximum number of seconds to wait before exiting.
 
-        :returns: The launched server.
+        :returns: The launched server
         :rtype: novaclient.v2.servers.Server
         """
         if escape_states is None:
@@ -133,9 +138,9 @@ class StateManagement:
             logging.debug("current_servers: %s", current_servers)
             # If the server is visible + active, let's exit.
             if server_name in current_servers:
-                if current_servers[server_name].status == target_state:
+                if current_servers[server_name]['Status'] == target_state:
                     return current_servers[server_name]
-                elif current_servers[server_name].status in escape_states:
+                elif current_servers[server_name]['Status'] in escape_states:
                     return current_servers[server_name]
 
             # Sleep
@@ -146,21 +151,21 @@ class StateManagement:
                 return current_servers[server_name]
 
 
-    def launch_server(self, name, flavor, group, is_training):
+    def launch_server(self, name, flavor, group, is_training, resource_identifier):
         """
         Launch a server with a given name + flavor.
 
-        :returns: The launched server.
+        :returns: The launched server
         :rtype: novaclient.v2.servers.Server
         """
         logging.info("launching %s (%s)", name, flavor)
 
         custom_userdata = self.user_data \
             .replace('GalaxyTraining = True', "GalaxyTraining = %s" % is_training) \
-            .replace('GalaxyGroup = training-beta', "GalaxyGroup = %s" % group)
+            .replace('GalaxyGroup = training-beta', "GalaxyGroup = %s" % resource_identifier)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
-        f.write(custom_userdata)
+        f.write(custom_userdata.encode())
         f.close()
 
         args = [
@@ -190,25 +195,29 @@ class StateManagement:
         # Wait for this server to become 'ACTIVE'
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
+    def brutally_terminate(self, server):
+        logging.info("Brutally terminating %s", server['Name'])
+        logging.info(self.os_command('server', 'delete', server['ID'], json=False))
 
     def gracefully_terminate(self, server, patience=300):
-        logging.info("Gracefully terminating %s", server.name)
+        logging.info("Gracefully terminating %s", server['Name'])
 
-        if server.status == 'ACTIVE':
-            # Get the IP address in galaxy-net
-            ip = server.networks['galaxy-net'][0]
+        if server['Status'] == 'ACTIVE':
+            # Get the IP address
+            # TODO(hxr): will not support multiply homed
+            ip = server['Networks'].split('=')[0]
 
             time_slept = 0
             while True:
                 time.sleep(10)
                 time_slept += 10
                 if time_slept > patience:
-                    logging.info("%s is busy, giving up for this hour.", server.name)
+                    logging.info("%s is busy, giving up for this hour.", server['Name'])
                     # exit early
                     return
 
                 # Drain self
-                logging.info("executing condor_drain on %s", server.name)
+                logging.info("executing condor_drain on %s", server['Name'])
                 stdout, stderr = self.remote_command(ip, 'condor_drain `hostname -f`')
                 logging.info('condor_drain %s %s', stdout, stderr)
 
@@ -236,7 +245,7 @@ class StateManagement:
                 # if 'Retiring' then we're still draining. If 'Idle' then safe to exit.
                 if len(condor_statuses) > 1:
                     # The machine is currently busy but will not accept any new jobs. For now, leave it alone.
-                    logging.info("%s is busy, sleeping.", server.name)
+                    logging.info("%s is busy, sleeping.", server['Name'])
                     continue
                 else:
                     # Ensure we are promptly removed from the pool
@@ -244,7 +253,7 @@ class StateManagement:
                     logging.info('/usr/sbin/condor_off %s %s', stdout, stderr)
 
         # The image is completely drained so we're safe to kill.
-        logging.info(self.os_command('server', 'delete', server))
+        logging.info(self.os_command('server', 'delete', server['ID'], json=False))
 
         # We'll wait a bit until the server is gone.
         while True:
@@ -256,7 +265,7 @@ class StateManagement:
             time.sleep(10)
 
 
-    def top_up(self, desired_instances, prefix, flavor):
+    def top_up(self, desired_instances, prefix, resource_identifier, flavor):
         # Fetch the CURRENT state.
         tmp_servers_rm, tmp_servers_ok = self.identify_server_group(prefix)
         # Get all together
@@ -267,15 +276,12 @@ class StateManagement:
         # Now we know the difference that we need to launch.
         to_add = max(0, desired_instances - len(num_active))
         for i in range(to_add):
-            server = self.launch_server(self.non_conflicting_name(prefix, all_servers), flavor, prefix, 'training' in prefix)
-            if server.status == 'ERROR':
-                fault = ''
-                if hasattr(server, 'fault'):
-                    fault = server.fault['message']
-                logging.error('Failed to launch %s: %s', server, fault)
+            server = self.launch_server(self.non_conflicting_name(prefix, all_servers), flavor, prefix, 'training' in prefix, resource_identifier)
+            if server['Status'] == 'ERROR':
+                logging.error('Failed to launch %s', server)
                 self.gracefully_terminate(server)
             else:
-                logging.info('Launched. %s (state=%s)', server, server.status)
+                logging.info('Launched. %s (state=%s)', server, server['Status'])
 
 
     def syncronize_infrastructure(self):
@@ -331,30 +337,35 @@ class StateManagement:
 
                 # Galaxy-net must be the used network, maybe this check is extraneous
                 # but better to only work on things we know are safe to work on.
-                if 'galaxy-net' not in server.networks:
-                    if server.status == 'ERROR':
+                print(server)
+                netz = [x.split('=')[0] for x in server['Networks'].split(',')]
+                if self.config['network'] not in netz:
+                    if server['Status'] == 'ERROR':
                         self.gracefully_terminate(server)
                         continue
 
-                    logging.warn(server.networks)
-                    logging.warn("Not sure how to handle server %s", server.name)
+                    logging.warn(server['Networks'])
+                    logging.warn("Not sure how to handle server %s", server['Name'])
                     continue
 
                 # Gracefully (or violently, depending on patience) terminate the VM.
-                try:
-                    self.gracefully_terminate(server)
-                except paramiko.ssh_exception.NoValidConnectionsError:
-                    # If we can't connect, just skip it.
-                    logging.warning("Could not kill %s", server.name)
-                    pass
+                if self.config['graceful']:
+                    try:
+                        self.gracefully_terminate(server)
+                    except paramiko.ssh_exception.NoValidConnectionsError:
+                        # If we can't connect, just skip it.
+                        logging.warning("Could not kill %s", server['Name'])
+                        pass
+                else:
+                    self.brutally_terminate(server)
 
                 # With that done, 'top up' to the correct number of VMs.
-                self.top_up(desired_instances, prefix, flavor)
+                self.top_up(desired_instances, prefix, resource_identifier, flavor)
 
             # Now that we've removed all that we need to remove, again, try to top-up
             # to make sure we're OK. (Also important in case we had no servers already
             # running.)
-            self.top_up(desired_instances, prefix, flavor)
+            self.top_up(desired_instances, prefix, resource_identifier, flavor)
 
 
 if __name__ == '__main__':

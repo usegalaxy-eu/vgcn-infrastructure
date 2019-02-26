@@ -6,7 +6,9 @@ network: bioinf
 
 secgroups:
  - ufr-ingress
+ - egress
 
+graceful: false
 sshkey: cloud2
 
 # The public key(s) we will accept when SSHing to a machine.
