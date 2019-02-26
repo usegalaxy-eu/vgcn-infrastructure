@@ -12,7 +12,7 @@ import tempfile
 
 global CURRENT_IMAGE_NAME
 global VGCN_PUBKEYS
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 
 class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
@@ -39,9 +39,9 @@ class StateManagement:
         cmd = ['openstack'] + list(args)
         if json:
             cmd += ['-f', 'json']
-        logging.debug(cmd)
+        logging.debug(' '.join(cmd))
         q = subprocess.check_output(cmd)
-        logging.debug(q)
+        # logging.debug(q)
         if json:
             return Json.loads(q)
         else:
@@ -71,7 +71,7 @@ class StateManagement:
         :param list(Nova) existing_servers: list of existing servers against which
                                             we will check the names.
         """
-        server_names = [x.name for x in existing_servers]
+        server_names = [x['Name'] for x in existing_servers]
         # Make at least ten tries
         for i in range(10):
             # generate a test name, similar style to jenkins images.
@@ -161,8 +161,8 @@ class StateManagement:
         logging.info("launching %s (%s)", name, flavor)
 
         custom_userdata = self.user_data \
-            .replace('GalaxyTraining = True', "GalaxyTraining = %s" % is_training) \
-            .replace('GalaxyGroup = training-beta', "GalaxyGroup = %s" % resource_identifier)
+            .replace('GalaxyTraining = True', 'GalaxyTraining = %s' % is_training) \
+            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % resource_identifier)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -278,7 +278,8 @@ class StateManagement:
         for i in range(to_add):
             server = self.launch_server(self.non_conflicting_name(prefix, all_servers), flavor, prefix, 'training' in prefix, resource_identifier)
             if server['Status'] == 'ERROR':
-                logging.error('Failed to launch %s', server)
+                fault = self.os_command('server', 'show', server['ID'])['fault']
+                logging.error('Failed to launch %s: %s', server, fault)
                 self.gracefully_terminate(server)
             else:
                 logging.info('Launched. %s (state=%s)', server, server['Status'])
