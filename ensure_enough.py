@@ -12,7 +12,7 @@ import tempfile
 
 global CURRENT_IMAGE_NAME
 global VGCN_PUBKEYS
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 
 class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
@@ -279,7 +279,7 @@ class StateManagement:
             server = self.launch_server(self.non_conflicting_name(prefix, all_servers), flavor, prefix, 'training' in prefix, resource_identifier)
             if server['Status'] == 'ERROR':
                 fault = self.os_command('server', 'show', server['ID'])['fault']
-                logging.error('Failed to launch %s: %s', server, fault)
+                logging.error('Failed to launch %s: %s', server['Name'], fault['message'])
                 self.gracefully_terminate(server)
             else:
                 logging.info('Launched. %s (state=%s)', server, server['Status'])
