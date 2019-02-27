@@ -278,7 +278,7 @@ class StateManagement:
         for i in range(to_add):
             server = self.launch_server(self.non_conflicting_name(prefix, all_servers), flavor, prefix, 'training' in prefix, resource_identifier)
             if server['Status'] == 'ERROR':
-                fault = self.os_command('server', 'show', server['ID'])['fault']
+                fault = self.os_command('server', 'show', server['ID']).get('fault', {'message': '<error>'})
                 logging.error('Failed to launch %s: %s', server['Name'], fault['message'])
                 self.gracefully_terminate(server)
             else:
