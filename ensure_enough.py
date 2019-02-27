@@ -7,7 +7,7 @@ import random
 import time
 import yaml
 import logging
-import json as Json
+import json
 import tempfile
 
 global CURRENT_IMAGE_NAME
@@ -35,15 +35,15 @@ class StateManagement:
         self.vgcn_pubkeys = self.config['pubkeys']
         self.today = datetime.date.today()
 
-    def os_command(self, *args, json=True):
+    def os_command(self, args, is_json=True):
         cmd = ['openstack'] + list(args)
-        if json:
+        if is_json:
             cmd += ['-f', 'json']
         logging.debug(' '.join(cmd))
         q = subprocess.check_output(cmd)
         # logging.debug(q)
-        if json:
-            return Json.loads(q)
+        if is_json:
+            return json.loads(q)
         else:
             return q
 
@@ -95,7 +95,7 @@ class StateManagement:
         servers_rm = []
         servers_ok = []
         # All servers
-        for server in self.os_command('server', 'list'):
+        for server in self.os_command(['server', 'list']):
             # Filter by those with our server_identifier.
             if server['Name'].startswith(server_identifier):
                 server_image_name = server['Image']
@@ -130,7 +130,7 @@ class StateManagement:
         # TODO: guard against getting stuck.c
         while True:
             # Get the latest listing of servers
-            current_servers = {x['Name']: x for x in self.os_command('server', 'list')}
+            current_servers = {x['Name']: x for x in self.os_command(['server', 'list'])}
             logging.debug("current_servers: %s", current_servers)
             # If the server is visible + active, let's exit.
             if server_name in current_servers:
@@ -179,8 +179,7 @@ class StateManagement:
 
         args.append(name)
 
-        server = self.os_command(*args)
-        print(server)
+        self.os_command(args)
 
         try:
             os.unlink(f.name)
@@ -192,7 +191,7 @@ class StateManagement:
 
     def brutally_terminate(self, server):
         logging.info("Brutally terminating %s", server['Name'])
-        logging.info(self.os_command('server', 'delete', server['ID'], json=False))
+        logging.info(self.os_command(['server', 'delete', server['ID']], is_json=False))
 
     def gracefully_terminate(self, server, patience=300):
         logging.info("Gracefully terminating %s", server['Name'])
@@ -248,12 +247,12 @@ class StateManagement:
                     logging.info('/usr/sbin/condor_off %s %s', stdout, stderr)
 
         # The image is completely drained so we're safe to kill.
-        logging.info(self.os_command('server', 'delete', server['ID'], json=False))
+        logging.info(self.os_command(['server', 'delete', server['ID']], is_json=False))
 
         # We'll wait a bit until the server is gone.
         while True:
             # Get the latest listing of servers
-            current_servers = [x['Name'] for x in self.os_command('server', 'list')]
+            current_servers = [x['Name'] for x in self.os_command(['server', 'list'])]
             # If the server is no longer visible, let's exit.
             if server['Name'] not in current_servers:
                 break
@@ -272,7 +271,7 @@ class StateManagement:
         for i in range(to_add):
             server = self.launch_server(self.non_conflicting_name(prefix, all_servers), flavor, prefix, 'training' in prefix, resource_identifier)
             if server['Status'] == 'ERROR':
-                fault = self.os_command('server', 'show', server['ID']).get('fault', {'message': '<error>'})
+                fault = self.os_command(['server', 'show', server['ID']]).get('fault', {'message': '<error>'})
                 logging.error('Failed to launch %s: %s', server['Name'], fault['message'])
                 self.gracefully_terminate(server)
             else:
@@ -331,7 +330,6 @@ class StateManagement:
 
                 # Galaxy-net must be the used network, maybe this check is extraneous
                 # but better to only work on things we know are safe to work on.
-                print(server)
                 netz = [x.split('=')[0] for x in server['Networks'].split(',')]
                 if self.config['network'] not in netz:
                     if server['Status'] == 'ERROR':
