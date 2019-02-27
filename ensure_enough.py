@@ -333,7 +333,7 @@ class StateManagement:
                 netz = [x.split('=')[0] for x in server['Networks'].split(',')]
                 if self.config['network'] not in netz:
                     if server['Status'] == 'ERROR':
-                        self.gracefully_terminate(server)
+                        self.brutally_terminate(server)
                         continue
 
                     logging.warn(server['Networks'])
