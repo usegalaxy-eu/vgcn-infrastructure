@@ -42,3 +42,48 @@ deployment:
     compute-2tb:
         count: 1
         flavor: c.c64m2000
+    training-tfp2019:
+        count: 1
+        flavor: c.c16m120
+        start: 2019-02-06
+        end: 2019-05-08
+    training-raeg2019:
+        count: 4
+        flavor: c.c16m120
+        start: 2019-03-04
+        end: 2019-03-29
+    training-elba:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-03-18
+        end: 2019-03-29
+    training-ipk_springschool:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-03-22
+        end: 2019-03-22
+    training-sbc-rnaseq-2019-03-04:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-03-04
+        end: 2019-03-04
+    training-galaxyspringday2019:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-03-21
+        end: 2019-03-21
+    training-mozebi2019rnaseq:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-03-26
+        end: 2019-03-26
+    training-bitc2019meta:
+        count: 3
+        flavor: c.c16m120
+        start: 2019-03-07
+        end: 2019-03-11
+    training-mppgcert2019:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-05-13
+        end: 2019-05-13
