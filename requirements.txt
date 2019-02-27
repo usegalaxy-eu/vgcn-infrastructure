@@ -1,4 +1,4 @@
-ansible==2.5.2
-paramiko==2.4.1
-python-glanceclient
-python-novaclient
+ansible==2.7.8
+paramiko==2.4.2
+python-glanceclient==2.15.0
+python-novaclient==12.0.0
