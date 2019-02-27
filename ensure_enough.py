@@ -47,7 +47,6 @@ class StateManagement:
         else:
             return q
 
-
     def remote_command(self, hostname, command, username='centos', port=22):
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(VgcnPolicy)
@@ -60,7 +59,6 @@ class StateManagement:
         stdout_decoded = stdout.read().decode('utf-8')
         stderr_decoded = stderr.read().decode('utf-8')
         return stdout_decoded, stderr_decoded
-
 
     def non_conflicting_name(self, prefix, existing_servers):
         """
@@ -82,7 +80,6 @@ class StateManagement:
 
         # Generate a failsafe name to ensure deterministic exiting.
         return '%s-%f' % (prefix, time.time())
-
 
     def identify_server_group(self, server_identifier):
         """
@@ -112,7 +109,6 @@ class StateManagement:
                     # Otherwise leave it alone.
                     servers_ok.append(server)
         return servers_rm, servers_ok
-
 
     def wait_for_state(self, server_name, target_state, escape_states=None, timeout=600):
         """
@@ -149,7 +145,6 @@ class StateManagement:
 
             if slept_for > timeout:
                 return current_servers[server_name]
-
 
     def launch_server(self, name, flavor, group, is_training, resource_identifier):
         """
@@ -264,7 +259,6 @@ class StateManagement:
                 break
             time.sleep(10)
 
-
     def top_up(self, desired_instances, prefix, resource_identifier, flavor):
         # Fetch the CURRENT state.
         tmp_servers_rm, tmp_servers_ok = self.identify_server_group(prefix)
@@ -283,7 +277,6 @@ class StateManagement:
                 self.gracefully_terminate(server)
             else:
                 logging.info('Launched. %s (state=%s)', server, server['Status'])
-
 
     def syncronize_infrastructure(self):
         # Now we process our different resources.

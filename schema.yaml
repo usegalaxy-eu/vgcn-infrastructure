@@ -4,6 +4,20 @@ mapping:
     "image":
         type: str
         required: true
+    "network":
+        type: str
+        required: true
+    "secgroups":
+        type: seq
+        required: true
+        sequence:
+          - type: str
+    "graceful":
+        type: bool
+        required: true
+    "sshkey":
+        type: str
+        required: true
     "pubkeys":
         type: seq
         sequence:
