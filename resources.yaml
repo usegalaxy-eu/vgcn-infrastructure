@@ -60,8 +60,8 @@ deployment:
     training-ipk_springschool:
         count: 2
         flavor: c.c32m240
-        start: 2019-03-22
-        end: 2019-03-22
+        start: 2019-03-21
+        end: 2019-03-21
     training-sbc-rnaseq-2019-03-04:
         count: 2
         flavor: c.c32m240
