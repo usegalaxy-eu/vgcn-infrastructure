@@ -31,10 +31,35 @@ mapping:
                     "count":
                         type: int
                         required: true
+                        range:
+                          min: 0
                     "flavor":
                         type: str
                         required: true
+                        enum:
+                          - c.c10m55
+                          - c.c16m120
+                          - c.c20m120
+                          - c.c32m240
+                          - c.c32m250
+                          - c.c40m1000
+                          - c.c40m250
+                          - c.c4m22
+                          - c.c64m2000
+                          - m1.large
+                          - m1.medium
+                          - m1.nano
+                          - m1.small
+                          - m1.tiny
+                          - m1.xlarge
+                          - m1.xxlarge
                     "start":
                         type: date
+                        format: "%Y-%m-%d"
                     "end":
                         type: date
+                        format: "%Y-%m-%d"
+                    "id":
+                        type: str
+                        required: true
+                        pattern: '[a-z0-9]{4}'
