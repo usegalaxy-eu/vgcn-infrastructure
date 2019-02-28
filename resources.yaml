@@ -19,71 +19,88 @@ deployment:
     test:
         count: 0
         flavor: c.c20m120
+        id: test
     sklearn:
         count: 0
         flavor: c.c10m55
+        id: skln
     training-hts-fr-02-19:
         count: 4
         flavor: c.c20m120
         start: 2019-02-25
         end:  2019-03-02
+        id: tfri
     compute-general:
         count: 20
         flavor: c.c10m55
+        id: c055
     compute-highmem:
         count: 20
         flavor: c.c20m120
+        id: c120
     compute-superhighmem:
         count: 8
         flavor: c.c32m240
+        id: c240
     compute-megahighmem:
         count: 7
         flavor: c.c40m1000
+        id: c1tb
     compute-2tb:
         count: 1
         flavor: c.c64m2000
+        id: c2tb
     training-tfp2019:
         count: 1
         flavor: c.c16m120
         start: 2019-02-06
         end: 2019-05-08
+        id: tfp2
     training-raeg2019:
         count: 4
         flavor: c.c16m120
         start: 2019-03-04
         end: 2019-03-29
+        id: raeg
     training-elba:
         count: 2
         flavor: c.c32m240
         start: 2019-03-18
         end: 2019-03-29
+        id: elba
     training-ipk_springschool:
         count: 2
         flavor: c.c32m240
         start: 2019-03-21
         end: 2019-03-21
+        id: ipks
     training-sbc-rnaseq-2019-03-04:
         count: 2
         flavor: c.c32m240
         start: 2019-03-04
         end: 2019-03-04
+        id: sbcr
     training-galaxyspringday2019:
         count: 2
         flavor: c.c32m240
         start: 2019-03-21
         end: 2019-03-21
+        id: gsd2
     training-mozebi2019rnaseq:
         count: 2
         flavor: c.c32m240
         start: 2019-03-26
         end: 2019-03-26
+        id: moze
     training-bitc2019meta:
         count: 3
         flavor: c.c16m120
         start: 2019-03-07
         end: 2019-03-11
+        id: bitc
     training-mppgcert2019:
         count: 2
         flavor: c.c32m240
         start: 2019-05-13
         end: 2019-05-13
+        id: mppg
