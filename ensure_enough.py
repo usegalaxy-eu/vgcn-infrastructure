@@ -154,10 +154,13 @@ class StateManagement:
         :rtype: novaclient.v2.servers.Server
         """
         logging.info("launching %s (%s)", name, flavor)
+        # If it's a compute-something, then we just tag as compute, per current
+        # sorting hat expectations.
+        identifier = 'compute' if resource_identifier.startswith('compute') else resource_identifier
 
         custom_userdata = self.user_data \
             .replace('GalaxyTraining = True', 'GalaxyTraining = %s' % is_training) \
-            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % resource_identifier)
+            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % identifier)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
