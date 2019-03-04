@@ -60,7 +60,5 @@ mapping:
                     "end":
                         type: date
                         format: "%Y-%m-%d"
-                    "id":
+                    "group":
                         type: str
-                        required: true
-                        pattern: '[a-z0-9]{4}'
