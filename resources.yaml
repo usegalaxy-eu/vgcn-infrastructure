@@ -39,7 +39,7 @@ deployment:
         flavor: c.c20m120
         id: c120
     compute-superhighmem:
-        count: 8
+        count: 6
         flavor: c.c32m240
         id: c240
     compute-megahighmem:
