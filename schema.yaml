@@ -39,6 +39,7 @@ mapping:
                         enum:
                           - c.c10m55
                           - c.c16m120
+                          - c.c40m120
                           - c.c20m120
                           - c.c32m240
                           - c.c32m250
