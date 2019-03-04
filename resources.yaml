@@ -19,9 +19,11 @@ deployment:
     test:
         count: 0
         flavor: c.c20m120
+        group: test
     sklearn:
         count: 0
         flavor: c.c10m55
+        group: sklearn
     training-hts-fr-02-19:
         count: 4
         flavor: c.c20m120
@@ -30,12 +32,15 @@ deployment:
     compute-general:
         count: 4
         flavor: c.c10m55
+        group: general
     compute-highmem:
         count: 20
         flavor: c.c20m120
+        group: general
     compute-superhighmem:
         count: 6
         flavor: c.c32m240
+        group: general
     compute-c40m250:
         count: 6
         flavor: c.c40m250
@@ -43,9 +48,11 @@ deployment:
     compute-megahighmem:
         count: 6 # one for jwolff-test, one for bactannot
         flavor: c.c40m1000
+        group: general
     compute-2tb:
         count: 1
         flavor: c.c64m2000
+        group: general
     training-tfp2019:
         count: 1
         flavor: c.c16m120

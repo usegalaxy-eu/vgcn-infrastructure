@@ -146,7 +146,7 @@ class StateManagement:
             if slept_for > timeout:
                 return current_servers[server_name]
 
-    def launch_server(self, name, flavor, group, is_training, resource_identifier):
+    def launch_server(self, name, flavor, resource_identifier, group, is_training=False):
         """
         Launch a server with a given name + flavor.
 
@@ -156,11 +156,9 @@ class StateManagement:
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
-        identifier = 'compute' if resource_identifier.startswith('compute') else resource_identifier
-
         custom_userdata = self.user_data \
             .replace('GalaxyTraining = True', 'GalaxyTraining = %s' % is_training) \
-            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % identifier)
+            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % group)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -261,7 +259,18 @@ class StateManagement:
                 break
             time.sleep(10)
 
-    def top_up(self, desired_instances, prefix, resource_identifier, flavor):
+    def top_up(self, desired_instances, prefix, resource_identifier, flavor, group):
+        """
+        :param int desired_instances: Number of instances of this type to launch
+
+        :param str prefix: Something like `vgcnbwc-{resource_id}`
+
+        :param str resource_identifier: Just the `{resource_id}` from previous part
+
+        :param str flavor: flavor to launch
+
+        :param str group: The group that it is launched in (compute, upload, training-{resource_id})
+        """
         # Fetch the CURRENT state.
         tmp_servers_rm, tmp_servers_ok = self.identify_server_group(prefix)
         # Get all together
@@ -272,7 +281,13 @@ class StateManagement:
         # Now we know the difference that we need to launch.
         to_add = max(0, desired_instances - len(num_active))
         for i in range(to_add):
-            server = self.launch_server(self.non_conflicting_name(prefix, all_servers), flavor, prefix, 'training' in prefix, resource_identifier)
+            server = self.launch_server(
+                self.non_conflicting_name(prefix, all_servers),
+                flavor,
+                resource_identifier,
+                group,
+                is_training='training' in prefix
+            )
             if server['Status'] == 'ERROR':
                 fault = self.os_command(['server', 'show', server['ID']]).get('fault', {'message': '<error>'})
                 logging.error('Failed to launch %s: %s', server['Name'], fault['message'])
@@ -285,9 +300,7 @@ class StateManagement:
         for resource_identifier in self.config['deployment']:
             resource = self.config['deployment'][resource_identifier]
             # The server names are constructed as:
-            #    vgcnbwc-compgn-{number}
-            #    vgcnbwc-upload-{number}
-            #    vgcnbwc-training-{training_identifier}-{number}
+            #    vgcnbwc-{id}
             prefix = 'vgcnbwc-' + resource_identifier
             logging.info("Processing %s" % prefix)
             # Image flavor
@@ -355,12 +368,12 @@ class StateManagement:
                     self.brutally_terminate(server)
 
                 # With that done, 'top up' to the correct number of VMs.
-                self.top_up(desired_instances, prefix, resource_identifier, flavor)
+                self.top_up(desired_instances, prefix, resource_identifier, flavor, resource.get('group', resource_identifier))
 
             # Now that we've removed all that we need to remove, again, try to top-up
             # to make sure we're OK. (Also important in case we had no servers already
             # running.)
-            self.top_up(desired_instances, prefix, resource_identifier, flavor)
+            self.top_up(desired_instances, prefix, resource_identifier, flavor, resource.get('group', resource_identifier))
 
 
 if __name__ == '__main__':
