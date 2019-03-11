@@ -10,8 +10,8 @@ import logging
 import json
 import tempfile
 
-global CURRENT_IMAGE_NAME
-global VGCN_PUBKEYS
+global DRY_RUN
+DRY_RUN = True
 logging.basicConfig(level=logging.INFO)
 
 
@@ -153,6 +153,8 @@ class StateManagement:
         :returns: The launched server
         :rtype: novaclient.v2.servers.Server
         """
+        if DRY_RUN: return {'Status': 'OK (fake)'}
+
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
@@ -191,11 +193,15 @@ class StateManagement:
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
     def brutally_terminate(self, server):
+        if DRY_RUN: return
+
         logging.info("Brutally terminating %s", server['Name'])
         logging.info(self.os_command(['server', 'delete', server['ID']], is_json=False))
 
     def gracefully_terminate(self, server, patience=300):
         logging.info("Gracefully terminating %s", server['Name'])
+
+        if DRY_RUN: return
 
         if server['Status'] == 'ACTIVE':
             # Get the IP address

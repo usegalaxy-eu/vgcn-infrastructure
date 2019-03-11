@@ -76,7 +76,7 @@ deployment:
         start: 2019-03-21
         end: 2019-03-21
     training-mozebi2019rnaseq:
-        count: 2
+        count: 4
         flavor: c.c32m240
         start: 2019-03-26
         end: 2019-03-26
