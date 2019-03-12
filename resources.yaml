@@ -25,7 +25,7 @@ deployment:
         flavor: c.c20m120
         group: compute
     compute-c32m240:
-        count: 6
+        count: 5
         flavor: c.c32m240
         group: compute
     compute-c40m250:
