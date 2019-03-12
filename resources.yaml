@@ -33,7 +33,7 @@ deployment:
         flavor: c.c40m250
         group: compute
     compute-c40m1tb:
-        count: 6 # one for jwolff-test, one for bactannot
+        count: 6
         flavor: c.c40m1000
         group: compute
     compute-c64m2tb:
