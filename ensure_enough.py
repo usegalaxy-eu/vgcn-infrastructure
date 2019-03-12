@@ -104,7 +104,8 @@ class StateManagement:
                 if server_image_name != self.current_image_name or \
                         server['Status'] != 'ACTIVE':
                     # Then kill it.
-                    servers_rm.append(server)
+                    pass
+                    # servers_rm.append(server)
                 else:
                     # Otherwise leave it alone.
                     servers_ok.append(server)
