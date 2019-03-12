@@ -29,7 +29,7 @@ deployment:
         flavor: c.c32m240
         group: compute
     compute-c40m250:
-        count: 6
+        count: 3
         flavor: c.c40m250
         group: compute
     compute-c40m1tb:
@@ -40,6 +40,11 @@ deployment:
         count: 1
         flavor: c.c64m1980
         group: compute
+    training-miracum-pipe:
+        count: 4
+        flavor: c.c40m250
+        start: 2019-03-12
+        end: 2019-03-14
     training-tfp2019:
         count: 1
         flavor: c.c16m120
@@ -75,11 +80,6 @@ deployment:
         flavor: c.c32m240
         start: 2019-03-26
         end: 2019-03-26
-    training-bitc2019meta:
-        count: 3
-        flavor: c.c16m120
-        start: 2019-03-07
-        end: 2019-03-11
     training-mppgcert2019:
         count: 2
         flavor: c.c32m240
