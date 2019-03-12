@@ -11,7 +11,7 @@ import json
 import tempfile
 
 global DRY_RUN
-DRY_RUN = True
+DRY_RUN = False
 logging.basicConfig(level=logging.INFO)
 
 
