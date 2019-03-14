@@ -16,72 +16,68 @@ pubkeys:
     - "AAAAB3NzaC1yc2EAAAABIwAAAQEAuSG1VOumQhbJfOyalJjS4lPC8eeeL02ld/VI2BFApyMfwbB1QxehY3lMBXt/cBTzqU3MxgJQVzNr/AgjHa5rKn2hSGMfKAdaX2tG686k715bBjRm9rJNhmc8KSH9tVS35M0HwRXMfiGvSmb5qJ6utWRZe6RM2JMIbqqI5Oc4tbzPPVKk1+yvT1JdYuyqAOp2yvQbOqKaXmqOhPdPNaJZMI4o+UHmmb8FH6OTDY27G7X7u07ZPwVi1j+6ZFVMQZqg1RhUdg9kmHpHwMX7P6NcD4G9GsISHIh92eva9xgWYGiS0wUsmOWTNgAzzsfRZjMFep+jB2wup6QN7XpMw97eTw=="
 
 deployment:
-    compute-c10m055:
+    compute-10m55:
         count: 4
         flavor: c.c10m55
         group: compute
-    compute-c20m120:
+    compute-c20me:
         count: 20
         flavor: c.c20m120
         group: compute
-    compute-c32m240:
+    compute-c32mq:
         count: 5
         flavor: c.c32m240
         group: compute
-    compute-c40m250:
+    compute-c40mq:
         count: 3
         flavor: c.c40m250
         group: compute
-    compute-c40m1tb:
+    compute-c40m1:
         count: 6
         flavor: c.c40m1000
         group: compute
-    compute-c64m2tb:
+    compute-c64m2:
         count: 1
         flavor: c.c64m1980
         group: compute
-    training-miracum-pipe:
-        count: 4
-        flavor: c.c40m250
-        start: 2019-03-12
-        end: 2019-03-14
-    training-tfp2019:
+    training-tfp1:
         count: 1
         flavor: c.c16m120
         start: 2019-02-06
         end: 2019-05-08
-    training-raeg2019:
+        group: training-tfp2019
+    training-raeg:
         count: 4
         flavor: c.c40m120
         start: 2019-03-04
         end: 2019-03-29
+        group: training-raeg2019
     training-elba:
         count: 2
         flavor: c.c32m240
         start: 2019-03-18
         end: 2019-03-29
-    training-ipk_springschool:
+    training-ipks:
         count: 2
         flavor: c.c32m240
         start: 2019-03-21
         end: 2019-03-21
-    training-sbc-rnaseq-2019-03-04:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-03-04
-        end: 2019-03-04
-    training-galaxyspringday2019:
+        group: ipk-springschool
+    training-gxsp:
         count: 2
         flavor: c.c32m240
         start: 2019-03-21
         end: 2019-03-21
-    training-mozebi2019rnaseq:
+        group: training-galaxyspringday2019
+    training-moze:
         count: 4
         flavor: c.c32m240
         start: 2019-03-26
         end: 2019-03-26
-    training-mppgcert2019:
+        group: training-mozebi2019rnaseq
+    training-mppg:
         count: 2
         flavor: c.c32m240
         start: 2019-05-13
         end: 2019-05-13
+        group: training-mppgcert2019
