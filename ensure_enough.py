@@ -298,7 +298,7 @@ class StateManagement:
             if server['Status'] == 'ERROR':
                 fault = self.os_command(['server', 'show', server['ID']]).get('fault', {'message': '<error>'})
                 logging.error('Failed to launch %s: %s', server['Name'], fault['message'])
-                self.gracefully_terminate(server)
+                #self.gracefully_terminate(server)
             else:
                 logging.info('Launched. %s (state=%s)', server, server['Status'])
 

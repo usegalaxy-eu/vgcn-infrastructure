@@ -40,6 +40,7 @@ deployment:
         count: 1
         flavor: c.c64m1980
         group: compute
+    # Training
     training-tfp1:
         count: 1
         flavor: c.c16m120
