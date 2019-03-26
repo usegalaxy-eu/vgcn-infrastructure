@@ -95,7 +95,7 @@ class StateManagement:
         servers_rm = []
         servers_ok = []
         # All servers
-        for server in self.os_command(['server', 'list']):
+        for server in sorted(self.os_command(['server', 'list']), key=lambda x: x['Name']):
             # Filter by those with our server_identifier.
             if server['Name'].startswith(server_identifier):
                 server_image_name = server['Image']
@@ -197,7 +197,7 @@ class StateManagement:
         if DRY_RUN: return
 
         logging.info("Brutally terminating %s", server['Name'])
-        # logging.info(self.os_command(['server', 'delete', server['ID']], is_json=False))
+        logging.info(self.os_command(['server', 'delete', server['ID']], is_json=False))
 
     def gracefully_terminate(self, server, patience=300):
         logging.info("Gracefully terminating %s", server['Name'])
@@ -255,7 +255,7 @@ class StateManagement:
                     logging.info('/usr/sbin/condor_off %s %s', stdout, stderr)
 
         # The image is completely drained so we're safe to kill.
-        # logging.info(self.os_command(['server', 'delete', server['ID']], is_json=False))
+        logging.info(self.os_command(['server', 'delete', server['ID']], is_json=False))
 
         # We'll wait a bit until the server is gone.
         while True:

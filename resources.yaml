@@ -38,7 +38,7 @@ deployment:
         group: compute
     compute-c64m2:
         count: 1
-        flavor: c.c64m1980
+        flavor: c.c64m1950
         group: compute
     # Training
     training-tfp1:
