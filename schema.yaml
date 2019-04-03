@@ -46,7 +46,7 @@ mapping:
                           - c.c40m1000
                           - c.c40m250
                           - c.c4m22
-                          - c.c64m1980
+                          - c.c64m1950
                           - m1.large
                           - m1.medium
                           - m1.nano
