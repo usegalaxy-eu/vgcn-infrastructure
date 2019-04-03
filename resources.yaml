@@ -47,35 +47,6 @@ deployment:
         start: 2019-02-06
         end: 2019-05-08
         group: training-tfp2019
-    training-raeg:
-        count: 4
-        flavor: c.c40m120
-        start: 2019-03-04
-        end: 2019-03-29
-        group: training-raeg2019
-    training-elba:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-03-18
-        end: 2019-03-29
-    training-ipks:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-03-21
-        end: 2019-03-21
-        group: ipk-springschool
-    training-gxsp:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-03-21
-        end: 2019-03-21
-        group: training-galaxyspringday2019
-    training-moze:
-        count: 4
-        flavor: c.c32m240
-        start: 2019-03-26
-        end: 2019-03-26
-        group: training-mozebi2019rnaseq
     training-mppg:
         count: 2
         flavor: c.c32m240
