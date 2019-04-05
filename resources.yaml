@@ -56,6 +56,6 @@ deployment:
     training-gqa1:
         count: 2
         flavor: c.c32m240
-        start: 2019-04-08
+        start: 2019-04-06
         end: 2019-04-29
         group: training-gqa
