@@ -59,3 +59,8 @@ deployment:
         start: 2019-04-03
         end: 2019-04-03
         group: training-genomics_phd
+    training-gqa:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-04-08
+        end: 2019-04-29
