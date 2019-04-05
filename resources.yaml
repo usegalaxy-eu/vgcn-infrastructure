@@ -17,7 +17,7 @@ pubkeys:
 
 deployment:
     compute-10m55:
-        count: 4
+        count: 1
         flavor: c.c10m55
         group: compute
     compute-c20me:
