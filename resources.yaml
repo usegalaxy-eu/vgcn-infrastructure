@@ -59,3 +59,15 @@ deployment:
         start: 2019-04-06
         end: 2019-04-29
         group: training-gqa
+    training-gw01:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-05-01
+        end: 2019-08-01
+        group: training-gw-bioinfo
+    training-gw02:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-05-01
+        end: 2019-06-30
+        gorup: training-gw-md-bioinfo
