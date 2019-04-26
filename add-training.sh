@@ -12,15 +12,17 @@ vm_size=${2:-c.c10m55}
 vm_count=${3:-1}
 start=$4
 end=$5
+short=$(echo "$training_identifier" | cut -c1-4)
 
 output="instance_training-${training_identifier}.tf"
 
 cat >> resources.yaml <<-EOF
-    training-${training_identifier}:
+    training-${short}:
         count: ${vm_count}
         flavor: ${vm_size}
         start: ${start}
         end: ${end}
+        group: training-${training_identifier}
 EOF
 
 vm_cpu=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $1}')
