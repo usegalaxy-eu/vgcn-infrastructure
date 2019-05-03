@@ -71,3 +71,15 @@ deployment:
         start: 2019-05-01
         end: 2019-06-30
         gorup: training-gw-md-bioinfo
+    training-pmac:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-05-06
+        end: 2019-05-07
+        group: training-pmac
+    training-sbcs:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-05-10
+        end: 2019-05-10
+        group: training-sbc-somatic-2019-05-10
