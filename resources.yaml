@@ -29,11 +29,11 @@ deployment:
         flavor: c.c32m240
         group: compute
     compute-c40mq:
-        count: 3
+        count: 6
         flavor: c.c40m250
         group: compute
     compute-c40m1:
-        count: 6
+        count: 8
         flavor: c.c40m1000
         group: compute
     compute-c64m2:
@@ -71,12 +71,6 @@ deployment:
         start: 2019-05-01
         end: 2019-06-30
         group: training-gw-md-bioinfo
-    training-pmac:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-05-06
-        end: 2019-05-07
-        group: training-pmac
     training-sbcs:
         count: 1
         flavor: c.c32m240
