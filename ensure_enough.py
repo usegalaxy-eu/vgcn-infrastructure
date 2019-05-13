@@ -197,7 +197,7 @@ class StateManagement:
         if DRY_RUN: return
 
         logging.info("Brutally terminating %s", server['Name'])
-        logging.info(self.os_command(['server', 'delete', server['ID']], is_json=False))
+        logging.info(self.os_command(['server', 'delete', server.get('ID', server['Name'])], is_json=False))
 
     def gracefully_terminate(self, server, patience=300):
         logging.info("Gracefully terminating %s", server['Name'])
@@ -301,7 +301,7 @@ class StateManagement:
                 else:
                     fault = {'message': "Unknown"}
                 logging.error('Failed to launch %s: %s', server['Name'], fault['message'])
-                #self.gracefully_terminate(server)
+                self.brutally_terminate(server)
             else:
                 logging.info('Launched. %s (state=%s)', server, server['Status'])
 
