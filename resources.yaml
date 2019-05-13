@@ -41,6 +41,7 @@ deployment:
         flavor: c.c64m1950
         group: compute
     # Training
+    # TODO: merge into westerdijk tomorrow.
     training-mppg:
         count: 2
         flavor: c.c32m240
