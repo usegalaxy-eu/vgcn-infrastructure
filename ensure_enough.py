@@ -145,7 +145,7 @@ class StateManagement:
             slept_for += 10
 
             if slept_for > timeout:
-                return current_servers[server_name]
+                return {'Status': 'ERROR'}
 
     def launch_server(self, name, flavor, resource_identifier, group, is_training=False):
         """
