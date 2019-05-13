@@ -77,3 +77,9 @@ deployment:
         start: 2019-05-10
         end: 2019-05-10
         group: training-sbc-somatic-2019-05-10
+    training-west:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-05-13
+        end: 2019-05-17
+        group: training-westerdijk
