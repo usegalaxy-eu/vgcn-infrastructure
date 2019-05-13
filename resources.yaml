@@ -41,24 +41,12 @@ deployment:
         flavor: c.c64m1950
         group: compute
     # Training
-    training-tfp1:
-        count: 1
-        flavor: c.c16m120
-        start: 2019-02-06
-        end: 2019-05-08
-        group: training-tfp2019
     training-mppg:
         count: 2
         flavor: c.c32m240
         start: 2019-05-13
         end: 2019-05-13
         group: training-mppgcert2019
-    training-gqa1:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-04-06
-        end: 2019-04-29
-        group: training-gqa
     training-gw01:
         count: 1
         flavor: c.c32m240
@@ -71,12 +59,6 @@ deployment:
         start: 2019-05-01
         end: 2019-06-30
         group: training-gw-md-bioinfo
-    training-sbcs:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-05-10
-        end: 2019-05-10
-        group: training-sbc-somatic-2019-05-10
     training-west:
         count: 2
         flavor: c.c32m240
