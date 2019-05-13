@@ -145,7 +145,7 @@ class StateManagement:
             slept_for += 10
 
             if slept_for > timeout:
-                return {'Status': 'ERROR'}
+                return {'Status': 'ERROR', 'Name': server_name}
 
     def launch_server(self, name, flavor, resource_identifier, group, is_training=False):
         """
@@ -296,7 +296,10 @@ class StateManagement:
                 is_training='training' in prefix
             )
             if server['Status'] == 'ERROR':
-                fault = self.os_command(['server', 'show', server['ID']]).get('fault', {'message': '<error>'})
+                if 'ID' in server:
+                    fault = self.os_command(['server', 'show', server['ID']]).get('fault', {'message': '<error>'})
+                else:
+                    fault = {'message': "Unknown"}
                 logging.error('Failed to launch %s: %s', server['Name'], fault['message'])
                 #self.gracefully_terminate(server)
             else:
