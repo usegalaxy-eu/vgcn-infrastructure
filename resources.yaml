@@ -3,6 +3,7 @@
 # appropriate prefix but are not running this image, they will be removed.
 image: vggp-v31-j119-d9bec0b4f3e0-master
 network: bioinf
+image_replace: false
 
 secgroups:
  - ufr-ingress

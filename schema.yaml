@@ -4,6 +4,9 @@ mapping:
     "image":
         type: str
         required: true
+    "image_replace":
+        type: bool
+        required: true
     "network":
         type: str
         required: true

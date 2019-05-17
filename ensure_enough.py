@@ -101,7 +101,7 @@ class StateManagement:
                 server_image_name = server['Image']
                 # if the image isn't the latest / current version, OR if the server
                 # isn't running
-                if server_image_name != self.current_image_name or \
+                if (self.config['image_replace'] and server_image_name != self.current_image_name) or \
                         server['Status'] != 'ACTIVE':
                     # Then kill it.
                     pass
