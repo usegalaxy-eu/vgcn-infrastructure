@@ -30,7 +30,7 @@ deployment:
         flavor: c.c32m240
         group: compute
     compute-c40mq:
-        count: 6
+        count: 10
         flavor: c.c40m250
         group: compute
     compute-c40m1:
