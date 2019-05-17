@@ -42,22 +42,3 @@ deployment:
         flavor: c.c64m1950
         group: compute
     # Training
-    # TODO: merge into westerdijk tomorrow.
-    training-gw01:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-05-01
-        end: 2019-08-01
-        group: training-gw-bioinfo
-    training-gw02:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-05-01
-        end: 2019-06-30
-        group: training-gw-md-bioinfo
-    training-west:
-        count: 4
-        flavor: c.c32m240
-        start: 2019-05-13
-        end: 2019-05-17
-        group: training-westerdijk
