@@ -214,7 +214,7 @@ class StateManagement:
         f.close()
 
         args = [
-            'server', 'create',
+            'boot',
             '--image', self.current_image_name,
             '--flavor', flavor,
             '--key-name', self.config['sshkey'],
