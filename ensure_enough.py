@@ -439,12 +439,12 @@ class StateManagement:
                     self.brutally_terminate(server)
 
                 # With that done, 'top up' to the correct number of VMs.
-                self.top_up(desired_instances, prefix, resource_identifier, flavor, resource.get('group', resource_identifier))
+                self.top_up(desired_instances, prefix, resource_identifier, flavor, resource.get('group', resource_identifier), volumes=resource.get('volumes', False))
 
             # Now that we've removed all that we need to remove, again, try to top-up
             # to make sure we're OK. (Also important in case we had no servers already
             # running.)
-            self.top_up(desired_instances, prefix, resource_identifier, flavor, resource.get('group', resource_identifier))
+            self.top_up(desired_instances, prefix, resource_identifier, flavor, resource.get('group', resource_identifier), volumes=resource.get('volumes', False))
 
 
 if __name__ == '__main__':
