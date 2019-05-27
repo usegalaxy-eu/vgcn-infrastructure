@@ -26,7 +26,7 @@ class StateManagement:
 
     def __init__(self):
         with open('resources.yaml', 'r') as handle:
-            self.config = yaml.load(handle)
+            self.config = yaml.safe_load(handle)
 
         with open('userdata.yaml', 'r') as handle:
             self.user_data = handle.read()
@@ -335,11 +335,6 @@ class StateManagement:
         # Now we know the difference that we need to launch.
         to_add = max(0, desired_instances - len(num_active))
         for i in range(to_add):
-            if volumes:
-                fn = self.launch_server_volume
-            else:
-                fn = self.launch_server
-
             args = (
                 self.non_conflicting_name(prefix, all_servers),
                 flavor,
