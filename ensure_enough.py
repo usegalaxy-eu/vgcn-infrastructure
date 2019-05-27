@@ -219,7 +219,7 @@ class StateManagement:
             '--flavor', flavor,
             '--key-name', self.config['sshkey'],
             '--availability-zone', 'nova',
-            '--nic', 'net-id=%s' % self.config['network'],
+            '--nic', 'net-id=%s' % self.config['network_id'],
             '--user-data', f.name,
             '--block-device', 'source=blank,dest=volume,size=100,shutdown=remove',
         ]
