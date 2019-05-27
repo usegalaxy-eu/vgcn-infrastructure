@@ -230,7 +230,7 @@ class StateManagement:
 
         args.append(name)
 
-        self.os_command(args, cmd='nova')
+        self.os_command(args, cmd='nova', is_json=False)
 
         try:
             os.unlink(f.name)
