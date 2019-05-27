@@ -35,12 +35,12 @@ class StateManagement:
         self.vgcn_pubkeys = self.config['pubkeys']
         self.today = datetime.date.today()
 
-    def os_command(self, args, is_json=True):
-        cmd = ['openstack'] + list(args)
+    def os_command(self, args, is_json=True, cmd=None):
+        lcmd = ['openstack' if not cmd else cmd] + list(args)
         if is_json:
-            cmd += ['-f', 'json']
-        logging.debug(' '.join(cmd))
-        q = subprocess.check_output(cmd)
+            lcmd += ['-f', 'json']
+        logging.debug(' '.join(lcmd))
+        q = subprocess.check_output(lcmd)
         # logging.debug(q)
         if is_json:
             return json.loads(q)
@@ -193,6 +193,53 @@ class StateManagement:
         # Wait for this server to become 'ACTIVE'
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
+    def launch_server_volume(self, name, flavor, resource_identifier, group, is_training=False):
+        """
+        Launch a server with a given name + flavor.
+
+        :returns: The launched server
+        :rtype: novaclient.v2.servers.Server
+        """
+        if DRY_RUN: return {'Status': 'OK (fake)'}
+
+        logging.info("launching %s (%s) with volume", name, flavor)
+        # If it's a compute-something, then we just tag as compute, per current
+        # sorting hat expectations.
+        custom_userdata = self.user_data \
+            .replace('GalaxyTraining = True', 'GalaxyTraining = %s' % is_training) \
+            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % group)
+
+        f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
+        f.write(custom_userdata.encode())
+        f.close()
+
+        args = [
+            'server', 'create',
+            '--image', self.current_image_name,
+            '--flavor', flavor,
+            '--key-name', self.config['sshkey'],
+            '--availability-zone', 'nova',
+            '--nic', 'net-id=%s' % self.config['network'],
+            '--user-data', f.name,
+            '--block-device', 'source=blank,dest=volume,size=100,shutdown=remove',
+        ]
+
+        for sg in self.config['secgroups']:
+            args.append('--security-group')
+            args.append(sg)
+
+        args.append(name)
+
+        self.os_command(args, cmd='nova')
+
+        try:
+            os.unlink(f.name)
+        except:
+            pass
+
+        # Wait for this server to become 'ACTIVE'
+        return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
+
     def brutally_terminate(self, server):
         if DRY_RUN: return
 
@@ -266,7 +313,7 @@ class StateManagement:
                 break
             time.sleep(10)
 
-    def top_up(self, desired_instances, prefix, resource_identifier, flavor, group):
+    def top_up(self, desired_instances, prefix, resource_identifier, flavor, group, volumes=False):
         """
         :param int desired_instances: Number of instances of this type to launch
 
@@ -288,13 +335,27 @@ class StateManagement:
         # Now we know the difference that we need to launch.
         to_add = max(0, desired_instances - len(num_active))
         for i in range(to_add):
-            server = self.launch_server(
+            if volumes:
+                fn = self.launch_server_volume
+            else:
+                fn = self.launch_server
+
+            args = (
                 self.non_conflicting_name(prefix, all_servers),
                 flavor,
                 resource_identifier,
                 group,
-                is_training='training' in prefix
             )
+
+            kwargs = {
+                'is_training': 'training' in prefix
+            }
+
+            if volumes:
+                server = self.launch_server_volume(*args, **kwargs)
+            else:
+                server = self.launch_server(*args, **kwargs)
+
             if server['Status'] == 'ERROR':
                 if 'ID' in server:
                     fault = self.os_command(['server', 'show', server['ID']]).get('fault', {'message': '<error>'})
