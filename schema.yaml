@@ -10,6 +10,9 @@ mapping:
     "network":
         type: str
         required: true
+    "network_id":
+        type: str
+        required: true
     "secgroups":
         type: seq
         required: true
