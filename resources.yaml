@@ -41,6 +41,11 @@ deployment:
         count: 1
         flavor: c.c64m1950
         group: compute
+    helenatesting:
+        count: 1
+        flavor: c.c32m240
+        group: helena
+        volumes: true
     # Training
     training-sbc-:
         count: 1
