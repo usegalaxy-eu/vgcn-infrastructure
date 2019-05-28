@@ -27,7 +27,7 @@ deployment:
         flavor: c.c10m55
         group: compute
     compute-c20me:
-        count: 30
+        count: 40
         flavor: c.c20m120
         group: compute
     compute-c32mq:
