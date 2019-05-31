@@ -20,7 +20,7 @@ pubkeys:
 deployment:
     compute-uplod:
         count: 2
-        flavor: m1.xlarge2
+        flavor: m1.xlarge
         group: upload
     compute-10m55:
         count: 1
