@@ -82,3 +82,15 @@ deployment:
         start: 2019-06-03
         end: 2019-06-07
         group: training-bioinformatics-ukraine
+    training-imbb:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-06-18
+        end: 2019-06-19
+        group: training-imbb
+    training-sbc-:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-06-10
+        end: 2019-06-10
+        group: training-sbc-rnaseq-2019-06-10
