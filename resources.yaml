@@ -94,3 +94,9 @@ deployment:
         start: 2019-06-10
         end: 2019-06-10
         group: training-sbc-rnaseq-2019-06-10
+    training-gall:
+        count: 4
+        flavor: c.c32m240
+        start: 2019-06-11
+        end: 2019-06-12
+        group: training-gallantries
