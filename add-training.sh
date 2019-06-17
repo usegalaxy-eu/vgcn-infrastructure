@@ -44,17 +44,20 @@ Subject: UseGalaxy.eu TIaaS Request: Approved
 
 Hello,
 
-Based on your requested training we have allocated ${vm_count} server(s), each with ${vm_cpu} Cores and ${vm_mem} GB of RAM. This should be sufficient for your purposes. If you find that it is not, please contact us and we can update that at any time.
+Based on your requested training we have allocated ${vm_count} server(s), each with ${vm_cpu} Cores and ${vm_mem} GB of RAM. This should be sufficient for your purposes. If you find that it is not, please contact us and we can update that at any time. On the day of your training, please ask your users to go to the following URL:
 
-On the day of your training, please ask your users to go to the following URL: https://usegalaxy.eu/join-training/${1}
+https://usegalaxy.eu/join-training/${1}
 
-They will be added to the training group and put into a private queue which should be a bit faster than our regular queue.
+They will be added to the training group and put into a private queue which should be a bit faster than our regular queue. Your training queue will be available from ${start} to ${end}.
 
-Your training queue will be available from ${start} to ${end}.
+
+*Queue Status*:
+If you find yourself wondering where your students are during the training, you can use the new queue status page to see which jobs are being run by people in your training: https://usegalaxy.eu/join-training/${1}/status
+
+*AWS Estimate*:
+If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id} machines, it would cost ${price}USD
 
 Please let us know if you have any questions!
-
-P.S. If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id} machines, it would cost ${price}USD
 
 Regards,
 Helena
