@@ -53,20 +53,26 @@ deployment:
         volumes: true
     # Training
     training-imbb:
-        count: 1
+        count: 0
         flavor: c.c32m240
         start: 2019-06-18
         end: 2019-06-19
         group: training-imbb
     training-sbc-:
-        count: 1
+        count: 0
         flavor: c.c32m240
         start: 2019-06-10
         end: 2019-06-10
         group: training-sbc-rnaseq-2019-06-10
     training-gall:
-        count: 4
+        count: 0
         flavor: c.c32m240
         start: 2019-06-11
         end: 2019-06-12
         group: training-gallantries
+    training-bioi:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-06-24
+        end: 2019-06-30
+        group: training-bioinformatics_workshop_ukraine_fli
