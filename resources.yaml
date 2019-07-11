@@ -52,9 +52,3 @@ deployment:
         group: helena
         volumes: true
     # Training
-    training-bioi:
-        count: 0
-        flavor: c.c32m240
-        start: 2019-06-24
-        end: 2019-06-30
-        group: training-bioinformatics_workshop_ukraine_fli
