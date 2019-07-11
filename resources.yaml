@@ -52,26 +52,8 @@ deployment:
         group: helena
         volumes: true
     # Training
-    training-imbb:
-        count: 0
-        flavor: c.c32m240
-        start: 2019-06-18
-        end: 2019-06-19
-        group: training-imbb
-    training-sbc-:
-        count: 0
-        flavor: c.c32m240
-        start: 2019-06-10
-        end: 2019-06-10
-        group: training-sbc-rnaseq-2019-06-10
-    training-gall:
-        count: 0
-        flavor: c.c32m240
-        start: 2019-06-11
-        end: 2019-06-12
-        group: training-gallantries
     training-bioi:
-        count: 2
+        count: 0
         flavor: c.c32m240
         start: 2019-06-24
         end: 2019-06-30
