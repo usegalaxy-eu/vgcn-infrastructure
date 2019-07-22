@@ -38,6 +38,7 @@ price=$(python ../aws-cost-estimator/cost.py $vm_cpu $vm_mem $vm_seconds | head 
 machines=$(python ../aws-cost-estimator/cost.py $vm_cpu $vm_mem $vm_seconds | tail -n 1)
 aws_id=$(echo $machines | sed "s/'/\"/g" | jq .name -r)
 price=$(echo "$price * $vm_count" | bc -l)
+yourname=$(git config --global --get user.name)
 
 printf "
 Subject: UseGalaxy.eu TIaaS Request: Approved
@@ -60,12 +61,12 @@ If you wanted to run a similar training on AWS, we estimate that for ${vm_count}
 Please let us know if you have any questions!
 
 Regards,
-Helena
+${yourname}
 
 --
-Helena Rasche
+${yourname}
 
-UseGalaxy.eu Server Administrator
+UseGalaxy.eu
 Bioinformatics Group
 Department of Computer Science
 Albert-Ludwigs-University Freiburg
