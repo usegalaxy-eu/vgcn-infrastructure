@@ -2,7 +2,7 @@
 if (( $# != 5 )); then
     echo "Usage:"
     echo
-    echo "  $0 <training-identifier> <vm-size> <vm-count> <start> <end>"
+    echo "  $0 <training-identifier> <vm-size> <vm-count> <start> <end> [--donotautocommitpush]"
     echo
     exit 1;
 fi
@@ -12,6 +12,11 @@ vm_size=${2:-c.c10m55}
 vm_count=${3:-1}
 start=$4
 end=$5
+autopush=1
+if [[ "$6" == "--donotautocommitpush" ]]; then
+	autopush=0
+fi
+
 short=$(echo "$training_identifier" | cut -c1-4)
 
 output="instance_training-${training_identifier}.tf"
@@ -25,11 +30,24 @@ cat >> resources.yaml <<-EOF
         group: training-${training_identifier}
 EOF
 
+if (( autopush == 1 )); then
+	git add resources.yaml
+	git commit -m 'New training'
+	git push
+fi
+
 vm_cpu=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $1}')
 vm_mem=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $2}')
 
 echo " - ${training_identifier}" >> ../infrastructure-playbook/group_vars/tiaas.yml
 
+if (( autopush == 1 )); then
+	cd ../infrastructure-playbook/
+	git add group_vars/tiaas.yml
+	git commit -m 'New training'
+	git push
+	cd -
+fi
 
 ts_end=$(date -d "$end 23:59" +%s)
 ts_stt=$(date -d "$start 00:00" +%s)
