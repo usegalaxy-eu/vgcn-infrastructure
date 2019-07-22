@@ -52,3 +52,9 @@ deployment:
         group: helena
         volumes: true
     # Training
+    training-arac:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-11-15
+        end: 2019-11-24
+        group: training-aracatuba-2019
