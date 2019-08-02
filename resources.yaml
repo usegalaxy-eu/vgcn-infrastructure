@@ -68,3 +68,9 @@ deployment:
         start: 2019-09-19
         end: 2019-09-19
         group: training-sbc-nanopore-20190919
+    training-bio-:
+        count: 8
+        flavor: c.c32m240
+        start: 2019-10-22
+        end: 2019-11-05
+        group: training-bio-6013a
