@@ -80,3 +80,9 @@ deployment:
         start: 2019-09-19
         end: 2019-09-20
         group: training-miac-hd19
+    training-embl:
+        count: 5
+        flavor: c.c32m240
+        start: 2019-09-02
+        end: 2019-09-06
+        group: training-embl-course-chromatin-signatures
