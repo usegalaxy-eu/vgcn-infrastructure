@@ -58,3 +58,9 @@ deployment:
         start: 2019-11-15
         end: 2019-11-24
         group: training-aracatuba-2019
+    training-sbc-:
+        count: 4
+        flavor: c.c32m240
+        start: 2019-09-19
+        end: 2019-09-19
+        group: training-sbc-nanopore-20190919
