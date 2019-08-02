@@ -60,6 +60,7 @@ mapping:
                           - m1.tiny
                           - m1.xlarge
                           - m1.xxlarge
+                          - c.c40m1000_b
                     "start":
                         type: date
                         format: "%Y-%m-%d"
