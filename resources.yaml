@@ -74,3 +74,9 @@ deployment:
         start: 2019-10-22
         end: 2019-11-05
         group: training-bio-6013a
+    training-miac:
+        count: 4
+        flavor: c.c32m240
+        start: 2019-09-19
+        end: 2019-09-20
+        group: training-miac-hd19
