@@ -2,7 +2,7 @@
 if (( $# != 5 )); then
     echo "Usage:"
     echo
-    echo "  $0 <training-identifier> <vm-size> <vm-count> <start> <end> [--donotautocommitpush]"
+    echo "  $0 <training-identifier> <vm-size> <vm-count> <start in YYYY-mm-dd> <end in YYYY-mm-dd> [--donotautocommitpush]"
     echo
     exit 1;
 fi
