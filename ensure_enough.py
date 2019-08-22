@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import re
 import os
 import datetime
 import subprocess
@@ -205,10 +206,10 @@ class StateManagement:
         logging.info("launching %s (%s) with volume", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
-        custom_userdata = self.user_data \
-            .replace('GalaxyTraining = True', 'GalaxyTraining = %s' % is_training) \
-            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % group) \
-            .replace('GalaxyCluster = none', 'GalaxyCluster = "denbi"')
+        custom_userdata = self.user_data
+        custom_userdata = re.sub('GalaxyTraining.*', 'GalaxyTraining = %s' % is_training, custom_userdata)
+        custom_userdata = re.sub('GalaxyGroup.*', 'GalaxyGroup = "%s"' % group, custom_userdata)
+        custom_userdata = re.sub('GalaxyCluster.*', 'GalaxyCluster = "denbi"', custom_userdata)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
