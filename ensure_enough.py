@@ -207,7 +207,8 @@ class StateManagement:
         # sorting hat expectations.
         custom_userdata = self.user_data \
             .replace('GalaxyTraining = True', 'GalaxyTraining = %s' % is_training) \
-            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % group)
+            .replace('GalaxyGroup = training-beta', 'GalaxyGroup = "%s"' % group) \
+            .replace('GalaxyCluster = none', 'GalaxyCluster = "denbi"')
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
