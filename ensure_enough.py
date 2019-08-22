@@ -73,7 +73,7 @@ class StateManagement:
         # Make at least ten tries
         for i in range(10):
             # generate a test name, similar style to jenkins images.
-            test_name = '%s-%04d' % (prefix, random.randint(0, 1024))
+            test_name = '%s-%04d' % (prefix, random.randint(0, 9999))
             # If unused, we can use this.
             if test_name not in server_names:
                 return test_name
