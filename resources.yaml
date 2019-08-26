@@ -86,3 +86,9 @@ deployment:
         start: 2019-09-02
         end: 2019-09-06
         group: training-embl-course-chromatin-signatures
+    training-tamu:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-08-26
+        end: 2019-12-11
+        group: training-tamugenomics
