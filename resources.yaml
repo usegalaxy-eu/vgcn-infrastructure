@@ -92,3 +92,9 @@ deployment:
         start: 2019-08-26
         end: 2019-12-11
         group: training-tamugenomics
+    training-mgc2:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-08-28
+        end: 2019-08-28
+        group: training-mgc2019
