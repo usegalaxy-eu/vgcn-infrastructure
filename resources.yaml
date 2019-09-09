@@ -51,10 +51,18 @@ deployment:
         flavor: c.c64m1950
         group: compute
     helenatesting:
-        count: 1
+        count: 0
         flavor: c.c10m55
         group: helena
         #volumes: true
+        cgroups: true
+    # Testing specifically for cgroups with hard limits
+    training-cgrp:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-09-09
+        end: 2020-09-30
+        group: training-hard-limits
         cgroups: true
     # Training
     training-arac:
@@ -64,19 +72,19 @@ deployment:
         end: 2019-11-24
         group: training-aracatuba-2019
     training-sbc-:
-        count: 4
+        count: 3
         flavor: c.c32m240
         start: 2019-09-19
         end: 2019-09-19
         group: training-sbc-nanopore-20190919
     training-bio-:
-        count: 7
+        count: 5
         flavor: c.c32m240
         start: 2019-10-22
         end: 2019-11-05
         group: training-bio-6013a
     training-miac:
-        count: 4
+        count: 3
         flavor: c.c32m240
         start: 2019-09-19
         end: 2019-09-20
