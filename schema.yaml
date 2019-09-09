@@ -71,3 +71,5 @@ mapping:
                         type: str
                     "volumes":
                         type: bool
+                    "cgroups":
+                        type: bool

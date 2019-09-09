@@ -55,6 +55,7 @@ deployment:
         flavor: c.c10m55
         group: helena
         #volumes: true
+        cgroups: true
     # Training
     training-arac:
         count: 2
