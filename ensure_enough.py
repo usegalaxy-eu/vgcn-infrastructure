@@ -151,9 +151,9 @@ class StateManagement:
 
     def template_config(self, group, is_training=False, cgroups=False):
         custom_userdata = copy.copy(self.user_data)
-        custom_userdata = re.sub('GalaxyTraining.*', 'GalaxyTraining = %s' % is_training, custom_userdata)
-        custom_userdata = re.sub('GalaxyGroup.*', 'GalaxyGroup = "%s"' % group, custom_userdata)
-        custom_userdata = re.sub('GalaxyCluster.*', 'GalaxyCluster = "denbi"', custom_userdata)
+        custom_userdata = re.sub('  GalaxyTraining.*', '  GalaxyTraining = %s' % is_training, custom_userdata)
+        custom_userdata = re.sub('  GalaxyGroup.*', '  GalaxyGroup = "%s"' % group, custom_userdata)
+        custom_userdata = re.sub('  GalaxyCluster.*', '  GalaxyCluster = "denbi"', custom_userdata)
 
         if cgroups:
             custom_userdata = re.sub('# BASE_CGROUP', 'BASE_CGROUP', custom_userdata)
