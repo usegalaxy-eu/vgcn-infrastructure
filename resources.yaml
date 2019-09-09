@@ -51,10 +51,10 @@ deployment:
         flavor: c.c64m1950
         group: compute
     helenatesting:
-        count: 0
-        flavor: c.c32m240
+        count: 1
+        flavor: c.c10m55
         group: helena
-        volumes: true
+        #volumes: true
     # Training
     training-arac:
         count: 2
@@ -80,21 +80,9 @@ deployment:
         start: 2019-09-19
         end: 2019-09-20
         group: training-miac-hd19
-    training-embl:
-        count: 5
-        flavor: c.c32m240
-        start: 2019-09-02
-        end: 2019-09-06
-        group: training-embl-course-chromatin-signatures
     training-tamu:
         count: 1
         flavor: c.c32m240
         start: 2019-08-26
         end: 2019-12-11
         group: training-tamugenomics
-    training-mgc2:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-08-28
-        end: 2019-08-28
-        group: training-mgc2019
