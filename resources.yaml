@@ -107,3 +107,9 @@ deployment:
         start: 2019-09-23
         end: 2019-13-12
         group: training-scholtz-2019
+    training-inte:
+        count: 3
+        flavor: c.c32m240
+        start: 2019-10-08
+        end: 2019-10-08
+        group: training-internat
