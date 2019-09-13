@@ -101,3 +101,9 @@ deployment:
         start: 2019-09-22
         end: 2019-09-27
         group: training-galaxy-hts-2019
+    training-scho:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-09-23
+        end: 2019-13-12
+        group: training-scholtz-2019
