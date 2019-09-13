@@ -1,5 +1,5 @@
 #!/bin/bash
-if (( $# != 5 )); then
+if ([ $# -lt 5 ]); then
     echo "Usage:"
     echo
     echo "  $0 <training-identifier> <vm-size (e.g. c.c32m240)> <vm-count> <start in YYYY-mm-dd> <end in YYYY-mm-dd> [--donotautocommitpush]"
