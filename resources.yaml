@@ -95,3 +95,9 @@ deployment:
         start: 2019-08-26
         end: 2019-12-11
         group: training-tamugenomics
+    training-gala:
+        count: 5
+        flavor: c.c32m240
+        start: 2019-09-22
+        end: 2019-09-27
+        group: training-galaxy-hts-2019
