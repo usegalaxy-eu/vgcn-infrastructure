@@ -105,7 +105,7 @@ deployment:
         count: 2
         flavor: c.c32m240
         start: 2019-09-16
-        end: 2019-13-12
+        end: 2019-12-13
         group: training-scholtz-2019
     training-inte:
         count: 3
