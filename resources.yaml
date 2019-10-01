@@ -131,7 +131,7 @@ deployment:
         start: 2019-09-30
         end: 2019-12-17
         group: training-svqchip
-    training-gala:
+    training-galg:
         count: 1
         flavor: c.c32m240
         start: 2019-10-08
