@@ -125,3 +125,9 @@ deployment:
         start: 2019-09-24
         end: 2019-12-10
         group: training-bioinfbrad
+    training-svqc:
+        count: 1
+        flavor: c.c40m120
+        start: 2019-09-30
+        end: 2019-12-17
+        group: training-svqchip
