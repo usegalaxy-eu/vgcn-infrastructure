@@ -129,7 +129,7 @@ deployment:
         count: 1
         flavor: c.c40m120
         start: 2019-09-30
-        end: 2019-12-17
+        end: 2020-01-22
         group: training-svqchip
     training-galg:
         count: 1
