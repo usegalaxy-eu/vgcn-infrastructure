@@ -119,3 +119,9 @@ deployment:
         start: 2019-10-08
         end: 2019-10-08
         group: training-galaxyghent
+    training-sd_n:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-10-14
+        end: 2019-10-21
+        group: training-sd_nu_bioinf
