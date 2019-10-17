@@ -72,9 +72,9 @@ deployment:
         end: 2019-11-24
         group: training-aracatuba-2019
     training-bio-:
-        count: 5
+        count: 3
         flavor: c.c32m240
-        start: 2019-10-22
+        start: 2019-10-21
         end: 2019-11-05
         group: training-bio-6013a
     training-tamu:
