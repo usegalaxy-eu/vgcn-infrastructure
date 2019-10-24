@@ -107,3 +107,9 @@ deployment:
         start: 2019-10-14
         end: 2019-10-21
         group: training-sd_nu_bioinf
+    training-uca_:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-11-04
+        end: 2020-01-15
+        group: training-uca_bgt_1920
