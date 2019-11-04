@@ -119,3 +119,9 @@ deployment:
         start: 2019-11-14
         end: 2019-11-15
         group: training-gxafrica19
+    training-embl:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-11-19
+        end: 2019-11-20
+        group: training-embl-gbcs
