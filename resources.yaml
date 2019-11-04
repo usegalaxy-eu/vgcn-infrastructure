@@ -131,3 +131,9 @@ deployment:
         start: 2019-11-28
         end: 2019-11-29
         group: training-fucrispr2019
+    training-m2_g:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-11-28
+        end: 2019-11-29
+        group: training-m2_genomics
