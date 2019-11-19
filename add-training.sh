@@ -76,6 +76,9 @@ If you find yourself wondering where your students are during the training, you 
 *AWS Estimate*:
 If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id} machines, it would cost ${price}USD
 
+*Workshop Feedback*:
+When your workshop is over, if you used GTN materials, please let us know how it went on the workshop feedback issue: https://github.com/galaxyproject/training-material/issues/1452
+
 Please let us know if you have any questions!
 
 Regards,
