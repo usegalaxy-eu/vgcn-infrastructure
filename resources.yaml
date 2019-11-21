@@ -137,3 +137,9 @@ deployment:
         start: 2019-11-25
         end: 2019-11-26
         group: training-m2_genomics
+    training-gmte:
+        count: 1
+        flavor: c.c10m55
+        start: 2019-11-202
+        end: 2019-12-20
+        group: training-gmtest
