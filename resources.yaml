@@ -10,7 +10,7 @@ secgroups:
  - ufr-ingress
  - egress
 
-graceful: false
+graceful: true
 sshkey: cloud2
 
 # The public key(s) we will accept when SSHing to a machine.
@@ -23,7 +23,7 @@ deployment:
         flavor: m1.xlarge
         group: upload
     compute-10m55:
-        count: 1
+        count: 10
         flavor: c.c10m55
         group: compute
     compute-c20me:
