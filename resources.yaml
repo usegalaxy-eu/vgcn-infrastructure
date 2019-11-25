@@ -65,18 +65,6 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-arac:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-11-15
-        end: 2019-11-24
-        group: training-aracatuba-2019
-    training-bio-:
-        count: 3
-        flavor: c.c32m240
-        start: 2019-10-21
-        end: 2019-11-05
-        group: training-bio-6013a
     training-tamu:
         count: 1
         flavor: c.c32m240
@@ -101,30 +89,12 @@ deployment:
         start: 2019-09-30
         end: 2020-01-22
         group: training-svqchip
-    training-sd_n:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-10-14
-        end: 2019-10-21
-        group: training-sd_nu_bioinf
     training-uca_:
         count: 2
         flavor: c.c32m240
         start: 2019-11-04
         end: 2020-01-15
         group: training-uca_bgt_1920
-    training-gxaf:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-11-14
-        end: 2019-11-15
-        group: training-gxafrica19
-    training-embl:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-11-19
-        end: 2019-11-20
-        group: training-embl-gbcs
     training-fucr:
         count: 1
         flavor: c.c32m240
