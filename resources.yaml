@@ -23,7 +23,7 @@ deployment:
         flavor: m1.xlarge
         group: upload
     compute-10m55:
-        count: 1
+        count: 10
         flavor: c.c10m55
         group: compute
     compute-c20me:
