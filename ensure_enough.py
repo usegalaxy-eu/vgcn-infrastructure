@@ -265,7 +265,7 @@ class StateManagement:
         if server['Status'] == 'ACTIVE':
             # Get the IP address
             # TODO(hxr): will not support multiply homed
-            ip = server['Networks'].split('=')[0]
+            ip = server['Networks'].split('=')[1]
 
             time_slept = 0
             while True:
