@@ -120,3 +120,9 @@ deployment:
         start: 2019-12-02
         end: 2019-12-06
         group: training-rnaseqparis2019
+    training-sbc-:
+        count: 2
+        flavor: c.c32m240
+        start: 2019-12-09
+        end: 2019-12-09
+        group: training-sbc-20190-12
