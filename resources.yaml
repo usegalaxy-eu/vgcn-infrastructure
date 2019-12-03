@@ -126,3 +126,9 @@ deployment:
         start: 2019-12-09
         end: 2019-12-09
         group: training-sbc-20190-12
+    training-letb:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-12-09
+        end: 2019-12-13
+        group: training-letbridge-wgs
