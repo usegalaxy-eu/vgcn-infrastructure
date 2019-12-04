@@ -55,6 +55,9 @@ deployment:
         count: 1
         flavor: c.c64m1950
         group: compute
+        volume:
+          size: 100
+          boot: true
     helenatesting:
         count: 0
         flavor: c.c10m55
