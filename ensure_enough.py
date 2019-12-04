@@ -270,7 +270,6 @@ class StateManagement:
 
         args = [
             'boot',
-            '--image', self.current_image_name,
             '--flavor', flavor,
             '--key-name', self.config['sshkey'],
             '--availability-zone', 'nova',
