@@ -250,7 +250,7 @@ class StateManagement:
         # Wait for this server to become 'ACTIVE'
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
-    def launch_server_boot_volume(self, name, flavor, group, is_training=False, cgroups=False):
+    def launch_server_boot_volume(self, name, flavor, resource_identifier, group, is_training=False, cgroups=False):
         """
         Launch a server with a given name + flavor.
 
