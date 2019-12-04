@@ -110,11 +110,13 @@ deployment:
         end: 2019-11-26
         group: training-m2_genomics
     training-gmte:
-        count: 3
+        count: 4
         flavor: c.c10m55
         start: 2019-11-20
         end: 2019-12-20
-        boot_volumes: true
+        volume:
+          size: 50
+          boot: true
         group: training-gmtest
     training-rnas:
         count: 1

@@ -72,9 +72,14 @@ mapping:
                         format: "%Y-%m-%d"
                     "group":
                         type: str
-                    "boot_volumes":
-                      type: bool
-                    "volumes":
-                        type: bool
+                    "volume":
+                        type: map
+                        'mapping':
+                            "size":
+                                type: int
+                                range:
+                                  min: 12
+                            "boot":
+                                type: bool
                     "cgroups":
                         type: bool
