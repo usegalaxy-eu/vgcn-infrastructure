@@ -69,6 +69,8 @@ mapping:
                         format: "%Y-%m-%d"
                     "group":
                         type: str
+                    "boot_volumes":
+                      type: bool
                     "volumes":
                         type: bool
                     "cgroups":
