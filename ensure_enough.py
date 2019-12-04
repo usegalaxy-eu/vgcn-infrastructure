@@ -250,6 +250,50 @@ class StateManagement:
         # Wait for this server to become 'ACTIVE'
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
+    def launch_server_boot_volume(self, name, flavor, group, is_training=False, cgroups=False):
+        """
+        Launch a server with a given name + flavor.
+
+        :returns: The launched server
+        :rtype: novaclient.v2.servers.Server
+        """
+        if DRY_RUN: return {'Status': 'OK (fake)'}
+
+        logging.info("launching %s (%s) with volume", name, flavor)
+        # If it's a compute-something, then we just tag as compute, per current
+        # sorting hat expectations.
+        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups)
+
+        f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
+        f.write(custom_userdata.encode())
+        f.close()
+
+        args = [
+            'boot',
+            '--image', self.current_image_name,
+            '--flavor', flavor,
+            '--key-name', self.config['sshkey'],
+            '--availability-zone', 'nova',
+            '--nic', 'net-id=%s' % self.config['network_id'],
+            '--user-data', f.name,
+            '--block-device', 'source=image,id={},dest=volume,size=100,bootindex=0,shutdown=remove'.format(self.config['image_id']),
+        ]
+
+        args.append('--security-groups')
+        args.append(','.join(self.config['secgroups']))
+
+        args.append(name)
+
+        self.os_command(args, cmd='nova', is_json=False)
+
+        try:
+            os.unlink(f.name)
+        except:
+            pass
+
+        # Wait for this server to become 'ACTIVE'
+        return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
+
     def brutally_terminate(self, server):
         if DRY_RUN: return
 
@@ -323,7 +367,8 @@ class StateManagement:
                 break
             time.sleep(10)
 
-    def top_up(self, desired_instances, prefix, resource_identifier, flavor, group, volumes=False, cgroups=False):
+    def top_up(self, desired_instances, prefix, resource_identifier, flavor, group, boot_volumes=False, volumes=False,
+               cgroups=False):
         """
         :param int desired_instances: Number of instances of this type to launch
 
@@ -359,6 +404,8 @@ class StateManagement:
 
             if volumes:
                 server = self.launch_server_volume(*args, **kwargs)
+            elif boot_volumes:
+                server = self.launch_server_boot_volume(*args, **kwargs)
             else:
                 server = self.launch_server(*args, **kwargs)
 
@@ -445,12 +492,20 @@ class StateManagement:
                     self.brutally_terminate(server)
 
                 # With that done, 'top up' to the correct number of VMs.
-                self.top_up(desired_instances, prefix, resource_identifier, flavor, resource.get('group', resource_identifier), volumes=resource.get('volumes', False), cgroups=resource.get('cgroups', False))
+                self.top_up(desired_instances, prefix, resource_identifier, flavor,
+                            resource.get('group', resource_identifier),
+                            boot_volumes=resource.get('boot_volumes', False),
+                            volumes=resource.get('volumes', False),
+                            cgroups=resource.get('cgroups', False))
 
             # Now that we've removed all that we need to remove, again, try to top-up
             # to make sure we're OK. (Also important in case we had no servers already
             # running.)
-            self.top_up(desired_instances, prefix, resource_identifier, flavor, resource.get('group', resource_identifier), volumes=resource.get('volumes', False), cgroups=resource.get('cgroups', False))
+            self.top_up(desired_instances, prefix, resource_identifier, flavor,
+                        resource.get('group', resource_identifier),
+                        boot_volumes=resource.get('boot_volumes', False),
+                        volumes=resource.get('volumes', False),
+                        cgroups=resource.get('cgroups', False))
 
 
 if __name__ == '__main__':
