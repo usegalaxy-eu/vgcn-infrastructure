@@ -280,7 +280,7 @@ class StateManagement:
         ]
         if vol_boot:
             args.append('--block-device')
-            args.append('source=image,id={},dest=volume,size={}},bootindex=0,shutdown=remove'.format(self.config['image_id'], vol_size))
+            args.append('source=image,id={},dest=volume,size={},bootindex=0,shutdown=remove'.format(self.config['image_id'], vol_size))
         else:
             args.append('--image')
             args.append(self.current_image_name)
