@@ -235,9 +235,8 @@ class StateManagement:
             '--block-device', 'source=blank,dest=volume,size=100,shutdown=remove',
         ]
 
-        for sg in self.config['secgroups']:
-            args.append('--security-group')
-            args.append(sg)
+        args.append('--security-groups')
+        args.append(','.join(self.config['secgroups']))
 
         args.append(name)
 
