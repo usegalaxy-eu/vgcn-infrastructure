@@ -142,3 +142,9 @@ deployment:
         start: 2019-12-09
         end: 2019-12-13
         group: training-letbridge-wgs
+    training-mast:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-12-06
+        end: 2019-12-06
+        group: training-master1brest
