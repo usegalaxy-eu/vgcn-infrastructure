@@ -82,24 +82,12 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-tamu:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-08-26
-        end: 2019-12-11
-        group: training-tamugenomics
     training-scho:
         count: 1
         flavor: c.c32m240
         start: 2019-09-16
         end: 2019-12-13
         group: training-scholtz-2019
-    training-bioi:
-        count: 1
-        flavor: c.c40m120
-        start: 2019-09-24
-        end: 2019-12-10
-        group: training-bioinfbrad
     training-svqc:
         count: 1
         flavor: c.c40m120
@@ -112,18 +100,6 @@ deployment:
         start: 2019-11-04
         end: 2020-01-15
         group: training-uca_bgt_1920
-    training-fucr:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-11-28
-        end: 2019-11-29
-        group: training-fucrispr2019
-    training-m2_g:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-11-25
-        end: 2019-11-26
-        group: training-m2_genomics
     training-gmte:
         count: 1
         flavor: c.c10m55
@@ -133,27 +109,9 @@ deployment:
           size: 50
           boot: false
         group: training-gmtest
-    training-rnas:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-12-02
-        end: 2019-12-06
-        group: training-rnaseqparis2019
-    training-sbc-:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-12-09
-        end: 2019-12-09
-        group: training-sbc-20190-12
     training-letb:
         count: 1
         flavor: c.c32m240
         start: 2019-12-09
         end: 2019-12-13
         group: training-letbridge-wgs
-    training-mast:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-12-06
-        end: 2019-12-06
-        group: training-master1brest
