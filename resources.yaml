@@ -46,6 +46,9 @@ deployment:
         count: 10
         flavor: c.c40m250
         group: compute
+        volume:
+          size: 100
+          boot: true
     compute-c40m1:
         count: 8
         flavor: c.c40m1000
