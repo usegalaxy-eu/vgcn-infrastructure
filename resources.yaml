@@ -121,3 +121,9 @@ deployment:
         start: 2019-12-09
         end: 2019-12-13
         group: training-letbridge-wgs
+    training-scan:
+        count: 1
+        flavor: c.c32m240
+        start: 2019-12-15
+        end: 2020-01-15
+        group: training-scanpy
