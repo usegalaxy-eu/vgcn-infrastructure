@@ -133,3 +133,9 @@ deployment:
         start: 2020-01-13
         end: 2020-01-24
         group: training-summeramr
+    training-long:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-01-16
+        end: 2020-01-16
+        group: training-longreadseq2020
