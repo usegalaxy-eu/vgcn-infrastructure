@@ -88,24 +88,6 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-scho:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-09-16
-        end: 2019-12-13
-        group: training-scholtz-2019
-    training-svqc:
-        count: 1
-        flavor: c.c40m120
-        start: 2019-09-30
-        end: 2020-01-22
-        group: training-svqchip
-    training-uca_:
-        count: 2
-        flavor: c.c32m240
-        start: 2019-11-04
-        end: 2020-01-15
-        group: training-uca_bgt_1920
     training-gmte:
         count: 1
         flavor: c.c10m55
@@ -115,36 +97,6 @@ deployment:
           size: 50
           boot: false
         group: training-gmtest
-    training-letb:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-12-09
-        end: 2019-12-13
-        group: training-letbridge-wgs
-    training-scan:
-        count: 1
-        flavor: c.c32m240
-        start: 2019-12-15
-        end: 2020-01-15
-        group: training-scanpy
-    training-summ:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-01-13
-        end: 2020-01-24
-        group: training-summeramr
-    training-long:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-01-16
-        end: 2020-01-16
-        group: training-longreadseq2020
-    training-avan:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-01-22
-        end: 2020-01-24
-        group: training-avans2020
     training-prat:
         count: 1
         flavor: c.c32m240
