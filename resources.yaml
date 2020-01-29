@@ -113,3 +113,9 @@ deployment:
         start: 2020-03-16
         end: 2020-04-10
         group: training-raeg2020
+    training-abrf:
+        count: 2
+        flavor: c.c32m240
+        start: 2020-02-29
+        end: 2020-02-29
+        group: training-abrf2020
