@@ -56,6 +56,7 @@ price=$(python cost.py $vm_cpu $vm_mem $vm_seconds | head -n 1)
 machines=$(python cost.py $vm_cpu $vm_mem $vm_seconds | tail -n 1)
 aws_id=$(echo $machines | sed "s/'/\"/g" | jq .name -r)
 price=$(echo "$price * $vm_count" | bc -l)
+price_int=$(printf "%0.2f" $price)
 yourname=$(git config --global --get user.name)
 
 printf "
@@ -74,7 +75,7 @@ They will be added to the training group and put into a private queue which shou
 If you find yourself wondering where your students are during the training, you can use the new queue status page to see which jobs are being run by people in your training: https://usegalaxy.eu/join-training/${1}/status
 
 *AWS Estimate*:
-If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id} machines, it would cost ${price}USD
+If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id} machines, it would cost ${price_int}USD
 
 *Workshop Feedback*:
 When your workshop is over, if you used GTN materials, please let us know how it went on the workshop feedback issue: https://github.com/galaxyproject/training-material/issues/1452
