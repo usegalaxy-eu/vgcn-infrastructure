@@ -95,8 +95,8 @@ deployment:
     training-gmte:
         count: 1
         flavor: c.c10m55
-        start: 2019-11-20
-        end: 2019-12-20
+        start: 2020-02-06
+        end: 2020-02-20
         volume:
           size: 50
           boot: false
