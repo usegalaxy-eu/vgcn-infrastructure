@@ -36,7 +36,7 @@ deployment:
           size: 100
           boot: true
     compute-c20me:
-        count: 60
+        count: 40
         flavor: c.c20m120
         group: compute
         volume:
