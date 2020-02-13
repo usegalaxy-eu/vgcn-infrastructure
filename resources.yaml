@@ -43,7 +43,7 @@ deployment:
           size: 100
           boot: true
     compute-c40m2:
-        count: 8
+        count: 10
         flavor: c.c40m120
         group: compute
         volume:
