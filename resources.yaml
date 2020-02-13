@@ -77,6 +77,13 @@ deployment:
         volume:
           size: 100
           boot: true
+    compute-c32m2:
+        count: 3
+        flavor: c.c32m240
+        group: compute
+        volume:
+          size: 100
+          boot: true
     helenatesting:
         count: 0
         flavor: c.c10m55
@@ -101,12 +108,6 @@ deployment:
           size: 50
           boot: false
         group: training-gmtest
-    training-prat:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-01-27
-        end: 2020-01-27
-        group: training-pratical_course
     training-raeg:
         count: 2
         flavor: c.c32m240
