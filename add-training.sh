@@ -39,16 +39,6 @@ fi
 vm_cpu=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $1}')
 vm_mem=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $2}')
 
-echo " - ${training_identifier}" >> ../infrastructure-playbook/group_vars/tiaas.yml
-
-if (( autopush == 1 )); then
-	cd ../infrastructure-playbook/
-	git add group_vars/tiaas.yml
-	git commit -m 'New training'
-	git push
-	cd -
-fi
-
 ts_end=$(date -d "$end 23:59" +%s)
 ts_stt=$(date -d "$start 00:00" +%s)
 vm_seconds=$(( ts_end - ts_stt ))
