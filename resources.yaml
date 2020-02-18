@@ -78,7 +78,7 @@ deployment:
           size: 100
           boot: true
     compute-c32m2:
-        count: 3
+        count: 0
         flavor: c.c32m240
         group: compute
         volume:
