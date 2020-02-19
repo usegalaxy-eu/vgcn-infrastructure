@@ -36,7 +36,7 @@ deployment:
           size: 100
           boot: true
     compute-c20me:
-        count: 20
+        count: 40
         flavor: c.c20m120
         group: compute
         volume:
@@ -145,7 +145,7 @@ deployment:
         end: 2020-02-11
         group: training-pndb
     training-ft_h:
-        count: 1
+        count: 5
         flavor: c.c32m240
         start: 2020-02-10
         end: 2020-02-21
