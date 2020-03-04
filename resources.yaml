@@ -36,7 +36,7 @@ deployment:
           size: 100
           boot: true
     interactive-c20me:
-        count: 10
+        count: 4
         flavor: c.c20m120
         group: interactive
         volume:
