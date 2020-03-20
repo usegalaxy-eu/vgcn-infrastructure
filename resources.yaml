@@ -36,14 +36,14 @@ deployment:
           size: 100
           boot: true
     interactive-c20me:
-        count: 2
+        count: 3
         flavor: c.c20m120
         group: interactive
         volume:
           size: 100
           boot: true
     compute-c20me:
-        count: 42
+        count: 41
         flavor: c.c20m120
         group: compute
         volume:
