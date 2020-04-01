@@ -112,6 +112,27 @@ deployment:
         volume:
           size: 100
           boot: true
+    compute-c250d:
+        count: 7
+        flavor: c1.m950_c250
+        group: compute
+        volume:
+          size: 100
+          boot: true
+    compute-c250e:
+        count: 7
+        flavor: c1.m950_c250_2
+        group: compute
+        volume:
+          size: 100
+          boot: true
+    compute-c250f:
+        count: 6
+        flavor: c1.m950_c250_3
+        group: compute
+        volume:
+          size: 100
+          boot: true
     helenatesting:
         count: 0
         flavor: c.c10m55
