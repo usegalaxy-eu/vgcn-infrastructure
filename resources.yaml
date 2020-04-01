@@ -106,7 +106,7 @@ deployment:
           size: 100
           boot: true
     compute-c250c:
-        count: 7
+        count: 2
         flavor: c1.m450_c250_3
         group: compute
         volume:
