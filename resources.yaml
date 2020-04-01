@@ -91,44 +91,44 @@ deployment:
         volume:
           size: 100
           boot: true
-    compute-c250a:
-        count: 7
-        flavor: c1.m450_c250
+    compute-c125a:
+        count: 14
+        flavor: c1.c125m425
         group: compute
         volume:
           size: 100
           boot: true
-    compute-c250b:
-        count: 7
-        flavor: c1.m450_c250_2
+    compute-c125b:
+        count: 14
+        flavor: c1.c125m425_2
         group: compute
         volume:
           size: 100
           boot: true
-    compute-c250c:
-        count: 2
-        flavor: c1.m450_c250_3
+    compute-c125c:
+        count: 14
+        flavor: c1.c125m425_3
         group: compute
         volume:
           size: 100
           boot: true
-    compute-c250d:
-        count: 7
-        flavor: c1.m950_c250
+    compute-c125d:
+        count: 14
+        flavor: c1.c125m225
         group: compute
         volume:
           size: 100
           boot: true
-    compute-c250e:
-        count: 7
-        flavor: c1.m950_c250_2
+    compute-c125e:
+        count: 14
+        flavor: c1.c125m225_2
         group: compute
         volume:
           size: 100
           boot: true
-    compute-c250f:
-        count: 6
-        flavor: c1.m950_c250_3
+    compute-c125f:
+        count: 4
+        flavor: c1.c125m225_3
         group: compute
         volume:
           size: 100

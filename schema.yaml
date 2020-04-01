@@ -64,12 +64,12 @@ mapping:
                           - m1.xlarge
                           - m1.xxlarge
                           - c.c40m1000_b
-                          - c1.m450_c250
-                          - c1.m450_c250_2
-                          - c1.m450_c250_3
-                          - c1.m950_c250
-                          - c1.m950_c250_2
-                          - c1.m950_c250_3
+                          - c1.c125m225
+                          - c1.c125m225_2
+                          - c1.c125m225_3
+                          - c1.c125m425
+                          - c1.c125m425_2
+                          - c1.c125m425_3
                     "start":
                         type: date
                         format: "%Y-%m-%d"
