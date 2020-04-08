@@ -161,7 +161,7 @@ deployment:
 
 
     training-gala:
-        count: 1
+        count: 2
         flavor: c.c32m240
         start: 2020-04-08
         end: 2020-04-08
