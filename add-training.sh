@@ -65,7 +65,7 @@ They will be added to the training group and put into a private queue which shou
 If you find yourself wondering where your students are during the training, you can use the new queue status page to see which jobs are being run by people in your training: https://usegalaxy.eu/join-training/${training_identifier}/status
 
 *AWS Estimate*:
-If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id} machines, it would cost ${price_int}USD
+If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id} machines, it would cost ${price_int} USD
 
 *Workshop Feedback*:
 When your workshop is over, if you used GTN materials, please let us know how it went on the workshop feedback issue: https://github.com/galaxyproject/training-material/issues/1452
