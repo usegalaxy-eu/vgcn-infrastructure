@@ -113,21 +113,21 @@ deployment:
           size: 100
           boot: true
     compute-c125m225d:
-        count: 14
+        count: 0
         flavor: c1.c125m225
         group: compute
         volume:
           size: 100
           boot: true
     compute-c125m225e:
-        count: 14
+        count: 0
         flavor: c1.c125m225_2
         group: compute
         volume:
           size: 100
           boot: true
     compute-c125m225f:
-        count: 4
+        count: 0
         flavor: c1.c125m225_3
         group: compute
         volume:
