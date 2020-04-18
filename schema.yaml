@@ -64,6 +64,9 @@ mapping:
                           - m1.xlarge
                           - m1.xxlarge
                           - c.c40m1000_b
+                          - c1.c120m215
+                          - c1.c120m215_2
+                          - c1.c120m215_3
                           - c1.c125m225
                           - c1.c125m225_2
                           - c1.c125m225_3
