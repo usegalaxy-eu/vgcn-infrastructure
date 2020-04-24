@@ -184,3 +184,9 @@ deployment:
         start: 2020-06-17
         end: 2020-06-17
         group: training-sib2020
+    training-2020:
+        count: 6
+        flavor: c32m240
+        start: 2020-05-06
+        end: 2020-05-06
+        group: training-2020-05-06-sbc
