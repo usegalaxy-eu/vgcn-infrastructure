@@ -91,7 +91,7 @@ deployment:
           size: 100
           boot: true
     compute-c125m425:
-        count: 22
+        count: 42
         flavor: c1.c125m425
         group: compute
         volume:
@@ -133,32 +133,8 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-raeg:
-        count: 2
-        flavor: c.c32m240
-        start: 2020-03-16
-        end: 2020-04-10
-        group: training-raeg2020
-
-
-
-
-
-
-    training-gala:
-        count: 2
-        flavor: c.c32m240
-        start: 2020-04-08
-        end: 2020-04-08
-        group: training-galaxyintro
-    training-2020:
-        count: 6
-        flavor: c.c32m240
-        start: 2020-04-22
-        end: 2020-04-22
-        group: training-2020-04-22-sbc
     training-gqa:
-        count: 13
+        count: 9
         flavor: c.c32m240
         start: 2020-04-27
         end: 2020-05-20
