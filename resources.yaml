@@ -90,23 +90,9 @@ deployment:
         volume:
           size: 100
           boot: true
-    compute-c125m425a:
-        count: 0
+    compute-c125m425:
+        count: 22
         flavor: c1.c125m425
-        group: compute
-        volume:
-          size: 100
-          boot: true
-    compute-c125m425b:
-        count: 0
-        flavor: c1.c125m425_2
-        group: compute
-        volume:
-          size: 100
-          boot: true
-    compute-c125m425c:
-        count: 0
-        flavor: c1.c125m425_3
         group: compute
         volume:
           size: 100
