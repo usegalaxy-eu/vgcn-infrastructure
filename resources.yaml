@@ -33,7 +33,7 @@ deployment:
         flavor: c.c10m55
         group: test
         volume:
-          size: 100
+          size: 1000
     interactive-c20me:
         count: 3
         flavor: c.c20m120
