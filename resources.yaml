@@ -1,8 +1,8 @@
 ---
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
-image: vggp-v31-j131-48003324e4d4-master
-image_id: 5fbb5928-30c2-45ee-9fc4-0afc66e0bec5
+image: vggp-v31-j146-master
+image_id: 06c61de7-838d-4ac2-a62b-50e4cc9b851c
 
 network: bioinf
 network_id: afca9459-0eb1-4d67-999f-b07bf3bc99c5
@@ -29,12 +29,11 @@ deployment:
         flavor: m1.xlarge
         group: upload
     compute-10m55:
-        count: 1
+        count: 2
         flavor: c.c10m55
-        group: compute
+        group: test
         volume:
-          size: 100
-          boot: true
+          size: 1000
     interactive-c20me:
         count: 3
         flavor: c.c20m120
@@ -84,30 +83,9 @@ deployment:
         volume:
           size: 100
           boot: true
-    compute-c32m2:
-        count: 0
-        flavor: c.c32m240
-        group: compute
-        volume:
-          size: 100
-          boot: true
-    compute-c125m425a:
-        count: 14
+    compute-c125m425:
+        count: 20
         flavor: c1.c125m425
-        group: compute
-        volume:
-          size: 100
-          boot: true
-    compute-c125m425b:
-        count: 14
-        flavor: c1.c125m425_2
-        group: compute
-        volume:
-          size: 100
-          boot: true
-    compute-c125m425c:
-        count: 14
-        flavor: c1.c125m425_3
         group: compute
         volume:
           size: 100
@@ -148,24 +126,6 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-raeg:
-        count: 2
-        flavor: c.c32m240
-        start: 2020-03-16
-        end: 2020-04-10
-        group: training-raeg2020
-
-
-
-
-
-
-    training-gala:
-        count: 2
-        flavor: c.c32m240
-        start: 2020-04-08
-        end: 2020-04-08
-        group: training-galaxyintro
     training-sbc1:
         count: 6
         flavor: c.c32m240
@@ -173,7 +133,7 @@ deployment:
         end: 2020-04-22
         group: training-2020-04-22-sbc
     training-gqa:
-        count: 13
+        count: 9
         flavor: c.c32m240
         start: 2020-04-27
         end: 2020-05-20

@@ -71,8 +71,6 @@ mapping:
                           - c1.c125m225_2
                           - c1.c125m225_3
                           - c1.c125m425
-                          - c1.c125m425_2
-                          - c1.c125m425_3
                     "start":
                         type: date
                         format: "%Y-%m-%d"

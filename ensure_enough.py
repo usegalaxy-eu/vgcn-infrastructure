@@ -408,7 +408,7 @@ class StateManagement:
 
             if volume:
                 kwargs['vol_size'] = volume_args['size']
-                kwargs['vol_boot'] = volume_args['boot']
+                kwargs['vol_boot'] = volume_args.get('boot', False)
                 server = self.launch_server_volume(*args, **kwargs)
             else:
                 server = self.launch_server(*args, **kwargs)
