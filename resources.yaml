@@ -88,8 +88,7 @@ deployment:
         flavor: c1.c125m425
         group: compute
         volume:
-          size: 100
-          boot: true
+          size: 1024
     compute-c120m215a:
         count: 14
         flavor: c1.c120m215
