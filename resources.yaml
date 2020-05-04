@@ -137,7 +137,7 @@ deployment:
         end: 2020-05-06
         group: training-2020-05-06-sbc
     training-scebi:
-        count: 1
+        count: 3
         flavor: c.c32m240
         start: 2020-05-11
         end: 2020-05-15
