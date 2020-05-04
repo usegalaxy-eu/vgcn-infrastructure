@@ -148,3 +148,9 @@ deployment:
         start: 2020-05-18
         end: 2020-05-20
         group: training-imbb
+    training-sbc3:
+        count: 7
+        flavor: c.c32m240
+        start: 2020-05-13
+        end: 2020-05-13
+        group: training-2020-05-13-sbc
