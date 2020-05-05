@@ -119,7 +119,7 @@ deployment:
         #cgroups: true
     # Training
     training-gqa:
-        count: 9
+        count: 6
         flavor: c.c32m240
         start: 2020-04-27
         end: 2020-05-20
@@ -131,7 +131,7 @@ deployment:
         end: 2020-06-17
         group: training-sib2020
     training-sbc2:
-        count: 6
+        count: 3
         flavor: c.c32m240
         start: 2020-05-06
         end: 2020-05-06
