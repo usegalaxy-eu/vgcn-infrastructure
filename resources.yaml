@@ -2,7 +2,7 @@
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
 image: vggp-v31-j150-e4525909d9dc-master
-image_id: 5d526b28-4224-4667-8cd9-12de942a64ed
+image_id: 51ad582a-2094-44fc-a022-10ad12433294
 
 network: bioinf
 network_id: afca9459-0eb1-4d67-999f-b07bf3bc99c5
