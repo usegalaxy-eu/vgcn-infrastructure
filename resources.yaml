@@ -2,7 +2,7 @@
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
 image: vggp-v31-j150-e4525909d9dc-master
-image_id: 7f506272-1feb-4a77-b97f-c3655d179f92
+image_id: 9c3a6303-89b6-4390-b416-8cabde1a1a60
 
 network: bioinf
 network_id: afca9459-0eb1-4d67-999f-b07bf3bc99c5
@@ -83,7 +83,7 @@ deployment:
         volume:
           size: 20480
     compute-c120m215:
-        count: 0
+        count: 1
         flavor: c1.c120m215
         group: compute
         volume:
