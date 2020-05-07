@@ -124,8 +124,8 @@ deployment:
     training-scebi:
         count: 3
         flavor: c.c32m240
-        start: 2020-05-10
-        end: 2020-05-15
+        start: 2020-06-01
+        end: 2020-06-05
         group: training-singlecellebi-train
     training-imbb:
         count: 2
