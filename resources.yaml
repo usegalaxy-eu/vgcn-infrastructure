@@ -133,3 +133,9 @@ deployment:
         start: 2020-05-13
         end: 2020-05-13
         group: training-2020-05-13-sbc
+    training-cruk:
+        count: 3
+        flavor: c.c32m240
+        start: 2020-05-18
+        end: 2020-06-18
+        group: training-galaxycruk
