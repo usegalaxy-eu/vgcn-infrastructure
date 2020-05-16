@@ -145,3 +145,9 @@ deployment:
         start: 2020-05-18
         end: 2020-06-18
         group: training-galaxycruk
+    training-intr:
+        count: 1
+        flavor: c32m240
+        start: 2020-05-19
+        end: 2020-05-19
+        group: training-intro-iran
