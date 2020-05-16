@@ -104,7 +104,7 @@ deployment:
         #cgroups: true
     # Training
     training-gqa:
-        count: 6
+        count: 3
         flavor: c.c32m240
         start: 2020-04-27
         end: 2020-05-20
@@ -115,12 +115,6 @@ deployment:
         start: 2020-06-17
         end: 2020-06-17
         group: training-sib2020
-    training-sbc2:
-        count: 3
-        flavor: c.c32m240
-        start: 2020-05-06
-        end: 2020-05-06
-        group: training-2020-05-06-sbc
     training-scebi:
         count: 3
         flavor: c.c32m240
@@ -133,15 +127,15 @@ deployment:
         start: 2020-05-18
         end: 2020-05-20
         group: training-imbb
-    training-sbc3:
-        count: 7
-        flavor: c.c32m240
-        start: 2020-05-13
-        end: 2020-05-13
-        group: training-2020-05-13-sbc
     training-cruk:
         count: 3
         flavor: c.c32m240
         start: 2020-05-18
         end: 2020-06-18
         group: training-galaxycruk
+    training-intr:
+        count: 1
+        flavor: c32m240
+        start: 2020-05-19
+        end: 2020-05-19
+        group: training-intro-iran
