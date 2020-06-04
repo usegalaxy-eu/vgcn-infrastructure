@@ -110,9 +110,9 @@ deployment:
         end: 2020-05-20
         group: training-gqa
     training-sib2:
-        count: 7
+        count: 6
         flavor: c.c32m240
-        start: 2020-06-17
+        start: 2020-06-15
         end: 2020-06-17
         group: training-sib2020
     training-scebi:
