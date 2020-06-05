@@ -29,9 +29,9 @@ deployment:
         flavor: m1.xlarge
         group: upload
     compute-10m55:
-        count: 2
+        count: 20
         flavor: c.c10m55
-        group: test
+        group: compute
         volume:
           size: 1000
     interactive-c20me:
