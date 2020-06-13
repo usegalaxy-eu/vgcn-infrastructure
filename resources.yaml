@@ -77,11 +77,11 @@ deployment:
         volume:
           size: 20480
     compute-c125m425:
-        count: 44
+        count: 4
         flavor: c1.c125m425
         group: compute
     compute-c120m215:
-        count: 32
+        count: 0
         flavor: c1.c120m215
         group: compute
         volume:
