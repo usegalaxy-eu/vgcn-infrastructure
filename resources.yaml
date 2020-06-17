@@ -105,15 +105,15 @@ deployment:
         start: 2020-06-15
         end: 2020-06-17
         group: training-sib2020
-    training-scebi:
-        count: 3
-        flavor: c.c32m240
-        start: 2020-06-01
-        end: 2020-06-05
-        group: training-singlecellebi-train
     training-cruk:
         count: 3
         flavor: c.c32m240
         start: 2020-05-18
         end: 2020-06-18
         group: training-galaxycruk
+    training-bmw_:
+        count: 6
+        flavor: c.c32m240
+        start: 2020-06-18
+        end: 2020-06-25
+        group: training-bmw_genome_analysis
