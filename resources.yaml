@@ -99,12 +99,6 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-sib2:
-        count: 6
-        flavor: c.c32m240
-        start: 2020-06-15
-        end: 2020-06-17
-        group: training-sib2020
     training-cruk:
         count: 3
         flavor: c.c32m240
