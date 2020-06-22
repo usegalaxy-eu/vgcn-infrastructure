@@ -35,7 +35,7 @@ deployment:
         volume:
           size: 1000
     interactive-c20me:
-        count: 3
+        count: 1
         flavor: c.c20m120
         group: interactive
         volume:
