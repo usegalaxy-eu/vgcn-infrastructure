@@ -28,6 +28,10 @@ deployment:
         count: 2
         flavor: m1.xlarge
         group: upload
+    compute-py3:
+        count: 2
+        flavor: m1.xlarge
+        group: py3   
     compute-10m55:
         count: 20
         flavor: c.c10m55
