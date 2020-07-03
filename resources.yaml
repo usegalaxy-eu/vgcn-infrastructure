@@ -103,21 +103,9 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-cruk:
-        count: 3
+    training-ei_s:
+        count: 9
         flavor: c.c32m240
-        start: 2020-05-18
-        end: 2020-06-18
-        group: training-galaxycruk
-    training-bmw_:
-        count: 3
-        flavor: c.c32m240
-        start: 2020-06-18
-        end: 2020-06-25
-        group: training-bmw_genome_analysis
-    training-gala:
-        count: 6
-        flavor: c.c32m240
-        start: 2020-06-22
-        end: 2020-06-26
-        group: training-galaxy-ml
+        start: 2020-10-19
+        end: 2020-10-22
+        group: training-ei_sc_rnaseq_2020
