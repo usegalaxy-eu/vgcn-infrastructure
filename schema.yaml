@@ -85,3 +85,5 @@ mapping:
                                 type: bool
                     "cgroups":
                         type: bool
+                    "docker_ready":
+                        type: bool
