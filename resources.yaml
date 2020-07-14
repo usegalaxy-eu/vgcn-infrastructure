@@ -104,11 +104,12 @@ deployment:
         #cgroups: true
     # Training
     training-gcc:
-        count: 16
+        count: 1
         flavor: c1.c120m215
         group: training-gcc
         start: 2020-07-15
         end: 2020-07-24
+        docker_ready: true
         volume:
           size: 2048
     training-ei_s:
