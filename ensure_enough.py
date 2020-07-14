@@ -149,11 +149,12 @@ class StateManagement:
             if slept_for > timeout:
                 return {'Status': 'ERROR', 'Name': server_name}
 
-    def template_config(self, group, is_training=False, cgroups=False):
+    def template_config(self, group, is_training=False, cgroups=False, docker_ready=False):
         custom_userdata = copy.copy(self.user_data)
         custom_userdata = re.sub('  GalaxyTraining.*', '  GalaxyTraining = %s' % is_training, custom_userdata)
         custom_userdata = re.sub('  GalaxyGroup.*', '  GalaxyGroup = "%s"' % group, custom_userdata)
         custom_userdata = re.sub('  GalaxyCluster.*', '  GalaxyCluster = "denbi"', custom_userdata)
+        custom_userdata = re.sub('  GalaxyDockerHack.*', '  GalaxyDockerHack = %s' % docker_ready, custom_userdata)
 
         if cgroups:
             custom_userdata = re.sub('# BASE_CGROUP', 'BASE_CGROUP', custom_userdata)
@@ -161,7 +162,7 @@ class StateManagement:
 
         return custom_userdata
 
-    def launch_server(self, name, flavor, group, is_training=False, cgroups=False):
+    def launch_server(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False):
         """
         Launch a server with a given name + flavor.
 
@@ -173,7 +174,7 @@ class StateManagement:
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
-        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups)
+        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, docker_ready=docker_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -249,7 +250,7 @@ class StateManagement:
     #     # Wait for this server to become 'ACTIVE'
     #     return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
-    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False,
+    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False,
                              vol_size=12, vol_boot=False):
         """
         Launch a server with a given name + flavor.
@@ -263,7 +264,7 @@ class StateManagement:
         logging.info("launching %s (%s) with volume", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
-        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups)
+        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, docker_ready=docker_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -373,7 +374,7 @@ class StateManagement:
             time.sleep(10)
 
     def top_up(self, desired_instances, prefix, flavor, group, volume=False, volume_args=None,
-               cgroups=False):
+               cgroups=False, docker_ready=False):
         """
         :param int desired_instances: Number of instances of this type to launch
 
@@ -404,6 +405,7 @@ class StateManagement:
             kwargs = {
                 'is_training': 'training' in prefix,
                 'cgroups': cgroups,
+                'docker_ready': docker_ready,
             }
 
             if volume:
@@ -501,7 +503,8 @@ class StateManagement:
                             resource.get('group', resource_identifier),
                             volume=True if 'volume' in resource else False,
                             volume_args=resource.get('volume', None),
-                            cgroups=resource.get('cgroups', False))
+                            cgroups=resource.get('cgroups', False),
+                            docker_ready=resource.get('docker_ready', False))
 
             # Now that we've removed all that we need to remove, again, try to top-up
             # to make sure we're OK. (Also important in case we had no servers already
@@ -510,7 +513,8 @@ class StateManagement:
                         resource.get('group', resource_identifier),
                         volume=True if 'volume' in resource else False,
                         volume_args=resource.get('volume', None),
-                        cgroups=resource.get('cgroups', False))
+                        cgroups=resource.get('cgroups', False),
+                        docker_ready=resource.get('docker_ready', False))
 
 
 if __name__ == '__main__':
