@@ -104,7 +104,7 @@ deployment:
         #cgroups: true
     # Training
     training-gcc:
-        count: 1
+        count: 16
         flavor: c1.c120m215
         group: training-gcc
         start: 2020-07-14
