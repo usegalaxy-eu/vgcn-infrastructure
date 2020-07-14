@@ -85,7 +85,7 @@ deployment:
         flavor: c1.c125m425
         group: compute
     compute-c120m215:
-        count: 32
+        count: 16
         flavor: c1.c120m215
         group: compute
     helenatesting:
@@ -103,6 +103,14 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
+    training-gcc:
+        count: 16
+        flavor: c1.c120m215
+        group: training-gcc
+        start: 2020-07-15
+        end: 2020-07-24
+        volume:
+          size: 2048
     training-ei_s:
         count: 9
         flavor: c.c32m240
