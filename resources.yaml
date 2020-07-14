@@ -107,7 +107,7 @@ deployment:
         count: 1
         flavor: c1.c120m215
         group: training-gcc
-        start: 2020-07-15
+        start: 2020-07-14
         end: 2020-07-24
         docker_ready: true
         volume:
