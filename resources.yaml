@@ -38,12 +38,6 @@ deployment:
         group: compute
         volume:
           size: 1000
-    interactive-c20me:
-        count: 1
-        flavor: c.c20m120
-        group: interactive
-        volume:
-          size: 20480
     compute-c20me:
         count: 41
         flavor: c.c20m120
