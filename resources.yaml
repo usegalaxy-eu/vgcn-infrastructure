@@ -79,9 +79,12 @@ deployment:
         flavor: c1.c125m425
         group: compute
     compute-c120m215:
-        count: 16
+        count: 30
         flavor: c1.c120m215
         group: compute
+        docker_ready: true
+        volume:
+          size: 2048
     helenatesting:
         count: 0
         flavor: c.c10m55
@@ -98,7 +101,7 @@ deployment:
         #cgroups: true
     # Training
     training-gcc:
-        count: 16
+        count: 2
         flavor: c1.c120m215
         group: training-gcc
         start: 2020-07-14
