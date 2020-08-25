@@ -100,24 +100,10 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-gcc:
-        count: 2
-        flavor: c1.c120m215
-        group: training-gcc
-        start: 2020-07-14
-        end: 2020-07-24
-        docker_ready: true
-        volume:
-          size: 2048
     training-ei_s:
         count: 9
         flavor: c.c32m240
         start: 2020-10-19
         end: 2020-10-22
         group: training-ei_sc_rnaseq_2020
-    training-bioh:
-        count: 3
-        flavor: c.c32m240
-        start: 2020-07-30
-        end: 2020-07-30
-        group: training-biohub_ke
+    
