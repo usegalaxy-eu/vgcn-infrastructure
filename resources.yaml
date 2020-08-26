@@ -101,13 +101,13 @@ deployment:
         #cgroups: true
     # Training
     training-ei_s:
-        count: 9
+        count: 4
         flavor: c.c32m240
         start: 2020-10-19
         end: 2020-10-22
         group: training-ei_sc_rnaseq_2020
     training-qub-:
-        count: 9
+        count: 5
         flavor: c.c32m240
         start: 2020-10-22
         end: 2020-10-29
