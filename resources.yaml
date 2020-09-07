@@ -75,7 +75,7 @@ deployment:
         volume:
           size: 20480
     compute-c125m425:
-        count: 42
+        count: 44
         flavor: c1.c125m425
         group: compute
     compute-c120m215:
@@ -100,6 +100,30 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
+    training-defe:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-09-17
+        end: 2020-09-18
+        group: training-defend2020-20
+    training-obic:
+        count: 4
+        flavor: c.c32m240
+        start: 2020-09-21
+        end: 2020-09-21
+        group: training-obicourse
+    training-bm42:
+        count: 5
+        flavor: c.c32m240
+        start: 2020-09-29
+        end: 2020-10-05
+        group: training-bm425-workshop
+    training-2020:
+        count: 9
+        flavor: c.c32m240
+        start: 2020-10-12
+        end: 2020-10-12
+        group: training-2020-10-12-sbc
     training-ei_s:
         count: 4
         flavor: c.c32m240
@@ -112,3 +136,4 @@ deployment:
         start: 2020-10-22
         end: 2020-10-29
         group: training-qub-bcg
+
