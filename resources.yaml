@@ -43,37 +43,37 @@ deployment:
         flavor: c.c20m120
         group: compute
         volume:
-          size: 20480
+          size: 2048
     compute-c40m2:
         count: 20
         flavor: c.c40m120
         group: compute
         volume:
-          size: 20480
+          size: 2048
     compute-c40mq:
         count: 10
         flavor: c.c40m250
         group: compute
         volume:
-          size: 20480
+          size: 2048
     compute-c40m1:
         count: 10
         flavor: c.c40m1000
         group: compute
         volume:
-          size: 20480
+          size: 2048
     compute-c40tb:
         count: 8
         flavor: c.c40m1000_b
         group: compute
         volume:
-          size: 20480
+          size: 2048
     compute-c64m2:
         count: 1
         flavor: c.c64m1950
         group: compute
         volume:
-          size: 20480
+          size: 2048
     compute-c125m425:
         count: 42
         flavor: c1.c125m425
