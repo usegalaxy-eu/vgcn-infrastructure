@@ -75,7 +75,7 @@ deployment:
         volume:
           size: 2048
     compute-c125m425:
-        count: 42
+        count: 40
         flavor: c1.c125m425
         group: compute
     compute-c120m215:
@@ -101,8 +101,8 @@ deployment:
         #cgroups: true
     # Training
     training-defe:
-        count: 1
-        flavor: c.c32m240
+        count: 2
+        flavor: c1.c125m425
         start: 2020-09-17
         end: 2020-09-18
         group: training-defend2020-20
