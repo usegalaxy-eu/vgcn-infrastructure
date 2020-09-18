@@ -66,8 +66,6 @@ deployment:
         count: 8
         flavor: c.c40m1000_b
         group: compute
-        volume:
-          size: 2048
     compute-c64m2:
         count: 1
         flavor: c.c64m1950
