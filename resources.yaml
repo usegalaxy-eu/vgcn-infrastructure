@@ -129,3 +129,9 @@ deployment:
         end: 2020-10-29
         group: training-qub-bcg
 
+    training-debr:
+        count: 4
+        flavor: c.c32m240
+        start: 2020-09-28
+        end: 2020-12-08
+        group: training-debrecen2020
