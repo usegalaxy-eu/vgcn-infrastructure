@@ -105,10 +105,10 @@ deployment:
         end: 2020-09-18
         group: training-defend2020-20
     training-obic:
-        count: 4
+        count: 1
         flavor: c.c32m240
         start: 2020-09-21
-        end: 2020-09-21
+        end: 2020-09-25
         group: training-obicourse
     training-bm42:
         count: 5
