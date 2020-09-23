@@ -99,7 +99,7 @@ deployment:
         #cgroups: true
     # Training
     training-obic:
-        count: 1
+        count: 2
         flavor: c.c32m240
         start: 2020-09-21
         end: 2020-09-25
