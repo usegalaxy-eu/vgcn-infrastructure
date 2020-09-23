@@ -141,3 +141,9 @@ deployment:
         start: 2020-11-23
         end: 2020-11-25
         group: training-m2_genomics_2020
+    training-ga-1:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-09-24
+        end: 2020-09-25
+        group: training-ga-101
