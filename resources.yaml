@@ -104,6 +104,12 @@ deployment:
         start: 2020-09-21
         end: 2020-09-25
         group: training-obicourse
+    training-ga-1:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-09-24
+        end: 2020-09-25
+        group: training-ga-101
     training-bm42:
         count: 5
         flavor: c.c32m240
@@ -128,7 +134,6 @@ deployment:
         start: 2020-10-22
         end: 2020-10-29
         group: training-qub-bcg
-
     training-debr:
         count: 4
         flavor: c.c32m240
@@ -136,14 +141,9 @@ deployment:
         end: 2020-12-08
         group: training-debrecen2020
     training-m2_g:
-        count: 9
+        count: 5
         flavor: c.c32m240
         start: 2020-11-23
         end: 2020-11-25
         group: training-m2_genomics_2020
-    training-ga-1:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-09-24
-        end: 2020-09-25
-        group: training-ga-101
+
