@@ -138,3 +138,27 @@ deployment:
         start: 2020-11-12
         end: 2020-11-30
         group: training-gqa
+    training-y1-b:
+        count: 4
+        flavor: c.c32m240
+        start: 2020-10-26
+        end: 2020-10-26
+        group: training-y1-bio00058m
+    training-y2-b:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-11-12
+        end: 2020-11-12
+        group: training-y2-bio00058m
+    training-y3-b:
+        count: 5
+        flavor: c.c32m240
+        start: 2020-11-26
+        end: 2020-11-26
+        group: training-y3-bio00058m
+    training-y4-b:
+        count: 5
+        flavor: c.c32m240
+        start: 2020-12-01
+        end: 2020-12-01
+        group: training-y4-bio00058m
