@@ -97,7 +97,7 @@ deployment:
         #cgroups: true
     # Training
     training-bm42:
-        count: 5
+        count: 4
         flavor: c.c32m240
         start: 2020-09-29
         end: 2020-10-05
@@ -121,7 +121,7 @@ deployment:
         end: 2020-10-29
         group: training-qub-bcg
     training-debr:
-        count: 3
+        count: 2
         flavor: c.c32m240
         start: 2020-09-28
         end: 2020-12-08
