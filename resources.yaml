@@ -96,12 +96,6 @@ deployment:
         #group: training-hard-limits
         #cgroups: true
     # Training
-    training-bm42:
-        count: 4
-        flavor: c.c32m240
-        start: 2020-09-29
-        end: 2020-10-05
-        group: training-bm425-workshop
     training-2020:
         count: 5
         flavor: c.c32m240
@@ -168,3 +162,15 @@ deployment:
         start: 2020-09-29
         end: 2020-09-29
         group: training-ga-long_ass
+    training-m1bg:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-10-15
+        end: 2021-01-31
+        group: training-m1bgt_2021
+    training-2020:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-10-07
+        end: 2020-12-17
+        group: training-2020biol152
