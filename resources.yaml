@@ -174,3 +174,9 @@ deployment:
         start: 2020-10-07
         end: 2020-12-17
         group: training-2020biol152
+ training-imbb:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-10-19
+        end: 2020-10-22
+        group: training-imbb2
