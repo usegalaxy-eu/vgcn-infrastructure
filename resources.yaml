@@ -114,6 +114,12 @@ deployment:
         start: 2020-10-22
         end: 2020-10-29
         group: training-qub-bcg
+    training-imbb:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-10-19
+        end: 2020-10-22
+        group: training-imbb2
     training-debr:
         count: 2
         flavor: c.c32m240
@@ -156,12 +162,6 @@ deployment:
         start: 2020-12-01
         end: 2020-12-01
         group: training-y4-bio00058m
-    training-ga-l:
-        count: 3
-        flavor: c.c32m240
-        start: 2020-09-29
-        end: 2020-09-29
-        group: training-ga-long_ass
     training-m1bg:
         count: 1
         flavor: c.c32m240
@@ -174,9 +174,3 @@ deployment:
         start: 2020-10-07
         end: 2020-12-17
         group: training-2020biol152
- training-imbb:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-10-19
-        end: 2020-10-22
-        group: training-imbb2
