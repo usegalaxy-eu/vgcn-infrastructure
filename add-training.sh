@@ -52,32 +52,33 @@ yourname=$(git config --global --get user.name)
 printf "
 Subject: UseGalaxy.eu TIaaS Request: Approved
 
-Hello,
+Hi **X**,
 
-Based on your requested training we have allocated ${vm_count} server(s), each with ${vm_cpu} Cores and ${vm_mem} GB of RAM. This should be sufficient for your purposes. If you find that it is not, please contact us and we can update that at any time. On the day of your training, please ask your users to go to the following URL:
+Thanks for submitting your TIaaS request! Based on your choice, we have allocated **${vm_count} servers**, each with ${vm_cpu} cores and ${vm_mem} GB of RAM. If you find that it is not enough for your training, please contact us and we can update that at any time. 
+
+TIaaS provides a private queue for your training in addition to the regular one, which should make your jobs run a bit faster. To make use of it, we have created a training group for you that is accessible at 
 
 https://usegalaxy.eu/join-training/${training_identifier}
 
-They will be added to the training group and put into a private queue which should be a bit faster than our regular queue. Your training queue will be available from ${start} to ${end}.
+Please ask your users to go to that URL during your training (from ${start} to ${end}). Once it is over, the link will not be usable anymore but the users can still access their data at usegalaxy.eu.
 
+Queue Status:
+If you find yourself wondering where your students are during the training, you can use the queue status page to see which jobs are being run by people in your training: https://usegalaxy.eu/join-training/${training_identifier}/status
 
-*Queue Status*:
-If you find yourself wondering where your students are during the training, you can use the new queue status page to see which jobs are being run by people in your training: https://usegalaxy.eu/join-training/${training_identifier}/status
+AWS Estimate:
+If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id}machine(s), it would cost ${price_int} USD.
 
-*AWS Estimate*:
-If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id} machines, it would cost ${price_int} USD
-
-*Workshop Feedback*:
+Workshop Feedback:
 When your workshop is over, if you used GTN materials, please let us know how it went on the workshop feedback issue: https://github.com/galaxyproject/training-material/issues/1452
+Additionally, we encourage you to send us a short review telling us about your experience that we can publish in https://galaxyproject.eu/news. 
 
-Please let us know if you have any questions!
+Your feedback is very valuable to keep this service up and running for free. We really appreciate your support. Thank you very much for using Galaxy and don't hesitate to contact us if you have any questions!
 
-Regards,
+Kind regards,
+
 ${yourname}
 
 --
-${yourname}
-
 UseGalaxy.eu
 Bioinformatics Group
 Department of Computer Science
