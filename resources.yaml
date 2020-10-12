@@ -127,13 +127,13 @@ deployment:
         end: 2020-12-08
         group: training-debrecen2020
     training-m2_g:
-        count: 5
+        count: 2
         flavor: c.c32m240
         start: 2020-11-23
         end: 2020-11-25
         group: training-m2_genomics_2020
     training-gqa:
-        count: 3
+        count: 1
         flavor: c.c32m240
         start: 2020-11-12
         end: 2020-11-30
@@ -151,7 +151,7 @@ deployment:
         end: 2020-11-12
         group: training-y2-bio00058m
     training-y3-b:
-        count: 5
+        count: 2
         flavor: c.c32m240
         start: 2020-11-26
         end: 2020-11-26
