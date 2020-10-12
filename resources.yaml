@@ -192,3 +192,9 @@ deployment:
         start: 2020-10-13
         end: 2020-10-13
         group: training-qcif2020
+    training-medm:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-11-23
+        end: 2020-11-30
+        group: training-medmicro20_uva
