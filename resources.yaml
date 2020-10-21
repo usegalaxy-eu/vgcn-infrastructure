@@ -163,7 +163,7 @@ deployment:
         end: 2020-11-12
         group: training-gm2varcallpractical
     training-y2-b:
-        count: 3
+        count: 2
         flavor: c.c32m240
         start: 2020-11-12
         end: 2020-11-12
@@ -175,7 +175,7 @@ deployment:
         end: 2020-11-30
         group: training-gqa
     training-m2_g:
-        count: 2
+        count: 1
         flavor: c.c32m240
         start: 2020-11-23
         end: 2020-11-25
