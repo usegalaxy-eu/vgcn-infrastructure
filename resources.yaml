@@ -129,7 +129,7 @@ deployment:
     training-oxba:
         count: 1
         flavor: c.c32m240
-        start: 2020-10-23
+        start: 2020-10-26
         end: 2020-12-06
         group: training-oxbacgen
     training-y1-b:
