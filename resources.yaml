@@ -114,12 +114,6 @@ deployment:
         start: 2020-10-15
         end: 2021-01-31
         group: training-m1bgt_2021
-    training-ei_s:
-        count: 4
-        flavor: c.c32m240
-        start: 2020-10-19
-        end: 2020-10-22
-        group: training-ei_sc_rnaseq_2020
     training-qub-:
         count: 2
         flavor: c.c32m240
@@ -144,6 +138,18 @@ deployment:
         start: 2020-10-26
         end: 2020-10-27
         group: training-fates
+    training-gala:
+        count: 2
+        flavor: c.c32m240
+        start: 2020-10-26
+        end: 2020-10-26
+        group: training-galaxy-ml-iscb-la
+    training-omit:
+        count: 3
+        flavor: c.c32m240
+        start: 2020-10-28
+        end: 2020-10-30
+        group: training-omitreen-galaxy
     training-ava1:
         count: 2
         flavor: c.c32m240
@@ -210,3 +216,4 @@ deployment:
         start: 2020-12-01
         end: 2020-12-01
         group: training-y4-bio00058m
+
