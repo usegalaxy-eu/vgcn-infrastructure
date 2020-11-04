@@ -127,11 +127,17 @@ deployment:
         end: 2020-12-31
         group: training-msc2020ubt
     training-ava2:
-        count: 5
+        count: 3
         flavor: c.c32m240
         start: 2020-11-05
         end: 2020-11-06
         group: training-avans_2020_2
+    training-brad:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-11-06
+        end: 2020-11-06
+        group: training-bradmedgen
     training-cicy:
         count: 1
         flavor: c.c32m240
@@ -162,6 +168,12 @@ deployment:
         start: 2020-11-12
         end: 2020-11-30
         group: training-gqa
+    training-auth:
+        count: 2
+        flavor: c.c32m240
+        start: 2020-11-14
+        end: 2020-11-14
+        group: training-auth-med-rnaseq
     training-m2_g:
         count: 1
         flavor: c.c32m240
@@ -185,4 +197,5 @@ deployment:
         flavor: c.c32m240
         start: 2020-12-01
         end: 2020-12-01
-        group: training-york-bio00058m
+        group: training-york-bio00058m    
+
