@@ -133,8 +133,8 @@ deployment:
         end: 2020-11-06
         group: training-avans_2020_2
     training-brad:
-        count: 1
-        flavor: c.c32m240
+        count: 10
+        flavor: c.c10m55
         start: 2020-11-06
         end: 2020-11-06
         group: training-bradmedgen
