@@ -162,6 +162,12 @@ deployment:
         start: 2020-11-14
         end: 2020-11-14
         group: training-auth-med-rnaseq
+    training-ueb_:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-11-18
+        end: 2020-12-14
+        group: training-ueb_bi2020
     training-m2_g:
         count: 1
         flavor: c.c32m240
@@ -186,4 +192,10 @@ deployment:
         start: 2020-12-01
         end: 2020-12-01
         group: training-york-bio00058m    
+    training-2020:
+        count: 2
+        flavor: c.c32m240
+        start: 2020-12-08
+        end: 2020-12-08
+        group: training-2020-12-08-sbc
 
