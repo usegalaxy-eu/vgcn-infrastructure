@@ -145,7 +145,7 @@ deployment:
         end: 2020-11-12
         group: training-york-bio00058m
     training-ga-n:
-        count: 4
+        count: 7
         flavor: c.c10m55
         start: 2020-11-12
         end: 2020-11-12
