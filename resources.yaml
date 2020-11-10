@@ -174,6 +174,12 @@ deployment:
         start: 2020-11-18
         end: 2020-12-14
         group: training-ueb_bi2020
+    training-imbb:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-11-22
+        end: 2020-11-25
+        group: training-imbb2
     training-m2_g:
         count: 1
         flavor: c.c32m240
@@ -204,4 +210,3 @@ deployment:
         start: 2020-12-08
         end: 2020-12-08
         group: training-2020-12-08-sbc
-
