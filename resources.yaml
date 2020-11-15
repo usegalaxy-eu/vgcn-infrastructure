@@ -132,30 +132,6 @@ deployment:
         start: 2020-11-10
         end: 2020-11-24
         group: training-cicy2020
-    training-gm2v:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-11
-        end: 2020-11-12
-        group: training-gm2varcallpractical
-    training-y2-b:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-12
-        end: 2020-11-12
-        group: training-york-bio00058m
-    training-ga-n:
-        count: 7
-        flavor: c.c10m55
-        start: 2020-11-12
-        end: 2020-11-12
-        group: training-ga-nov2020
-    training-genm:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-12
-        end: 2020-11-13
-        group: training-genmed_chiarugi
     training-gqa:
         count: 1
         flavor: c.c32m240
