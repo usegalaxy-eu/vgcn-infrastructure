@@ -153,7 +153,7 @@ deployment:
     training-park:
         count: 2
         flavor: c.c32m240
-        start: 2020-11-17
+        start: 2020-11-16
         end: 2020-11-18
         group: training-parkville
     training-ueb_:
