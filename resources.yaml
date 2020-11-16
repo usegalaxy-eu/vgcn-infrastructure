@@ -132,30 +132,6 @@ deployment:
         start: 2020-11-10
         end: 2020-11-24
         group: training-cicy2020
-    training-gm2v:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-11
-        end: 2020-11-12
-        group: training-gm2varcallpractical
-    training-y2-b:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-12
-        end: 2020-11-12
-        group: training-york-bio00058m
-    training-ga-n:
-        count: 7
-        flavor: c.c10m55
-        start: 2020-11-12
-        end: 2020-11-12
-        group: training-ga-nov2020
-    training-genm:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-12
-        end: 2020-11-13
-        group: training-genmed_chiarugi
     training-gqa:
         count: 1
         flavor: c.c32m240
@@ -177,7 +153,7 @@ deployment:
     training-park:
         count: 2
         flavor: c.c32m240
-        start: 2020-11-17
+        start: 2020-11-16
         end: 2020-11-18
         group: training-parkville
     training-ueb_:
@@ -186,6 +162,18 @@ deployment:
         start: 2020-11-18
         end: 2020-12-14
         group: training-ueb_bi2020
+    training-cris:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-11-18
+        end: 2020-11-20
+        group: training-crispr2020
+    training-omit:
+        count: 3
+        flavor: c.c10m55
+        start: 2020-11-19
+        end: 2020-11-19
+        group: training-omitreen-ut-intro
     training-imbb:
         count: 1
         flavor: c.c32m240
@@ -222,4 +210,3 @@ deployment:
         start: 2020-12-08
         end: 2020-12-08
         group: training-2020-12-08-sbc
-
