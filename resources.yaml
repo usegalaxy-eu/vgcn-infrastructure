@@ -162,6 +162,12 @@ deployment:
         start: 2020-11-18
         end: 2020-12-14
         group: training-ueb_bi2020
+    training-cris:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-11-18
+        end: 2020-11-20
+        group: training-crispr2020
     training-imbb:
         count: 1
         flavor: c.c32m240
