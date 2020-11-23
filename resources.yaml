@@ -132,6 +132,12 @@ deployment:
         start: 2020-11-10
         end: 2020-11-24
         group: training-cicy2020
+    training-chip:
+        count: 3
+        flavor: c.c32m240
+        start: 2020-12-11
+        end: 2020-12-11
+        group: training-chipseq_univt
     training-gqa:
         count: 1
         flavor: c.c32m240
@@ -186,18 +192,6 @@ deployment:
         start: 2020-12-08
         end: 2020-12-08
         group: training-2020-12-08-sbc
-    training-chip:
-        count: 2020-12-11
-        flavor: c.c32m240
-        start: 2020-12-11
-        end: --donotautocommitpush
-        group: training-chipseq_univt
-    training-chip:
-        count: 3
-        flavor: c.c32m240
-        start: 2020-12-11
-        end: 2020-12-11
-        group: training-chipseq_univt
     training-rnas:
         count: 3
         flavor: c.c32m240
