@@ -126,18 +126,6 @@ deployment:
         start: 2020-11-01
         end: 2020-12-31
         group: training-msc2020ubt
-    training-cicy:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-10
-        end: 2020-11-24
-        group: training-cicy2020
-    training-chip:
-        count: 3
-        flavor: c.c32m240
-        start: 2020-12-11
-        end: 2020-12-11
-        group: training-chipseq_univt
     training-gqa:
         count: 1
         flavor: c.c32m240
@@ -156,18 +144,6 @@ deployment:
         start: 2020-11-18
         end: 2020-12-14
         group: training-ueb_bi2020
-    training-imbb:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-22
-        end: 2020-11-25
-        group: training-imbb2
-    training-m2_g:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-23
-        end: 2020-11-25
-        group: training-m2_genomics_2020
     training-medm:
         count: 1
         flavor: c.c32m240
@@ -180,12 +156,24 @@ deployment:
         start: 2020-11-26
         end: 2020-11-26
         group: training-york-bio00058m
+    training-rnas:
+        count: 10
+        flavor: c.c10m55
+        start: 2020-11-30
+        end: 2020-12-04
+        group: training-rnaseqparis2020
     training-y4-b:
-        count: 5
+        count: 2
         flavor: c.c32m240
         start: 2020-12-01
         end: 2020-12-01
         group: training-york-bio00058m    
+    training-mgph:
+        count: 2
+        flavor: c.c32m240
+        start: 2020-12-01
+        end: 2020-12-02
+        group: training-mgph-aus-2020
     training-2020:
         count: 2
         flavor: c.c32m240
@@ -198,3 +186,11 @@ deployment:
         start: 2020-12-09
         end: 2020-12-10
         group: training-rnaseq-wgs
+    training-chip:
+        count: 3
+        flavor: c.c32m240
+        start: 2020-12-11
+        end: 2020-12-11
+        group: training-chipseq_univt    
+
+
