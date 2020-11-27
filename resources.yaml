@@ -118,7 +118,7 @@ deployment:
         count: 1
         flavor: c.c32m240
         start: 2020-10-26
-        end: 2020-12-06
+        end: 2020-12-31
         group: training-oxbacgen
     training-msc2:
         count: 1
