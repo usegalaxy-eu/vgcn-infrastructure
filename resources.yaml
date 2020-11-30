@@ -22,7 +22,7 @@ pubkeys:
 deployment:
     maintenance:
         count: 1
-        flavor: m1.medium
+        flavor: m1.large
         group: maintenance
     compute-upload:
         count: 2
