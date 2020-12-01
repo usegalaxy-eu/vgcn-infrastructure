@@ -170,3 +170,9 @@ deployment:
         group: training-chipseq_univt    
 
 
+    training-bili:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-12-10
+        end: 2020-12-11
+        group: training-bilille-chipseq-2020
