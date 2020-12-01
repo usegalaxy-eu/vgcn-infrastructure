@@ -182,3 +182,9 @@ deployment:
         start: 2020-12-07
         end: 2020-12-07
         group: training-elixircz
+    training-elix:
+        count: 3
+        flavor: c.c32m240
+        start: 2020-12-03
+        end: 2020-12-04
+        group: training-elixir-proteomics
