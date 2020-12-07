@@ -1,19 +1,19 @@
 #!/usr/bin/env python
+import argparse
 import copy
-import re
-import os
 import datetime
-import subprocess
+import json
+import logging
+import os
 import paramiko
 import random
+import re
+import subprocess
+import tempfile
 import time
 import yaml
-import logging
-import json
-import tempfile
 
-global DRY_RUN
-DRY_RUN = False
+
 logging.basicConfig(level=logging.INFO)
 
 
@@ -26,18 +26,27 @@ class VgcnPolicy(paramiko.client.MissingHostKeyPolicy):
 
 class StateManagement:
 
-    def __init__(self):
-        with open('resources.yaml', 'r') as handle:
+    def __init__(self, args=None):
+        self.resources_file = args.resources_file
+        self.userdata_file = args.userdata_file
+        self.dry_run = args.dry_run
+
+        logging.info('resources file: {}'.format(self.resources_file))
+        logging.info('userdata file: {}'.format(self.userdata_file))
+        logging.info('Dry run mode: {}'.format(self.dry_run))
+
+        with open(self.resources_file, 'r') as handle:
             self.config = yaml.safe_load(handle)
 
-        with open('userdata.yaml', 'r') as handle:
+        with open(self.userdata_file, 'r') as handle:
             self.user_data = handle.read()
 
         self.current_image_name = self.config['image']
         self.vgcn_pubkeys = self.config['pubkeys']
         self.today = datetime.date.today()
 
-    def os_command(self, args, is_json=True, cmd=None):
+    @staticmethod
+    def os_command(args, is_json=True, cmd=None):
         lcmd = ['openstack' if not cmd else cmd] + list(args)
         if is_json:
             lcmd += ['-f', 'json']
@@ -49,7 +58,8 @@ class StateManagement:
         else:
             return q
 
-    def remote_command(self, hostname, command, username='centos', port=22):
+    @staticmethod
+    def remote_command(hostname, command, username='centos', port=22):
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(VgcnPolicy)
         logging.debug("Connecting to %s@%s:%s", username, hostname, port)
@@ -62,7 +72,8 @@ class StateManagement:
         stderr_decoded = stderr.read().decode('utf-8')
         return stdout_decoded, stderr_decoded
 
-    def non_conflicting_name(self, prefix, existing_servers):
+    @staticmethod
+    def non_conflicting_name(prefix, existing_servers):
         """
         Generate a name for the machine that's unique to the machine and not used
         by any existing ones.
@@ -169,7 +180,8 @@ class StateManagement:
         :returns: The launched server
         :rtype: novaclient.v2.servers.Server
         """
-        if DRY_RUN: return {'Status': 'OK (fake)'}
+        if self.dry_run:
+            return {'Status': 'OK (fake)'}
 
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
@@ -258,7 +270,7 @@ class StateManagement:
         :returns: The launched server
         :rtype: novaclient.v2.servers.Server
         """
-        if DRY_RUN:
+        if self.dry_run:
             return {'Status': 'OK (fake)'}
 
         logging.info("launching %s (%s) with volume", name, flavor)
@@ -301,7 +313,8 @@ class StateManagement:
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
     def brutally_terminate(self, server):
-        if DRY_RUN: return
+        if self.dry_run:
+            return
 
         logging.info("Brutally terminating %s", server['Name'])
         logging.info(self.os_command(['server', 'delete', server.get('ID', server['Name'])], is_json=False))
@@ -309,7 +322,8 @@ class StateManagement:
     def gracefully_terminate(self, server, patience=300):
         logging.info("Gracefully terminating %s", server['Name'])
 
-        if DRY_RUN: return
+        if self.dry_run:
+            return
 
         if server['Status'] == 'ACTIVE':
             # Get the IP address
@@ -517,6 +531,22 @@ class StateManagement:
                         docker_ready=resource.get('docker_ready', False))
 
 
+def make_parser():
+    parser = argparse.ArgumentParser(prog="ensure_enough",
+                                     description='VGCN Infrastructure Management')
+    parser.add_argument('-r', '--resources_file', type=str, metavar='PATH',
+                        help='Resources file', default='resources.yaml')
+    parser.add_argument('-u', '--userdata_file', type=str, metavar='PATH',
+                        help='Userdata file', default='userdata.yaml')
+    parser.add_argument('-d', '--dry_run', action='store_true',
+                        help='dry run mode')
+
+    return parser
+
+
 if __name__ == '__main__':
-    s = StateManagement()
+    parser = make_parser()
+    args = parser.parse_args()
+
+    s = StateManagement(args=args)
     s.syncronize_infrastructure()
