@@ -143,7 +143,7 @@ deployment:
         flavor: c.c32m240
         start: 2020-12-09
         end: 2020-12-10
-        group: training-rnaseq-wgs
+        group: training-rnaseq-wgs-ut
     training-bili:
         count: 1
         flavor: c.c32m240
