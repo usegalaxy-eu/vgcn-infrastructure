@@ -153,7 +153,7 @@ deployment:
     training-chip:
         count: 3
         flavor: c.c32m240
-        start: 2020-12-11
+        start: 2020-12-10
         end: 2020-12-11
         group: training-chipseq_univt    
     training-gdaw:
