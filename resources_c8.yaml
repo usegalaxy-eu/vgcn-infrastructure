@@ -20,8 +20,22 @@ pubkeys:
     - "AAAAB3NzaC1yc2EAAAABIwAAAQEAuSG1VOumQhbJfOyalJjS4lPC8eeeL02ld/VI2BFApyMfwbB1QxehY3lMBXt/cBTzqU3MxgJQVzNr/AgjHa5rKn2hSGMfKAdaX2tG686k715bBjRm9rJNhmc8KSH9tVS35M0HwRXMfiGvSmb5qJ6utWRZe6RM2JMIbqqI5Oc4tbzPPVKk1+yvT1JdYuyqAOp2yvQbOqKaXmqOhPdPNaJZMI4o+UHmmb8FH6OTDY27G7X7u07ZPwVi1j+6ZFVMQZqg1RhUdg9kmHpHwMX7P6NcD4G9GsISHIh92eva9xgWYGiS0wUsmOWTNgAzzsfRZjMFep+jB2wup6QN7XpMw97eTw=="
 
 deployment:
-    compute-c8:
+    worker-m1.large:
         count: 2
         flavor: m1.large
         group: compute
-
+    worker-c10m55:
+        count: 1
+        flavor: c.c10m55
+        group: compute
+    worker-c125m425:
+        count: 1
+        flavor: c1.c125m425
+        group: compute
+    worker-c120m215:
+        count: 1
+        flavor: c1.c120m215
+        group: compute
+        docker_ready: true
+        volume:
+          size: 2048
