@@ -42,20 +42,14 @@ deployment:
         count: 39
         flavor: c.c20m120
         group: compute
-        volume:
-          size: 2048
     compute-c40m2:
         count: 20
         flavor: c.c40m120
         group: compute
-        volume:
-          size: 2048
     compute-c40mq:
         count: 10
         flavor: c.c40m250
         group: compute
-        volume:
-          size: 2048
     compute-c40m1:
         count: 8
         flavor: c.c40m1000
@@ -68,8 +62,6 @@ deployment:
         count: 1
         flavor: c.c64m1950
         group: compute
-        volume:
-          size: 2048
     compute-c125m425:
         count: 39
         flavor: c1.c125m425
