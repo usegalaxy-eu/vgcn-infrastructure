@@ -112,3 +112,9 @@ deployment:
         start: 2020-12-23
         end: 2020-12-30
         group: training-gdawg2020
+    training-arie:
+        count: 3
+        flavor: c.c10m55
+        start: 2021-01-18
+        end: 2021-01-25
+        group: training-arielbio
