@@ -118,3 +118,9 @@ deployment:
         start: 2021-01-18
         end: 2021-01-25
         group: training-arielbio
+    training-biug:
+        count: 3
+        flavor: c.c10m55
+        start: 2021-02-01
+        end: 2021-02-17
+        group: training-biugalaxy
