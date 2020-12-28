@@ -121,6 +121,6 @@ deployment:
     training-biug:
         count: 3
         flavor: c.c10m55
-        start: 2021-02-01
-        end: 2021-02-17
+        start: 2021-01-25
+        end: 2021-02-10
         group: training-biugalaxy
