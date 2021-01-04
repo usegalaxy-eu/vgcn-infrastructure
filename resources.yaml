@@ -106,3 +106,9 @@ deployment:
         start: 2021-01-25
         end: 2021-02-10
         group: training-biugalaxy
+    training-scix:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-01-17
+        end: 2021-01-22
+        group: training-scix2021
