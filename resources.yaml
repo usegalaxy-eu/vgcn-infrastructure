@@ -94,24 +94,6 @@ deployment:
         start: 2020-10-15
         end: 2021-01-31
         group: training-m1bgt_2021
-    training-oxba:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-10-26
-        end: 2020-12-31
-        group: training-oxbacgen
-    training-msc2:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-11-01
-        end: 2020-12-31
-        group: training-msc2020ubt 
-    training-gdaw:
-        count: 2
-        flavor: c.c32m240
-        start: 2020-12-23
-        end: 2020-12-30
-        group: training-gdawg2020
     training-arie:
         count: 3
         flavor: c.c10m55
@@ -124,3 +106,9 @@ deployment:
         start: 2021-01-25
         end: 2021-02-10
         group: training-biugalaxy
+    training-scix:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-01-17
+        end: 2021-01-22
+        group: training-scix2021
