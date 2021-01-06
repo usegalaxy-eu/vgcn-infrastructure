@@ -118,3 +118,9 @@ deployment:
         start: 2021-01-13
         end: 2021-01-14
         group: training-bioenterpriseugr
+    training-pvs4:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-01-20
+        end: 2021-05-10
+        group: training-pvs4000
