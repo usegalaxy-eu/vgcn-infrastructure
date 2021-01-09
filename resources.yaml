@@ -71,8 +71,8 @@ deployment:
         flavor: c1.c120m215
         group: compute
         docker_ready: true
-        volume:
-          size: 2048
+        # volume:
+          # size: 2048
     helenatesting:
         count: 0
         flavor: c.c10m55
