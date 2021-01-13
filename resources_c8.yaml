@@ -25,7 +25,7 @@ deployment:
         flavor: m1.large
         group: maintenance
     worker-m1_large:
-        count: 2
+        count: 0
         flavor: m1.large
         group: compute
     worker-c10m55:
@@ -37,7 +37,7 @@ deployment:
         flavor: c1.c125m425
         group: compute
     worker-c120m215:
-        count: 7
+        count: 12
         flavor: c1.c120m215
         group: compute
         docker_ready: true
