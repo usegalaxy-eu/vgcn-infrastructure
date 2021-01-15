@@ -124,3 +124,9 @@ deployment:
         start: 2021-01-20
         end: 2021-05-10
         group: training-pvs4000
+    training-wtac:
+        count: 9
+        flavor: c.c32m240
+        start: 2021-01-26
+        end: 2021-01-28
+        group: training-wtac
