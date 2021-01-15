@@ -130,3 +130,9 @@ deployment:
         start: 2021-01-26
         end: 2021-01-28
         group: training-wtac
+    training-sib2:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-04-26
+        end: 2021-04-28
+        group: training-sib2021
