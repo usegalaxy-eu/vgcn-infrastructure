@@ -33,7 +33,7 @@ deployment:
         flavor: c.c10m55
         group: compute
     worker-c20me:
-        count: 1 #40
+        count: 5 #40
         flavor: c.c20m120
         group: compute
     worker-c40m2:
