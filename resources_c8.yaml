@@ -45,11 +45,11 @@ deployment:
         flavor: c.c40m250
         group: compute
     worker-c40m1:
-        count: 1 #8
+        count: 2 #8
         flavor: c.c40m1000
         group: compute
     worker-c40tb:
-        count: 1 #7
+        count: 2 #7
         flavor: c.c40m1000_b
         group: compute
     worker-c64m2:
