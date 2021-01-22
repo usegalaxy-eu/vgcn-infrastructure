@@ -25,12 +25,16 @@ deployment:
         flavor: m1.large
         group: maintenance
     worker-m1_large:
-        count: 0
+        count: 10
         flavor: m1.large
         group: compute
     worker-c10m55:
-        count: 1
+        count: 20
         flavor: c.c10m55
+        group: compute
+     worker-c32m240:
+        count: 9 #9
+        flavor: c.c32m240
         group: compute
     worker-c20me:
         count: 20 #40
