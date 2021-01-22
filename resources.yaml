@@ -39,7 +39,7 @@ deployment:
         volume:
           size: 1000
     compute-c20me:
-        count: 19
+        count: 0
         flavor: c.c20m120
         group: compute
     compute-c40m2:
