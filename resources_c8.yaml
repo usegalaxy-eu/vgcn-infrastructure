@@ -32,7 +32,7 @@ deployment:
         count: 20
         flavor: c.c10m55
         group: compute
-     worker-c32m240:
+    worker-c32m240:
         count: 9 #9
         flavor: c.c32m240
         group: compute
