@@ -29,7 +29,7 @@ deployment:
         flavor: m1.large
         group: compute
     worker-c10m55:
-        count: 20
+        count: 0
         flavor: c.c10m55
         start: 2021-01-22
         end: 2021-01-24
