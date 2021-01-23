@@ -65,7 +65,7 @@ deployment:
         flavor: c.c64m1950
         group: compute
     worker-c125m425:
-        count: 8 #60
+        count: 15 #60
         flavor: c1.c125m425
         group: compute
     worker-c120m215:
