@@ -55,7 +55,7 @@ deployment:
         flavor: c.c40m1000
         group: compute
     compute-c40tb:
-        count: 2
+        count: 1
         flavor: c.c40m1000_b
         group: compute
     compute-c64m2:
