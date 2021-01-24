@@ -21,7 +21,7 @@ pubkeys:
 
 deployment:
     maintenance:
-        count: 1
+        count: 0
         flavor: m1.large
         group: maintenance
     compute-upload:
