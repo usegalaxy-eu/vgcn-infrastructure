@@ -75,3 +75,40 @@ deployment:
         docker_ready: true
     #    volume:
     #      size: 2048
+    # Training
+    training-m1bg:
+        count: 1
+        flavor: c.c32m240
+        start: 2020-10-15
+        end: 2021-01-31
+        group: training-m1bgt_2021
+    training-arie:
+        count: 3
+        flavor: c.c10m55
+        start: 2021-01-18
+        end: 2021-01-25
+        group: training-arielbio
+    training-biug:
+        count: 3
+        flavor: c.c10m55
+        start: 2021-01-25
+        end: 2021-02-10
+        group: training-biugalaxy
+    training-pvs4:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-01-20
+        end: 2021-05-10
+        group: training-pvs4000
+    training-wtac:
+        count: 9
+        flavor: c.c32m240
+        start: 2021-01-26
+        end: 2021-01-28
+        group: training-wtac
+    training-sib2:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-04-26
+        end: 2021-04-28
+        group: training-sib2021
