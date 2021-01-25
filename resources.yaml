@@ -24,20 +24,10 @@ deployment:
         count: 0
         flavor: m1.large
         group: maintenance
-    compute-upload:
-        count: 2
-        flavor: m1.xlarge
-        group: upload
-    compute-py3:
-        count: 0
-        flavor: m1.xlarge
-        group: py3   
-    compute-10m55:
-        count: 0
-        flavor: c.c10m55
-        group: compute
-        volume:
-          size: 1000
+#    compute-upload:
+#        count: 2
+#        flavor: m1.xlarge
+#        group: upload 
     compute-c20me:
         count: 0
         flavor: c.c20m120
@@ -50,22 +40,22 @@ deployment:
         count: 0
         flavor: c.c40m250
         group: compute
-    compute-c40m1:
-        count: 4
-        flavor: c.c40m1000
-        group: compute
-    compute-c40tb:
-        count: 1
-        flavor: c.c40m1000_b
-        group: compute
-    compute-c64m2:
-        count: 1
-        flavor: c.c64m1950
-        group: compute
-    compute-c125m425:
-        count: 24
-        flavor: c1.c125m425
-        group: compute
+#    compute-c40m1:
+#        count: 4
+#        flavor: c.c40m1000
+#        group: compute
+#    compute-c40tb:
+#        count: 1
+#        flavor: c.c40m1000_b
+#        group: compute
+#    compute-c64m2:
+#        count: 1
+#        flavor: c.c64m1950
+#        group: compute
+#    compute-c125m425:
+#        count: 24
+#        flavor: c1.c125m425
+#        group: compute
     compute-c120m215:
         count: 7
         flavor: c1.c120m215
