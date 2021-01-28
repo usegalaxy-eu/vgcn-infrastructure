@@ -29,16 +29,16 @@ deployment:
         flavor: m1.large
         group: compute
     worker-c10m55:
-        count: 0
+        count: 10
         flavor: c.c10m55
-        start: 2021-01-22
-        end: 2021-01-24
+        start: 2021-01-30
+        end: 2021-01-31
         group: compute
     worker-c32m240:
         count: 9 #9
         flavor: c.c32m240
-        start: 2021-01-22
-        end: 2021-01-24
+        start: 2021-01-30
+        end: 2021-01-31
         group: compute
     worker-c20me:
         count: 40 #40
