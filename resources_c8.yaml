@@ -53,15 +53,15 @@ deployment:
         flavor: c.c40m250
         group: compute
     worker-c40m1:
-        count: 3 #8
+        count: 8 #8
         flavor: c.c40m1000
         group: compute
     worker-c40tb:
-        count: 2 #7
+        count: 7 #7
         flavor: c.c40m1000_b
         group: compute
     worker-c64m2:
-        count: 0 #1
+        count: 1 #1
         flavor: c.c64m1950
         group: compute
     worker-c125m425:
@@ -82,12 +82,6 @@ deployment:
         start: 2020-10-15
         end: 2021-01-31
         group: training-m1bgt_2021
-    training-arie:
-        count: 3
-        flavor: c.c10m55
-        start: 2021-01-18
-        end: 2021-01-25
-        group: training-arielbio
     training-biug:
         count: 3
         flavor: c.c10m55
@@ -100,12 +94,6 @@ deployment:
         start: 2021-01-20
         end: 2021-05-10
         group: training-pvs4000
-    training-wtac:
-        count: 9
-        flavor: c.c32m240
-        start: 2021-01-26
-        end: 2021-01-28
-        group: training-wtac
     training-sib2:
         count: 7
         flavor: c.c32m240
