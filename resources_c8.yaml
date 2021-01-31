@@ -118,6 +118,12 @@ deployment:
         start: 2021-02-22
         end: 2021-03-07
         group: training-202110deseq2 
+    training-lcms:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-03-08
+        end: 2021-03-12
+        group: training-202110lcmsms
     training-sib2:
         count: 7
         flavor: c.c32m240
