@@ -76,12 +76,6 @@ deployment:
     #    volume:
     #      size: 2048
     # Training
-    training-m1bg:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-10-15
-        end: 2021-01-31
-        group: training-m1bgt_2021
     training-biug:
         count: 3
         flavor: c.c10m55
@@ -100,3 +94,4 @@ deployment:
         start: 2021-04-26
         end: 2021-04-28
         group: training-sib2021
+        
