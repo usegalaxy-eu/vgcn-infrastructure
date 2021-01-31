@@ -298,7 +298,7 @@ class StateManagement:
             args.append('--image')
             args.append(self.current_image_name)
             args.append('--block-device')
-            args.append('source=blank,dest=volume,size={},shutdown=remove'.format(vol_size))
+            args.append('source=blank,dest=volume,size={},volume_type=netapp,shutdown=remove'.format(vol_size))
 
         args.append(name)
 
