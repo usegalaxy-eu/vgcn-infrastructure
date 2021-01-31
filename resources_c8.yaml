@@ -124,6 +124,12 @@ deployment:
         start: 2021-03-08
         end: 2021-03-12
         group: training-202110lcmsms
+    training-ur2:
+        count: 8
+        flavor: c.c32m240
+        start: 2021-03-08
+        end: 2021-03-12
+        group: training-ur2
     training-annn:
         count: 1
         flavor: c.c32m240
