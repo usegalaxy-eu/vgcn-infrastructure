@@ -88,6 +88,12 @@ deployment:
         start: 2021-01-20
         end: 2021-05-10
         group: training-pvs4000
+    training-unic:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-02-08
+        end: 2021-02-19
+        group: training-202110unicyler
     training-ueb_:
         count: 3
         flavor: c.c32m240
