@@ -130,6 +130,12 @@ deployment:
         start: 2021-03-29
         end: 2021-04-09
         group: training-202110annnotation
+    training-moth:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-04-12
+        end: 2021-04-19
+        group: training-202110mothur
     training-sib2:
         count: 7
         flavor: c.c32m240
