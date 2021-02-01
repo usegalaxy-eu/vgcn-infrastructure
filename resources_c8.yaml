@@ -76,12 +76,6 @@ deployment:
     #    volume:
     #      size: 2048
     # Training
-    training-m1bg:
-        count: 1
-        flavor: c.c32m240
-        start: 2020-10-15
-        end: 2021-01-31
-        group: training-m1bgt_2021
     training-biug:
         count: 3
         flavor: c.c10m55
@@ -94,9 +88,69 @@ deployment:
         start: 2021-01-20
         end: 2021-05-10
         group: training-pvs4000
+    training-unic:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-02-08
+        end: 2021-02-19
+        group: training-202110unicyler
+    training-ueb_:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-02-15
+        end: 2021-02-18
+        group: training-ueb_mastervhir2021
+    training-ur1:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-02-15
+        end: 2021-02-19
+        group: training-ur1
+    training-raeg:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-03-15
+        end: 2021-04-10
+        group: training-raeg2021  
+    training-dese:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-02-22
+        end: 2021-03-07
+        group: training-202110deseq2 
+    training-lcms:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-03-08
+        end: 2021-03-12
+        group: training-202110lcmsms
+    training-ur2:
+        count: 8
+        flavor: c.c32m240
+        start: 2021-03-08
+        end: 2021-03-12
+        group: training-ur2
+    training-annn:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-03-29
+        end: 2021-04-09
+        group: training-202110annnotation
+    training-moth:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-04-12
+        end: 2021-04-19
+        group: training-202110mothur
     training-sib2:
         count: 7
         flavor: c.c32m240
         start: 2021-04-26
         end: 2021-04-28
         group: training-sib2021
+    training-ei_s:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-11-01
+        end: 2021-11-05
+        group: training-ei_sc_rnaseq_2021 
