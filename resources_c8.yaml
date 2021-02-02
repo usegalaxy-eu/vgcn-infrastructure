@@ -28,14 +28,10 @@ deployment:
         count: 1
         flavor: m1.large
         group: compute
-    worker-interactive:
-        count: 0
+    worker-upload:
+        count: 4
         flavor: m1.large
-        group: interactive
-        docker_ready: true
-        volume:
-          size: 10240
-          type: netapp
+        group: upload 
     worker-c20me:
         count: 40 #40
         flavor: c.c20m120
