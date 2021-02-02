@@ -34,7 +34,7 @@ deployment:
         group: interactive
         docker_ready: true
         volume:
-          size: 1024
+          size: 10240
     worker-c20me:
         count: 40 #40
         flavor: c.c20m120
