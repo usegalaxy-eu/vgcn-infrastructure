@@ -35,6 +35,7 @@ deployment:
         docker_ready: true
         volume:
           size: 10240
+          type: netapp
     worker-c20me:
         count: 40 #40
         flavor: c.c20m120
