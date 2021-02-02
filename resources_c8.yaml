@@ -28,14 +28,10 @@ deployment:
         count: 1
         flavor: m1.large
         group: compute
-    worker-interactive:
-        count: 1
+    worker-upload:
+        count: 4
         flavor: m1.large
-        group: interactive
-        docker_ready: true
-        volume:
-          size: 10240
-          type: netapp
+        group: upload 
     worker-c20me:
         count: 40 #40
         flavor: c.c20m120
@@ -44,6 +40,10 @@ deployment:
         count: 26 #25
         flavor: c.c40m120
         group: compute
+        docker_ready: true
+        volume:
+          size: 1024
+          type: netapp
     worker-c40mq:
         count: 10 #10
         flavor: c.c40m250
@@ -68,9 +68,6 @@ deployment:
         count: 12 #12
         flavor: c1.c120m215
         group: compute
-    #    docker_ready: true
-    #    volume:
-    #      size: 2048
     # Training
     training-biug:
         count: 3
@@ -102,18 +99,18 @@ deployment:
         start: 2021-02-15
         end: 2021-02-19
         group: training-ur1
-    training-raeg:
-        count: 7
-        flavor: c.c32m240
-        start: 2021-03-15
-        end: 2021-04-10
-        group: training-raeg2021  
     training-dese:
         count: 4
         flavor: c.c32m240
         start: 2021-02-22
         end: 2021-03-07
         group: training-202110deseq2 
+    training-om02:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-02-23
+        end: 2021-02-26
+        group: training-om02
     training-lcms:
         count: 1
         flavor: c.c32m240
@@ -126,6 +123,12 @@ deployment:
         start: 2021-03-08
         end: 2021-03-12
         group: training-ur2
+    training-raeg:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-03-15
+        end: 2021-04-10
+        group: training-raeg2021  
     training-annn:
         count: 1
         flavor: c.c32m240
