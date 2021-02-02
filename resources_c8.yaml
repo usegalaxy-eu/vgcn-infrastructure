@@ -28,18 +28,13 @@ deployment:
         count: 1
         flavor: m1.large
         group: compute
-    worker-c10m55:
-        count: 10
-        flavor: c.c10m55
-        start: 2021-01-30
-        end: 2021-01-31
-        group: compute
-    worker-c32m240:
-        count: 9 #9
-        flavor: c.c32m240
-        start: 2021-01-30
-        end: 2021-01-31
-        group: compute
+    worker-interactive:
+        count: 1
+        flavor: m1.large
+        group: interactive
+        docker_ready: true
+        volume:
+          size: 1024
     worker-c20me:
         count: 40 #40
         flavor: c.c20m120
@@ -72,7 +67,7 @@ deployment:
         count: 12 #12
         flavor: c1.c120m215
         group: compute
-        docker_ready: true
+    #    docker_ready: true
     #    volume:
     #      size: 2048
     # Training
