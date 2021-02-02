@@ -103,18 +103,18 @@ deployment:
         start: 2021-02-15
         end: 2021-02-19
         group: training-ur1
-    training-raeg:
-        count: 7
-        flavor: c.c32m240
-        start: 2021-03-15
-        end: 2021-04-10
-        group: training-raeg2021  
     training-dese:
         count: 4
         flavor: c.c32m240
         start: 2021-02-22
         end: 2021-03-07
         group: training-202110deseq2 
+    training-om02:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-02-23
+        end: 2021-02-26
+        group: training-om02
     training-lcms:
         count: 1
         flavor: c.c32m240
@@ -127,6 +127,12 @@ deployment:
         start: 2021-03-08
         end: 2021-03-12
         group: training-ur2
+    training-raeg:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-03-15
+        end: 2021-04-10
+        group: training-raeg2021  
     training-annn:
         count: 1
         flavor: c.c32m240
