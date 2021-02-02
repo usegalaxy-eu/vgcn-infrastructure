@@ -82,31 +82,37 @@ deployment:
         end: 2021-05-10
         group: training-pvs4000
     training-unic:
-        count: 3
+        count: 2
         flavor: c.c32m240
         start: 2021-02-08
         end: 2021-02-19
         group: training-202110unicyler
     training-ueb_:
-        count: 3
+        count: 2
         flavor: c.c32m240
         start: 2021-02-15
         end: 2021-02-18
         group: training-ueb_mastervhir2021
     training-ur1:
-        count: 3
+        count: 2
         flavor: c.c32m240
         start: 2021-02-15
         end: 2021-02-19
         group: training-ur1
+    training-molm:
+        count: 2
+        flavor: c.c32m240
+        start: 2021-02-15
+        end: 2021-02-24
+        group: training-molmed
     training-dese:
-        count: 4
+        count: 3
         flavor: c.c32m240
         start: 2021-02-22
         end: 2021-03-07
         group: training-202110deseq2 
     training-om02:
-        count: 4
+        count: 3
         flavor: c.c32m240
         start: 2021-02-23
         end: 2021-02-26
