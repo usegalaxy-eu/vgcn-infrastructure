@@ -81,6 +81,8 @@ mapping:
                                 type: int
                                 range:
                                   min: 12
+                            "type":
+                                type: str
                             "boot":
                                 type: bool
                     "cgroups":
