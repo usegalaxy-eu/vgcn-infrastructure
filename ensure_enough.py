@@ -263,7 +263,7 @@ class StateManagement:
     #     return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
     def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False,
-                             vol_size=12, vol_boot=False):
+                             vol_size=12, vol_type='default', vol_boot=False):
         """
         Launch a server with a given name + flavor.
 
@@ -298,7 +298,7 @@ class StateManagement:
             args.append('--image')
             args.append(self.current_image_name)
             args.append('--block-device')
-            args.append('source=blank,dest=volume,size={},volume_type=netapp,shutdown=remove'.format(vol_size))
+            args.append('source=blank,dest=volume,size={},volume_type={},shutdown=remove'.format(vol_size, vol_type))
 
         args.append(name)
 
@@ -423,7 +423,8 @@ class StateManagement:
             }
 
             if volume:
-                kwargs['vol_size'] = volume_args['size']
+                kwargs['vol_size'] = volume_args.get('size', 12)
+                kwargs['vol_type'] = volume_args.get('type', 'default')
                 kwargs['vol_boot'] = volume_args.get('boot', False)
                 server = self.launch_server_volume(*args, **kwargs)
             else:
