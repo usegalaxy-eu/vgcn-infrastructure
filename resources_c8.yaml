@@ -99,6 +99,12 @@ deployment:
         start: 2021-02-15
         end: 2021-02-19
         group: training-ur1
+    training-molm:
+        count: 2
+        flavor: c.c32m240
+        start: 2021-02-15
+        end: 2021-02-24
+        group: training-molmed
     training-dese:
         count: 4
         flavor: c.c32m240
