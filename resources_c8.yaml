@@ -29,7 +29,7 @@ deployment:
         flavor: m1.large
         group: compute
     worker-interactive:
-        count: 1
+        count: 0
         flavor: m1.large
         group: interactive
         docker_ready: true
@@ -44,6 +44,10 @@ deployment:
         count: 26 #25
         flavor: c.c40m120
         group: compute
+        docker_ready: true
+        volume:
+          size: 1024
+          type: netapp
     worker-c40mq:
         count: 10 #10
         flavor: c.c40m250
@@ -68,9 +72,6 @@ deployment:
         count: 12 #12
         flavor: c1.c120m215
         group: compute
-    #    docker_ready: true
-    #    volume:
-    #      size: 2048
     # Training
     training-biug:
         count: 3
