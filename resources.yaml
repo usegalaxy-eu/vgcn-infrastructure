@@ -57,7 +57,7 @@ deployment:
         flavor: c1.c125m425
         group: compute
     compute-c120m215:
-        count: 4
+        count: 2
         flavor: c1.c120m215
         group: compute
         docker_ready: true
