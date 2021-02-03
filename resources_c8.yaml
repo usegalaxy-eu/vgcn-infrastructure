@@ -33,7 +33,7 @@ deployment:
         flavor: m1.large
         group: upload 
     worker-c20me:
-        count: 40 #40
+        count: 2 #40
         flavor: c.c20m120
         group: compute
     worker-c40m2:
