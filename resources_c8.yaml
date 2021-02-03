@@ -29,7 +29,7 @@ deployment:
         flavor: m1.large
         group: compute
     worker-upload:
-        count: 4
+        count: 8
         flavor: m1.large
         group: upload 
     worker-c20me:
