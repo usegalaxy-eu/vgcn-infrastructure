@@ -32,6 +32,10 @@ deployment:
         count: 4
         flavor: m1.large
         group: upload 
+    worker-metadata:
+        count: 4
+        flavor: m1.large
+        group: metadata 
     worker-c20me:
         count: 2 #40
         flavor: c.c20m120
