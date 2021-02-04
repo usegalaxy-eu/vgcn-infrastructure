@@ -37,7 +37,7 @@ deployment:
         flavor: c.c20m120
         group: compute
     worker-c40m2:
-        count: 12 #25
+        count: 15 #25
         flavor: c.c40m120
         group: compute
         docker_ready: true
@@ -45,7 +45,7 @@ deployment:
           size: 1024
           type: netapp
     worker-c40mq:
-        count: 10 #10
+        count: 7 #7
         flavor: c.c40m250
         group: compute
     worker-c40m1:
