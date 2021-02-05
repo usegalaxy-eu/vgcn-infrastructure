@@ -37,7 +37,7 @@ deployment:
         flavor: m1.large
         group: metadata 
     worker-c20me:
-        count: 2 #40
+        count: 40 #40
         flavor: c.c20m120
         group: compute
     worker-c40m2:
