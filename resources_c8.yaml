@@ -146,7 +146,13 @@ deployment:
         flavor: c.c32m240
         start: 2021-03-15
         end: 2021-04-10
-        group: training-raeg2021  
+        group: training-raeg2021
+    training-embl:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-03-18
+        end: 2021-03-19
+        group: training-embl_galaxy_march21
     training-annn:
         count: 1
         flavor: c.c32m240
