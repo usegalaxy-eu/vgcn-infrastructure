@@ -142,7 +142,7 @@ deployment:
         end: 2021-03-12
         group: training-ur2
     training-raeg:
-        count: 7
+        count: 5
         flavor: c.c32m240
         start: 2021-03-15
         end: 2021-04-10
