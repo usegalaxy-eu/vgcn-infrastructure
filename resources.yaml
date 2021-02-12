@@ -41,7 +41,7 @@ deployment:
         flavor: c.c40m250
         group: compute
     compute-c40m1:
-        count: 2
+        count: 0
         flavor: c.c40m1000
         group: compute
 #    compute-c40tb:
@@ -52,10 +52,10 @@ deployment:
 #        count: 1
 #        flavor: c.c64m1950
 #        group: compute
-    compute-c125m425:
-        count: 10
-        flavor: c1.c125m425
-        group: compute
+#    compute-c125m425:
+#        count: 10
+#        flavor: c1.c125m425
+#        group: compute
     compute-c120m215:
         count: 2
         flavor: c1.c120m215
