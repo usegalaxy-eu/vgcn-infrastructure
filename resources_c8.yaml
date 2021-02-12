@@ -81,12 +81,6 @@ deployment:
         flavor: c1.c120m215
         group: compute
     # Training
-    training-biug:
-        count: 3
-        flavor: c.c10m55
-        start: 2021-01-25
-        end: 2021-02-10
-        group: training-biugalaxy
     training-pvs4:
         count: 1
         flavor: c.c32m240
