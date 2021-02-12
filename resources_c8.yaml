@@ -117,6 +117,12 @@ deployment:
         start: 2021-02-15
         end: 2021-02-24
         group: training-molmed
+    training-tfp_:
+        count: 3
+        flavor: c.c10m55
+        start: 2021-02-17
+        end: 2021-09-01
+        group: training-tfp_nanopore
     training-dese:
         count: 3
         flavor: c.c32m240
