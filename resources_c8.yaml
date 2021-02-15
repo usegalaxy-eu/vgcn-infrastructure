@@ -81,12 +81,6 @@ deployment:
         flavor: c1.c120m215
         group: compute
     # Training
-    training-biug:
-        count: 3
-        flavor: c.c10m55
-        start: 2021-01-25
-        end: 2021-02-10
-        group: training-biugalaxy
     training-pvs4:
         count: 1
         flavor: c.c32m240
@@ -123,6 +117,12 @@ deployment:
         start: 2021-02-15
         end: 2021-02-24
         group: training-molmed
+    training-tfp_:
+        count: 3
+        flavor: c.c10m55
+        start: 2021-02-17
+        end: 2021-09-01
+        group: training-tfp_nanopore
     training-dese:
         count: 3
         flavor: c.c32m240
@@ -148,11 +148,17 @@ deployment:
         end: 2021-03-12
         group: training-ur2
     training-raeg:
-        count: 7
+        count: 5
         flavor: c.c32m240
         start: 2021-03-15
         end: 2021-04-10
-        group: training-raeg2021  
+        group: training-raeg2021
+    training-embl:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-03-18
+        end: 2021-03-19
+        group: training-embl_galaxy_march21
     training-annn:
         count: 1
         flavor: c.c32m240
