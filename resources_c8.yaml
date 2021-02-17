@@ -153,6 +153,12 @@ deployment:
         start: 2021-03-15
         end: 2021-04-10
         group: training-raeg2021
+    training-npdn:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-03-15
+        end: 2021-03-17
+        group: training-npdn2021
     training-embl:
         count: 3
         flavor: c.c32m240
