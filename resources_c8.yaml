@@ -87,30 +87,12 @@ deployment:
         start: 2021-01-20
         end: 2021-05-10
         group: training-pvs4000
-    training-unic:
-        count: 2
-        flavor: c.c32m240
-        start: 2021-02-08
-        end: 2021-02-19
-        group: training-202110unicyler
     training-ueb_:
-        count: 2
+        count: 1
         flavor: c.c32m240
-        start: 2021-02-15
-        end: 2021-02-18
+        start: 2021-02-24
+        end: 2021-02-25
         group: training-ueb_mastervhir2021
-    training-ur1:
-        count: 2
-        flavor: c.c32m240
-        start: 2021-02-15
-        end: 2021-02-19
-        group: training-ur1
-    training-smor:
-        count: 0
-        flavor: c.c32m240
-        start: 2021-02-15
-        end: 2021-02-19
-        group: training-smorgasbord
     training-molm:
         count: 2
         flavor: c.c32m240
@@ -124,7 +106,7 @@ deployment:
         end: 2021-09-01
         group: training-tfp_nanopore
     training-dese:
-        count: 3
+        count: 2
         flavor: c.c32m240
         start: 2021-02-22
         end: 2021-03-07
