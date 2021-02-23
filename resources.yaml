@@ -1,8 +1,8 @@
 ---
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
-image: vggp-v31-j152-89d64435da4a-master
-image_id: 80042e8c-049c-41d8-b9a2-ff2000de2730
+image: vggp-v40-j224-4c0e1a6d4bf3-master
+image_id: 45655834-9923-4716-a6e5-b0e241ca7b1c
 
 network: bioinf
 network_id: afca9459-0eb1-4d67-999f-b07bf3bc99c5
@@ -13,71 +13,161 @@ secgroups:
  - egress
 
 graceful: false
-sshkey: cloud2
+sshkey: cloud3
 
 # The public key(s) we will accept when SSHing to a machine.
 pubkeys:
     - "AAAAB3NzaC1yc2EAAAABIwAAAQEAuSG1VOumQhbJfOyalJjS4lPC8eeeL02ld/VI2BFApyMfwbB1QxehY3lMBXt/cBTzqU3MxgJQVzNr/AgjHa5rKn2hSGMfKAdaX2tG686k715bBjRm9rJNhmc8KSH9tVS35M0HwRXMfiGvSmb5qJ6utWRZe6RM2JMIbqqI5Oc4tbzPPVKk1+yvT1JdYuyqAOp2yvQbOqKaXmqOhPdPNaJZMI4o+UHmmb8FH6OTDY27G7X7u07ZPwVi1j+6ZFVMQZqg1RhUdg9kmHpHwMX7P6NcD4G9GsISHIh92eva9xgWYGiS0wUsmOWTNgAzzsfRZjMFep+jB2wup6QN7XpMw97eTw=="
 
 deployment:
-    maintenance:
-        count: 0
+    worker-maintenance:
+        count: 1
         flavor: m1.large
         group: maintenance
-#    compute-upload:
-#        count: 2
-#        flavor: m1.xlarge
-#        group: upload 
-    compute-c20me:
+    worker-m1_large:
         count: 0
+        flavor: m1.large
+        group: compute
+    worker-upload:
+        count: 8
+        flavor: m1.large
+        group: upload 
+    worker-metadata:
+        count: 4
+        flavor: m1.large
+        group: metadata 
+    worker-interactive:
+        count: 20
+        flavor: c1.c125m425
+        group: interactive
+        docker_ready: true
+        volume:
+          size: 1024
+          type: netapp
+    worker-c20me:
+        count: 40 #40
         flavor: c.c20m120
         group: compute
-    compute-c40m2:
-        count: 0
+    worker-c40m2:
+        count: 15 #25
         flavor: c.c40m120
         group: compute
-    compute-c40mq:
-        count: 0
+        docker_ready: true
+        volume:
+          size: 1024
+          type: netapp
+    worker-c40mq:
+        count: 7 #7
         flavor: c.c40m250
         group: compute
-    compute-c40m1:
-        count: 0
+    worker-c40m1:
+        count: 8 #8
         flavor: c.c40m1000
         group: compute
-#    compute-c40tb:
-#        count: 1
-#        flavor: c.c40m1000_b
-#        group: compute
-#    compute-c64m2:
-#        count: 1
-#        flavor: c.c64m1950
-#        group: compute
-#    compute-c125m425:
-#        count: 10
-#        flavor: c1.c125m425
-#        group: compute
-    compute-c120m215:
-        count: 2
+    worker-c40tb:
+        count: 7 #7
+        flavor: c.c40m1000_b
+        group: compute
+    worker-c64m2:
+        count: 1 #1
+        flavor: c.c64m1950
+        group: compute
+    worker-c125m425:
+        count: 40 #60
+        flavor: c1.c125m425
+        group: compute
+    worker-c120m215:
+        count: 12 #12
         flavor: c1.c120m215
         group: compute
-        docker_ready: true
-        # volume:
-          # size: 2048
-    helenatesting:
-        count: 0
-        flavor: c.c10m55
-        group: helena
-        #volumes: true
-        cgroups: true
-    # Testing specifically for cgroups with hard limits
-    #training-cgrp:
-        #count: 1
-        #flavor: c.c32m240
-        #start: 2019-09-09
-        #end: 2020-09-30
-        #group: training-hard-limits
-        #cgroups: true
     # Training
-    #
-    # @Bea, training stuff moved to resources_c8.yaml
-    #
+    training-pvs4:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-01-20
+        end: 2021-05-10
+        group: training-pvs4000
+    training-ueb_:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-02-24
+        end: 2021-02-25
+        group: training-ueb_mastervhir2021
+    training-molm:
+        count: 2
+        flavor: c.c32m240
+        start: 2021-02-15
+        end: 2021-02-24
+        group: training-molmed
+    training-tfp_:
+        count: 3
+        flavor: c.c10m55
+        start: 2021-02-17
+        end: 2021-09-01
+        group: training-tfp_nanopore
+    training-dese:
+        count: 2
+        flavor: c.c32m240
+        start: 2021-02-22
+        end: 2021-03-07
+        group: training-202110deseq2 
+    training-om02:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-02-23
+        end: 2021-02-26
+        group: training-om02
+    training-lcms:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-03-08
+        end: 2021-03-12
+        group: training-202110lcmsms
+    training-ur2:
+        count: 8
+        flavor: c.c32m240
+        start: 2021-03-08
+        end: 2021-03-12
+        group: training-ur2
+    training-raeg:
+        count: 5
+        flavor: c.c32m240
+        start: 2021-03-15
+        end: 2021-04-10
+        group: training-raeg2021
+    training-npdn:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-03-15
+        end: 2021-03-17
+        group: training-npdn2021
+    training-embl:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-03-18
+        end: 2021-03-19
+        group: training-embl_galaxy_march21
+    training-annn:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-03-29
+        end: 2021-04-09
+        group: training-202110annnotation
+    training-moth:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-04-12
+        end: 2021-04-19
+        group: training-202110mothur
+    training-sib2:
+        count: 7
+        flavor: c.c32m240
+        start: 2021-04-26
+        end: 2021-04-28
+        group: training-sib2021
+    training-ei_s:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-11-01
+        end: 2021-11-05
+        group: training-ei_sc_rnaseq_2021 
