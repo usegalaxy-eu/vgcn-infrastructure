@@ -37,7 +37,7 @@ deployment:
         flavor: m1.large
         group: metadata 
     worker-interactive:
-        count: 20
+        count: 0
         flavor: c1.c125m425
         group: interactive
         docker_ready: true
