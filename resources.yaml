@@ -25,9 +25,9 @@ deployment:
         flavor: m1.large
         group: maintenance
     worker-m1_large:
-        count: 0
+        count: 1
         flavor: m1.large
-        group: compute
+        group: test
     worker-upload:
         count: 8
         flavor: m1.large
