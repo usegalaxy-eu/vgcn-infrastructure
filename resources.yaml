@@ -27,7 +27,7 @@ deployment:
     worker-m1_large:
         count: 1
         flavor: m1.large
-        group: test
+        group: fast-turnaround
     worker-upload:
         count: 8
         flavor: m1.large
