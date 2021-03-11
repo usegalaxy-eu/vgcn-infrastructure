@@ -154,3 +154,9 @@ deployment:
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021 
 
+    training-bili:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-03-24
+        end: 2021-03-26
+        group: training-bilillevariants2021
