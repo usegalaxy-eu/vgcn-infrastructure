@@ -27,7 +27,7 @@ deployment:
     worker-m1_large:
         count: 1
         flavor: m1.large
-        group: test
+        group: fast-turnaround
     worker-upload:
         count: 8
         flavor: m1.large
@@ -87,36 +87,12 @@ deployment:
         start: 2021-01-20
         end: 2021-05-10
         group: training-pvs4000
-    training-ueb_:
-        count: 1
-        flavor: c.c32m240
-        start: 2021-02-24
-        end: 2021-02-25
-        group: training-ueb_mastervhir2021
-    training-molm:
-        count: 2
-        flavor: c.c32m240
-        start: 2021-02-15
-        end: 2021-02-24
-        group: training-molmed
     training-tfp_:
         count: 3
         flavor: c.c10m55
         start: 2021-02-17
         end: 2021-09-01
         group: training-tfp_nanopore
-    training-dese:
-        count: 2
-        flavor: c.c32m240
-        start: 2021-02-22
-        end: 2021-03-07
-        group: training-202110deseq2 
-    training-om02:
-        count: 3
-        flavor: c.c32m240
-        start: 2021-02-23
-        end: 2021-02-26
-        group: training-om02
     training-lcms:
         count: 1
         flavor: c.c32m240
@@ -147,6 +123,12 @@ deployment:
         start: 2021-03-18
         end: 2021-03-19
         group: training-embl_galaxy_march21
+    training-acew:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-03-22
+        end: 2021-03-23
+        group: training-acewinter2021
     training-annn:
         count: 1
         flavor: c.c32m240
@@ -171,3 +153,4 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021 
+
