@@ -105,6 +105,12 @@ deployment:
         start: 2021-03-18
         end: 2021-03-19
         group: training-embl_galaxy_march21
+    training-gala:
+        count: 5
+        flavor: c.c32m240
+        start: 2021-03-22
+        end: 2021-03-22
+        group: training-galaxyczech
     training-acew:
         count: 3
         flavor: c.c32m240
@@ -141,3 +147,4 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021
+
