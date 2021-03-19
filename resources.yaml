@@ -111,6 +111,12 @@ deployment:
         start: 2021-03-22
         end: 2021-03-22
         group: training-galaxyczech
+    training-elix:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-03-22
+        end: 2021-03-24
+        group: training-elixir_advanced
     training-acew:
         count: 3
         flavor: c.c32m240
