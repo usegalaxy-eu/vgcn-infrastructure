@@ -224,7 +224,7 @@ class StateManagement:
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
 
-    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False, , gpu_ready=False,
+    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False, gpu_ready=False,
                              vol_size=12, vol_type='default', vol_boot=False):
         """
         Launch a server with a given name + flavor.
