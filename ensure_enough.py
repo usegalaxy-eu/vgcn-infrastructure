@@ -160,7 +160,7 @@ class StateManagement:
             if slept_for > timeout:
                 return {'Status': 'ERROR', 'Name': server_name}
 
-    def template_config(self, group, is_training=False, cgroups=False, docker_ready=False):
+    def template_config(self, group, is_training=False, cgroups=False, docker_ready=False, gpu_ready=False):
         custom_userdata = copy.copy(self.user_data)
         custom_userdata = re.sub('  GalaxyTraining.*', '  GalaxyTraining = %s' % is_training, custom_userdata)
         custom_userdata = re.sub('  GalaxyGroup.*', '  GalaxyGroup = "%s"' % group, custom_userdata)
@@ -171,9 +171,14 @@ class StateManagement:
             custom_userdata = re.sub('# BASE_CGROUP', 'BASE_CGROUP', custom_userdata)
             custom_userdata = re.sub('# CGROUP_MEMORY_LIMIT_POLICY', 'CGROUP_MEMORY_LIMIT_POLICY', custom_userdata)
 
+        if gpu_ready:
+            custom_userdata = re.sub('# packages:', 'packages:', custom_userdata)
+            custom_userdata = re.sub('# - cuda-10-1', ' - cuda-10-1', custom_userdata)
+            custom_userdata = re.sub('# - nvidia-container-toolkit', ' - nvidia-container-toolkit', custom_userdata)
+
         return custom_userdata
 
-    def launch_server(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False):
+    def launch_server(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False, gpu_ready=False):
         """
         Launch a server with a given name + flavor.
 
@@ -186,7 +191,7 @@ class StateManagement:
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
-        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, docker_ready=docker_ready)
+        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, docker_ready=docker_ready, gpu_ready=gpu_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -218,51 +223,8 @@ class StateManagement:
         # Wait for this server to become 'ACTIVE'
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
-    # def launch_server_volume(self, name, flavor, resource_identifier, group, is_training=False, cgroups=False):
-    #     """
-    #     Launch a server with a given name + flavor.
-    #
-    #     :returns: The launched server
-    #     :rtype: novaclient.v2.servers.Server
-    #     """
-    #     if DRY_RUN: return {'Status': 'OK (fake)'}
-    #
-    #     logging.info("launching %s (%s) with volume", name, flavor)
-    #     # If it's a compute-something, then we just tag as compute, per current
-    #     # sorting hat expectations.
-    #     custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups)
-    #
-    #     f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
-    #     f.write(custom_userdata.encode())
-    #     f.close()
-    #
-    #     args = [
-    #         'boot',
-    #         '--image', self.current_image_name,
-    #         '--flavor', flavor,
-    #         '--key-name', self.config['sshkey'],
-    #         '--availability-zone', 'nova',
-    #         '--nic', 'net-id=%s' % self.config['network_id'],
-    #         '--user-data', f.name,
-    #         '--block-device', 'source=blank,dest=volume,size=100,shutdown=remove',
-    #     ]
-    #
-    #     args.append('--security-groups')
-    #     args.append(','.join(self.config['secgroups']))
-    #
-    #     args.append(name)
-    #
-    #     self.os_command(args, cmd='nova', is_json=False)
-    #
-    #     try:
-    #         os.unlink(f.name)
-    #     except:
-    #         pass
-    #
-    #     # Wait for this server to become 'ACTIVE'
-    #     return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
-    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False,
+    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False, , gpu_ready=False,
                              vol_size=12, vol_type='default', vol_boot=False):
         """
         Launch a server with a given name + flavor.
@@ -276,7 +238,7 @@ class StateManagement:
         logging.info("launching %s (%s) with volume", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
-        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, docker_ready=docker_ready)
+        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, docker_ready=docker_ready, gpu_ready=gpu_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -388,7 +350,7 @@ class StateManagement:
             time.sleep(10)
 
     def top_up(self, desired_instances, prefix, flavor, group, volume=False, volume_args=None,
-               cgroups=False, docker_ready=False):
+               cgroups=False, docker_ready=False, gpu_ready=False):
         """
         :param int desired_instances: Number of instances of this type to launch
 
@@ -420,6 +382,7 @@ class StateManagement:
                 'is_training': 'training' in prefix,
                 'cgroups': cgroups,
                 'docker_ready': docker_ready,
+                'gpu_ready': gpu_ready,
             }
 
             if volume:
@@ -519,7 +482,8 @@ class StateManagement:
                             volume=True if 'volume' in resource else False,
                             volume_args=resource.get('volume', None),
                             cgroups=resource.get('cgroups', False),
-                            docker_ready=resource.get('docker_ready', False))
+                            docker_ready=resource.get('docker_ready', False),
+                            gpu_ready=resource.get('gpu_ready', False))
 
             # Now that we've removed all that we need to remove, again, try to top-up
             # to make sure we're OK. (Also important in case we had no servers already
@@ -529,7 +493,8 @@ class StateManagement:
                         volume=True if 'volume' in resource else False,
                         volume_args=resource.get('volume', None),
                         cgroups=resource.get('cgroups', False),
-                        docker_ready=resource.get('docker_ready', False))
+                        docker_ready=resource.get('docker_ready', False),
+                        gpu_ready=resource.get('gpu_ready', False))
 
 
 def make_parser():
