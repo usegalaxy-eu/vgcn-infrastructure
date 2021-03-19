@@ -89,3 +89,5 @@ mapping:
                         type: bool
                     "docker_ready":
                         type: bool
+                    "gpu_ready":
+                        type: bool
