@@ -85,6 +85,7 @@ deployment:
         flavor: g1.gput4_g1c8m20
         group: compute_gpu
         gpu_ready: true
+        docker_ready: true
     # Training
     training-pvs4:
         count: 1
