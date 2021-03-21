@@ -84,6 +84,9 @@ mapping:
                                   min: 12
                             "type":
                                 type: str
+                                enum:
+                                  - default
+                                  - netapp
                             "boot":
                                 type: bool
                     "cgroups":
