@@ -223,7 +223,6 @@ class StateManagement:
         # Wait for this server to become 'ACTIVE'
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
-
     def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False, gpu_ready=False,
                              vol_size=12, vol_type='default', vol_boot=False):
         """
@@ -255,7 +254,7 @@ class StateManagement:
         ]
         if vol_boot:
             args.append('--block-device')
-            args.append('source=image,id={},dest=volume,size={},bootindex=0,shutdown=remove'.format(self.config['image_id'], vol_size))
+            args.append('source=image,id={},dest=volume,size={},volume_type={},bootindex=0,shutdown=remove'.format(self.config['image_id'], vol_size, vol_type))
         else:
             args.append('--image')
             args.append(self.current_image_name)
