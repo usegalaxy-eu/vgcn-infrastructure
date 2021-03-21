@@ -175,6 +175,8 @@ class StateManagement:
             custom_userdata = re.sub('# packages:', 'packages:', custom_userdata)
             custom_userdata = re.sub('# - cuda-10-1', ' - cuda-10-1', custom_userdata)
             custom_userdata = re.sub('# - nvidia-container-toolkit', ' - nvidia-container-toolkit', custom_userdata)
+            custom_userdata = re.sub('# use feature : GPUs', 'use feature : GPUs', custom_userdata)
+            custom_userdata = re.sub('# GPU_DISCOVERY_EXTRA = -extra', 'GPU_DISCOVERY_EXTRA = -extra', custom_userdata)
 
         return custom_userdata
 
