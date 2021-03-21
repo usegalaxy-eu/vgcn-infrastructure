@@ -86,6 +86,10 @@ deployment:
         group: compute_gpu
         gpu_ready: true
         docker_ready: true
+        volume:
+          size: 100
+          type: netapp
+          boot: true
     # Training
     training-pvs4:
         count: 1
