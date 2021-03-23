@@ -80,6 +80,7 @@ deployment:
         count: 12 #12
         flavor: c1.c120m215
         group: compute
+        cgroups: true
     worker-gpu:
         count: 1
         flavor: g1.gput4_g1c8m20
