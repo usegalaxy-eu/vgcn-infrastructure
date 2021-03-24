@@ -28,6 +28,7 @@ deployment:
         count: 1
         flavor: m1.large
         group: fast-turnaround
+        cgroups: true
     worker-upload:
         count: 8
         flavor: m1.large
@@ -80,7 +81,6 @@ deployment:
         count: 12 #12
         flavor: c1.c120m215
         group: compute
-        cgroups: true
     worker-gpu:
         count: 1
         flavor: g1.gput4_g1c8m20
