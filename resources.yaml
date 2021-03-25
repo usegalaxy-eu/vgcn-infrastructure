@@ -25,10 +25,9 @@ deployment:
         flavor: m1.large
         group: maintenance
     worker-m1_large:
-        count: 1
-        flavor: m1.large
+        count: 3
+        flavor: m1.xlarge
         group: fast-turnaround
-        cgroups: true
     worker-upload:
         count: 8
         flavor: m1.large
