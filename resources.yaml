@@ -1,8 +1,8 @@
 ---
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
-image: vggp-v40-j224-4c0e1a6d4bf3-master
-image_id: 45655834-9923-4716-a6e5-b0e241ca7b1c
+image: vggp-v40-j231-9b35312b243e-master
+image_id: 2af811a0-36f5-4151-9a24-7df3459eb8a1
 
 network: bioinf
 network_id: afca9459-0eb1-4d67-999f-b07bf3bc99c5
@@ -25,15 +25,15 @@ deployment:
         flavor: m1.large
         group: maintenance
     worker-m1_large:
-        count: 1
-        flavor: m1.large
+        count: 2
+        flavor: m1.xlarge
         group: fast-turnaround
     worker-upload:
         count: 8
         flavor: m1.large
         group: upload 
     worker-metadata:
-        count: 4
+        count: 2
         flavor: m1.large
         group: metadata 
     worker-interactive:
@@ -73,13 +73,23 @@ deployment:
         flavor: c.c64m1950
         group: compute
     worker-c125m425:
-        count: 60 #60
+        count: 46 #60
         flavor: c1.c125m425
         group: compute
     worker-c120m215:
         count: 12 #12
         flavor: c1.c120m215
         group: compute
+    worker-gpu:
+        count: 1
+        flavor: g1.gput4_g1c8m20
+        group: compute_gpu
+        gpu_ready: true
+        docker_ready: true
+        volume:
+          size: 100
+          type: netapp
+          boot: true
     # Training
     training-pvs4:
         count: 1
@@ -93,36 +103,30 @@ deployment:
         start: 2021-02-17
         end: 2021-09-01
         group: training-tfp_nanopore
-    training-lcms:
-        count: 1
-        flavor: c.c32m240
-        start: 2021-03-08
-        end: 2021-03-12
-        group: training-202110lcmsms
-    training-ur2:
-        count: 8
-        flavor: c.c32m240
-        start: 2021-03-08
-        end: 2021-03-12
-        group: training-ur2
     training-raeg:
         count: 5
         flavor: c.c32m240
         start: 2021-03-15
         end: 2021-04-10
         group: training-raeg2021
-    training-npdn:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-03-15
-        end: 2021-03-17
-        group: training-npdn2021
     training-embl:
         count: 3
         flavor: c.c32m240
         start: 2021-03-18
         end: 2021-03-19
         group: training-embl_galaxy_march21
+    training-gala:
+        count: 5
+        flavor: c.c32m240
+        start: 2021-03-22
+        end: 2021-03-22
+        group: training-galaxyczech
+    training-elix:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-03-22
+        end: 2021-03-24
+        group: training-elixir_advanced
     training-acew:
         count: 3
         flavor: c.c32m240
@@ -159,3 +163,4 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021
+
