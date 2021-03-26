@@ -4,4 +4,4 @@ pykwalify==1.7.0
 python-openstackclient
 python-glanceclient==2.15.0
 python-novaclient==12.0.0
-PyYAML==5.3.1
+PyYAML==5.4
