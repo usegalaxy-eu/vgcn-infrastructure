@@ -127,8 +127,14 @@ deployment:
         start: 2021-04-12
         end: 2021-04-19
         group: training-202110mothur
+    training-hca5:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-04-22
+        end: 2021-04-30
+        group: training-hca5
     training-sib2:
-        count: 7
+        count: 6
         flavor: c.c32m240
         start: 2021-04-26
         end: 2021-04-28
