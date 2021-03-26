@@ -25,7 +25,7 @@ deployment:
         flavor: m1.large
         group: maintenance
     worker-m1_large:
-        count: 3
+        count: 2
         flavor: m1.xlarge
         group: fast-turnaround
     worker-upload:
@@ -33,7 +33,7 @@ deployment:
         flavor: m1.large
         group: upload 
     worker-metadata:
-        count: 4
+        count: 2
         flavor: m1.large
         group: metadata 
     worker-interactive:
