@@ -109,30 +109,6 @@ deployment:
         start: 2021-03-15
         end: 2021-04-10
         group: training-raeg2021
-    training-embl:
-        count: 3
-        flavor: c.c32m240
-        start: 2021-03-18
-        end: 2021-03-19
-        group: training-embl_galaxy_march21
-    training-gala:
-        count: 5
-        flavor: c.c32m240
-        start: 2021-03-22
-        end: 2021-03-22
-        group: training-galaxyczech
-    training-elix:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-03-22
-        end: 2021-03-24
-        group: training-elixir_advanced
-    training-acew:
-        count: 3
-        flavor: c.c32m240
-        start: 2021-03-22
-        end: 2021-03-23
-        group: training-acewinter2021
     training-bili:
         count: 3
         flavor: c.c32m240
@@ -151,8 +127,14 @@ deployment:
         start: 2021-04-12
         end: 2021-04-19
         group: training-202110mothur
+    training-hca5:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-04-22
+        end: 2021-04-30
+        group: training-hca5
     training-sib2:
-        count: 7
+        count: 6
         flavor: c.c32m240
         start: 2021-04-26
         end: 2021-04-28
