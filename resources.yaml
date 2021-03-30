@@ -109,12 +109,6 @@ deployment:
         start: 2021-03-15
         end: 2021-04-10
         group: training-raeg2021
-    training-bili:
-        count: 3
-        flavor: c.c32m240
-        start: 2021-03-24
-        end: 2021-03-26
-        group: training-bilillevariants2021
     training-annn:
         count: 1
         flavor: c.c32m240
