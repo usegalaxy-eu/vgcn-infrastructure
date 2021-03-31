@@ -109,12 +109,6 @@ deployment:
         start: 2021-03-15
         end: 2021-04-10
         group: training-raeg2021
-    training-bili:
-        count: 3
-        flavor: c.c32m240
-        start: 2021-03-24
-        end: 2021-03-26
-        group: training-bilillevariants2021
     training-annn:
         count: 1
         flavor: c.c32m240
@@ -139,10 +133,15 @@ deployment:
         start: 2021-04-26
         end: 2021-04-28
         group: training-sib2021
+    training-glbi:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-05-10
+        end: 2021-05-10
+        group: training-glbiotraining
     training-ei_s:
         count: 4
         flavor: c.c32m240
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021
-
