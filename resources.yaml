@@ -145,3 +145,9 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021
+    training-meta:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-05-25
+        end: 2021-05-25
+        group: training-metatranscr-be-may
