@@ -103,18 +103,6 @@ deployment:
         start: 2021-02-17
         end: 2021-09-01
         group: training-tfp_nanopore
-    training-raeg:
-        count: 5
-        flavor: c.c32m240
-        start: 2021-03-15
-        end: 2021-04-10
-        group: training-raeg2021
-    training-annn:
-        count: 1
-        flavor: c.c32m240
-        start: 2021-03-29
-        end: 2021-04-09
-        group: training-202110annnotation
     training-moth:
         count: 7
         flavor: c.c32m240
@@ -122,32 +110,39 @@ deployment:
         end: 2021-04-19
         group: training-202110mothur
     training-hca5:
-        count: 3
+        count: 2
         flavor: c.c32m240
         start: 2021-04-22
         end: 2021-04-30
         group: training-hca5
     training-sib2:
-        count: 6
+        count: 4
         flavor: c.c32m240
         start: 2021-04-26
         end: 2021-04-28
         group: training-sib2021
+    training-a-we:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-04-26
+        end: 2021-04-30
+        group: training-a-week-in-genomics
     training-glbi:
         count: 4
         flavor: c.c32m240
         start: 2021-05-10
         end: 2021-05-10
         group: training-glbiotraining
-    training-ei_s:
-        count: 4
-        flavor: c.c32m240
-        start: 2021-11-01
-        end: 2021-11-05
-        group: training-ei_sc_rnaseq_2021
     training-meta:
         count: 3
         flavor: c.c32m240
         start: 2021-05-25
         end: 2021-05-25
         group: training-metatranscr-be-may
+    training-ei_s:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-11-01
+        end: 2021-11-05
+        group: training-ei_sc_rnaseq_2021    
+
