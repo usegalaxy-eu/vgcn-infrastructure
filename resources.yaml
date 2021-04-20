@@ -36,14 +36,6 @@ deployment:
         count: 2
         flavor: m1.large
         group: metadata 
-    worker-interactive:
-        count: 0
-        flavor: c1.c125m425
-        group: interactive
-        docker_ready: true
-        volume:
-          size: 1024
-          type: netapp
     worker-c20me:
         count: 40 #40
         flavor: c.c20m120
@@ -55,7 +47,7 @@ deployment:
         docker_ready: true
         volume:
           size: 1024
-          type: netapp
+          type: default
     worker-c40mq:
         count: 7 #7
         flavor: c.c40m250
@@ -88,7 +80,7 @@ deployment:
         docker_ready: true
         volume:
           size: 100
-          type: netapp
+          type: default
           boot: true
     # Training
     training-pvs4:
