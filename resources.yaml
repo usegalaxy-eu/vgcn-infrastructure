@@ -113,6 +113,12 @@ deployment:
         start: 2021-04-26
         end: 2021-04-30
         group: training-a-week-in-genomics
+    training-geo9:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-05-05
+        end: 2021-05-05
+        group: training-geo9915
     training-glbi:
         count: 4
         flavor: c.c32m240
@@ -131,4 +137,5 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021    
+
 
