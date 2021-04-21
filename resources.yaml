@@ -95,12 +95,6 @@ deployment:
         start: 2021-02-17
         end: 2021-09-01
         group: training-tfp_nanopore
-    training-moth:
-        count: 7
-        flavor: c.c32m240
-        start: 2021-04-12
-        end: 2021-04-19
-        group: training-202110mothur
     training-hca5:
         count: 2
         flavor: c.c32m240
