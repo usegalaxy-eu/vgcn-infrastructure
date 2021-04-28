@@ -170,6 +170,7 @@ class StateManagement:
         if cgroups:
             custom_userdata = re.sub('# BASE_CGROUP', 'BASE_CGROUP', custom_userdata)
             custom_userdata = re.sub('# CGROUP_MEMORY_LIMIT_POLICY', 'CGROUP_MEMORY_LIMIT_POLICY', custom_userdata)
+            custom_userdata = re.sub('# RESERVED_MEMORY', 'RESERVED_MEMORY', custom_userdata)
 
         if gpu_ready:
             custom_userdata = re.sub('# packages:', 'packages:', custom_userdata)
