@@ -160,7 +160,8 @@ class StateManagement:
             if slept_for > timeout:
                 return {'Status': 'ERROR', 'Name': server_name}
 
-    def template_config(self, group, is_training=False, cgroups=False, docker_ready=False, gpu_ready=False):
+    def template_config(self, group, is_training=False, cgroups=False, cgroups_args=None, docker_ready=False,
+                        gpu_ready=False):
         custom_userdata = copy.copy(self.user_data)
         custom_userdata = re.sub('  GalaxyTraining.*', '  GalaxyTraining = %s' % is_training, custom_userdata)
         custom_userdata = re.sub('  GalaxyGroup.*', '  GalaxyGroup = "%s"' % group, custom_userdata)
@@ -169,8 +170,12 @@ class StateManagement:
 
         if cgroups:
             custom_userdata = re.sub('# BASE_CGROUP', 'BASE_CGROUP', custom_userdata)
-            custom_userdata = re.sub('# CGROUP_MEMORY_LIMIT_POLICY', 'CGROUP_MEMORY_LIMIT_POLICY', custom_userdata)
-            custom_userdata = re.sub('# RESERVED_MEMORY', 'RESERVED_MEMORY', custom_userdata)
+            policy = cgroups_args.get('mem_limit_policy', None)
+            if policy:
+                custom_userdata = re.sub('# CGROUP_MEMORY_LIMIT_POLICY.*',
+                                         'CGROUP_MEMORY_LIMIT_POLICY = {}'.format(policy), custom_userdata)
+            size = cgroups_args.get('mem_reserved_size', 1024)
+            custom_userdata = re.sub('# RESERVED_MEMORY.*', 'RESERVED_MEMORY = {}'.format(size), custom_userdata)
 
         if gpu_ready:
             custom_userdata = re.sub('# packages:', 'packages:', custom_userdata)
@@ -181,7 +186,8 @@ class StateManagement:
 
         return custom_userdata
 
-    def launch_server(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False, gpu_ready=False):
+    def launch_server(self, name, flavor, group, is_training=False, cgroups=False, cgroups_args=None,
+                      docker_ready=False, gpu_ready=False):
         """
         Launch a server with a given name + flavor.
 
@@ -194,7 +200,8 @@ class StateManagement:
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
-        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, docker_ready=docker_ready, gpu_ready=gpu_ready)
+        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, cgroups_args=cgroups_args,
+                                               docker_ready=docker_ready, gpu_ready=gpu_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -226,7 +233,8 @@ class StateManagement:
         # Wait for this server to become 'ACTIVE'
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
-    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, docker_ready=False, gpu_ready=False,
+    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, cgroups_args=None,
+                             docker_ready=False, gpu_ready=False,
                              vol_size=12, vol_type='default', vol_boot=False):
         """
         Launch a server with a given name + flavor.
@@ -240,7 +248,8 @@ class StateManagement:
         logging.info("launching %s (%s) with volume", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
-        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, docker_ready=docker_ready, gpu_ready=gpu_ready)
+        custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, cgroups_args=cgroups_args,
+                                               docker_ready=docker_ready, gpu_ready=gpu_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -352,7 +361,7 @@ class StateManagement:
             time.sleep(10)
 
     def top_up(self, desired_instances, prefix, flavor, group, volume=False, volume_args=None,
-               cgroups=False, docker_ready=False, gpu_ready=False):
+               cgroups=False, cgroups_args=None, docker_ready=False, gpu_ready=False):
         """
         :param int desired_instances: Number of instances of this type to launch
 
@@ -368,7 +377,7 @@ class StateManagement:
         tmp_servers_rm, tmp_servers_ok = self.identify_server_group(prefix)
         # Get all together
         all_servers = tmp_servers_rm + tmp_servers_ok
-        # Because we care not about how many are currenlty ok, but the number of
+        # Because we care not about how many are currently ok, but the number of
         # ACTIVE servers that can be processing jobs.
         num_active = [x['Status'] == 'ACTIVE' for x in all_servers]
         # Now we know the difference that we need to launch.
@@ -383,6 +392,7 @@ class StateManagement:
             kwargs = {
                 'is_training': 'training' in prefix,
                 'cgroups': cgroups,
+                'cgroups_args': cgroups_args,
                 'docker_ready': docker_ready,
                 'gpu_ready': gpu_ready,
             }
@@ -439,8 +449,7 @@ class StateManagement:
                 servers_ok = []
                 desired_instances = 0
 
-            logging.info("Found %s/%s running, %s to remove", len(servers_ok),
-                    desired_instances, len(servers_rm))
+            logging.info("Found %s/%s running, %s to remove", len(servers_ok), desired_instances, len(servers_rm))
 
             # Ok, here we possibly have some that need to be removed, and possibly have
             # some number that need to be added (of the new image version)
@@ -477,13 +486,13 @@ class StateManagement:
                 else:
                     self.brutally_terminate(server)
 
-                volume = True if 'volume' in resource else False
                 # With that done, 'top up' to the correct number of VMs.
                 self.top_up(desired_instances, prefix, flavor,
                             resource.get('group', resource_identifier),
                             volume=True if 'volume' in resource else False,
                             volume_args=resource.get('volume', None),
-                            cgroups=resource.get('cgroups', False),
+                            cgroups=True if 'cgroups' in resource else False,
+                            cgroups_args=resource.get('cgroups', None),
                             docker_ready=resource.get('docker_ready', False),
                             gpu_ready=resource.get('gpu_ready', False))
 
@@ -494,7 +503,8 @@ class StateManagement:
                         resource.get('group', resource_identifier),
                         volume=True if 'volume' in resource else False,
                         volume_args=resource.get('volume', None),
-                        cgroups=resource.get('cgroups', False),
+                        cgroups=True if 'cgroups' in resource else False,
+                        cgroups_args=resource.get('cgroups', None),
                         docker_ready=resource.get('docker_ready', False),
                         gpu_ready=resource.get('gpu_ready', False))
 

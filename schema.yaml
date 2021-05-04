@@ -90,7 +90,18 @@ mapping:
                             "boot":
                                 type: bool
                     "cgroups":
-                        type: bool
+                        type: map
+                        'mapping':
+                            "mem_limit_policy":
+                                type: str
+                                enum:
+                                  - soft
+                                  - hard
+                            "mem_reserved_size":
+                                type: int
+                                required: true
+                                range:
+                                    min: 1024
                     "docker_ready":
                         type: bool
                     "gpu_ready":
