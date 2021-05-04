@@ -55,6 +55,9 @@ deployment:
         count: 7 #7
         flavor: c.c40m250
         group: compute
+        cgroups:
+          mem_limit_policy: hard
+          mem_reserved_size: 4096
     worker-c40m1:
         count: 8 #8
         flavor: c.c40m1000
