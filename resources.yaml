@@ -37,6 +37,7 @@ deployment:
         flavor: m1.large
         group: metadata
         cgroups:
+          mem_limit_policy: soft
           mem_reserved_size: 1024
     worker-c20me:
         count: 40 #40
