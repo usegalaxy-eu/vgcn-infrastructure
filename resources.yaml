@@ -85,7 +85,7 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-gpu:
-        count: 16
+        count: 7
         flavor: g1.gput4_g1c8m20
         group: compute_gpu
         gpu_ready: true
