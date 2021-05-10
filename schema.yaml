@@ -67,6 +67,7 @@ mapping:
                           - c1.c120m215
                           - c1.c125m425
                           - g1.gput4_g1c8m20
+                          - g1.n46_g1c8m20
                     "start":
                         type: date
                         format: "%Y-%m-%d"
