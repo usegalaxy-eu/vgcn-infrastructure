@@ -94,6 +94,16 @@ deployment:
           size: 100
           type: default
           boot: true
+    worker-gpu_n46:
+        count: 9
+        flavor: g1.gput4_g1c8m20
+        group: compute_gpu
+        gpu_ready: true
+        docker_ready: true
+        volume:
+          size: 100
+          type: default
+          boot: true          
     # Training
     training-pvs4:
         count: 1
