@@ -84,7 +84,7 @@ deployment:
         cgroups:
           mem_limit_policy: hard
           mem_reserved_size: 4096
-    worker-gpu:
+    worker-gpu1:
         count: 7
         flavor: g1.gput4_g1c8m20
         group: compute_gpu
@@ -94,7 +94,7 @@ deployment:
           size: 100
           type: default
           boot: true
-    worker-gpu_n46:
+    worker-gpu2:
         count: 9
         flavor: g1.n46_g1c8m20
         group: compute_gpu
