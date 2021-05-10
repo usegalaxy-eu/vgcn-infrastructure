@@ -96,7 +96,7 @@ deployment:
           boot: true
     worker-gpu_n46:
         count: 9
-        flavor: g1.gput4_g1c8m20
+        flavor: g1.n46_g1c8m20
         group: compute_gpu
         gpu_ready: true
         docker_ready: true
