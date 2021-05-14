@@ -69,6 +69,9 @@ deployment:
         count: 7 #7
         flavor: c.c40m1000_b
         group: compute
+        cgroups:
+          mem_limit_policy: soft
+          mem_reserved_size: 4096
     worker-c64m2:
         count: 1 #1
         flavor: c.c64m1950
