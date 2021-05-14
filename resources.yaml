@@ -43,6 +43,9 @@ deployment:
         count: 40 #40
         flavor: c.c20m120
         group: compute
+        cgroups:
+          mem_limit_policy: hard
+          mem_reserved_size: 4096
     worker-c40m2:
         count: 15 #25
         flavor: c.c40m120
