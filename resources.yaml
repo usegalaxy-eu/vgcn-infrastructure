@@ -131,3 +131,9 @@ deployment:
         group: training-ei_sc_rnaseq_2021    
 
 
+    training-rnas:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-06-04
+        end: 2021-06-04
+        group: training-rnaseqpilot
