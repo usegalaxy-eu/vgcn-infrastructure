@@ -29,7 +29,7 @@ deployment:
         flavor: m1.xlarge
         group: fast-turnaround
     worker-upload:
-        count: 8
+        count: 12
         flavor: m1.large
         group: upload 
     worker-metadata:
