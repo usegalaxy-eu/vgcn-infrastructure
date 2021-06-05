@@ -47,7 +47,7 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-c32m240:
-        count: 2 #9
+        count: 9 #9
         flavor: c.c32m240
         group: compute
         cgroups:
