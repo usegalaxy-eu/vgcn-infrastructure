@@ -124,24 +124,6 @@ deployment:
         start: 2021-02-17
         end: 2021-09-01
         group: training-tfp_nanopore
-    training-myh7:
-        count: 2
-        flavor: c.c32m240
-        start: 2021-06-03
-        end: 2021-06-04
-        group: training-rnaseqmyh7
-    training-rnas:
-        count: 3
-        flavor: c.c32m240
-        start: 2021-06-04
-        end: 2021-06-04
-        group: training-rnaseqpilot
-    training-ebio:
-        count: 2
-        flavor: c.c32m240
-        start: 2021-06-04
-        end: 2021-06-04
-        group: training-galaxye
     training-ei_s:
         count: 4
         flavor: c.c32m240
