@@ -48,7 +48,7 @@ mapping:
                         enum:
                           - c.c10m55
                           - c.c16m120
-                          - c.c40m120
+                          - c.c40m110
                           - c.c20m120
                           - c.c32m240
                           - c.c32m250
@@ -63,7 +63,6 @@ mapping:
                           - m1.tiny
                           - m1.xlarge
                           - m1.xxlarge
-                          - c.c40m1000_b
                           - c1.c120m215
                           - c1.c125m425
                           - g1.gput4_g1c8m20
