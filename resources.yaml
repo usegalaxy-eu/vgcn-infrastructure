@@ -69,8 +69,15 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-c40m1:
-        count: 15 #15
+        count: 0 #15
         flavor: c.c40m1000
+        group: compute
+        cgroups:
+          mem_limit_policy: soft
+          mem_reserved_size: 4096
+    worker-c40m950:
+        count: 15 #15
+        flavor: 
         group: compute
         cgroups:
           mem_limit_policy: soft
