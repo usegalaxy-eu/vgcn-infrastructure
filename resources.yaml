@@ -46,13 +46,6 @@ deployment:
         cgroups:
           mem_limit_policy: hard
           mem_reserved_size: 4096
-    worker-c32m240:
-        count: 0 #9
-        flavor: c.c32m240
-        group: compute
-        cgroups:
-          mem_limit_policy: hard
-          mem_reserved_size: 4096          
     worker-c40m2:
         count: 5 #5
         flavor: c.c40m110
@@ -61,13 +54,14 @@ deployment:
         volume:
           size: 1024
           type: default
-    worker-c40mq:
+    worker-c40m250:
         count: 7 #7
         flavor: c.c40m250
         group: compute
-        cgroups:
-          mem_limit_policy: hard
-          mem_reserved_size: 4096
+        docker_ready: true
+        volume:
+          size: 1024
+          type: default
     worker-c40m950:
         count: 15 #15
         flavor: c.c40m950
