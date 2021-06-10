@@ -47,14 +47,13 @@ mapping:
                         required: true
                         enum:
                           - c.c10m55
-                          - c.c16m120
-                          - c.c40m110
+                          - c.c16m120                          
                           - c.c20m120
                           - c.c32m240
-                          - c.c32m250
+                          - c.c40m110
+                          - c.c40m235
                           - c.c40m950
-                          - c.c40m250
-                          - c.c4m22
+                          - c.c40m250                      
                           - c.c64m1950
                           - m1.large
                           - m1.medium
