@@ -54,14 +54,6 @@ deployment:
         volume:
           size: 1024
           type: default
-    worker-c40m250:
-        count: 0 #0
-        flavor: c.c40m250
-        group: compute
-        docker_ready: true
-        volume:
-          size: 1024
-          type: default
     worker-c40m235:
         count: 7 #7
         flavor: c.c40m235
