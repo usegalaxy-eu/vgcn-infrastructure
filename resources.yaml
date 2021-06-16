@@ -143,4 +143,4 @@ deployment:
         flavor: c.c32m240
         start: 2021-07-05
         end: 2021-07-07
-        group: training-metabenomicsmothur
+        group: training-metagenomicsmothur
