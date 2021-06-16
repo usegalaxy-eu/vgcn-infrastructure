@@ -125,4 +125,10 @@ deployment:
         flavor: c.c32m240
         start: 2021-06-16
         end: 2021-06-16
-        group: training-one-health2021
+        group: training-one-health2021    
+    training-1qua:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-06-18
+        end: 2021-06-18
+        group: training-1quantitativegenomic
