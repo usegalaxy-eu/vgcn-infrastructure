@@ -119,7 +119,28 @@ deployment:
         flavor: c.c32m240
         start: 2021-11-01
         end: 2021-11-05
-        group: training-ei_sc_rnaseq_2021    
-
-
-
+        group: training-ei_sc_rnaseq_2021
+    training-one-:
+        count: 0
+        flavor: c.c32m240
+        start: 2021-06-16
+        end: 2021-06-16
+        group: training-one-health2021    
+    training-1qua:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-06-18
+        end: 2021-06-18
+        group: training-1quantitativegenomic
+    training-2qua:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-06-25
+        end: 2021-06-25
+        group: training-2quantitativegenomic
+    training-meta:
+        count: 6
+        flavor: c.c32m240
+        start: 2021-07-05
+        end: 2021-07-07
+        group: training-metagenomicsmothur
