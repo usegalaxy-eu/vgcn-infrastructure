@@ -132,3 +132,15 @@ deployment:
         start: 2021-06-18
         end: 2021-06-18
         group: training-1quantitativegenomic
+    training-2qua:
+        count: 4
+        flavor: c.c32m240
+        start: 2021-06-25
+        end: 2021-06-25
+        group: training-2quantitativegenomic
+    training-meta:
+        count: 6
+        flavor: c.c32m240
+        start: 2021-07-05
+        end: 2021-07-07
+        group: training-metabenomicsmothur
