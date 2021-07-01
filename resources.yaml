@@ -121,12 +121,6 @@ deployment:
         start: 2021-02-17
         end: 2021-09-01
         group: training-tfp_nanopore
-    training-meta:
-        count: 6
-        flavor: c.c32m240
-        start: 2021-07-05
-        end: 2021-07-07
-        group: training-metagenomicsmothur
     training-ei_s:
         count: 4
         flavor: c.c32m240
