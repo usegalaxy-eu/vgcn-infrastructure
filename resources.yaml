@@ -47,8 +47,8 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-mothur:
-        count: 1
-        flavor: c1.c120m215
+        count: 2
+        flavor: c.c20m120
         group: compute_mothur
         cgroups:
           mem_limit_policy: hard
