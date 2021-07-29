@@ -40,7 +40,7 @@ deployment:
           mem_limit_policy: soft
           mem_reserved_size: 1024          
     worker-docker:
-        count: 2 
+        count: 10
         flavor: c1.c125m425
         group: compute
         docker_ready: true
