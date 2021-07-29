@@ -137,9 +137,9 @@ deployment:
         end: 2021-09-01
         group: training-tfp_nanopore
     training-sars:
-        count: 9
-        flavor: c.c32m240
-        start: 2021-07-29
+        count: 10
+        flavor: c120m215
+        start: 2021-08-09
         end: 2021-08-12
         group: training-sars_cov2_2021
     training-ei_s:
