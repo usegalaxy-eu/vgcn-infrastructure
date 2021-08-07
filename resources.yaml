@@ -103,7 +103,7 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-c120m215:
-        count: 12 #12
+        count: 6 #12
         flavor: c1.c120m215
         group: compute
         cgroups:
