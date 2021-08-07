@@ -139,7 +139,7 @@ deployment:
     training-sars:
         count: 10
         flavor: c1.c120m215
-        start: 2021-08-09
+        start: 2021-08-07
         end: 2021-08-12
         group: training-sars_cov2_2021
     training-ei_s:
