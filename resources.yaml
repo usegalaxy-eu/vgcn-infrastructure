@@ -148,3 +148,21 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021
+    training-bioi:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-08-31
+        end: 2021-10-22
+        group: training-bioinfo2021
+    training-ng01:
+        count: 1
+        flavor: c.c32m240
+        start: 2021-09-06
+        end: 2021-12-09
+        group: training-ng01cf_ht21
+    training-omic:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-10-08
+        end: 2021-10-12
+        group: training-omicmbg
