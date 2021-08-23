@@ -160,3 +160,9 @@ deployment:
         start: 2021-09-06
         end: 2021-12-09
         group: training-ng01cf_ht21
+    training-omic:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-10-08
+        end: 2021-10-12
+        group: training-omicmbg
