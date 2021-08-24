@@ -136,18 +136,18 @@ deployment:
         start: 2021-02-17
         end: 2021-09-01
         group: training-tfp_nanopore
-    training-ei_s:
-        count: 4
-        flavor: c.c32m240
-        start: 2021-11-01
-        end: 2021-11-05
-        group: training-ei_sc_rnaseq_2021
     training-bioi:
         count: 1
         flavor: c.c32m240
         start: 2021-08-31
         end: 2021-10-22
         group: training-bioinfo2021
+    training-fate:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-09-02
+        end: 2021-09-03
+        group: training-fates_bergen
     training-ng01:
         count: 1
         flavor: c.c32m240
@@ -160,9 +160,10 @@ deployment:
         start: 2021-10-08
         end: 2021-10-12
         group: training-omicmbg
-    training-fate:
-        count: 3
+    training-ei_s:
+        count: 4
         flavor: c.c32m240
-        start: 2021-09-02
-        end: 2021-09-03
-        group: training-fates_bergen
+        start: 2021-11-01
+        end: 2021-11-05
+        group: training-ei_sc_rnaseq_2021
+    
