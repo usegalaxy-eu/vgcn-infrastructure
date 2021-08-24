@@ -160,3 +160,9 @@ deployment:
         start: 2021-10-08
         end: 2021-10-12
         group: training-omicmbg
+    training-fate:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-09-02
+        end: 2021-09-03
+        group: training-fates_bergen
