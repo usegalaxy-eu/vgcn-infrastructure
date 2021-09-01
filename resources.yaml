@@ -166,4 +166,9 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021
-    
+    training-mgc2:
+        count: 3
+        flavor: c.c32m240
+        start: 2021-09-02
+        end: 2021-09-03
+        group: training-mgc2021
