@@ -410,8 +410,13 @@ class StateManagement:
                     fault = self.os_command(['server', 'show', server['ID']]).get('fault', {'message': '<error>'})
                 else:
                     fault = {'message': "Unknown"}
+
                 logging.error('Failed to launch %s: %s', server['Name'], fault['message'])
                 self.brutally_terminate(server)
+
+                if 'There are not enough hosts available' in fault['message']:
+                    logging.warning('Skipping launch attempt for remaining machines due to too-few-hosts error.')
+                    break
             else:
                 logging.info('Launched. %s (state=%s)', server, server['Status'])
 
