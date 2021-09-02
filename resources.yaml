@@ -130,6 +130,12 @@ deployment:
           type: default
           boot: true          
     # Training
+        training-test:
+        count: 2
+        flavor: c.c10m55
+        start: 2021-08-31
+        end: 2021-09-03
+        group: training-test
     training-bioi:
         count: 1
         flavor: c.c32m240
