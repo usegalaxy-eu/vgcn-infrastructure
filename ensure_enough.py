@@ -471,11 +471,14 @@ class StateManagement:
                 # Galaxy-net must be the used network, maybe this check is extraneous
                 # but better to only work on things we know are safe to work on.
 
-                # TODO: This changed formats, printing it and someone can know the DS to fix it next time. I'm guessing it'll just be `server["Networks"].keys()`
-                print(server['Networks'])
+                # This changed formats, i guess due to versions of python-openstackclient?
+                if isinstance(server['Networks'], dict):
+                    netz = server['Networks']
+                else:
+                    # 99% sure this'll work (:
+                    netz = { x.split('=')[0]: x.split('=')[1] for x in server['Networks'].split(',') }
 
-                netz = [x.split('=')[0] for x in server['Networks'].split(',')]
-                if self.config['network'] not in netz:
+                if self.config['network'] not in netz.keys():
                     if server['Status'] == 'ERROR':
                         self.brutally_terminate(server)
                         continue
