@@ -465,6 +465,10 @@ class StateManagement:
 
                 # Galaxy-net must be the used network, maybe this check is extraneous
                 # but better to only work on things we know are safe to work on.
+
+                # TODO: This changed formats, printing it and someone can know the DS to fix it next time. I'm guessing it'll just be `server["Networks"].keys()`
+                print(server['Networks'])
+
                 netz = [x.split('=')[0] for x in server['Networks'].split(',')]
                 if self.config['network'] not in netz:
                     if server['Status'] == 'ERROR':
