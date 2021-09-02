@@ -130,12 +130,6 @@ deployment:
           type: default
           boot: true          
     # Training
-    training-tfp_:
-        count: 3
-        flavor: c.c10m55
-        start: 2021-02-17
-        end: 2021-09-01
-        group: training-tfp_nanopore
     training-bioi:
         count: 1
         flavor: c.c32m240
