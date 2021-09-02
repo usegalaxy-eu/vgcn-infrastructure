@@ -137,13 +137,13 @@ deployment:
         end: 2021-10-22
         group: training-bioinfo2021
     training-fate:
-        count: 3
+        count: 2
         flavor: c.c32m240
         start: 2021-09-02
         end: 2021-09-03
         group: training-fates_bergen
     training-mgc2:
-        count: 3
+        count: 1
         flavor: c.c32m240
         start: 2021-09-02
         end: 2021-09-03
