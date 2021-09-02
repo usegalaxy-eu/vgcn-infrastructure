@@ -131,7 +131,7 @@ deployment:
           boot: true          
     # Training
     training-test:
-        count: 2
+        count: 1
         flavor: c.c10m55
         start: 2021-08-31
         end: 2021-09-03
