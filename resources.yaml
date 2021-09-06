@@ -166,6 +166,12 @@ deployment:
         start: 2021-09-15
         end: 2022-12-15
         group: training-biol152_2021
+    training-bm42:
+        count: 7
+        flavor: c.c32m235
+        start: 2021-09-29
+        end: 2021-10-04
+        group: training-bm425-workshop
     training-omic:
         count: 3
         flavor: c.c32m235
@@ -178,5 +184,3 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021
-
-
