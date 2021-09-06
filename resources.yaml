@@ -137,16 +137,16 @@ deployment:
         end: 2021-09-03
         group: training-test
     training-bioi:
-        count: 1
-        flavor: c.c32m240
+        count: 7
+        flavor: c.c32m235
         start: 2021-08-31
         end: 2021-10-22
         group: training-bioinfo2021
     training-fate:
         count: 2
-        flavor: c.c32m240
+        flavor: c.c32m485
         start: 2021-09-02
-        end: 2021-09-03
+        end: 2021-09-08
         group: training-fates_bergen
     training-mgc2:
         count: 1
