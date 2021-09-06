@@ -137,7 +137,7 @@ deployment:
         end: 2021-09-03
         group: training-test
     training-bioi:
-        count: 7
+        count: 1
         flavor: c.c32m235
         start: 2021-08-31
         end: 2021-10-22
@@ -148,18 +148,36 @@ deployment:
         start: 2021-09-02
         end: 2021-09-08
         group: training-fates_bergen
-    training-mgc2:
-        count: 1
+    training-avan:
+        count: 0
         flavor: c.c32m235
-        start: 2021-09-02
-        end: 2021-09-03
-        group: training-mgc2021
+        start: 2021-09-09
+        end: 2021-09-23
+        group: training-avans-abcd21
     training-ng01:
         count: 1
         flavor: c.c32m235
         start: 2021-09-06
         end: 2021-12-09
         group: training-ng01cf_ht21
+    training-debr:
+        count: 3
+        flavor: c.c32m235
+        start: 2021-09-13
+        end: 2022-01-31
+        group: training-debrecen2021
+    training-biol:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-09-15
+        end: 2022-12-15
+        group: training-biol152_2021
+    training-bm42:
+        count: 7
+        flavor: c.c32m235
+        start: 2021-09-29
+        end: 2021-10-04
+        group: training-bm425-workshop
     training-omic:
         count: 3
         flavor: c.c32m235
@@ -171,10 +189,5 @@ deployment:
         flavor: c.c32m235
         start: 2021-11-01
         end: 2021-11-05
-        group: training-ei_sc_rnaseq_2021
-    training-biol:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-09-15
-        end: 2022-12-15
-        group: training-biol152_2021
+        group: training-ei_sc_rnaseq_2021    
+
