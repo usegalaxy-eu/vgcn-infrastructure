@@ -150,31 +150,31 @@ deployment:
         group: training-fates_bergen
     training-mgc2:
         count: 1
-        flavor: c.c32m240
+        flavor: c.c32m235
         start: 2021-09-02
         end: 2021-09-03
         group: training-mgc2021
     training-ng01:
         count: 1
-        flavor: c.c32m240
+        flavor: c.c32m235
         start: 2021-09-06
         end: 2021-12-09
         group: training-ng01cf_ht21
     training-omic:
         count: 3
-        flavor: c.c32m240
+        flavor: c.c32m235
         start: 2021-10-08
         end: 2021-10-12
         group: training-omicmbg
     training-ei_s:
         count: 4
-        flavor: c.c32m240
+        flavor: c.c32m235
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021
     training-biol:
         count: 1
-        flavor: c.c32m240
+        flavor: c.c32m235
         start: 2021-09-15
         end: 2022-12-15
         group: training-biol152_2021
