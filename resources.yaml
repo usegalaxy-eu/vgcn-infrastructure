@@ -148,12 +148,6 @@ deployment:
         start: 2021-09-02
         end: 2021-09-08
         group: training-fates_bergen
-    training-mgc2:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-09-02
-        end: 2021-09-03
-        group: training-mgc2021
     training-ng01:
         count: 1
         flavor: c.c32m235
