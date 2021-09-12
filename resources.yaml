@@ -143,12 +143,6 @@ deployment:
         start: 2021-08-31
         end: 2021-10-22
         group: training-bioinfo2021
-    training-fate:
-        count: 2
-        flavor: c.c32m485
-        start: 2021-09-02
-        end: 2021-09-08
-        group: training-fates_bergen
     training-avan:
         count: 0
         flavor: c.c32m235
@@ -167,6 +161,12 @@ deployment:
         start: 2021-09-13
         end: 2022-01-31
         group: training-debrecen2021
+     training-bulk:
+        count: 3
+        flavor: c.c32m235
+        start: 2021-09-15
+        end: 2021-09-15
+        group: training-bulkrnaseq
     training-biol:
         count: 1
         flavor: c.c32m235
