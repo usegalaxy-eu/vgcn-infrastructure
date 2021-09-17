@@ -159,12 +159,6 @@ deployment:
         start: 2021-09-13
         end: 2022-01-31
         group: training-debrecen2021
-    training-bulk:
-        count: 3
-        flavor: c.c32m235
-        start: 2021-09-15
-        end: 2021-09-15
-        group: training-bulkrnaseq
     training-biol:
         count: 1
         flavor: c.c32m235
