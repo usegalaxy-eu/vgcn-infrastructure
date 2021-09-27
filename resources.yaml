@@ -196,3 +196,9 @@ deployment:
         end: 2021-11-23
         group: training-m2diag-ngs
 
+    training-fmx_:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-10-21
+        end: 2021-10-29
+        group: training-fmx_ff_bioinfo_2021
