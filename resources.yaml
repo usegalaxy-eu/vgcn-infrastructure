@@ -213,5 +213,9 @@ deployment:
         start: 2021-11-22
         end: 2021-11-23
         group: training-m2diag-ngs
-
-
+    training-biof:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-10-25
+        end: 2021-12-13
+        group: training-biof521
