@@ -183,6 +183,12 @@ deployment:
         start: 2021-10-08
         end: 2021-10-12
         group: training-omicmbg
+    training-bioi:
+        count: 2
+        flavor: c.c10m55
+        start: 2021-10-08
+        end: 2021-02-28
+        group: training-bioinfopremed
     training-gala:
         count: 2
         flavor: c.c32m235
@@ -207,4 +213,5 @@ deployment:
         start: 2021-11-22
         end: 2021-11-23
         group: training-m2diag-ngs
+
 
