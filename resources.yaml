@@ -159,12 +159,6 @@ deployment:
         start: 2021-09-15
         end: 2022-12-15
         group: training-biol152_2021
-    training-fmx_:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-10-21
-        end: 2021-10-29
-        group: training-fmx_ff_bioinfo_2021
     training-slub:
         count: 5
         flavor: c.c10m55
@@ -183,12 +177,24 @@ deployment:
         start: 2021-10-08
         end: 2021-02-28
         group: training-bioinfopremed
+    training-fmx_:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-10-21
+        end: 2021-10-29
+        group: training-fmx_ff_bioinfo_2021
     training-gala:
         count: 2
         flavor: c.c32m235
         start: 2021-10-21
         end: 2021-10-31
         group: training-galaxytraining_2021 
+    training-biof:
+        count: 1
+        flavor: c.c32m485
+        start: 2021-10-25
+        end: 2021-12-13
+        group: training-biof521
     training-ei_s:
         count: 4
         flavor: c.c32m235
@@ -207,12 +213,6 @@ deployment:
         start: 2021-11-22
         end: 2021-11-23
         group: training-m2diag-ngs
-    training-biof:
-        count: 1
-        flavor: c.c32m485
-        start: 2021-10-25
-        end: 2021-12-13
-        group: training-biof521
     training-span:
         count: 3
         flavor: c.c32m235
