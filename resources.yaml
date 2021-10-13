@@ -159,18 +159,6 @@ deployment:
         start: 2021-09-15
         end: 2022-12-15
         group: training-biol152_2021
-    training-slub:
-        count: 5
-        flavor: c.c10m55
-        start: 2021-09-24
-        end: 2021-10-01
-        group: training-slubic
-    training-omic:
-        count: 3
-        flavor: c.c32m235
-        start: 2021-10-08
-        end: 2021-10-12
-        group: training-omicmbg
     training-bioi:
         count: 2
         flavor: c.c10m55
@@ -219,3 +207,21 @@ deployment:
         start: 2021-11-29
         end: 2021-11-30
         group: training-spanscriptomics
+    training-mast:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-10-15
+        end: 2022-01-10
+        group: training-masteruca2021
+    training-gqa:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-11-22
+        end: 2021-12-03
+        group: training-gqa
+    training-forc:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-11-01
+        end: 2021-11-10
+        group: training-forces-2021
