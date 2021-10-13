@@ -207,3 +207,9 @@ deployment:
         start: 2021-11-29
         end: 2021-11-30
         group: training-spanscriptomics
+    training-mast:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-10-15
+        end: 2022-01-10
+        group: training-masteruca2021
