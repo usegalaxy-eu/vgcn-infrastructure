@@ -148,7 +148,7 @@ deployment:
         end: 2021-12-09
         group: training-ng01cf_ht21
     training-debr:
-        count: 2
+        count: 1
         flavor: c.c32m235
         start: 2021-09-13
         end: 2022-01-31
@@ -160,7 +160,7 @@ deployment:
         end: 2022-12-15
         group: training-biol152_2021
     training-bioi:
-        count: 2
+        count: 1
         flavor: c.c10m55
         start: 2021-10-08
         end: 2021-02-28
@@ -190,7 +190,7 @@ deployment:
         end: 2021-12-13
         group: training-biof521
     training-ei_s:
-        count: 4
+        count: 2
         flavor: c.c32m235
         start: 2021-11-01
         end: 2021-11-05
@@ -208,7 +208,7 @@ deployment:
         end: 2021-12-10
         group: training-oxbactgen 
     training-m2di:
-        count: 4
+        count: 3
         flavor: c.c32m235
         start: 2021-11-22
         end: 2021-11-23
