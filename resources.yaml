@@ -189,6 +189,12 @@ deployment:
         start: 2021-10-25
         end: 2021-12-13
         group: training-biof521
+    training-york:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-10-29
+        end: 2022-01-24
+        group: training-york-bio00058m
     training-ei_s:
         count: 2
         flavor: c.c32m235
@@ -225,3 +231,4 @@ deployment:
         start: 2021-11-29
         end: 2021-11-30
         group: training-spanscriptomics
+
