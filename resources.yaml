@@ -165,6 +165,12 @@ deployment:
         start: 2021-10-08
         end: 2021-02-28
         group: training-bioinfopremed
+    training-mast:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-10-15
+        end: 2022-01-10
+        group: training-masteruca2021
     training-fmx_:
         count: 1
         flavor: c.c10m55
@@ -189,6 +195,12 @@ deployment:
         start: 2021-11-01
         end: 2021-11-05
         group: training-ei_sc_rnaseq_2021    
+    training-forc:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-11-01
+        end: 2021-11-10
+        group: training-forces-2021
     training-oxba:
         count: 1
         flavor: c.c10m55
@@ -201,27 +213,15 @@ deployment:
         start: 2021-11-22
         end: 2021-11-23
         group: training-m2diag-ngs
-    training-span:
-        count: 3
-        flavor: c.c32m235
-        start: 2021-11-29
-        end: 2021-11-30
-        group: training-spanscriptomics
-    training-mast:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-10-15
-        end: 2022-01-10
-        group: training-masteruca2021
     training-gqa:
         count: 1
         flavor: c.c32m235
         start: 2021-11-22
         end: 2021-12-03
         group: training-gqa
-    training-forc:
-        count: 1
+    training-span:
+        count: 3
         flavor: c.c32m235
-        start: 2021-11-01
-        end: 2021-11-10
-        group: training-forces-2021
+        start: 2021-11-29
+        end: 2021-11-30
+        group: training-spanscriptomics
