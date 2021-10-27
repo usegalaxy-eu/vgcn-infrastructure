@@ -205,7 +205,7 @@ deployment:
         count: 1
         flavor: c.c32m235
         start: 2021-11-01
-        end: 2021-11-23
+        end: 2021-11-21
         group: training-forces-2021
     training-oxba:
         count: 1
