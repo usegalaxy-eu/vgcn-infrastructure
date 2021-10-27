@@ -249,3 +249,9 @@ deployment:
         start: 2021-11-03
         end: 2021-11-05
         group: training-internat
+    training-ueb_:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-11-17
+        end: 2021-12-01
+        group: training-ueb_bi2021
