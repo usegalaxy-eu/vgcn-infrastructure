@@ -130,10 +130,10 @@ deployment:
           boot: true          
     # Training
     training-test:
-        count: 5
+        count: 1
         flavor: c.c10m55
         start: 2021-08-31
-        end: 2021-10-26
+        end: 2021-12-31
         group: training-test
     training-bioi:
         count: 1
