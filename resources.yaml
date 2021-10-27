@@ -243,3 +243,9 @@ deployment:
         start: 2021-11-08
         end: 2021-11-09
         group: training-bc1
+    training-inte:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-11-03
+        end: 2021-11-05
+        group: training-internat
