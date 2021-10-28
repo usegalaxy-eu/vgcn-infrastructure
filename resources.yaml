@@ -118,7 +118,7 @@ deployment:
           size: 100
           type: default
           boot: true
-    worker-gpu2:
+    worker-gpubis:
         count: 9
         flavor: g1.n46_g1c8m20
         group: compute_gpu
