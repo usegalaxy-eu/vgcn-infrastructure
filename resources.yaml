@@ -48,7 +48,7 @@ deployment:
           size: 1024
           type: default
     worker-interactive:
-        count: 5
+        count: 7
         flavor: c.c20m120
         group: interactive
         docker_ready: true
