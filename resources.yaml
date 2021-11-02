@@ -63,7 +63,7 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-c20me:
-        count: 35 #40
+        count: 32 #40
         flavor: c.c20m120
         group: compute
         cgroups:
