@@ -48,7 +48,7 @@ deployment:
           size: 1024
           type: default
     worker-interactive:
-        count: 7
+        count: 10
         flavor: c.c20m120
         group: interactive
         docker_ready: true
@@ -63,7 +63,7 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-c20me:
-        count: 32 #40
+        count: 30 #40
         flavor: c.c20m120
         group: compute
         cgroups:
