@@ -161,7 +161,7 @@ deployment:
         group: training-bioinfopremed
     training-mast:
         count: 1
-        flavor: c.c32m235
+        flavor: c.c10m55
         start: 2021-10-15
         end: 2022-01-10
         group: training-masteruca2021
@@ -177,12 +177,6 @@ deployment:
         start: 2021-10-29
         end: 2022-01-24
         group: training-york-bio00058m
-    training-ei_s:
-        count: 2
-        flavor: c.c32m235
-        start: 2021-11-01
-        end: 2021-11-05
-        group: training-ei_sc_rnaseq_2021    
     training-forc:
         count: 1
         flavor: c.c32m235
@@ -195,24 +189,42 @@ deployment:
         start: 2021-11-01
         end: 2021-12-10
         group: training-oxbactgen 
-    training-gm2b:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-03
-        end: 2021-11-05
-        group: training-gm2bioinfopractical
     training-boss:
         count: 3
         flavor: c.c10m55
         start: 2021-11-05
         end: 2021-11-07
         group: training-bosske        
+    training-bc1:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-11-08
+        end: 2021-11-09
+        group: training-bc1
     training-mast:
         count: 1
         flavor: c.c32m235
         start: 2021-11-08
         end: 2021-12-01
         group: training-masterbv
+    training-inbi:
+        count: 1
+        flavor: c.c32m485
+        start: 2021-11-09
+        end: 2021-11-13
+        group: training-inbix2021
+    training-fun-:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-11-15
+        end: 2021-11-24
+        group: training-fun-micro
+    training-ueb_:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-11-15
+        end: 2021-12-01
+        group: training-ueb_bi2021
     training-m2di:
         count: 3
         flavor: c.c32m235
@@ -225,36 +237,24 @@ deployment:
         start: 2021-11-22
         end: 2021-12-03
         group: training-gqa
-    training-span:
-        count: 3
-        flavor: c.c32m235
-        start: 2021-11-29
-        end: 2021-11-30
-        group: training-spanscriptomics
-    training-bc1:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-08
-        end: 2021-11-09
-        group: training-bc1
-    training-inte:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-03
-        end: 2021-11-05
-        group: training-internat
-    training-ueb_:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-17
-        end: 2021-12-01
-        group: training-ueb_bi2021
     training-sbc1:
         count: 1
         flavor: c.c10m55
         start: 2021-11-29
         end: 2021-11-29
         group: training-sbcgalaxy-2021-11-29
+    training-span:
+        count: 3
+        flavor: c.c32m235
+        start: 2021-11-29
+        end: 2021-11-30
+        group: training-spanscriptomics
+    training-cris:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-11-30
+        end: 2021-12-02
+        group: training-crispr2021
     training-sbc2:
         count: 1
         flavor: c.c10m55
@@ -267,9 +267,4 @@ deployment:
         start: 2021-12-06
         end: 2021-12-06
         group: training-sbcgalaxy-2021-12-06
-    training-elix:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-04
-        end: 2021-11-05
-        group: training-elixircz-largedata
+
