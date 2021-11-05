@@ -161,7 +161,7 @@ deployment:
         group: training-bioinfopremed
     training-mast:
         count: 1
-        flavor: c.c32m235
+        flavor: c.c10m55
         start: 2021-10-15
         end: 2022-01-10
         group: training-masteruca2021
