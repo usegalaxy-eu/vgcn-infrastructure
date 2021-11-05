@@ -177,12 +177,6 @@ deployment:
         start: 2021-10-29
         end: 2022-01-24
         group: training-york-bio00058m
-    training-ei_s:
-        count: 2
-        flavor: c.c32m235
-        start: 2021-11-01
-        end: 2021-11-05
-        group: training-ei_sc_rnaseq_2021    
     training-forc:
         count: 1
         flavor: c.c32m235
@@ -195,12 +189,6 @@ deployment:
         start: 2021-11-01
         end: 2021-12-10
         group: training-oxbactgen 
-    training-gm2b:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-03
-        end: 2021-11-05
-        group: training-gm2bioinfopractical
     training-boss:
         count: 3
         flavor: c.c10m55
@@ -237,18 +225,6 @@ deployment:
         start: 2021-11-08
         end: 2021-11-09
         group: training-bc1
-    training-inte:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-03
-        end: 2021-11-05
-        group: training-internat
-    training-elix:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-04
-        end: 2021-11-05
-        group: training-elixircz-largedata
     training-ueb_:
         count: 1
         flavor: c.c10m55
