@@ -250,3 +250,9 @@ deployment:
         end: 2021-12-06
         group: training-sbcgalaxy-2021-12-06
 
+    training-cris:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-11-30
+        end: 2021-12-02
+        group: training-crispr2021
