@@ -213,6 +213,12 @@ deployment:
         start: 2021-11-09
         end: 2021-11-13
         group: training-inbix2021
+    training-fun-:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-11-15
+        end: 2021-11-24
+        group: training-fun-micro
     training-ueb_:
         count: 1
         flavor: c.c10m55
@@ -261,3 +267,4 @@ deployment:
         start: 2021-12-06
         end: 2021-12-06
         group: training-sbcgalaxy-2021-12-06
+
