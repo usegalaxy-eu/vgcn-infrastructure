@@ -29,8 +29,8 @@ deployment:
         flavor: m1.xlarge
         group: fast-turnaround
     worker-upload:
-        count: 10
-        flavor: m1.large
+        count: 2
+        flavor: c.c20m120
         group: upload 
     worker-metadata:
         count: 2
@@ -63,7 +63,7 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-c20me:
-        count: 30 #40
+        count: 28 #40
         flavor: c.c20m120
         group: compute
         cgroups:
