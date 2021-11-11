@@ -28,9 +28,13 @@ deployment:
         count: 0
         flavor: m1.xlarge
         group: fast-turnaround
-    worker-upload:
+    worker-fetch:
         count: 2
         flavor: c.c20m120
+        group: upload
+    worker-upload:
+        count: 9
+        flavor: m1.large
         group: upload 
     worker-metadata:
         count: 2
