@@ -199,12 +199,6 @@ deployment:
         start: 2021-11-08
         end: 2021-12-01
         group: training-masterbv
-    training-inbi:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-08
-        end: 2021-11-13
-        group: training-inbix2021
     training-fun-:
         count: 1
         flavor: c.c10m55
