@@ -211,6 +211,12 @@ deployment:
         start: 2021-11-15
         end: 2021-12-01
         group: training-ueb_bi2021
+    training-live:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-11-18
+        end: 2022-01-01
+        group: training-liverpool_life721
     training-m2di:
         count: 3
         flavor: c.c32m235
@@ -253,4 +259,5 @@ deployment:
         start: 2021-12-06
         end: 2021-12-06
         group: training-sbcgalaxy-2021-12-06
+
 
