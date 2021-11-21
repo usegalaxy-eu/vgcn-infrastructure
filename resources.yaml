@@ -181,12 +181,6 @@ deployment:
         start: 2021-10-29
         end: 2022-01-24
         group: training-york-bio00058m
-    training-forc:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-01
-        end: 2021-11-21
-        group: training-forces-2021
     training-oxba:
         count: 1
         flavor: c.c10m55
@@ -259,5 +253,9 @@ deployment:
         start: 2021-12-06
         end: 2021-12-06
         group: training-sbcgalaxy-2021-12-06
-
-
+    training-rnas:
+        count: 2
+        flavor: c.c32m235
+        start: 2021-12-08
+        end: 2021-12-09
+        group: training-rnaseq-wgs-ut
