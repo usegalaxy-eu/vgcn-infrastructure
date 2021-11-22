@@ -33,7 +33,7 @@ deployment:
         flavor: c.c20m120
         group: upload
     worker-upload:
-        count: 9
+        count: 0
         flavor: m1.large
         group: upload 
     worker-metadata:
