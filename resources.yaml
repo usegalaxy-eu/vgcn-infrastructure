@@ -264,4 +264,10 @@ deployment:
         flavor: c.c32m235
         start: 2021-12-08
         end: 2021-12-09
-        group: training-rnaseq-wgs-ut
+        group: training-rnaseq-wgs-ut    
+    training-chip:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-12-10
+        end: 2021-12-10
+        group: training-chipseq_univt
