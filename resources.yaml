@@ -277,3 +277,9 @@ deployment:
         start: 2021-12-06
         end: --donotautocommitpush
         group: training-c.c32m235
+    training-medm:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-11-29
+        end: 2021-12-06
+        group: training-medmicro21_uva
