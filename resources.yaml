@@ -271,12 +271,6 @@ deployment:
         start: 2021-12-10
         end: 2021-12-10
         group: training-chipseq_univt
-    training-c.c3:
-        count: 2021-11-29
-        flavor: 1
-        start: 2021-12-06
-        end: --donotautocommitpush
-        group: training-c.c32m235
     training-medm:
         count: 1
         flavor: c.c32m235
