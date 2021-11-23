@@ -253,6 +253,12 @@ deployment:
         start: 2021-12-06
         end: 2021-12-06
         group: training-sbcgalaxy-2021-12-06
+    training-mgph:
+        count: 1
+        flavor: c.c32m235
+        start: 2021-12-06
+        end: 2021-12-10
+        group: training-mgph-aus-2021
     training-rnas:
         count: 2
         flavor: c.c32m235
