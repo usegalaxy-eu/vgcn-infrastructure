@@ -197,12 +197,6 @@ deployment:
         start: 2021-11-08
         end: 2021-12-01
         group: training-masterbv
-    training-fun-:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-15
-        end: 2021-11-24
-        group: training-fun-micro
     training-ueb_:
         count: 1
         flavor: c.c10m55
@@ -233,6 +227,12 @@ deployment:
         start: 2021-11-29
         end: 2021-11-30
         group: training-spanscriptomics
+    training-rnas:
+        count: 3
+        flavor: c.c10m55
+        start: 2021-11-29
+        end: 2021-12-03
+        group: training-rnaseqparis2021
     training-cris:
         count: 1
         flavor: c.c32m235
@@ -275,3 +275,4 @@ deployment:
         start: 2021-11-29
         end: 2021-12-06
         group: training-medmicro21_uva
+
