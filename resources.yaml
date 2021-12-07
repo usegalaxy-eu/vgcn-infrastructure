@@ -217,5 +217,9 @@ deployment:
         start: 2021-12-10
         end: 2021-12-10
         group: training-chipseq_univt
-
-
+    training-gdaw:
+        count: 2
+        flavor: c.c32m235
+        start: 2021-12-15
+        end: 2021-12-30
+        group: training-gdawg2021
