@@ -193,54 +193,12 @@ deployment:
         start: 2021-11-08
         end: 2021-12-01
         group: training-masterbv
-    training-ueb_:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-15
-        end: 2021-12-01
-        group: training-ueb_bi2021
     training-live:
         count: 1
         flavor: c.c10m55
         start: 2021-11-18
         end: 2022-01-01
         group: training-liverpool_life721
-    training-gqa:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-22
-        end: 2021-12-03
-        group: training-gqa
-    training-sbc1:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-29
-        end: 2021-11-29
-        group: training-sbcgalaxy-2021-11-29
-    training-rnap:
-        count: 3
-        flavor: c.c10m55
-        start: 2021-11-29
-        end: 2021-12-03
-        group: training-rnaseqparis2021
-    training-cris:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-30
-        end: 2021-12-02
-        group: training-crispr2021
-    training-sbc2:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-12-01
-        end: 2021-12-01
-        group: training-sbcgalaxy-2021-12-01
-    training-sbc3:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-12-06
-        end: 2021-12-06
-        group: training-sbcgalaxy-2021-12-06
     training-mgph:
         count: 1
         flavor: c.c32m235
