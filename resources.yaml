@@ -217,10 +217,5 @@ deployment:
         start: 2021-12-10
         end: 2021-12-10
         group: training-chipseq_univt
-    training-medm:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-29
-        end: 2021-12-06
-        group: training-medmicro21_uva
+
 
