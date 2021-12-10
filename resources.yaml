@@ -144,7 +144,7 @@ deployment:
         flavor: c.c10m55
         start: 2021-12-10
         end: 2022-01-31
-        group: training-test
+        group: training-birna
     training-ng01:
         count: 1
         flavor: c.c32m485
