@@ -145,12 +145,6 @@ deployment:
         start: 2021-12-10
         end: 2022-01-31
         group: training-birna
-    training-ng01:
-        count: 1
-        flavor: c.c32m485
-        start: 2021-09-06
-        end: 2021-12-09
-        group: training-ng01cf_ht21
     training-debr:
         count: 1
         flavor: c.c32m235
@@ -175,57 +169,27 @@ deployment:
         start: 2021-10-15
         end: 2022-01-10
         group: training-masteruca2021
-    training-biof:
-        count: 1
-        flavor: c.c32m485
-        start: 2021-10-25
-        end: 2021-12-13
-        group: training-biof521
     training-york:
         count: 1
         flavor: c.c32m235
         start: 2021-10-29
         end: 2022-01-24
         group: training-york-bio00058m
-    training-oxba:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-01
-        end: 2021-12-10
-        group: training-oxbactgen 
-    training-mast:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-11-08
-        end: 2021-12-01
-        group: training-masterbv
     training-live:
         count: 1
         flavor: c.c10m55
         start: 2021-11-18
         end: 2022-01-01
-        group: training-liverpool_life721
-    training-mgph:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-12-06
-        end: 2021-12-10
-        group: training-mgph-aus-2021
-    training-rnas:
-        count: 2
-        flavor: c.c32m235
-        start: 2021-12-08
-        end: 2021-12-09
-        group: training-rnaseq-wgs-ut    
-    training-chip:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-12-10
-        end: 2021-12-10
-        group: training-chipseq_univt
+        group: training-liverpool_life721  
     training-gdaw:
         count: 2
         flavor: c.c32m235
         start: 2021-12-15
         end: 2021-12-30
         group: training-gdawg2021
+    training-imbs:
+        count: 1
+        flavor: c.c10m55
+        start: 2022-01-12
+        end: 2022-01-12
+        group: training-imbs2022
