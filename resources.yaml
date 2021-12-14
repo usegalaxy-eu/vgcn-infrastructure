@@ -187,3 +187,9 @@ deployment:
         start: 2021-12-15
         end: 2021-12-30
         group: training-gdawg2021
+    training-imbs:
+        count: 1
+        flavor: c.c10m55
+        start: 2022-01-12
+        end: 2022-01-12
+        group: training-imbs2022
