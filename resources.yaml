@@ -58,6 +58,13 @@ deployment:
         cgroups:
           mem_limit_policy: hard
           mem_reserved_size: 4096
+    worker-highmem:
+        count: 1 
+        flavor: c.c40m950
+        group: compute_highmem
+        cgroups:
+          mem_limit_policy: soft
+          mem_reserved_size: 4096
     worker-c20me:
         count: 26 #40
         flavor: c.c20m120
