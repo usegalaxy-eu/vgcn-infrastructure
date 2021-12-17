@@ -52,7 +52,7 @@ deployment:
           size: 1024
           type: default
     worker-mothur:
-        count: 4
+        count: 6
         flavor: c1.c120m215
         group: compute_mothur
         cgroups:
@@ -110,7 +110,7 @@ deployment:
           mem_limit_policy: hard
           mem_reserved_size: 4096
     worker-c120m215:
-        count: 10 #12
+        count: 6 #12
         flavor: c1.c120m215
         group: compute
         docker_ready: true
