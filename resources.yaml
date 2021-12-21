@@ -159,12 +159,6 @@ deployment:
         start: 2021-09-13
         end: 2022-01-31
         group: training-debrecen2021
-    training-biol:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-09-15
-        end: 2022-12-15
-        group: training-biol152_2021
     training-bioi:
         count: 1
         flavor: c.c10m55
@@ -201,3 +195,9 @@ deployment:
         start: 2022-01-12
         end: 2022-01-12
         group: training-imbs2022
+    training-nhm-:
+        count: 1
+        flavor: c.c32m235
+        start: 2022-01-12
+        end: 2022-01-12
+        group: training-nhm-postgrad
