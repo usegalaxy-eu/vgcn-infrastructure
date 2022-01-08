@@ -189,3 +189,9 @@ deployment:
         start: 2022-01-12
         end: 2022-01-12
         group: training-imbs2022
+    training-abt:
+        count: 1
+        flavor: c.c32m235
+        start: 2022-01-18
+        end: 2022-01-21
+        group: training-abt
