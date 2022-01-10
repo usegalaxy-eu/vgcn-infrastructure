@@ -159,6 +159,12 @@ deployment:
         start: 2021-09-13
         end: 2022-01-31
         group: training-debrecen2021
+    training-biol:
+        count: 1
+        flavor: c.c10m55
+        start: 2021-09-15
+        end: 2022-12-15
+        group: training-biol152_2021
     training-bioi:
         count: 1
         flavor: c.c10m55
@@ -177,27 +183,15 @@ deployment:
         start: 2021-10-29
         end: 2022-01-24
         group: training-york-bio00058m
-    training-live:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-11-18
-        end: 2022-01-01
-        group: training-liverpool_life721  
-    training-gdaw:
-        count: 2
-        flavor: c.c32m235
-        start: 2021-12-15
-        end: 2021-12-30
-        group: training-gdawg2021
     training-imbs:
         count: 1
         flavor: c.c10m55
         start: 2022-01-12
         end: 2022-01-12
         group: training-imbs2022
-    training-nhm-:
+    training-abt:
         count: 1
         flavor: c.c32m235
-        start: 2022-01-12
-        end: 2022-01-12
-        group: training-nhm-postgrad
+        start: 2022-01-18
+        end: 2022-01-21
+        group: training-abt
