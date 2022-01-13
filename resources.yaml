@@ -189,3 +189,9 @@ deployment:
     start: 2022-02-28
     end: 2022-03-02
     group: training-npdn-hts
+  training-feb-:
+    count: 2
+    flavor: c.c32m235
+    start: 2022-02-07
+    end: 2022-02-11
+    group: training-feb-ur22
