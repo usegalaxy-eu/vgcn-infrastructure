@@ -183,3 +183,9 @@ deployment:
     start: 2022-01-18
     end: 2022-01-21
     group: training-abt
+  training-npdn:
+    count: 1
+    flavor: c.c10m55
+    start: 2022-02-28
+    end: 2022-03-02
+    group: training-npdn-hts
