@@ -201,3 +201,15 @@ deployment:
     start: 2022-03-21
     end: 2022-03-25
     group: training-mar-ur22
+  training-wtac:
+    count: 1
+    flavor: c.c10m55
+    start: 2022-01-23
+    end: 2022-01-28
+    group: training-wtac
+  training-mca2:
+    count: 2
+    flavor: c.c32m235
+    start: 2022-03-29
+    end: 2022-03-30
+    group: training-mca2022
