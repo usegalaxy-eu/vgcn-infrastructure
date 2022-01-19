@@ -195,3 +195,9 @@ deployment:
     start: 2022-03-14
     end: 2022-04-08
     group: training-raeg2022
+  training-feb_:
+    count: 1
+    flavor: c.c32m235
+    start: 2022-02-22
+    end: 2022-02-25
+    group: training-feb_2022
