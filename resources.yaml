@@ -9,189 +9,177 @@ network_id: afca9459-0eb1-4d67-999f-b07bf3bc99c5
 image_replace: false
 
 secgroups:
- - ufr-ingress
- - egress
+  - ufr-ingress
+  - egress
 
 graceful: false
 sshkey: cloud3
 
 # The public key(s) we will accept when SSHing to a machine.
 pubkeys:
-    - "AAAAB3NzaC1yc2EAAAABIwAAAQEAuSG1VOumQhbJfOyalJjS4lPC8eeeL02ld/VI2BFApyMfwbB1QxehY3lMBXt/cBTzqU3MxgJQVzNr/AgjHa5rKn2hSGMfKAdaX2tG686k715bBjRm9rJNhmc8KSH9tVS35M0HwRXMfiGvSmb5qJ6utWRZe6RM2JMIbqqI5Oc4tbzPPVKk1+yvT1JdYuyqAOp2yvQbOqKaXmqOhPdPNaJZMI4o+UHmmb8FH6OTDY27G7X7u07ZPwVi1j+6ZFVMQZqg1RhUdg9kmHpHwMX7P6NcD4G9GsISHIh92eva9xgWYGiS0wUsmOWTNgAzzsfRZjMFep+jB2wup6QN7XpMw97eTw=="
+  - "AAAAB3NzaC1yc2EAAAABIwAAAQEAuSG1VOumQhbJfOyalJjS4lPC8eeeL02ld/VI2BFApyMfwbB1QxehY3lMBXt/cBTzqU3MxgJQVzNr/AgjHa5rKn2hSGMfKAdaX2tG686k715bBjRm9rJNhmc8KSH9tVS35M0HwRXMfiGvSmb5qJ6utWRZe6RM2JMIbqqI5Oc4tbzPPVKk1+yvT1JdYuyqAOp2yvQbOqKaXmqOhPdPNaJZMI4o+UHmmb8FH6OTDY27G7X7u07ZPwVi1j+6ZFVMQZqg1RhUdg9kmHpHwMX7P6NcD4G9GsISHIh92eva9xgWYGiS0wUsmOWTNgAzzsfRZjMFep+jB2wup6QN7XpMw97eTw=="
 
 deployment:
-    worker-maintenance:
-        count: 1
-        flavor: m1.large
-        group: maintenance
-    worker-fastturnaround:
-        count: 0
-        flavor: m1.xlarge
-        group: fast-turnaround
-    worker-fetch:
-        count: 3
-        flavor: c.c20m120
-        group: upload
-    worker-upload:
-        count: 0
-        flavor: m1.large
-        group: upload 
-    worker-metadata:
-        count: 2
-        flavor: m1.large
-        group: metadata
-        cgroups:
-          mem_limit_policy: soft
-          mem_reserved_size: 1024          
-    worker-interactive:
-        count: 10
-        flavor: c.c20m120
-        group: interactive
-        docker_ready: true
-        volume:
-          size: 1024
-          type: default
-    worker-mothur:
-        count: 6
-        flavor: c1.c120m215
-        group: compute_mothur
-        cgroups:
-          mem_limit_policy: hard
-          mem_reserved_size: 4096
-    worker-c20me:
-        count: 26 #40
-        flavor: c.c20m120
-        group: compute
-        cgroups:
-          mem_limit_policy: hard
-          mem_reserved_size: 4096
-    worker-c40m110:
-        count: 0 #4
-        flavor: c.c40m110
-        group: compute
-        cgroups:
-          mem_limit_policy: hard
-          mem_reserved_size: 4096
-    worker-c40m235:
-        count: 7 #7
-        flavor: c.c40m235
-        group: compute
-        cgroups:
-          mem_limit_policy: hard
-          mem_reserved_size: 4096
-    worker-c40m950:
-        count: 15 #15
-        flavor: c.c40m950
-        group: compute
-        docker_ready: true
-        volume:
-          size: 1024
-          type: default
-        cgroups:
-          mem_limit_policy: soft
-          mem_reserved_size: 2048
-    worker-c64m2:
-        count: 1 #1
-        flavor: c.c64m1950
-        group: compute
-        docker_ready: true
-        volume:
-          size: 1024
-          type: default
-    worker-c125m425:
-        count: 60 #60
-        flavor: c1.c125m425
-        group: compute
-        docker_ready: true
-        volume:
-          size: 1024
-          type: default
-        cgroups:
-          mem_limit_policy: hard
-          mem_reserved_size: 4096
-    worker-c120m215:
-        count: 6 #12
-        flavor: c1.c120m215
-        group: compute
-        docker_ready: true
-        volume:
-          size: 1024
-          type: default
-        cgroups:
-          mem_limit_policy: hard
-          mem_reserved_size: 4096
-    worker-gpu1:
-        count: 7
-        flavor: g1.gput4_g1c8m20
-        group: compute_gpu
-        gpu_ready: true
-        docker_ready: true
-        volume:
-          size: 100
-          type: default
-          boot: true
-    worker-gpubis:
-        count: 9
-        flavor: g1.n46_g1c8m20
-        group: compute_gpu
-        gpu_ready: true
-        docker_ready: true
-        volume:
-          size: 100
-          type: default
-          boot: true          
-    # Training
-    training-test:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-08-31
-        end: 2021-12-31
-        group: training-test
-    training-birna:
-        count: 2
-        flavor: c.c10m55
-        start: 2021-12-10
-        end: 2022-01-31
-        group: training-birna
-    training-debr:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-09-13
-        end: 2022-01-31
-        group: training-debrecen2021
-    training-biol:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-09-15
-        end: 2022-12-15
-        group: training-biol152_2021
-    training-bioi:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-10-08
-        end: 2022-02-28
-        group: training-bioinfopremed
-    training-muca:
-        count: 1
-        flavor: c.c10m55
-        start: 2021-10-15
-        end: 2022-01-10
-        group: training-masteruca2021
-    training-york:
-        count: 1
-        flavor: c.c32m235
-        start: 2021-10-29
-        end: 2022-01-24
-        group: training-york-bio00058m
-    training-imbs:
-        count: 1
-        flavor: c.c10m55
-        start: 2022-01-12
-        end: 2022-01-12
-        group: training-imbs2022
-    training-abt:
-        count: 1
-        flavor: c.c32m235
-        start: 2022-01-18
-        end: 2022-01-21
-        group: training-abt
+  worker-maintenance:
+    count: 1
+    flavor: m1.large
+    group: maintenance
+  worker-fastturnaround:
+    count: 0
+    flavor: m1.xlarge
+    group: fast-turnaround
+  worker-fetch:
+    count: 3
+    flavor: c.c20m120
+    group: upload
+  worker-upload:
+    count: 0
+    flavor: m1.large
+    group: upload
+  worker-metadata:
+    count: 2
+    flavor: m1.large
+    group: metadata
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 1024
+  worker-interactive:
+    count: 10
+    flavor: c.c20m120
+    group: interactive
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+  worker-mothur:
+    count: 6
+    flavor: c1.c120m215
+    group: compute_mothur
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 4096
+  worker-c20me:
+    count: 26 #40
+    flavor: c.c20m120
+    group: compute
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 4096
+  worker-c40m110:
+    count: 0 #4
+    flavor: c.c40m110
+    group: compute
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 4096
+  worker-c40m235:
+    count: 7 #7
+    flavor: c.c40m235
+    group: compute
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 4096
+  worker-c40m950:
+    count: 15 #15
+    flavor: c.c40m950
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
+  worker-c64m2:
+    count: 1 #1
+    flavor: c.c64m1950
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+  worker-c125m425:
+    count: 60 #60
+    flavor: c1.c125m425
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 4096
+  worker-c120m215:
+    count: 6 #12
+    flavor: c1.c120m215
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 4096
+  worker-gpu1:
+    count: 7
+    flavor: g1.gput4_g1c8m20
+    group: compute_gpu
+    gpu_ready: true
+    docker_ready: true
+    volume:
+      size: 100
+      type: default
+      boot: true
+  worker-gpubis:
+    count: 9
+    flavor: g1.n46_g1c8m20
+    group: compute_gpu
+    gpu_ready: true
+    docker_ready: true
+    volume:
+      size: 100
+      type: default
+      boot: true
+  # Training
+  training-test:
+    count: 1
+    flavor: c.c10m55
+    start: 2021-08-31
+    end: 2021-12-31
+    group: training-test
+  training-birna:
+    count: 2
+    flavor: c.c10m55
+    start: 2021-12-10
+    end: 2022-01-31
+    group: training-birna
+  training-debr:
+    count: 1
+    flavor: c.c32m235
+    start: 2021-09-13
+    end: 2022-01-31
+    group: training-debrecen2021
+  training-biol:
+    count: 1
+    flavor: c.c10m55
+    start: 2021-09-15
+    end: 2022-12-15
+    group: training-biol152_2021
+  training-bioi:
+    count: 1
+    flavor: c.c10m55
+    start: 2021-10-08
+    end: 2022-02-28
+    group: training-bioinfopremed
+  training-york:
+    count: 1
+    flavor: c.c32m235
+    start: 2021-10-29
+    end: 2022-01-24
+    group: training-york-bio00058m
+  training-abt:
+    count: 1
+    flavor: c.c32m235
+    start: 2022-01-18
+    end: 2022-01-21
+    group: training-abt
