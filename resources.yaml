@@ -183,3 +183,9 @@ deployment:
     start: 2022-01-18
     end: 2022-01-21
     group: training-abt
+  training-pvs4:
+    count: 1
+    flavor: c.c10m55
+    start: 2022-01-18
+    end: 2022-05-31
+    group: training-pvs4000
