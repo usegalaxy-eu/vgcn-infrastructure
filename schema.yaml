@@ -5,8 +5,8 @@ mapping:
         type: str
         required: true
     "image_id":
-      type: str
-      required: true
+        type: str
+        required: true
     "image_replace":
         type: bool
         required: true
@@ -20,7 +20,7 @@ mapping:
         type: seq
         required: true
         sequence:
-          - type: str
+            - type: str
     "graceful":
         type: bool
         required: true
@@ -30,7 +30,7 @@ mapping:
     "pubkeys":
         type: seq
         sequence:
-          - type: str
+            - type: str
     "deployment":
         type: map
         mapping:
@@ -41,31 +41,31 @@ mapping:
                         type: int
                         required: true
                         range:
-                          min: 0
+                            min: 0
                     "flavor":
                         type: str
                         required: true
                         enum:
-                          - c.c10m55
-                          - c.c16m120                          
-                          - c.c20m120
-                          - c.c32m235
-                          - c.c32m485
-                          - c.c40m110
-                          - c.c40m235
-                          - c.c40m950                    
-                          - c.c64m1950
-                          - m1.large
-                          - m1.medium
-                          - m1.nano
-                          - m1.small
-                          - m1.tiny
-                          - m1.xlarge
-                          - m1.xxlarge
-                          - c1.c120m215
-                          - c1.c125m425
-                          - g1.gput4_g1c8m20
-                          - g1.n46_g1c8m20
+                            - c.c10m55
+                            - c.c16m120
+                            - c.c20m120
+                            - c.c32m235
+                            - c.c32m485
+                            - c.c40m110
+                            - c.c40m235
+                            - c.c40m950
+                            - c.c64m1950
+                            - m1.large
+                            - m1.medium
+                            - m1.nano
+                            - m1.small
+                            - m1.tiny
+                            - m1.xlarge
+                            - m1.xxlarge
+                            - c1.c120m215
+                            - c1.c125m425
+                            - g1.gput4_g1c8m20
+                            - g1.n46_g1c8m20
                     "start":
                         type: date
                         format: "%Y-%m-%d"
@@ -80,12 +80,12 @@ mapping:
                             "size":
                                 type: int
                                 range:
-                                  min: 12
+                                    min: 12
                             "type":
                                 type: str
                                 enum:
-                                  - default
-                                  - netapp
+                                    - default
+                                    - netapp
                             "boot":
                                 type: bool
                     "cgroups":
@@ -94,8 +94,8 @@ mapping:
                             "mem_limit_policy":
                                 type: str
                                 enum:
-                                  - soft
-                                  - hard
+                                    - soft
+                                    - hard
                             "mem_reserved_size":
                                 type: int
                                 required: true
