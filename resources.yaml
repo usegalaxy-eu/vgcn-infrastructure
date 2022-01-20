@@ -58,8 +58,12 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 4096
+  worker-birna:
+    count: 4
+    flavor: c.c20m120
+    group: compute_birna
   worker-c20me:
-    count: 26 #40
+    count: 23 #40
     flavor: c.c20m120
     group: compute
     cgroups:
@@ -201,3 +205,33 @@ deployment:
     start: 2022-02-22
     end: 2022-02-25
     group: training-feb_2022
+  training-wtac:
+    count: 1
+    flavor: c.c10m55
+    start: 2022-01-23
+    end: 2022-01-28
+    group: training-wtac
+  training-feb-:
+    count: 2
+    flavor: c.c32m235
+    start: 2022-02-07
+    end: 2022-02-11
+    group: training-feb-ur22
+  training-npdn:
+    count: 1
+    flavor: c.c10m55
+    start: 2022-02-28
+    end: 2022-03-02
+    group: training-npdn-hts
+  training-mar-:
+    count: 2
+    flavor: c.c32m235
+    start: 2022-03-21
+    end: 2022-03-25
+    group: training-mar-ur22
+  training-mca2:
+    count: 2
+    flavor: c.c32m235
+    start: 2022-03-29
+    end: 2022-03-30
+    group: training-mca2022
