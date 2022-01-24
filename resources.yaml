@@ -217,6 +217,12 @@ deployment:
     start: 2022-02-07
     end: 2022-02-11
     group: training-feb-ur22
+  training-molm:
+    count: 1
+    flavor: c.c32m235
+    start: 2022-02-07
+    end: 2022-02-25
+    group: training-molmed
   training-npdn:
     count: 1
     flavor: c.c10m55
