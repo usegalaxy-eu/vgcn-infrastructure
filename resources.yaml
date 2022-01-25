@@ -175,18 +175,6 @@ deployment:
     start: 2021-10-08
     end: 2022-02-28
     group: training-bioinfopremed
-  training-york:
-    count: 1
-    flavor: c.c32m235
-    start: 2021-10-29
-    end: 2022-01-24
-    group: training-york-bio00058m
-  training-abt:
-    count: 1
-    flavor: c.c32m235
-    start: 2022-01-18
-    end: 2022-01-21
-    group: training-abt
   training-pvs4:
     count: 1
     flavor: c.c10m55
