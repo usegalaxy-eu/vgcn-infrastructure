@@ -151,18 +151,6 @@ deployment:
     start: 2021-08-31
     end: 2021-12-31
     group: training-test
-  training-birna:
-    count: 2
-    flavor: c.c10m55
-    start: 2021-12-10
-    end: 2022-01-31
-    group: training-birna
-  training-debr:
-    count: 1
-    flavor: c.c32m235
-    start: 2021-09-13
-    end: 2022-01-31
-    group: training-debrecen2021
   training-biol:
     count: 1
     flavor: c.c10m55
@@ -193,12 +181,6 @@ deployment:
     start: 2022-02-22
     end: 2022-02-25
     group: training-feb_2022
-  training-wtac:
-    count: 1
-    flavor: c.c10m55
-    start: 2022-01-23
-    end: 2022-01-28
-    group: training-wtac
   training-feb-:
     count: 2
     flavor: c.c32m235
@@ -211,6 +193,12 @@ deployment:
     start: 2022-02-07
     end: 2022-02-25
     group: training-molmed
+  training-fr-f:
+    count: 2
+    flavor: c.c32m235
+    start: 2022-02-21
+    end: 2022-02-25
+    group: training-fr-feb-2022
   training-imbb:
     count: 1
     flavor: c.c10m55
@@ -235,9 +223,21 @@ deployment:
     start: 2022-03-21
     end: 2022-03-25
     group: training-mar-ur22
+  training-mtub:
+    count: 1
+    flavor: c.c32m235
+    start: 2022-03-21
+    end: 2022-03-25
+    group: training-mtuberculosisngs
   training-mca2:
     count: 2
     flavor: c.c32m235
     start: 2022-03-29
     end: 2022-03-30
     group: training-mca2022
+  training-ueb_:
+    count: 2
+    flavor: c.c32m235
+    start: 2022-02-21
+    end: 2022-02-24
+    group: training-ueb_mastervhir2022
