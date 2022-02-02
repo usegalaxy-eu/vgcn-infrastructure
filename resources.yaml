@@ -217,6 +217,12 @@ deployment:
     start: 2022-03-21
     end: 2022-03-25
     group: training-mar-ur22
+  training-mtub:
+    count: 1
+    flavor: c.c32m235
+    start: 2022-03-21
+    end: 2022-03-25
+    group: training-mtuberculosisngs
   training-mca2:
     count: 2
     flavor: c.c32m235
