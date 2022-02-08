@@ -59,7 +59,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 4096
   worker-birna:
-    count: 4
+    count: 2
     flavor: c.c20m120
     group: compute_birna
   worker-c20me:
