@@ -52,8 +52,8 @@ deployment:
       size: 1024
       type: default
   worker-mothur:
-    count: 5
-    flavor: c1.c120m215
+    count: 2
+    flavor: c1.c125m425_no_qos
     group: compute_mothur
     cgroups:
       mem_limit_policy: hard
