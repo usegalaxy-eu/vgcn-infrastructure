@@ -52,7 +52,7 @@ deployment:
       size: 1024
       type: default
   worker-mothur:
-    count: 2
+    count: 3
     flavor: c1.c125m425_no_qos
     group: compute_mothur
     cgroups:
