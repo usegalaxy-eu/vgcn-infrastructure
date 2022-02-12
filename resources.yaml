@@ -102,6 +102,17 @@ deployment:
     volume:
       size: 1024
       type: default
+  worker-c125nq:
+    count: 60 #60
+    flavor: c1.c125m425_no_qos
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 4096
   worker-c125m425:
     count: 60 #60
     flavor: c1.c125m425

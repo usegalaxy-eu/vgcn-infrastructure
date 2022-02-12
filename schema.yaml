@@ -64,6 +64,7 @@ mapping:
                             - m1.xxlarge
                             - c1.c120m215
                             - c1.c125m425
+                            - c1.c125m425_no_qos
                             - g1.gput4_g1c8m20
                             - g1.n46_g1c8m20
                     "start":
