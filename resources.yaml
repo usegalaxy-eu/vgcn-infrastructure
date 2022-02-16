@@ -210,6 +210,12 @@ deployment:
     start: 2022-02-21
     end: 2022-02-24
     group: training-ueb_mastervhir2022
+  training-rceg:
+    count: 1
+    flavor: c.c32m235
+    start: 2022-02-21
+    end: 2022-02-25
+    group: training-rcegsb_feb
   training-imbb:
     count: 1
     flavor: c.c10m55
