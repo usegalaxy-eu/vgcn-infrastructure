@@ -192,12 +192,6 @@ deployment:
     start: 2022-02-22
     end: 2022-02-25
     group: training-feb_2022
-  training-feb-:
-    count: 2
-    flavor: c.c32m235
-    start: 2022-02-07
-    end: 2022-02-11
-    group: training-feb-ur22
   training-molm:
     count: 1
     flavor: c.c32m235
@@ -210,6 +204,18 @@ deployment:
     start: 2022-02-21
     end: 2022-02-25
     group: training-fr-feb-2022
+  training-ueb_:
+    count: 2
+    flavor: c.c32m235
+    start: 2022-02-21
+    end: 2022-02-24
+    group: training-ueb_mastervhir2022
+  training-rceg:
+    count: 1
+    flavor: c.c32m235
+    start: 2022-02-21
+    end: 2022-02-25
+    group: training-rcegsb_feb
   training-imbb:
     count: 1
     flavor: c.c10m55
@@ -222,6 +228,12 @@ deployment:
     start: 2022-02-28
     end: 2022-03-02
     group: training-npdn-hts
+  training-arie:
+    count: 1
+    flavor: c.c10m55
+    start: 2022-03-02
+    end: 2022-06-12
+    group: training-arielgenomics
   training-sing:
     count: 1
     flavor: c.c32m485
@@ -246,9 +258,3 @@ deployment:
     start: 2022-03-29
     end: 2022-03-30
     group: training-mca2022
-  training-ueb_:
-    count: 2
-    flavor: c.c32m235
-    start: 2022-02-21
-    end: 2022-02-24
-    group: training-ueb_mastervhir2022
