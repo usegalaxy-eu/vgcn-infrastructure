@@ -160,7 +160,7 @@ deployment:
     count: 1
     flavor: c.c10m55
     start: 2021-08-31
-    end: 2021-12-31
+    end: 2022-02-28
     group: training-test
   training-biol:
     count: 1
