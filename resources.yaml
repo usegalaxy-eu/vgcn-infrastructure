@@ -58,6 +58,13 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 4096
+  worker-hifiasm:
+    count: 1
+    flavor: c.c40m950
+    group: compute_hifiasm
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
   worker-birna:
     count: 2
     flavor: c.c20m120
