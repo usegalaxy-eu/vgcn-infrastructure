@@ -44,7 +44,7 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 1024
   worker-interactive:
-    count: 8
+    count: 0 #8
     flavor: c1.c36m100
     group: interactive
     docker_ready: true
