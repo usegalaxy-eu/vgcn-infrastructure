@@ -256,14 +256,17 @@ class StateManagement:
         f.close()
 
         args = [
-            'boot',
+            'server', 'create',
             '--flavor', flavor,
             '--key-name', self.config['sshkey'],
             '--availability-zone', 'nova',
             '--nic', 'net-id=%s' % self.config['network_id'],
-            '--user-data', f.name,
-            '--security-groups', ','.join(self.config['secgroups']),
+            '--user-data', f.name
         ]
+        for sg in self.config['secgroups']:
+            args.append('--security-group')
+            args.append(sg)
+
         if vol_boot:
             args.append('--block-device')
             args.append('source=image,id={},dest=volume,size={},volume_type={},bootindex=0,shutdown=remove'.format(self.config['image_id'], vol_size, vol_type))
@@ -271,11 +274,15 @@ class StateManagement:
             args.append('--image')
             args.append(self.current_image_name)
             args.append('--block-device')
-            args.append('source=blank,dest=volume,size={},volume_type={},shutdown=remove'.format(vol_size, vol_type))
+            args.append('source_type=blank,destination_type=volume,volume_size={},volume_type={},delete_on_termination=true'.format(vol_size, vol_type))
+
+        args.append('--os-compute-api-version')
+        args.append('2.67')
 
         args.append(name)
 
-        self.os_command(args, cmd='nova', is_json=False)
+
+        self.os_command(args, cmd='openstack', is_json=False)
 
         try:
             os.unlink(f.name)
