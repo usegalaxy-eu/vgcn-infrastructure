@@ -29,8 +29,8 @@ deployment:
     flavor: m1.xlarge
     group: fast-turnaround
   worker-fetch:
-    count: 3
-    flavor: c.c20m120
+    count: 2
+    flavor: c1.c36m100
     group: upload
   worker-upload:
     count: 0
@@ -44,8 +44,8 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 1024
   worker-interactive:
-    count: 10
-    flavor: c.c20m120
+    count: 8
+    flavor: c1.c36m100
     group: interactive
     docker_ready: true
     volume:
@@ -53,46 +53,39 @@ deployment:
       type: default
   worker-mothur:
     count: 3
-    flavor: c1.c125m425_no_qos
+    flavor: c1.c125m425
     group: compute_mothur
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 4096
   worker-hifiasm:
     count: 1
-    flavor: c.c40m950
+    flavor: c1.c36m900
     group: compute_hifiasm
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
   worker-birna:
-    count: 2
-    flavor: c.c20m120
+    count: 1
+    flavor: c1.c36m100
     group: compute_birna
-  worker-c20me:
-    count: 25 #40
-    flavor: c.c20m120
+  worker-c36m100:
+    count: 20 #31
+    flavor: c1.c36m100
     group: compute
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 4096
-  worker-c40m110:
-    count: 0 #4
-    flavor: c.c40m110
-    group: compute
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 4096
-  worker-c40m235:
-    count: 7 #7
-    flavor: c.c40m235
-    group: compute
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 4096
-  worker-c40m950:
+  worker-c36m225:
     count: 15 #15
-    flavor: c.c40m950
+    flavor: c1.c36m225
+    group: compute
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 4096
+  worker-c36m975:
+    count: 14 #14
+    flavor: c1.c36m975
     group: compute
     docker_ready: true
     volume:
@@ -103,25 +96,14 @@ deployment:
       mem_reserved_size: 2048
   worker-c64m2:
     count: 1 #1
-    flavor: c.c64m1950
+    flavor: c1.c64m1975
     group: compute
     docker_ready: true
     volume:
       size: 1024
       type: default
-  worker-c125nq:
-    count: 60 #60
-    flavor: c1.c125m425_no_qos
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 4096
   worker-c125m425:
-    count: 60 #60
+    count: 48 #48
     flavor: c1.c125m425
     group: compute
     docker_ready: true
@@ -132,7 +114,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 4096
   worker-c120m215:
-    count: 12 #12
+    count: 0 #12
     flavor: c1.c120m215
     group: compute
     docker_ready: true
@@ -143,7 +125,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 4096
   worker-gpu1:
-    count: 7
+    count: 0
     flavor: g1.gput4_g1c8m20
     group: compute_gpu
     gpu_ready: true
@@ -153,7 +135,7 @@ deployment:
       type: default
       boot: true
   worker-gpubis:
-    count: 9
+    count: 0
     flavor: g1.n46_g1c8m20
     group: compute_gpu
     gpu_ready: true
@@ -163,105 +145,51 @@ deployment:
       type: default
       boot: true
   # Training
-  training-test:
-    count: 1
-    flavor: c.c10m55
-    start: 2021-08-31
-    end: 2022-02-28
-    group: training-test
   training-biol:
     count: 1
-    flavor: c.c10m55
+    flavor: c1.c28m225
     start: 2021-09-15
     end: 2022-12-15
     group: training-biol152_2021
-  training-bioi:
-    count: 1
-    flavor: c.c10m55
-    start: 2021-10-08
-    end: 2022-02-28
-    group: training-bioinfopremed
   training-pvs4:
     count: 1
-    flavor: c.c10m55
+    flavor: c1.c28m225
     start: 2022-01-18
     end: 2022-05-31
     group: training-pvs4000
   training-raeg:
     count: 2
-    flavor: c.c32m235
+    flavor: c1.c28m225
     start: 2022-03-14
     end: 2022-04-08
     group: training-raeg2022
-  training-feb_:
-    count: 1
-    flavor: c.c32m235
-    start: 2022-02-22
-    end: 2022-02-25
-    group: training-feb_2022
-  training-molm:
-    count: 1
-    flavor: c.c32m235
-    start: 2022-02-07
-    end: 2022-02-25
-    group: training-molmed
-  training-fr-f:
-    count: 2
-    flavor: c.c32m235
-    start: 2022-02-21
-    end: 2022-02-25
-    group: training-fr-feb-2022
-  training-ueb_:
-    count: 2
-    flavor: c.c32m235
-    start: 2022-02-21
-    end: 2022-02-24
-    group: training-ueb_mastervhir2022
-  training-rceg:
-    count: 1
-    flavor: c.c32m235
-    start: 2022-02-21
-    end: 2022-02-25
-    group: training-rcegsb_feb
-  training-imbb:
-    count: 1
-    flavor: c.c10m55
-    start: 2022-02-22
-    end: 2022-02-24
-    group: training-imbb3
-  training-npdn:
-    count: 1
-    flavor: c.c10m55
-    start: 2022-02-28
-    end: 2022-03-02
-    group: training-npdn-hts
   training-arie:
     count: 1
-    flavor: c.c10m55
+    flavor: c1.c28m225
     start: 2022-03-02
     end: 2022-06-12
     group: training-arielgenomics
   training-sing:
     count: 1
-    flavor: c.c32m485
+    flavor: c1.c28m225
     start: 2022-03-07
     end: 2022-03-11
     group: training-singlecellebi22
   training-mar-:
     count: 2
-    flavor: c.c32m235
+    flavor: c1.c28m225
     start: 2022-03-21
     end: 2022-03-25
     group: training-mar-ur22
   training-mtub:
     count: 1
-    flavor: c.c32m235
+    flavor: c1.c28m225
     start: 2022-03-21
     end: 2022-03-25
     group: training-mtuberculosisngs
   training-mca2:
     count: 2
-    flavor: c.c32m235
+    flavor: c1.c28m225
     start: 2022-03-29
     end: 2022-03-30
     group: training-mca2022

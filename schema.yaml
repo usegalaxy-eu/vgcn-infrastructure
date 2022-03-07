@@ -46,6 +46,15 @@ mapping:
                         type: str
                         required: true
                         enum:
+                            - c1.c28m225
+                            - c1.c28m450
+                            - c1.c36m100
+                            - c1.c36m225
+                            - c1.c36m900
+                            - c1.c36m975
+                            - c1.c60m1975
+                            - c1.c125m425
+                            - g1.c36m100g1
                             - c.c10m55
                             - c.c16m120
                             - c.c20m120
@@ -63,7 +72,6 @@ mapping:
                             - m1.xlarge
                             - m1.xxlarge
                             - c1.c120m215
-                            - c1.c125m425
                             - c1.c125m425_no_qos
                             - g1.gput4_g1c8m20
                             - g1.n46_g1c8m20
