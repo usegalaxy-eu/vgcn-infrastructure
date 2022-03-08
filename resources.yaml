@@ -193,9 +193,9 @@ deployment:
     start: 2022-03-29
     end: 2022-03-30
     group: training-mca2022
-    training-gtn-:
-        count: 1
-        flavor: c.c28m225
-        start: 2022-03-14
-        end: 2022-03-18
-        group: training-gtn-tapas
+  training-gtn-:
+    count: 1
+    flavor: c.c28m225
+    start: 2022-03-14
+    end: 2022-03-18
+    group: training-gtn-tapas
