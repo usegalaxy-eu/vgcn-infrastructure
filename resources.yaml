@@ -81,7 +81,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 1024
   worker-c28m225:
-    count: 7 #7
+    count: 0 #7
     flavor: c1.c28m225
     group: compute_test
     docker_ready: true
