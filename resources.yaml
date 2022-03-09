@@ -124,37 +124,37 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 4096
-  worker-c120m215:
-    count: 0 #12
-    flavor: c1.c120m215
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 4096
-  worker-gpu1:
-    count: 0
-    flavor: g1.gput4_g1c8m20
-    group: compute_gpu
-    gpu_ready: true
-    docker_ready: true
-    volume:
-      size: 100
-      type: default
-      boot: true
-  worker-gpubis:
-    count: 0
-    flavor: g1.n46_g1c8m20
-    group: compute_gpu
-    gpu_ready: true
-    docker_ready: true
-    volume:
-      size: 100
-      type: default
-      boot: true
+#  worker-c120m215:
+#    count: 0 #12
+#    flavor: c1.c120m215
+#    group: compute
+#    docker_ready: true
+#    volume:
+#      size: 1024
+#      type: default
+#    cgroups:
+#      mem_limit_policy: hard
+#      mem_reserved_size: 4096
+#  worker-gpu1:
+#    count: 0
+#    flavor: g1.gput4_g1c8m20
+#    group: compute_gpu
+#    gpu_ready: true
+#    docker_ready: true
+#    volume:
+#      size: 100
+#      type: default
+#      boot: true
+#  worker-gpubis:
+#    count: 0
+#    flavor: g1.n46_g1c8m20
+#    group: compute_gpu
+#    gpu_ready: true
+#    docker_ready: true
+#    volume:
+#      size: 100
+#      type: default
+#      boot: true
   # Training
   training-biol:
     count: 1
