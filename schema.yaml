@@ -47,7 +47,7 @@ mapping:
                         required: true
                         enum:
                             - c1.c28m225
-                            - c1.c28m450
+                            - c1.c28m475
                             - c1.c36m100
                             - c1.c36m225
                             - c1.c36m900
