@@ -78,7 +78,18 @@ deployment:
       size: 1024
       type: default
     cgroups:
-      mem_limit_policy: soft
+      mem_limit_policy: hard
+      mem_reserved_size: 1024
+  worker-c28m225:
+    count: 7 #7
+    flavor: c1.c28m225
+    group: compute_test
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
       mem_reserved_size: 1024
   worker-c36m100:
     count: 20 #31
