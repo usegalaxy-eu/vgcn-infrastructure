@@ -69,9 +69,9 @@ deployment:
     count: 1
     flavor: c1.c36m100
     group: compute_birna
-  worker-c28m470:
+  worker-c28m475:
     count: 19 #19
-    flavor: c1.c28m4750
+    flavor: c1.c28m475
     group: compute_test
     docker_ready: true
     volume:
