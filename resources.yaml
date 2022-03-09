@@ -69,6 +69,17 @@ deployment:
     count: 1
     flavor: c1.c36m100
     group: compute_birna
+  worker-c28m450:
+    count: 19 #19
+    flavor: c1.c28m450
+    group: compute_test
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 1024
   worker-c36m100:
     count: 20 #31
     flavor: c1.c36m100
