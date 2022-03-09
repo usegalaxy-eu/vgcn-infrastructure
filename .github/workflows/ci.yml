@@ -8,7 +8,7 @@ name: CI
 
 defaults:
   run:
-    working-directory: 'infrastructure-playbook'
+    working-directory: 'vgcn-infrastructure'
 
 jobs:
   lint:
@@ -18,7 +18,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'infrastructure-playbook'
+          path: 'vgcn-infrastructure'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -31,3 +31,23 @@ jobs:
       - name: Lint code.
         run: |
           yamllint .
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'vgcn-infrastructure'
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip install -r requirements.txt
+
+      - name: Validate code.
+        run: |
+          pykwalify -d resources.yaml -s schema.yaml
