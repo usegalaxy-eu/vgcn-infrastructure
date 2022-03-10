@@ -151,7 +151,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-gpu:
-    count: 16 #16
+    count: 0 #16
     flavor: g1.c7m20g1
     group: compute_gpu
     gpu_ready: true
