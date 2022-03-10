@@ -56,6 +56,7 @@ mapping:
                             - c1.c125m225
                             - c1.c125m425
                             - g1.c36m100g1
+                            - g1.c7m20g1
                             - m1.large
                             - m1.medium
                             - m1.nano
