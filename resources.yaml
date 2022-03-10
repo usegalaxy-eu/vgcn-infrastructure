@@ -57,7 +57,7 @@ deployment:
     group: compute_mothur
     cgroups:
       mem_limit_policy: hard
-      mem_reserved_size: 4096
+      mem_reserved_size: 2048
   worker-hifiasm:
     count: 1
     flavor: c1.c36m900
@@ -97,14 +97,14 @@ deployment:
     group: compute
     cgroups:
       mem_limit_policy: hard
-      mem_reserved_size: 4096
+      mem_reserved_size: 2048
   worker-c36m225:
     count: 15 #15
     flavor: c1.c36m225
     group: compute
     cgroups:
       mem_limit_policy: hard
-      mem_reserved_size: 4096
+      mem_reserved_size: 2048
   worker-c36m975:
     count: 14 #14
     flavor: c1.c36m975
@@ -124,8 +124,19 @@ deployment:
     volume:
       size: 1024
       type: default
+  worker-c125m225:
+    count: 12 #12
+    flavor: c1.c125m225
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
   worker-c125m425:
-    count: 48 #48
+    count: 36 #36
     flavor: c1.c125m425
     group: compute
     docker_ready: true
@@ -134,38 +145,20 @@ deployment:
       type: default
     cgroups:
       mem_limit_policy: hard
-      mem_reserved_size: 4096
-#  worker-c120m215:
-#    count: 0 #12
-#    flavor: c1.c120m215
-#    group: compute
-#    docker_ready: true
-#    volume:
-#      size: 1024
-#      type: default
-#    cgroups:
-#      mem_limit_policy: hard
-#      mem_reserved_size: 4096
-#  worker-gpu1:
-#    count: 0
-#    flavor: g1.gput4_g1c8m20
-#    group: compute_gpu
-#    gpu_ready: true
-#    docker_ready: true
-#    volume:
-#      size: 100
-#      type: default
-#      boot: true
-#  worker-gpubis:
-#    count: 0
-#    flavor: g1.n46_g1c8m20
-#    group: compute_gpu
-#    gpu_ready: true
-#    docker_ready: true
-#    volume:
-#      size: 100
-#      type: default
-#      boot: true
+      mem_reserved_size: 2048
+  worker-gpu:
+    count: 16 #16
+    flavor: g1.c7m20g1
+    group: compute_gpu
+    gpu_ready: true
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+      boot: true
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 1024
   # Training
   training-biol:
     count: 1
