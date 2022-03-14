@@ -62,7 +62,7 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 2048
   worker-birna:
-    count: 1
+    count: 0
     flavor: c1.c36m100
     group: compute_birna
   worker-c28m475:
