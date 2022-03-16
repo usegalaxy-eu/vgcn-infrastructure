@@ -1,8 +1,8 @@
 ---
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
-image: vggp-v60-j289-5333625af7b2-main
-image_id: 2f296970-b549-45bf-ac8a-60771149247a
+image: vggp-v50-j280-0939f8ec1b2e-main
+image_id: af1feb68-4cbb-41b9-8dcc-b15cf6a43a14
 
 network: bioinf
 network_id: 7de249b6-6d32-44e3-b50c-291939868d2f
