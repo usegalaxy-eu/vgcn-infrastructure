@@ -267,12 +267,13 @@ class StateManagement:
             args.append('--security-group')
             args.append(sg)
 
+        args.append('--image')
+        args.append(self.current_image_name)
+
         if vol_boot:
-            args.append('--block-device')
-            args.append('source_type=image,image={},destination_type=volume,volume_size={},volume_type={},boot_index=0,delete_on_termination=true'.format(self.config['image_id'], vol_size, vol_type))
+            args.append('--boot-from-volume')
+            args.append('{}'.format(vol_size))
         else:
-            args.append('--image')
-            args.append(self.current_image_name)
             args.append('--block-device')
             args.append('source_type=blank,destination_type=volume,volume_size={},volume_type={},delete_on_termination=true'.format(vol_size, vol_type))
 
