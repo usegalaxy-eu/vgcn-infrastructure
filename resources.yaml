@@ -61,10 +61,6 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-  worker-birna:
-    count: 0
-    flavor: c1.c36m100
-    group: compute_birna
   worker-c28m475:
     count: 15 #19
     flavor: c1.c28m475
@@ -151,7 +147,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-gpu:
-    count: 0 #16
+    count: 1 #16
     flavor: g1.c7m20g1
     group: compute_gpu
     gpu_ready: true
