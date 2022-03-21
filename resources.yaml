@@ -213,12 +213,6 @@ deployment:
     start: 2022-03-29
     end: 2022-03-30
     group: training-mca2022
-  training-sib2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-04-27
-    end: 2022-04-27
-    group: training-sib2022
   training-molp:
     count: 2
     flavor: c.c28m225
@@ -231,3 +225,9 @@ deployment:
     start: 2022-04-19
     end: 2022-04-22
     group: training-hehannot
+  training-sib2:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-04-27
+    end: 2022-04-27
+    group: training-sib2022
