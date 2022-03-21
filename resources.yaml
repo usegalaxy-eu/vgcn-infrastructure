@@ -225,3 +225,9 @@ deployment:
     start: 2022-04-04
     end: 2022-04-04
     group: training-molpath
+  training-heha:
+    count: 1
+    flavor: c.c28m225
+    start: 2022-04-19
+    end: 2022-04-22
+    group: training-hehannot
