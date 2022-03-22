@@ -157,19 +157,19 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-#  worker-gpu:
-#    count: 1 #16
-#    flavor: g1.c7m20g1
-#    group: compute_gpu
-#    gpu_ready: true
-#    docker_ready: true
-#    volume:
-#      size: 1024
-#      type: default
-#      boot: true
-#    cgroups:
-#      mem_limit_policy: soft
-#      mem_reserved_size: 1024
+  #  worker-gpu:
+  #    count: 1 #16
+  #    flavor: g1.c7m20g1
+  #    group: compute_gpu
+  #    gpu_ready: true
+  #    docker_ready: true
+  #    volume:
+  #      size: 1024
+  #      type: default
+  #      boot: true
+  #    cgroups:
+  #      mem_limit_policy: soft
+  #      mem_reserved_size: 1024
   # Training
   training-biol:
     count: 1
@@ -195,12 +195,6 @@ deployment:
     start: 2022-03-02
     end: 2022-06-12
     group: training-arielgenomics
-  training-sing:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-03-07
-    end: 2022-03-11
-    group: training-singlecellebi22
   training-mar-:
     count: 2
     flavor: c1.c28m225
@@ -219,21 +213,21 @@ deployment:
     start: 2022-03-29
     end: 2022-03-30
     group: training-mca2022
-  training-gtn-:
+  training-molp:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-04-04
+    end: 2022-04-04
+    group: training-molpath
+  training-heha:
     count: 1
     flavor: c1.c28m225
-    start: 2022-03-14
-    end: 2022-03-18
-    group: training-gtn-tapas
+    start: 2022-04-19
+    end: 2022-04-22
+    group: training-hehannot
   training-sib2:
     count: 1
     flavor: c1.c28m225
     start: 2022-04-27
     end: 2022-04-27
     group: training-sib2022
-  training-ces-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-03-11
-    end: 2022-03-11
-    group: training-ces-pndb
