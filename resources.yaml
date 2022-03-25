@@ -160,19 +160,19 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  #  worker-gpu:
-  #    count: 1 #16
-  #    flavor: g1.c7m20g1
-  #    group: compute_gpu
-  #    gpu_ready: true
-  #    docker_ready: true
-  #    volume:
-  #      size: 1024
-  #      type: default
-  #      boot: true
-  #    cgroups:
-  #      mem_limit_policy: soft
-  #      mem_reserved_size: 1024
+    worker-gpu:
+      count: 8 #16
+      flavor: g1.c7m20g1
+      group: compute_gpu
+      gpu_ready: true
+      docker_ready: true
+      volume:
+        size: 1024
+        type: default
+        boot: true
+      cgroups:
+        mem_limit_policy: soft
+        mem_reserved_size: 1024
   # Training
   training-biol:
     count: 1
