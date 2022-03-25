@@ -42,6 +42,7 @@ class StateManagement:
             self.user_data = handle.read()
 
         self.current_image_name = self.config['image']
+        self.current_image_gpu_name = self.config['image_gpu']
         self.vgcn_pubkeys = self.config['pubkeys']
         self.today = datetime.date.today()
 
@@ -197,6 +198,11 @@ class StateManagement:
         if self.dry_run:
             return {'Status': 'OK (fake)'}
 
+        if gpu_ready:
+            current_image_name = self.current_image_gpu_name
+        else:
+            current_image_name = self.current_image_name
+
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
@@ -209,7 +215,7 @@ class StateManagement:
 
         args = [
             'server', 'create',
-            '--image', self.current_image_name,
+            '--image', current_image_name,
             '--flavor', flavor,
             '--key-name', self.config['sshkey'],
             '--availability-zone', 'nova',
@@ -245,6 +251,12 @@ class StateManagement:
         if self.dry_run:
             return {'Status': 'OK (fake)'}
 
+        if gpu_ready:
+            current_image_name = self.current_image_gpu_name
+        else:
+            current_image_name = self.current_image_name
+
+
         logging.info("launching %s (%s) with volume", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
@@ -268,7 +280,7 @@ class StateManagement:
             args.append(sg)
 
         args.append('--image')
-        args.append(self.current_image_name)
+        args.append(current_image_name)
 
         if vol_boot:
             args.append('--boot-from-volume')
