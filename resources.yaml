@@ -4,8 +4,8 @@
 image: vggp-v50-j280-0939f8ec1b2e-main
 image_id: af1feb68-4cbb-41b9-8dcc-b15cf6a43a14
 
-image_gpu: vggp-gpu-temp
-image_gpu_id: f7e8c3f4-5fef-4796-a641-543ee2f00bf4
+image_gpu: vggp-gpu-v60-j310-1fad751e0150-main
+image_gpu_id: 5f3fc2b3-0803-44cc-abe5-40335a6e6bd6
 
 network: bioinf
 network_id: 7de249b6-6d32-44e3-b50c-291939868d2f
