@@ -198,18 +198,6 @@ deployment:
     start: 2022-03-02
     end: 2022-06-12
     group: training-arielgenomics
-  training-mar-:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-03-21
-    end: 2022-03-25
-    group: training-mar-ur22
-  training-mtub:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-03-21
-    end: 2022-03-25
-    group: training-mtuberculosisngs
   training-mca2:
     count: 4
     flavor: c1.c28m225
