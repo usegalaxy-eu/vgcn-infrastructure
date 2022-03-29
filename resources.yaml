@@ -57,13 +57,6 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-hifiasm:
-    count: 0
-    flavor: c1.c36m900
-    group: compute_hifiasm
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 2048
   worker-c28m475:
     count: 15 #19
     flavor: c1.c28m475
@@ -87,7 +80,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c36m100:
-    count: 20 #31
+    count: 19 #31
     flavor: c1.c36m100
     group: compute
     docker_ready: true
