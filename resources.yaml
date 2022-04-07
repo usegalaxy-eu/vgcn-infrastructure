@@ -199,7 +199,7 @@ deployment:
     group: training-mca2022
   training-2022:
     count: 1
-    flavor: c1.c28m225
+    flavor: c1.c28m475
     start: 2022-03-29
     end: 2022-04-14
     group: training-2022_tp-chip-seq
