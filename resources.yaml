@@ -191,24 +191,12 @@ deployment:
     start: 2022-03-02
     end: 2022-06-12
     group: training-arielgenomics
-  training-mca2:
-    count: 4
-    flavor: c1.c28m225
-    start: 2022-03-29
-    end: 2022-03-30
-    group: training-mca2022
   training-2022:
     count: 1
     flavor: c1.c28m475
     start: 2022-03-29
     end: 2022-04-14
     group: training-2022_tp-chip-seq
-  training-molp:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-04-04
-    end: 2022-04-04
-    group: training-molpath
   training-kmb6:
     count: 1
     flavor: c1.c28m225
