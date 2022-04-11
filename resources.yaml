@@ -80,7 +80,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c36m100:
-    count: 19 #31
+    count: 18 #31
     flavor: c1.c36m100
     group: compute
     docker_ready: true
