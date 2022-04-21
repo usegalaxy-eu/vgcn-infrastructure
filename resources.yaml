@@ -193,7 +193,7 @@ deployment:
     group: training-hehannot
   training-gene:
     count: 1
-    flavor: c.c28m225
+    flavor: c1.c28m225
     start: 2022-04-26
     end: 2022-05-12
     group: training-genetikai
@@ -211,7 +211,7 @@ deployment:
     group: training-kmb615
   training-tmr2:
     count: 1
-    flavor: c.c28m225
+    flavor: c1.c28m225
     start: 2022-05-01
     end: 2022-06-30
     group: training-tmr2022
