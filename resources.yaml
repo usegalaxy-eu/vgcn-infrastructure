@@ -179,30 +179,12 @@ deployment:
     start: 2022-01-18
     end: 2022-05-31
     group: training-pvs4000
-  training-raeg:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-03-14
-    end: 2022-04-08
-    group: training-raeg2022
   training-arie:
     count: 1
     flavor: c1.c28m225
     start: 2022-03-02
     end: 2022-06-12
     group: training-arielgenomics
-  training-2022:
-    count: 1
-    flavor: c1.c28m475
-    start: 2022-03-29
-    end: 2022-04-14
-    group: training-2022_tp-chip-seq
-  training-kmb6:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-04-08
-    end: 2022-05-20
-    group: training-kmb615
   training-heha:
     count: 1
     flavor: c1.c28m225
@@ -215,3 +197,9 @@ deployment:
     start: 2022-04-27
     end: 2022-04-27
     group: training-sib2022
+  training-kmb6:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-04-08
+    end: 2022-05-20
+    group: training-kmb615
