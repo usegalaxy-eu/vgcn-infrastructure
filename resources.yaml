@@ -185,12 +185,6 @@ deployment:
     start: 2022-03-02
     end: 2022-06-12
     group: training-arielgenomics
-  training-heha:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-04-19
-    end: 2022-04-22
-    group: training-hehannot
   training-gene:
     count: 1
     flavor: c1.c28m225
@@ -215,9 +209,3 @@ deployment:
     start: 2022-05-01
     end: 2022-06-30
     group: training-tmr2022
-  training-molp:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-04-25
-    end: 2022-04-25
-    group: training-molpath
