@@ -215,3 +215,9 @@ deployment:
     start: 2022-05-03
     end: 2022-05-03
     group: training-galaxy_jku
+  training-molp:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-05-02
+    end: 2022-05-02
+    group: training-molpath2
