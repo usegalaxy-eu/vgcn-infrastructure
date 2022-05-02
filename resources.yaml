@@ -28,7 +28,7 @@ deployment:
     flavor: m1.large
     group: maintenance
   worker-fastturnaround:
-    count: 0
+    count: 1
     flavor: m1.xlarge
     group: fast-turnaround
   worker-fetch:
