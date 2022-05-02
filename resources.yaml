@@ -215,3 +215,9 @@ deployment:
     start: 2022-05-03
     end: 2022-05-03
     group: training-galaxy_jku
+  training-bios:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-05-09
+    end: 2022-05-10
+    group: training-biosb-rnaseq-2022
