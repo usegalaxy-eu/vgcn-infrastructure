@@ -191,12 +191,6 @@ deployment:
     start: 2022-04-26
     end: 2022-05-12
     group: training-genetikai
-  training-sib2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-04-27
-    end: 2022-04-27
-    group: training-sib2022
   training-kmb6:
     count: 1
     flavor: c1.c28m225
@@ -205,7 +199,7 @@ deployment:
     group: training-kmb615
   training-tmr2:
     count: 1
-    flavor: c1.c28m225
+    flavor: c1.c28m475
     start: 2022-05-01
     end: 2022-06-30
     group: training-tmr2022
