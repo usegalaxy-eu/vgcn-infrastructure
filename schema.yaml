@@ -37,6 +37,12 @@ mapping:
         type: seq
         sequence:
             - type: str
+    "nodes_inventory":
+        type: map
+        matching-rule: all
+        mapping:
+          regex;([a-z][0-9].*):
+            type: int
     "deployment":
         type: map
         mapping:
