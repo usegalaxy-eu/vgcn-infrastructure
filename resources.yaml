@@ -209,3 +209,9 @@ deployment:
     start: 2022-05-09
     end: 2022-05-09
     group: training-molpath3
+  training-mont:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-05-18
+    end: 2022-05-18
+    group: training-montpellier-2022
