@@ -41,8 +41,8 @@ mapping:
         type: map
         matching-rule: all
         mapping:
-          regex;([a-z][0-9].*):
-            type: int
+            regex;([a-z][0-9].*):
+                type: int
     "deployment":
         type: map
         mapping:
