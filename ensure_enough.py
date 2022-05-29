@@ -210,7 +210,7 @@ class StateManagement:
         if self.dry_run:
             return {'Status': 'OK (fake)'}
 
-        current_image_name = _select_image(gpu_ready, secure_ready)
+        current_image_name = self._select_image(gpu_ready, secure_ready)
 
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
@@ -260,7 +260,7 @@ class StateManagement:
         if self.dry_run:
             return {'Status': 'OK (fake)'}
 
-        current_image_name = _select_image(gpu_ready, secure_ready)
+        current_image_name = self._select_image(gpu_ready, secure_ready)
 
         logging.info("launching %s (%s) with volume", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
