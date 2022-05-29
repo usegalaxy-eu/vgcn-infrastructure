@@ -43,6 +43,7 @@ class StateManagement:
 
         self.current_image_name = self.config['image']
         self.current_image_gpu_name = self.config['image_gpu']
+        self.current_image_secure_name = self.config['image_secure']
         self.vgcn_pubkeys = self.config['pubkeys']
         self.today = datetime.date.today()
 
@@ -187,8 +188,19 @@ class StateManagement:
 
         return custom_userdata
 
+    def _select_image(self, gpu_ready=False, secure_ready=False):
+
+        if gpu_ready:
+            current_image_name = self.current_image_gpu_name
+        elif secure_ready:
+            current_image_name = self.current_image_secure_name
+        else:
+            current_image_name = self.current_image_name
+
+        return current_image_name
+
     def launch_server(self, name, flavor, group, is_training=False, cgroups=False, cgroups_args=None,
-                      docker_ready=False, gpu_ready=False):
+                      docker_ready=False, gpu_ready=False, secure_ready=False):
         """
         Launch a server with a given name + flavor.
 
@@ -198,10 +210,7 @@ class StateManagement:
         if self.dry_run:
             return {'Status': 'OK (fake)'}
 
-        if gpu_ready:
-            current_image_name = self.current_image_gpu_name
-        else:
-            current_image_name = self.current_image_name
+        current_image_name = _select_image(gpu_ready, secure_ready)
 
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
@@ -240,7 +249,7 @@ class StateManagement:
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
     def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, cgroups_args=None,
-                             docker_ready=False, gpu_ready=False,
+                             docker_ready=False, gpu_ready=False, secure_ready=False,
                              vol_size=12, vol_type='default', vol_boot=False):
         """
         Launch a server with a given name + flavor.
@@ -251,11 +260,7 @@ class StateManagement:
         if self.dry_run:
             return {'Status': 'OK (fake)'}
 
-        if gpu_ready:
-            current_image_name = self.current_image_gpu_name
-        else:
-            current_image_name = self.current_image_name
-
+        current_image_name = _select_image(gpu_ready, secure_ready)
 
         logging.info("launching %s (%s) with volume", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
@@ -381,7 +386,7 @@ class StateManagement:
             time.sleep(10)
 
     def top_up(self, desired_instances, prefix, flavor, group, volume=False, volume_args=None,
-               cgroups=False, cgroups_args=None, docker_ready=False, gpu_ready=False):
+               cgroups=False, cgroups_args=None, docker_ready=False, gpu_ready=False, secure_ready=False):
         """
         :param int desired_instances: Number of instances of this type to launch
 
@@ -415,6 +420,7 @@ class StateManagement:
                 'cgroups_args': cgroups_args,
                 'docker_ready': docker_ready,
                 'gpu_ready': gpu_ready,
+                'secure_ready': secure_ready
             }
 
             if volume:
@@ -526,7 +532,8 @@ class StateManagement:
                             cgroups=True if 'cgroups' in resource else False,
                             cgroups_args=resource.get('cgroups', None),
                             docker_ready=resource.get('docker_ready', False),
-                            gpu_ready=resource.get('gpu_ready', False))
+                            gpu_ready=resource.get('gpu_ready', False),
+                            secure_ready=resource.get('secure_ready', False))
 
             # Now that we've removed all that we need to remove, again, try to top-up
             # to make sure we're OK. (Also important in case we had no servers already
@@ -538,7 +545,8 @@ class StateManagement:
                         cgroups=True if 'cgroups' in resource else False,
                         cgroups_args=resource.get('cgroups', None),
                         docker_ready=resource.get('docker_ready', False),
-                        gpu_ready=resource.get('gpu_ready', False))
+                        gpu_ready=resource.get('gpu_ready', False),
+                        secure_ready=resource.get('secure_ready', False))
 
 
 def make_parser():
