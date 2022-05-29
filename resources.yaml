@@ -1,11 +1,14 @@
 ---
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
-image: vggp-v60-j310-1fad751e0150-main
-image_id: 8cb91057-3b15-40b4-a366-cb87df584b87
+image: vggp-v60-j322-692e75a7c101-main
+image_id: 4c864d3b-6651-4bb3-a329-4a7c8c18a8fa
 
-image_gpu: vggp-gpu-v60-j310-1fad751e0150-main
-image_gpu_id: 5f3fc2b3-0803-44cc-abe5-40335a6e6bd6
+image_gpu: vggp-v60-gpu-j322-692e75a7c101-main
+image_gpu_id: f5b82cb0-03b4-44f0-8ce5-33f15c53f89b
+
+image_secure: vggp-v60-secure-j322-692e75a7c101-main
+image_secure_id: 02b59caf-374d-4cef-aafc-d86fe0aeb9ce
 
 network: bioinf
 network_id: 7de249b6-6d32-44e3-b50c-291939868d2f
@@ -59,6 +62,7 @@ deployment:
     flavor: c1.c36m100
     group: interactive
     docker_ready: true
+    secure_ready: true
     volume:
       size: 1024
       type: default
