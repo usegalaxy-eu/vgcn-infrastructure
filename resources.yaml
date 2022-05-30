@@ -201,27 +201,21 @@ deployment:
     start: 2022-03-02
     end: 2022-06-12
     group: training-arielgenomics
-  training-kmb6:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-04-08
-    end: 2022-05-20
-    group: training-kmb615
   training-tmr2:
     count: 1
     flavor: c1.c28m475
     start: 2022-05-01
     end: 2022-06-30
     group: training-tmr2022
-  training-molp:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-05-09
-    end: 2022-05-09
-    group: training-molpath3
   training-afri:
     count: 2
     flavor: c1.c28m225
     start: 2022-05-20
     end: 2022-06-15
     group: training-africabp_galaxy
+  training-ueb_:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-06-08
+    end: 2022-06-22
+    group: training-ueb_bi2022
