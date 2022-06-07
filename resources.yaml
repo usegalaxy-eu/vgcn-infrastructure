@@ -213,3 +213,9 @@ deployment:
     start: 2022-06-08
     end: 2022-06-22
     group: training-ueb_bi2022
+  training-bdls:
+    count: 1
+    flavor: c.c28m225
+    start: 2022-06-10
+    end: 2022-06-10
+    group: training-bdlse-2022
