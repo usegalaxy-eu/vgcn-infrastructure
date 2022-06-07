@@ -189,12 +189,6 @@ deployment:
     start: 2021-09-15
     end: 2022-12-15
     group: training-biol152_2021
-  training-pvs4:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-01-18
-    end: 2022-05-31
-    group: training-pvs4000
   training-arie:
     count: 1
     flavor: c1.c28m225
