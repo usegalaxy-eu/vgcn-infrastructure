@@ -208,7 +208,7 @@ deployment:
     end: 2022-06-15
     group: training-africabp_galaxy
   training-ueb_:
-    count: 2
+    count: 1
     flavor: c1.c28m225
     start: 2022-06-08
     end: 2022-06-22
