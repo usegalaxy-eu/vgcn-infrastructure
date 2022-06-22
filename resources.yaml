@@ -189,33 +189,9 @@ deployment:
     start: 2021-09-15
     end: 2022-12-15
     group: training-biol152_2021
-  training-pvs4:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-01-18
-    end: 2022-05-31
-    group: training-pvs4000
-  training-arie:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-03-02
-    end: 2022-06-12
-    group: training-arielgenomics
   training-tmr2:
     count: 1
     flavor: c1.c28m475
     start: 2022-05-01
     end: 2022-06-30
     group: training-tmr2022
-  training-afri:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-05-20
-    end: 2022-06-15
-    group: training-africabp_galaxy
-  training-ueb_:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-06-08
-    end: 2022-06-22
-    group: training-ueb_bi2022
