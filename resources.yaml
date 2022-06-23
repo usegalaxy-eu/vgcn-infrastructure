@@ -201,3 +201,15 @@ deployment:
     start: 2022-07-04
     end: 2022-07-08
     group: training-trr167_galaxy
+  training-wm-2:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-07-04
+    end: 2022-07-05
+    group: training-wm-28
+  training-pmlg:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-06-30
+    end: 2022-07-01
+    group: training-pmlgenomics
