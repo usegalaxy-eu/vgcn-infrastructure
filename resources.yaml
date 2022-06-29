@@ -189,30 +189,30 @@ deployment:
     start: 2021-09-15
     end: 2022-12-15
     group: training-biol152_2021
-  training-tmr2:
-    count: 1
-    flavor: c1.c28m475
-    start: 2022-05-01
-    end: 2022-06-30
-    group: training-tmr2022
-  training-trr1:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-07-04
-    end: 2022-07-08
-    group: training-trr167_galaxy
-  training-wm-2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-07-04
-    end: 2022-07-05
-    group: training-wm-28
   training-ng01:
     count: 1
     flavor: c1.c28m225
     start: 2022-08-29
     end: 2022-12-19
     group: training-ng01cf_ht22
+  training-tmr2:
+    count: 1
+    flavor: c1.c28m475
+    start: 2022-05-01
+    end: 2022-06-30
+    group: training-tmr2022
+  training-wm-2:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-07-04
+    end: 2022-07-05
+    group: training-wm-28
+  training-trr1:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-07-04
+    end: 2022-07-08
+    group: training-trr167_galaxy
   training-gcc2:
     count: 5
     flavor: c1.c28m225
