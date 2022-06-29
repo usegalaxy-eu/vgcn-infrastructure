@@ -217,5 +217,5 @@ deployment:
     count: 5
     flavor: c1.c28m225
     start: 2022-07-08
-    end: 2022-07-09
+    end: 2022-07-20
     group: training-gcc2022
