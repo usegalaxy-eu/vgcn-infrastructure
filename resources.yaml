@@ -213,3 +213,9 @@ deployment:
     start: 2022-08-29
     end: 2022-12-19
     group: training-ng01cf_ht22
+  training-gcc2:
+    count: 5
+    flavor: c1.c28m225
+    start: 2022-07-08
+    end: 2022-07-09
+    group: training-gcc2022
