@@ -201,3 +201,9 @@ deployment:
     start: 2022-07-08
     end: 2022-07-20
     group: training-gcc2022
+  training-quan:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-07-24
+    end: 2022-07-27
+    group: training-quant-meta
