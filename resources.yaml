@@ -158,17 +158,17 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-#  worker-c125m425:
-#    count: 36 #36
-#    flavor: c1.c125m425
-#    group: compute
-#    docker_ready: true
-#    volume:
-#      size: 1024
-#      type: default
-#    cgroups:
-#      mem_limit_policy: hard
-#      mem_reserved_size: 2048
+  #  worker-c125m425:
+  #    count: 36 #36
+  #    flavor: c1.c125m425
+  #    group: compute
+  #    docker_ready: true
+  #    volume:
+  #      size: 1024
+  #      type: default
+  #    cgroups:
+  #      mem_limit_policy: hard
+  #      mem_reserved_size: 2048
   worker-gpu:
     count: 8 #16
     flavor: g1.c7m20g1
@@ -195,27 +195,15 @@ deployment:
     start: 2022-08-29
     end: 2022-12-19
     group: training-ng01cf_ht22
-  training-tmr2:
-    count: 1
-    flavor: c1.c28m475
-    start: 2022-05-01
-    end: 2022-06-30
-    group: training-tmr2022
-  training-wm-2:
-    count: 3
-    flavor: c1.c28m225
-    start: 2022-07-04
-    end: 2022-07-05
-    group: training-wm-28
-  training-trr1:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-07-04
-    end: 2022-07-08
-    group: training-trr167_galaxy
   training-gcc2:
     count: 5
     flavor: c1.c28m225
     start: 2022-07-08
     end: 2022-07-20
     group: training-gcc2022
+  training-quan:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-07-24
+    end: 2022-07-27
+    group: training-quant-meta
