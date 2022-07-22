@@ -205,5 +205,5 @@ deployment:
     count: 2
     flavor: c1.c28m225
     start: 2022-07-24
-    end: 2022-07-27
+    end: 2022-07-30
     group: training-quant-meta
