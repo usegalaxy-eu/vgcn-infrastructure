@@ -195,3 +195,9 @@ deployment:
     start: 2022-08-29
     end: 2022-12-19
     group: training-ng01cf_ht22
+  training-lepi:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-08-23
+    end: 2022-08-28
+    group: training-lepidoptera2022
