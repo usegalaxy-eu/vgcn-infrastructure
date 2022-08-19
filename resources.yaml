@@ -201,9 +201,3 @@ deployment:
     start: 2022-08-23
     end: 2022-08-28
     group: training-lepidoptera2022
-  training-gw22:
-    count: 5
-    flavor: c1.c28m225
-    start: 2022-08-01
-    end: 2022-08-05
-    group: training-gw22
