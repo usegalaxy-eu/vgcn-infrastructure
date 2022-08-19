@@ -225,3 +225,9 @@ deployment:
     start: 2022-08-28
     end: 2022-08-28
     group: training-imsc_galaxy_training
+  training-pers:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-09-12
+    end: 2022-09-21
+    group: training-persist
