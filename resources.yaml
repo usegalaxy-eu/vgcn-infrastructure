@@ -201,3 +201,9 @@ deployment:
     start: 2022-08-23
     end: 2022-08-28
     group: training-lepidoptera2022
+  training-pmlg:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-09-01
+    end: 2022-09-02
+    group: training-pmlgenomicsworkshop
