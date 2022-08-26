@@ -222,7 +222,7 @@ deployment:
   training-imsc:
     count: 1
     flavor: c1.c28m225
-    start: 2022-08-28
+    start: 2022-08-27
     end: 2022-08-28
     group: training-imsc_galaxy_training
   training-pers:
