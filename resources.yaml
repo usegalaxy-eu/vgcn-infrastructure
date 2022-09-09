@@ -213,3 +213,9 @@ deployment:
     start: 2022-10-18
     end: 2022-11-08
     group: training-cicy_bioinfo_2022
+  training-bm42:
+    count: 3
+    flavor: c1.c28m225
+    start: 2022-09-20
+    end: 2022-09-27
+    group: training-bm425-strath-2022
