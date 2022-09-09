@@ -195,36 +195,12 @@ deployment:
     start: 2022-08-29
     end: 2022-12-19
     group: training-ng01cf_ht22
-  training-lepi:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-08-23
-    end: 2022-08-28
-    group: training-lepidoptera2022
-  training-pmlg:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-09-01
-    end: 2022-09-02
-    group: training-pmlgenomicsworkshop
   training-tmr2:
     count: 1
     flavor: c1.c28m225
     start: 2022-09-01
     end: 2022-10-10
     group: training-tmr2022_23
-  training-mgc2:
-    count: 3
-    flavor: c1.c28m225
-    start: 2022-08-30
-    end: 2022-08-31
-    group: training-mgc2022
-  training-imsc:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-08-27
-    end: 2022-08-28
-    group: training-imsc_galaxy_training
   training-pers:
     count: 1
     flavor: c1.c28m225
