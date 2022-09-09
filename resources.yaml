@@ -237,3 +237,9 @@ deployment:
     start: 2022-09-23
     end: 2022-09-27
     group: training-slubic2022
+  training-klk-:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-09-22
+    end: 2022-12-14
+    group: training-klk-debrecen-2022
