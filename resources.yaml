@@ -247,5 +247,5 @@ deployment:
     count: 5
     flavor: c.c28m225
     start: 2022-10-13
-    end: 2023-02-01
+    end: 2023-12-02
     group: training-bio00058m
