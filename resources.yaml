@@ -245,7 +245,7 @@ deployment:
     group: training-klk-debrecen-2022
   training-bio0:
     count: 5
-    flavor: c.c28m225
+    flavor: c1.c28m225
     start: 2022-10-13
     end: 2023-12-02
     group: training-bio00058m
