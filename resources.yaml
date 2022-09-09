@@ -219,3 +219,9 @@ deployment:
     start: 2022-09-20
     end: 2022-09-27
     group: training-bm425-strath-2022
+  training-ngs2:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-10-11
+    end: 2022-10-26
+    group: training-ngs2022microbiology
