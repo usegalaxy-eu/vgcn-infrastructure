@@ -261,3 +261,9 @@ deployment:
     start: 2022-10-01
     end: 2022-12-15
     group: training-wofford22
+  training-tb22:
+    count: 2
+    flavor: c.c28m225
+    start: 2022-10-04
+    end: 2022-10-15
+    group: training-tb2223_genom
