@@ -255,3 +255,9 @@ deployment:
     start: 2022-10-05
     end: 2022-10-08
     group: training-pmlhandson_genomics
+  training-woff:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-10-01
+    end: 2022-12-15
+    group: training-wofford22
