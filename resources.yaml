@@ -273,3 +273,9 @@ deployment:
     start: 2022-10-14
     end: 2022-10-15
     group: training-2-gbqc-codingphoton
+  training-uca_:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-10-10
+    end: 2023-02-01
+    group: training-uca_bioanalysis2022
