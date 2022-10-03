@@ -249,3 +249,9 @@ deployment:
     start: 2022-10-04
     end: 2022-10-15
     group: training-tb2223_genom
+  training-gqa2:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-11-07
+    end: 2022-12-02
+    group: training-gqa22
