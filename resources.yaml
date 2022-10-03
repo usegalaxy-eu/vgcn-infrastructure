@@ -261,3 +261,9 @@ deployment:
     start: 2023-02-06
     end: 2023-02-10
     group: training-singlecell23
+  training-acei:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-11-07
+    end: 2022-11-11
+    group: training-aceidha_bioinf22
