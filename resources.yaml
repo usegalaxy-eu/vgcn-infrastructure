@@ -255,3 +255,9 @@ deployment:
     start: 2022-11-07
     end: 2022-12-02
     group: training-gqa22
+  training-sing:
+    count: 2
+    flavor: c1.c28m225
+    start: 2023-02-06
+    end: 2023-02-10
+    group: training-singlecell23
