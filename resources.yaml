@@ -285,3 +285,9 @@ deployment:
     start: 2022-10-14
     end: 2022-12-09
     group: training-adamsgenomics
+  training-gequ:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-10-20
+    end: 2022-10-28
+    group: training-gequb
