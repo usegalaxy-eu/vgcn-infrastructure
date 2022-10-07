@@ -291,3 +291,9 @@ deployment:
     start: 2022-10-20
     end: 2022-10-28
     group: training-gequb
+  training-afri:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-10-12
+    end: 2022-10-14
+    group: training-africacdc-oct22
