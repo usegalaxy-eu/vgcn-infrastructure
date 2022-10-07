@@ -264,7 +264,7 @@ deployment:
   training-acei:
     count: 1
     flavor: c1.c28m225
-    start: 2022-11-07
+    start: 2022-11-03
     end: 2022-11-11
     group: training-aceidha_bioinf22
   training-2-gb:
