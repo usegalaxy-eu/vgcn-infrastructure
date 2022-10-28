@@ -195,24 +195,12 @@ deployment:
     start: 2022-08-29
     end: 2022-12-19
     group: training-ng01cf_ht22
-  training-tmr2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-09-01
-    end: 2022-10-10
-    group: training-tmr2022_23
   training-cicy:
     count: 1
     flavor: c1.c28m225
     start: 2022-10-18
     end: 2022-11-08
     group: training-cicy_bioinfo_2022
-  training-ngs2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-11
-    end: 2022-10-26
-    group: training-ngs2022microbiology
   training-debr:
     count: 1
     flavor: c1.c28m225
@@ -231,24 +219,12 @@ deployment:
     start: 2022-10-13
     end: 2023-12-02
     group: training-bio00058m
-  training-pmlh:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-05
-    end: 2022-10-08
-    group: training-pmlhandson_genomics
   training-woff:
     count: 1
     flavor: c1.c28m225
     start: 2022-10-01
     end: 2022-12-15
     group: training-wofford22
-  training-tb22:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-10-04
-    end: 2022-10-15
-    group: training-tb2223_genom
   training-gqa2:
     count: 1
     flavor: c1.c28m225
@@ -267,12 +243,6 @@ deployment:
     start: 2022-11-03
     end: 2022-11-11
     group: training-aceidha_bioinf22
-  training-2-gb:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-10-14
-    end: 2022-10-15
-    group: training-2-gbqc-codingphoton
   training-uca_:
     count: 1
     flavor: c1.c28m225
@@ -285,15 +255,3 @@ deployment:
     start: 2022-10-14
     end: 2022-12-09
     group: training-adamsgenomics
-  training-gequ:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-20
-    end: 2022-10-28
-    group: training-gequb
-  training-afri:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-12
-    end: 2022-10-14
-    group: training-africacdc-oct22
