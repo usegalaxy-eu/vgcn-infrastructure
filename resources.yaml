@@ -47,7 +47,7 @@ deployment:
     flavor: m1.xlarge
     group: fast-turnaround
   worker-fetch:
-    count: 3
+    count: 1
     flavor: c1.c36m100
     group: upload
   worker-metadata:
