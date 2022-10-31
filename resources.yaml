@@ -255,3 +255,15 @@ deployment:
     start: 2022-10-14
     end: 2022-12-09
     group: training-adamsgenomics
+  training-gm2p:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-11-02
+    end: 2022-11-04
+    group: training-gm2practicals
+  training-viro:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-11-07
+    end: 2022-11-18
+    group: training-virologist_isciii
