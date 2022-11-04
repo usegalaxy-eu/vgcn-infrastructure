@@ -267,3 +267,9 @@ deployment:
     start: 2022-11-07
     end: 2022-11-18
     group: training-virologist_isciii
+    training-bc22:
+        count: 1
+        flavor: c1.c28m225
+        start: 2022-11-10
+        end: 2022-11-11
+        group: training-bc22
