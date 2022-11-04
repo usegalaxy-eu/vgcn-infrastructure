@@ -273,27 +273,27 @@ deployment:
     start: 2022-11-10
     end: 2022-11-11
     group: training-bc22
-    training-life:
-      count: 1
-      flavor: c1.c28m225
-      start: 2022-11-11
-      end: 2022-11-25
-      group: training-life721
-    training-rnas:
-      count: 1
-      flavor: c1.c28m225
-      start: 2022-11-21
-      end: 2022-11-25
-      group: training-rnaseq-2022
-    training-tpbi:
-      count: 1
-      flavor: c1.c28m225
-      start: 2022-12-09
-      end: 2022-12-09
-      group: training-tpbioinfosylvaine
-    training-bioi:
-      count: 1
-      flavor: c1.c28m225
-      start: 2022-12-06
-      end: 2022-12-07
-      group: training-bioinfotpmarina
+  training-life:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-11-11
+    end: 2022-11-25
+    group: training-life721
+  training-rnas:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-11-21
+    end: 2022-11-25
+    group: training-rnaseq-2022
+  training-tpbi:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-12-09
+    end: 2022-12-09
+    group: training-tpbioinfosylvaine
+  training-bioi:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-12-06
+    end: 2022-12-07
+    group: training-bioinfotpmarina
