@@ -23,11 +23,11 @@ output="instance_training-${training_identifier}.tf"
 
 cat >> resources.yaml <<-EOF
     training-${short}:
-        count: ${vm_count}
-        flavor: ${vm_size}
-        start: ${start}
-        end: ${end}
-        group: training-${training_identifier}
+      count: ${vm_count}
+      flavor: ${vm_size}
+      start: ${start}
+      end: ${end}
+      group: training-${training_identifier}
 EOF
 
 if (( autopush == 1 )); then
@@ -36,8 +36,8 @@ if (( autopush == 1 )); then
 	git push
 fi
 
-vm_cpu=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $1}')
-vm_mem=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $2}')
+vm_cpu=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $2}')
+vm_mem=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $3}')
 
 ts_end=$(date -d "$end 23:59" +%s)
 ts_stt=$(date -d "$start 00:00" +%s)
