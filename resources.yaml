@@ -243,7 +243,6 @@ deployment:
     start: 2022-10-14
     end: 2022-12-09
     group: training-adamsgenomics
-    group: training-gm2practicals
   training-life:
     count: 1
     flavor: c1.c28m225
