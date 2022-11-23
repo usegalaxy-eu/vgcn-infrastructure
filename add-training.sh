@@ -1,4 +1,7 @@
 #!/bin/bash
+
+export LC_NUMERIC="en_US.UTF-8"
+
 if ([ $# -lt 5 ]); then
     echo "Usage:"
     echo
@@ -22,12 +25,12 @@ short=$(echo "$training_identifier" | cut -c1-4)
 output="instance_training-${training_identifier}.tf"
 
 cat >> resources.yaml <<-EOF
-    training-${short}:
-      count: ${vm_count}
-      flavor: ${vm_size}
-      start: ${start}
-      end: ${end}
-      group: training-${training_identifier}
+  training-${short}:
+    count: ${vm_count}
+    flavor: ${vm_size}
+    start: ${start}
+    end: ${end}
+    group: training-${training_identifier}
 EOF
 
 if (( autopush == 1 )); then
@@ -42,8 +45,8 @@ vm_mem=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $3}')
 ts_end=$(date -d "$end 23:59" +%s)
 ts_stt=$(date -d "$start 00:00" +%s)
 vm_seconds=$(( ts_end - ts_stt ))
-price=$(python cost.py $vm_cpu $vm_mem $vm_seconds | head -n 1)
-machines=$(python cost.py $vm_cpu $vm_mem $vm_seconds | tail -n 1)
+price=$(python3 cost.py $vm_cpu $vm_mem $vm_seconds | head -n 1)
+machines=$(python3 cost.py $vm_cpu $vm_mem $vm_seconds | tail -n 1)
 aws_id=$(echo $machines | sed "s/'/\"/g" | jq .name -r)
 price=$(echo "$price * $vm_count" | bc -l)
 price_int=$(printf "%0.2f" $price)
