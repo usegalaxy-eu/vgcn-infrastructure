@@ -297,9 +297,21 @@ deployment:
     start: 2022-12-06
     end: 2022-12-07
     group: training-bioinfotpmarina
-    training-fmx-:
-      count: 1
-      flavor: c1.c28m225
-      start: 2022-12-05
-      end: 2022-12-09
-      group: training-fmx-anses-wgs-2022
+  training-fmx:
+    count: 1
+    flavor: c1.c28m225
+    start: 2022-12-05
+    end: 2022-12-09
+    group: training-fmx-anses-wgs-2022
+  training-rer5:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-11-23
+    end: 2022-11-26
+    group: training-rer5027
+  training-iec:
+    count: 2
+    flavor: c1.c28m225
+    start: 2022-11-28
+    end: 2022-11-30
+    group: training-iec
