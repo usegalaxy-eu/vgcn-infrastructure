@@ -195,12 +195,6 @@ deployment:
     start: 2022-08-29
     end: 2022-12-19
     group: training-ng01cf_ht22
-  training-cicy:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-18
-    end: 2022-11-08
-    group: training-cicy_bioinfo_2022
   training-debr:
     count: 1
     flavor: c1.c28m225
@@ -237,12 +231,6 @@ deployment:
     start: 2023-02-06
     end: 2023-02-10
     group: training-singlecell23
-  training-acei:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-11-03
-    end: 2022-11-11
-    group: training-aceidha_bioinf22
   training-uca_:
     count: 1
     flavor: c1.c28m225
@@ -255,24 +243,7 @@ deployment:
     start: 2022-10-14
     end: 2022-12-09
     group: training-adamsgenomics
-  training-gm2p:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-11-02
-    end: 2022-11-04
     group: training-gm2practicals
-  training-viro:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-11-07
-    end: 2022-11-18
-    group: training-virologist_isciii
-  training-bc22:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-11-10
-    end: 2022-11-11
-    group: training-bc22
   training-life:
     count: 1
     flavor: c1.c28m225
