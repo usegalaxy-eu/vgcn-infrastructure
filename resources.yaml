@@ -51,7 +51,7 @@ deployment:
     flavor: c1.c36m100
     group: upload
   worker-metadata:
-    count: 2
+    count: 1
     flavor: m1.large
     group: metadata
     cgroups:
