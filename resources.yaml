@@ -183,18 +183,18 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 1024
   # Training
-  training-biol:
-    count: 1
-    flavor: c1.c28m225
-    start: 2021-09-15
-    end: 2022-12-15
-    group: training-biol152_2021
-  training-ng01:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-08-29
-    end: 2022-12-19
-    group: training-ng01cf_ht22
+#  training-biol:
+#    count: 1
+#    flavor: c1.c28m225
+#    start: 2021-09-15
+#    end: 2022-12-15
+#    group: training-biol152_2021
+#  training-ng01:
+#    count: 1
+#    flavor: c1.c28m225
+#    start: 2022-08-29
+#    end: 2022-12-19
+#    group: training-ng01cf_ht22
   training-debr:
     count: 1
     flavor: c1.c28m225
@@ -208,35 +208,35 @@ deployment:
     end: 2022-12-14
     group: training-klk-debrecen-2022
   training-bio0:
-    count: 5
+    count: 1
     flavor: c1.c28m225
     start: 2022-10-13
     end: 2023-12-02
     group: training-bio00058m
-  training-woff:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-01
-    end: 2022-12-15
-    group: training-wofford22
-  training-gqa2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-11-07
-    end: 2022-12-02
-    group: training-gqa22
+#  training-woff:
+#    count: 1
+#    flavor: c1.c28m225
+#    start: 2022-10-01
+#    end: 2022-12-15
+#    group: training-wofford22
+#  training-gqa2:
+#    count: 1
+#    flavor: c1.c28m225
+#    start: 2022-11-07
+#    end: 2022-12-02
+#    group: training-gqa22
   training-sing:
     count: 2
     flavor: c1.c28m225
     start: 2023-02-06
     end: 2023-02-10
     group: training-singlecell23
-  training-uca_:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-10
-    end: 2023-02-01
-    group: training-uca_bioanalysis2022
+#  training-uca_:
+#    count: 1
+#    flavor: c1.c28m225
+#    start: 2022-10-10
+#    end: 2023-02-01
+#    group: training-uca_bioanalysis2022
   training-adam:
     count: 1
     flavor: c1.c28m225
@@ -249,12 +249,6 @@ deployment:
     start: 2022-11-11
     end: 2022-11-25
     group: training-life721
-  training-rnas:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-11-21
-    end: 2022-11-25
-    group: training-rnaseq-2022
   training-tpbi:
     count: 1
     flavor: c1.c28m225
@@ -273,12 +267,6 @@ deployment:
     start: 2022-12-05
     end: 2022-12-09
     group: training-fmx-anses-wgs-2022
-  training-rer5:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-11-23
-    end: 2022-11-26
-    group: training-rer5027
   training-iec:
     count: 2
     flavor: c1.c28m225
