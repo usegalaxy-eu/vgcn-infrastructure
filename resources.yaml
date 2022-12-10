@@ -291,3 +291,9 @@ deployment:
     start: 2022-12-19
     end: 2022-12-23
     group: training-heh-omique
+  training-bioi:
+    count: 3
+    flavor: c1.c28m225
+    start: 2022-12-19
+    end: 2022-12-23
+    group: training-bioinformatika2022
