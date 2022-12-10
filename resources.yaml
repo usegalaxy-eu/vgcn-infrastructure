@@ -183,18 +183,6 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 1024
   # Training
-#  training-biol:
-#    count: 1
-#    flavor: c1.c28m225
-#    start: 2021-09-15
-#    end: 2022-12-15
-#    group: training-biol152_2021
-#  training-ng01:
-#    count: 1
-#    flavor: c1.c28m225
-#    start: 2022-08-29
-#    end: 2022-12-19
-#    group: training-ng01cf_ht22
   training-debr:
     count: 1
     flavor: c1.c28m225
@@ -213,18 +201,6 @@ deployment:
     start: 2022-10-13
     end: 2023-12-02
     group: training-bio00058m
-#  training-woff:
-#    count: 1
-#    flavor: c1.c28m225
-#    start: 2022-10-01
-#    end: 2022-12-15
-#    group: training-wofford22
-#  training-gqa2:
-#    count: 1
-#    flavor: c1.c28m225
-#    start: 2022-11-07
-#    end: 2022-12-02
-#    group: training-gqa22
   training-sing:
     count: 2
     flavor: c1.c28m225
@@ -237,42 +213,6 @@ deployment:
 #    start: 2022-10-10
 #    end: 2023-02-01
 #    group: training-uca_bioanalysis2022
-  training-adam:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-14
-    end: 2022-12-09
-    group: training-adamsgenomics
-  training-life:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-11-11
-    end: 2022-11-25
-    group: training-life721
-  training-tpbi:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-12-09
-    end: 2022-12-09
-    group: training-tpbioinfosylvaine
-  training-bioi:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-12-06
-    end: 2022-12-07
-    group: training-bioinfotpmarina
-  training-fmx:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-12-05
-    end: 2022-12-09
-    group: training-fmx-anses-wgs-2022
-  training-iec:
-    count: 2
-    flavor: c1.c28m225
-    start: 2022-11-28
-    end: 2022-11-30
-    group: training-iec
   training-mtbn:
     count: 2
     flavor: c1.c28m225
@@ -280,12 +220,12 @@ deployment:
     end: 2023-01-13
     group: training-mtbngs
   training-gdaw:
-    count: 2
+    count: 1
     flavor: c1.c28m225
     start: 2022-12-12
     end: 2022-12-30
     group: training-gdawg2022
-  training-heh-:
+  training-heh:
     count: 1
     flavor: c1.c28m225
     start: 2022-12-19
