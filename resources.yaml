@@ -237,3 +237,9 @@ deployment:
     start: 2022-12-19
     end: 2022-12-23
     group: training-bioinformatika2022
+  training-bioi:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-01-14
+    end: 2023-01-24
+    group: training-bioinfo-fmx-2023
