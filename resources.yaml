@@ -261,3 +261,9 @@ deployment:
     start: 2023-03-13
     end: 2023-05-12
     group: training-msc-bioinf-exeter
+  training-sib2:
+    count: 2
+    flavor: c1.c28m225
+    start: 2023-04-25
+    end: 2023-04-26
+    group: training-sib2023
