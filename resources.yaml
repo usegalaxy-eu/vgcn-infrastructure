@@ -189,12 +189,6 @@ deployment:
     start: 2022-09-19
     end: 2023-01-31
     group: training-debrecen2022
-  training-klk-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-09-22
-    end: 2022-12-14
-    group: training-klk-debrecen-2022
   training-bio0:
     count: 1
     flavor: c1.c28m225
@@ -219,21 +213,33 @@ deployment:
     start: 2023-01-09
     end: 2023-01-13
     group: training-mtbngs
-  training-gdaw:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-12-12
-    end: 2022-12-30
-    group: training-gdawg2022
-  training-heh:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-12-19
-    end: 2022-12-23
-    group: training-heh-omique
   training-bioi:
-    count: 3
+    count: 1
     flavor: c1.c28m225
-    start: 2022-12-19
-    end: 2022-12-23
-    group: training-bioinformatika2022
+    start: 2023-01-14
+    end: 2023-01-24
+    group: training-bioinfo-fmx-2023
+  training-unit:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-01-23
+    end: 2023-03-03
+    group: training-unito-labbiomol
+  training-path:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-02-02
+    end: 2023-02-02
+    group: training-pathog-detect-2023
+  training-msc-:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-13
+    end: 2023-05-12
+    group: training-msc-bioinf-exeter
+  training-sib2:
+    count: 2
+    flavor: c1.c28m225
+    start: 2023-04-25
+    end: 2023-04-26
+    group: training-sib2023
