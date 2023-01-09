@@ -243,3 +243,9 @@ deployment:
     start: 2023-01-14
     end: 2023-01-24
     group: training-bioinfo-fmx-2023
+  training-unit:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-01-23
+    end: 2023-03-03
+    group: training-unito-labbiomol
