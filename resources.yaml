@@ -243,3 +243,9 @@ deployment:
     start: 2023-04-25
     end: 2023-04-26
     group: training-sib2023
+  training-pag2:
+    count: 2
+    flavor: c1.c28m225
+    start: 2023-01-17
+    end: 2023-01-18
+    group: training-pag2023
