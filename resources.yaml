@@ -249,3 +249,9 @@ deployment:
     start: 2023-01-17
     end: 2023-01-18
     group: training-pag2023
+  training-npdn:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-27
+    end: 2023-03-29
+    group: training-npdn-hts1
