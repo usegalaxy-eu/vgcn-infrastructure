@@ -262,3 +262,9 @@ deployment:
     start: 2023-03-27
     end: 2023-04-21
     group: training-raeg2023
+  training-ims-:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-04-24
+    end: 2023-04-24
+    group: training-ims-multiomics
