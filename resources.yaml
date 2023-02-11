@@ -256,3 +256,9 @@ deployment:
     start: 2023-03-07
     end: 2023-07-11
     group: training-ruas-skarp-mls
+  training-raeg:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-27
+    end: 2023-04-21
+    group: training-raeg2023
