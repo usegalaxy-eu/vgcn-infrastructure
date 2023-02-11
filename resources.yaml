@@ -220,3 +220,51 @@ deployment:
     start: 2023-04-27
     end: 2023-04-27
     group: training-npdn-hts2
+  training-ur-f:
+    count: 3
+    flavor: c1.c28m225
+    start: 2023-02-20
+    end: 2023-02-24
+    group: training-ur-feb23
+  training-fr-f:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-02-20
+    end: 2023-02-24
+    group: training-fr-feb22
+  training-ueb-:
+    count: 3
+    flavor: c1.c28m225
+    start: 2023-02-21
+    end: 2023-02-23
+    group: training-ueb-mastervhir2023
+  training-phys:
+    count: 3
+    flavor: c1.c28m225
+    start: 2023-02-27
+    end: 2023-03-03
+    group: training-physalia-asm-2023
+  training-om2:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-02-28
+    end: 2023-03-03
+    group: training-om2
+  training-ruas:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-07
+    end: 2023-07-11
+    group: training-ruas-skarp-mls
+  training-raeg:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-27
+    end: 2023-04-21
+    group: training-raeg2023
+  training-ims-:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-04-24
+    end: 2023-04-24
+    group: training-ims-multiomics
