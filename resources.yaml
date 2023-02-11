@@ -182,7 +182,7 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
-  
+
   # Training
   training-bio0:
     count: 1
@@ -208,13 +208,13 @@ deployment:
     start: 2023-04-25
     end: 2023-04-26
     group: training-sib2023
-  training-npdn:
+  training-hts1:
     count: 1
     flavor: c1.c28m225
     start: 2023-03-27
     end: 2023-03-29
     group: training-npdn-hts1
-  training-npdn:
+  training-hts2:
     count: 1
     flavor: c1.c28m225
     start: 2023-04-27
