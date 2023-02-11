@@ -38,10 +38,6 @@ nodes_inventory:
   g1.c7m20g1: 8
 
 deployment:
-  worker-maintenance:
-    count: 1
-    flavor: m1.large
-    group: maintenance
   worker-fastturnaround:
     count: 1
     flavor: m1.xlarge
