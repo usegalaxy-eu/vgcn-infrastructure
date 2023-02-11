@@ -238,3 +238,9 @@ deployment:
     start: 2023-02-21
     end: 2023-02-23
     group: training-ueb-mastervhir2023
+  training-phys:
+    count: 3
+    flavor: c1.c28m225
+    start: 2023-02-27
+    end: 2023-03-03
+    group: training-physalia-asm-2023
