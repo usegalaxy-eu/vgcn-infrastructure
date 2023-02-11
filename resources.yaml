@@ -182,55 +182,20 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
+  
   # Training
-  training-debr:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-09-19
-    end: 2023-01-31
-    group: training-debrecen2022
   training-bio0:
     count: 1
     flavor: c1.c28m225
     start: 2022-10-13
     end: 2023-12-02
     group: training-bio00058m
-  training-sing:
-    count: 2
-    flavor: c1.c28m225
-    start: 2023-02-06
-    end: 2023-02-10
-    group: training-singlecell23
-#  training-uca_:
-#    count: 1
-#    flavor: c1.c28m225
-#    start: 2022-10-10
-#    end: 2023-02-01
-#    group: training-uca_bioanalysis2022
-  training-mtbn:
-    count: 2
-    flavor: c1.c28m225
-    start: 2023-01-09
-    end: 2023-01-13
-    group: training-mtbngs
-  training-bioi:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-01-14
-    end: 2023-01-24
-    group: training-bioinfo-fmx-2023
   training-unit:
     count: 1
     flavor: c1.c28m225
     start: 2023-01-23
     end: 2023-03-03
     group: training-unito-labbiomol
-  training-path:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-02-02
-    end: 2023-02-02
-    group: training-pathog-detect-2023
   training-msc-:
     count: 1
     flavor: c1.c28m225
@@ -243,12 +208,6 @@ deployment:
     start: 2023-04-25
     end: 2023-04-26
     group: training-sib2023
-  training-pag2:
-    count: 2
-    flavor: c1.c28m225
-    start: 2023-01-17
-    end: 2023-01-18
-    group: training-pag2023
   training-npdn:
     count: 1
     flavor: c1.c28m225
