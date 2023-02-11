@@ -226,3 +226,9 @@ deployment:
     start: 2023-02-20
     end: 2023-02-24
     group: training-ur-feb23
+  training-fr-f:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-02-20
+    end: 2023-02-24
+    group: training-fr-feb22
