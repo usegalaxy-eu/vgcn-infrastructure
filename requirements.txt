@@ -3,3 +3,4 @@ paramiko==2.10.1
 pykwalify==1.7.0
 python-openstackclient==5.5.0
 PyYAML==5.4
+munch
