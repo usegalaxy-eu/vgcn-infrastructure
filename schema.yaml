@@ -15,10 +15,10 @@ mapping:
         required: true
     "image_secure":
         type: str
-        required: true
+        required: false
     "image_secure_id":
         type: str
-        required: true
+        required: false
     "image_replace":
         type: bool
         required: true
