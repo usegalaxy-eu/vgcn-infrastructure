@@ -184,12 +184,12 @@ deployment:
       mem_reserved_size: 1024
 
   # Training
-  training-bio0:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-13
-    end: 2023-12-02
-    group: training-bio00058m
+#  training-bio0:
+#    count: 1
+#    flavor: c1.c28m225
+#    start: 2022-10-13
+#    end: 2023-12-02
+#    group: training-bio00058m
   training-unit:
     count: 1
     flavor: c1.c28m225
