@@ -43,7 +43,6 @@ class StateManagement:
 
         self.current_image_name = self.config['image']
         self.current_image_gpu_name = self.config['image_gpu']
-        self.current_image_secure_name = self.config['image_secure']
         self.vgcn_pubkeys = self.config['pubkeys']
         self.today = datetime.date.today()
 
