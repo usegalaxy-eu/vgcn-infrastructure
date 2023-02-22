@@ -1,14 +1,12 @@
 ---
 # The latest image we want deployed. If images are running that have an
 # appropriate prefix but are not running this image, they will be removed.
-image: vggp-v60-j322-692e75a7c101-main
-image_id: 4c864d3b-6651-4bb3-a329-4a7c8c18a8fa
+image: vggp-v60-j221-e2504756580f-dev
+image_id: 17659e1c-f465-44ac-adcc-f7ad6f1448fc
 
-image_gpu: vggp-v60-gpu-j322-692e75a7c101-main
-image_gpu_id: f5b82cb0-03b4-44f0-8ce5-33f15c53f89b
+image_gpu: vggp-gpu-v60-j13-b3cbf1b61e65-dev
+image_gpu_id: cf7452fd-fb63-48be-81b2-e9fdd3a9ff42
 
-image_secure: vggp-v60-secure-j322-692e75a7c101-main
-image_secure_id: 02b59caf-374d-4cef-aafc-d86fe0aeb9ce
 
 network: bioinf
 network_id: 7de249b6-6d32-44e3-b50c-291939868d2f
@@ -38,139 +36,138 @@ nodes_inventory:
   g1.c7m20g1: 8
 
 deployment:
-  worker-maintenance:
-    count: 1
-    flavor: m1.large
-    group: maintenance
-  worker-fastturnaround:
-    count: 1
-    flavor: m1.xlarge
-    group: fast-turnaround
-  worker-fetch:
-    count: 1
-    flavor: c1.c36m100
-    group: upload
-  worker-metadata:
-    count: 1
-    flavor: m1.large
-    group: metadata
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 1024
-  worker-interactive:
-    count: 8 #8
+ # worker-maintenance:
+ #   count: 1
+ #   flavor: m1.large
+ #   group: maintenance
+ # worker-fastturnaround:
+ #   count: 1
+ #   flavor: m1.xlarge
+ #   group: fast-turnaround
+ # worker-fetch:
+ #   count: 1
+ #   flavor: c1.c36m100
+ #   group: upload
+ # worker-metadata:
+ #   count: 1
+ #   flavor: m1.large
+ #   group: metadata
+ #   cgroups:
+ #     mem_limit_policy: soft
+ #     mem_reserved_size: 1024
+  worker-R9-interactive:
+    count: 0 #8
     flavor: c1.c36m100
     group: interactive
     docker_ready: true
-    secure_ready: true
     volume:
       size: 1024
       type: default
-  worker-mothur:
-    count: 3
-    flavor: c1.c28m475
-    group: compute_mothur
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
-  worker-c28m475:
-    count: 12 #19
-    flavor: c1.c28m475
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
-  worker-c28m225:
-    count: 0 #7
-    flavor: c1.c28m225
-    group: compute_test
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
-  worker-c36m100:
-    count: 21 #31
-    flavor: c1.c36m100
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
-  worker-c36m225:
-    count: 15 #15
-    flavor: c1.c36m225
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
-  worker-c36m900:
-    count: 1 #1 it's a c1.c36m975 host with probably a faulty memory bank
-    flavor: c1.c36m900
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 2048
-  worker-c36m975:
-    count: 14 #14
-    flavor: c1.c36m975
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 2048
-  worker-c64m2:
-    count: 1 #1
-    flavor: c1.c60m1975
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-  worker-c125m225:
-    count: 12 #12
-    flavor: c1.c125m225
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
-  worker-c125m425:
-    count: 36 #36
-    flavor: c1.c125m425
-    group: compute
-    docker_ready: true
-    volume:
-      size: 1024
-      type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
-  worker-gpu:
-    count: 8 #16
+ # worker-mothur:
+ #   count: 3
+ #   flavor: c1.c28m475
+ #   group: compute_mothur
+ #   cgroups:
+ #     mem_limit_policy: hard
+ #     mem_reserved_size: 2048
+ # worker-c28m475:
+ #   count: 12 #19
+ #   flavor: c1.c28m475
+ #   group: compute
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ #   cgroups:
+ #     mem_limit_policy: hard
+ #     mem_reserved_size: 2048
+ # worker-c28m225:
+ #   count: 0 #7
+ #   flavor: c1.c28m225
+ #   group: compute_test
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ #   cgroups:
+ #     mem_limit_policy: hard
+ #     mem_reserved_size: 2048
+ # worker-c36m100:
+ #   count: 21 #31
+ #   flavor: c1.c36m100
+ #   group: compute
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ #   cgroups:
+ #     mem_limit_policy: hard
+ #     mem_reserved_size: 2048
+ # worker-c36m225:
+ #   count: 15 #15
+ #   flavor: c1.c36m225
+ #   group: compute
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ #   cgroups:
+ #     mem_limit_policy: hard
+ #     mem_reserved_size: 2048
+ # worker-c36m900:
+ #   count: 1 #1 it's a c1.c36m975 host with probably a faulty memory bank
+ #   flavor: c1.c36m900
+ #   group: compute
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ #   cgroups:
+ #     mem_limit_policy: soft
+ #     mem_reserved_size: 2048
+ # worker-c36m975:
+ #   count: 14 #14
+ #   flavor: c1.c36m975
+ #   group: compute
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ #   cgroups:
+ #     mem_limit_policy: soft
+ #     mem_reserved_size: 2048
+ # worker-c64m2:
+ #   count: 1 #1
+ #   flavor: c1.c60m1975
+ #   group: compute
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ # worker-c125m225:
+ #   count: 12 #12
+ #   flavor: c1.c125m225
+ #   group: compute
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ #   cgroups:
+ #     mem_limit_policy: hard
+ #     mem_reserved_size: 2048
+ # worker-c125m425:
+ #   count: 36 #36
+ #   flavor: c1.c125m425
+ #   group: compute
+ #   docker_ready: true
+ #   volume:
+ #     size: 1024
+ #     type: default
+ #   cgroups:
+ #     mem_limit_policy: hard
+ #     mem_reserved_size: 2048
+  worker-R9-gpu:
+    count: 0 #16
     flavor: g1.c7m20g1
     group: compute_gpu
     gpu_ready: true
@@ -183,88 +180,23 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 1024
 
+  # Rocky9 worker
+  worker-R9-c36m100:
+    count: 0
+    flavor: c1.c36m100
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+
   # Training
-  training-bio0:
-    count: 1
-    flavor: c1.c28m225
-    start: 2022-10-13
-    end: 2023-12-02
-    group: training-bio00058m
-  training-unit:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-01-23
-    end: 2023-03-03
-    group: training-unito-labbiomol
-  training-msc-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-13
-    end: 2023-05-12
-    group: training-msc-bioinf-exeter
-  training-sib2:
-    count: 2
-    flavor: c1.c28m225
-    start: 2023-04-25
-    end: 2023-04-26
-    group: training-sib2023
-  training-hts1:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-27
-    end: 2023-03-29
-    group: training-npdn-hts1
-  training-hts2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-04-27
-    end: 2023-04-27
-    group: training-npdn-hts2
-  training-ur-f:
-    count: 3
-    flavor: c1.c28m225
-    start: 2023-02-20
-    end: 2023-02-24
-    group: training-ur-feb23
-  training-fr-f:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-02-20
-    end: 2023-02-24
-    group: training-fr-feb22
-  training-ueb-:
-    count: 3
-    flavor: c1.c28m225
-    start: 2023-02-21
-    end: 2023-02-23
-    group: training-ueb-mastervhir2023
-  training-phys:
-    count: 3
-    flavor: c1.c28m225
-    start: 2023-02-27
-    end: 2023-03-03
-    group: training-physalia-asm-2023
-  training-om2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-02-28
-    end: 2023-03-03
-    group: training-om2
-  training-ruas:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-07
-    end: 2023-07-11
-    group: training-ruas-skarp-mls
-  training-raeg:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-27
-    end: 2023-04-21
-    group: training-raeg2023
-  training-ims-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-04-24
-    end: 2023-04-24
-    group: training-ims-multiomics
+ # training-bio0:
+ #   count: 1
+ #   flavor: c1.c28m225
+ #   start: 2022-10-13
+ #   end: 2023-12-02
+ #   group: training-bio00058m
