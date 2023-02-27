@@ -27,8 +27,8 @@ pubkeys:
 
 nodes_inventory:
   c1.c28m225: 7
-  c1.c28m475: 19
-  c1.c36m100: 32
+  c1.c28m475: 20
+  c1.c36m100: 31
   c1.c36m225: 15
   c1.c36m900: 1
   c1.c36m975: 13
@@ -74,7 +74,7 @@ deployment:
 #      mem_limit_policy: hard
 #      mem_reserved_size: 2048
   worker-c28m475:
-    count: 12 #19
+    count: 13 #20
     flavor: c1.c28m475
     group: compute
     docker_ready: true
@@ -96,7 +96,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c36m100:
-    count: 22 #32
+    count: 21 #31
     flavor: c1.c36m100
     group: compute
     docker_ready: true
