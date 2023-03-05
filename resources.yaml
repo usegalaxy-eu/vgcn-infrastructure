@@ -262,3 +262,9 @@ deployment:
     start: 2023-03-20
     end: 2023-03-24
     group: training-popgen-microbe
+  training-omit:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-16
+    end: 2023-03-16
+    group: training-omitreen
