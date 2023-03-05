@@ -256,3 +256,9 @@ deployment:
     start: 2023-03-24
     end: 2023-05-08
     group: training-kmb613
+  training-popg:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-20
+    end: 2023-03-24
+    group: training-popgen-microbe
