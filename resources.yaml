@@ -232,3 +232,39 @@ deployment:
     start: 2023-04-24
     end: 2023-04-24
     group: training-ims-multiomics
+  training-semm:
+    count: 2
+    flavor: c1.c28m225
+    start: 2023-03-06
+    end: 2023-03-10
+    group: training-semmelweis-bit-2023
+  training-mast:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-13
+    end: 2023-03-13
+    group: training-master-qbio-ur
+  training-tp-e:
+    count: 2
+    flavor: c1.c28m225
+    start: 2023-03-27
+    end: 2023-04-11
+    group: training-tp-epigenetics
+  training-kmb6:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-24
+    end: 2023-05-08
+    group: training-kmb613
+  training-popg:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-20
+    end: 2023-03-24
+    group: training-popgen-microbe
+  training-omit:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-16
+    end: 2023-03-16
+    group: training-omitreen
