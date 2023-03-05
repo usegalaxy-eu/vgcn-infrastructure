@@ -238,3 +238,9 @@ deployment:
     start: 2023-03-06
     end: 2023-03-10
     group: training-semmelweis-bit-2023
+  training-mast:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-03-13
+    end: 2023-03-13
+    group: training-master-qbio-ur
