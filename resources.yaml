@@ -268,3 +268,9 @@ deployment:
     start: 2023-03-16
     end: 2023-03-16
     group: training-omitreen
+  training-msil:
+    count: 2
+    flavor: c.c32m240
+    start: 2023-03-16
+    end: 2023-03-16
+    group: training-msileiden23
