@@ -244,3 +244,9 @@ deployment:
     start: 2023-03-20
     end: 2023-03-24
     group: training-popgen-microbe
+  training-uni-:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-04-18
+    end: 2023-05-12
+    group: training-uni-zurich
