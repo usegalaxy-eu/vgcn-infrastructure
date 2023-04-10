@@ -262,3 +262,15 @@ deployment:
     start: 2023-05-01
     end: 2023-05-06
     group: training-heh-annot
+  training-heh-:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-05-01
+    end: 2023-05-06
+    group: training-heh-annot
+  training-ucph:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-04-19
+    end: 2023-04-19
+    group: training-ucph-enra
