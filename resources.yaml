@@ -250,3 +250,9 @@ deployment:
     start: 2023-04-18
     end: 2023-05-12
     group: training-uni-zurich
+  training-sfb1:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-04-24
+    end: 2023-04-28
+    group: training-sfb1425-2023
