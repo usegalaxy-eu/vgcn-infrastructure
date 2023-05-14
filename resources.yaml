@@ -274,3 +274,9 @@ deployment:
     start: 2023-05-10
     end: 2023-05-20~
     group: training-smorg3-instructors
+  training-smor:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-05-22
+    end: 2023-05-26
+    group: training-smorgasbord3
