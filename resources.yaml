@@ -298,3 +298,9 @@ deployment:
     start: 2023-05-30
     end: 2023-05-31
     group: training-szeged2023
+  training-fair:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-05-16
+    end: 2023-05-17
+    group: training-fair-ease-galaxy
