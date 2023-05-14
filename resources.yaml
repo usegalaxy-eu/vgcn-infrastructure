@@ -286,3 +286,9 @@ deployment:
     start: 2023-05-17
     end: 2023-05-17
     group: training-aiadl2023
+  training-univ:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-05-15
+    end: 2023-05-19
+    group: training-universityofsuffolk
