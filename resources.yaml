@@ -190,89 +190,17 @@ deployment:
 #    start: 2022-10-13
 #    end: 2023-12-02
 #    group: training-bio00058m
-  training-msc-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-13
-    end: 2023-05-12
-    group: training-msc-bioinf-exeter
-  training-hts1:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-27
-    end: 2023-03-29
-    group: training-npdn-hts1
-  training-hts2:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-04-27
-    end: 2023-04-27
-    group: training-npdn-hts2
   training-ruas:
     count: 1
     flavor: c1.c28m225
     start: 2023-03-07
     end: 2023-07-11
     group: training-ruas-skarp-mls
-  training-raeg:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-27
-    end: 2023-04-21
-    group: training-raeg2023
-  training-ims-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-04-24
-    end: 2023-04-24
-    group: training-ims-multiomics
-  training-tp-e:
-    count: 2
-    flavor: c1.c28m225
-    start: 2023-03-27
-    end: 2023-04-11
-    group: training-tp-epigenetics
-  training-kmb6:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-24
-    end: 2023-05-08
-    group: training-kmb613
-  training-popg:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-20
-    end: 2023-03-24
-    group: training-popgen-microbe
-  training-uni-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-04-18
-    end: 2023-05-12
-    group: training-uni-zurich
-  training-sfb1:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-04-24
-    end: 2023-04-28
-    group: training-sfb1425-2023
-  training-heh-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-05-01
-    end: 2023-05-06
-    group: training-heh-annot
-  training-ucph:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-04-19
-    end: 2023-04-19
-    group: training-ucph-enra
   training-smor:
     count: 1
     flavor: c.c32m240
     start: 2023-05-10
-    end: 2023-05-20~
+    end: 2023-05-20
     group: training-smorg3-instructors
   training-smor:
     count: 1
@@ -305,7 +233,7 @@ deployment:
     end: 2023-05-17
     group: training-fair-ease-galaxy
   training-erga:
-    count: 1
+    count: 2
     flavor: c.c32m240
     start: 2023-05-18
     end: 2023-05-26
