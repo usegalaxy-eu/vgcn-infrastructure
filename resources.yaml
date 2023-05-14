@@ -304,3 +304,9 @@ deployment:
     start: 2023-05-16
     end: 2023-05-17
     group: training-fair-ease-galaxy
+  training-erga:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-05-18
+    end: 2023-05-26
+    group: training-erga-pt-assembly
