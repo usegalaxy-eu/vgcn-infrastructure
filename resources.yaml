@@ -280,3 +280,9 @@ deployment:
     start: 2023-05-22
     end: 2023-05-26
     group: training-smorgasbord3
+  training-aiad:
+    count: 1
+    flavor: c.c32m240
+    start: 2023-05-17
+    end: 2023-05-17
+    group: training-aiadl2023
