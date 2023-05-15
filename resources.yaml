@@ -196,7 +196,7 @@ deployment:
     start: 2023-03-07
     end: 2023-07-11
     group: training-ruas-skarp-mls
-  training-smor:
+  training-smorinst:
     count: 1
     flavor: c1.c28m225
     start: 2023-05-10
