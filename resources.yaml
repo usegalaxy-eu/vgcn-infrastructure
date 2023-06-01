@@ -196,45 +196,10 @@ deployment:
     start: 2023-03-07
     end: 2023-07-11
     group: training-ruas-skarp-mls
-  training-smorinst:
+
+  training-micr:
     count: 1
     flavor: c1.c28m225
-    start: 2023-05-10
-    end: 2023-05-20
-    group: training-smorg3-instructors
-  training-smor:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-05-22
-    end: 2023-05-26
-    group: training-smorgasbord3
-  training-aiad:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-05-17
-    end: 2023-05-17
-    group: training-aiadl2023
-  training-univ:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-05-15
-    end: 2023-05-19
-    group: training-universityofsuffolk
-  training-szeg:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-05-30
-    end: 2023-05-31
-    group: training-szeged2023
-  training-fair:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-05-16
-    end: 2023-05-17
-    group: training-fair-ease-galaxy
-  training-erga:
-    count: 2
-    flavor: c1.c28m225
-    start: 2023-05-18
-    end: 2023-05-26
-    group: training-erga-pt-assembly
+    start: 2023-06-05
+    end: 2023-06-06
+    group: training-microbiology-ngs-ups
