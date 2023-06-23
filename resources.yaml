@@ -203,3 +203,9 @@ deployment:
     start: 2023-06-26
     end: 2023-06-26
     group: training-africacd-june2023
+  training-cclc:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-07-25
+    end: 2023-07-25
+    group: training-cclcm23
