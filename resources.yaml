@@ -197,12 +197,6 @@ deployment:
     end: 2023-07-11
     group: training-ruas-skarp-mls
 
-  training-micr:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-06-05
-    end: 2023-06-06
-    group: training-microbiology-ngs-ups
   training-afri:
     count: 1
     flavor: c1.c28m225
