@@ -215,3 +215,9 @@ deployment:
     start: 2023-08-03
     end: 2023-08-04
     group: training-hd-mia2023
+  training-gsc2:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-08-07
+    end: 2023-08-11
+    group: training-gsc23-bangkok-mgnify
