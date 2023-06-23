@@ -209,3 +209,9 @@ deployment:
     start: 2023-07-25
     end: 2023-07-25
     group: training-cclcm23
+  training-hd-m:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-08-03
+    end: 2023-08-04
+    group: training-hd-mia2023
