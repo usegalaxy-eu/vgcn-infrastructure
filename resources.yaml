@@ -197,9 +197,39 @@ deployment:
     end: 2023-07-11
     group: training-ruas-skarp-mls
 
-  training-micr:
+  training-afri:
     count: 1
     flavor: c1.c28m225
-    start: 2023-06-05
-    end: 2023-06-06
-    group: training-microbiology-ngs-ups
+    start: 2023-06-26
+    end: 2023-06-26
+    group: training-africacd-june2023
+  training-cclc:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-07-25
+    end: 2023-07-25
+    group: training-cclcm23
+  training-hd-m:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-08-03
+    end: 2023-08-04
+    group: training-hd-mia2023
+  training-gsc2:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-08-07
+    end: 2023-08-11
+    group: training-gsc23-bangkok-mgnify
+  training-mgc-:
+    count: 3
+    flavor: c1.c28m225
+    start: 2023-08-29
+    end: 2023-08-30
+    group: training-mgc-ngs-2023
+  training-bme-:
+    count: 2
+    flavor: c1.c28m225
+    start: 2023-08-29
+    end: 2023-08-30
+    group: training-bme-certh
