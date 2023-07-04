@@ -239,13 +239,13 @@ deployment:
     start: 2023-07-24
     end: 2023-07-28
     group: training-ur-ss23
-  training-fr-j:
+  training-frj1:
     count: 1
     flavor: c1.c28m225
     start: 2023-07-17
     end: 2023-07-21
     group: training-fr-july17
-  training-fr-j:
+  training-frj2:
     count: 1
     flavor: c1.c28m225
     start: 2023-07-24
