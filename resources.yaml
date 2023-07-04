@@ -233,3 +233,9 @@ deployment:
     start: 2023-07-05
     end: 2023-07-06
     group: training-omitreen-rna-seq
+  training-ur-s:
+    count: 3
+    flavor: c1.c28m225
+    start: 2023-07-24
+    end: 2023-07-28
+    group: training-ur-ss23
