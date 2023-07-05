@@ -19,6 +19,12 @@ mapping:
     "image_secure_id":
         type: str
         required: true
+    "image_alma":
+        type: str
+        required: true
+    "image_alma_id":
+        type: str
+        required: true
     "image_replace":
         type: bool
         required: true
@@ -122,4 +128,6 @@ mapping:
                     "gpu_ready":
                         type: bool
                     "secure_ready":
+                        type: bool
+                    "alma_ready":
                         type: bool
