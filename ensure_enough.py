@@ -219,7 +219,7 @@ class StateManagement:
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
         custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, cgroups_args=cgroups_args,
-                                               docker_ready=docker_ready, gpu_ready=gpu_ready, alma_ready=alma_ready)
+                                               docker_ready=docker_ready, gpu_ready=gpu_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -269,7 +269,7 @@ class StateManagement:
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
         custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, cgroups_args=cgroups_args,
-                                               docker_ready=docker_ready, gpu_ready=gpu_ready, alma_ready=alma_ready)
+                                               docker_ready=docker_ready, gpu_ready=gpu_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
