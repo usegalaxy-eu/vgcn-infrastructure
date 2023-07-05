@@ -44,6 +44,7 @@ class StateManagement:
         self.current_image_name = self.config['image']
         self.current_image_gpu_name = self.config['image_gpu']
         self.current_image_secure_name = self.config['image_secure']
+        self.current_image_alma_name = self.config['image_alma']
         self.vgcn_pubkeys = self.config['pubkeys']
         self.today = datetime.date.today()
 
@@ -188,19 +189,21 @@ class StateManagement:
 
         return custom_userdata
 
-    def _select_image(self, gpu_ready=False, secure_ready=False):
+    def _select_image(self, gpu_ready=False, secure_ready=False, alma_ready=False):
 
         if gpu_ready:
             current_image_name = self.current_image_gpu_name
         elif secure_ready:
             current_image_name = self.current_image_secure_name
+        elif alma_ready:
+            current_image_name = self.current_image_alma_name
         else:
             current_image_name = self.current_image_name
 
         return current_image_name
 
     def launch_server(self, name, flavor, group, is_training=False, cgroups=False, cgroups_args=None,
-                      docker_ready=False, gpu_ready=False, secure_ready=False):
+                      docker_ready=False, gpu_ready=False, secure_ready=False, alma_ready=False):
         """
         Launch a server with a given name + flavor.
 
@@ -210,13 +213,13 @@ class StateManagement:
         if self.dry_run:
             return {'Status': 'OK (fake)'}
 
-        current_image_name = self._select_image(gpu_ready, secure_ready)
+        current_image_name = self._select_image(gpu_ready, secure_ready, alma_ready)
 
         logging.info("launching %s (%s)", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
         custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, cgroups_args=cgroups_args,
-                                               docker_ready=docker_ready, gpu_ready=gpu_ready)
+                                               docker_ready=docker_ready, gpu_ready=gpu_ready, alma_ready=alma_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -249,7 +252,7 @@ class StateManagement:
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
     def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, cgroups_args=None,
-                             docker_ready=False, gpu_ready=False, secure_ready=False,
+                             docker_ready=False, gpu_ready=False, secure_ready=False, alma_ready=False,
                              vol_size=12, vol_type='default', vol_boot=False):
         """
         Launch a server with a given name + flavor.
@@ -260,13 +263,13 @@ class StateManagement:
         if self.dry_run:
             return {'Status': 'OK (fake)'}
 
-        current_image_name = self._select_image(gpu_ready, secure_ready)
+        current_image_name = self._select_image(gpu_ready, secure_ready, alma_ready)
 
         logging.info("launching %s (%s) with volume", name, flavor)
         # If it's a compute-something, then we just tag as compute, per current
         # sorting hat expectations.
         custom_userdata = self.template_config(group, is_training=is_training, cgroups=cgroups, cgroups_args=cgroups_args,
-                                               docker_ready=docker_ready, gpu_ready=gpu_ready)
+                                               docker_ready=docker_ready, gpu_ready=gpu_ready, alma_ready=alma_ready)
 
         f = tempfile.NamedTemporaryFile(prefix='ensure-enough.', delete=False)
         f.write(custom_userdata.encode())
@@ -386,7 +389,7 @@ class StateManagement:
             time.sleep(10)
 
     def top_up(self, desired_instances, prefix, flavor, group, volume=False, volume_args=None,
-               cgroups=False, cgroups_args=None, docker_ready=False, gpu_ready=False, secure_ready=False):
+               cgroups=False, cgroups_args=None, docker_ready=False, gpu_ready=False, secure_ready=False, alma_ready=False):
         """
         :param int desired_instances: Number of instances of this type to launch
 
@@ -420,7 +423,8 @@ class StateManagement:
                 'cgroups_args': cgroups_args,
                 'docker_ready': docker_ready,
                 'gpu_ready': gpu_ready,
-                'secure_ready': secure_ready
+                'secure_ready': secure_ready,
+                'alma_ready': alma_ready
             }
 
             if volume:
@@ -533,7 +537,8 @@ class StateManagement:
                             cgroups_args=resource.get('cgroups', None),
                             docker_ready=resource.get('docker_ready', False),
                             gpu_ready=resource.get('gpu_ready', False),
-                            secure_ready=resource.get('secure_ready', False))
+                            secure_ready=resource.get('secure_ready', False),
+                            alma_ready=resource.get('alma_ready', False))
 
             # Now that we've removed all that we need to remove, again, try to top-up
             # to make sure we're OK. (Also important in case we had no servers already
@@ -546,7 +551,8 @@ class StateManagement:
                         cgroups_args=resource.get('cgroups', None),
                         docker_ready=resource.get('docker_ready', False),
                         gpu_ready=resource.get('gpu_ready', False),
-                        secure_ready=resource.get('secure_ready', False))
+                        secure_ready=resource.get('secure_ready', False),
+                        alma_ready=resource.get('alma_ready', False))
 
 
 def make_parser():

@@ -10,6 +10,9 @@ image_gpu_id: f5b82cb0-03b4-44f0-8ce5-33f15c53f89b
 image_secure: vggp-v60-secure-j322-692e75a7c101-main
 image_secure_id: 02b59caf-374d-4cef-aafc-d86fe0aeb9ce
 
+image_alma: vggp-v60-j340-e3937ea797ed-alma
+image_alma_id: 0c19e227-1c01-4108-a6ca-6dceba5d18f1 
+
 network: bioinf
 network_id: 7de249b6-6d32-44e3-b50c-291939868d2f
 image_replace: false
@@ -159,10 +162,22 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c125m425:
-    count: 36 #36
+    count: 31 #36
     flavor: c1.c125m425
     group: compute
     docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+  worker-c125m425-alma:
+    count: 5 #36
+    flavor: c1.c125m425
+    group: compute
+    docker_ready: true
+    alma_ready: true
     volume:
       size: 1024
       type: default
