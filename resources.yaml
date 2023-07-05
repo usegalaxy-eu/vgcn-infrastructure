@@ -11,7 +11,7 @@ image_secure: vggp-v60-secure-j322-692e75a7c101-main
 image_secure_id: 02b59caf-374d-4cef-aafc-d86fe0aeb9ce
 
 image_alma: vggp-v60-j340-e3937ea797ed-alma
-image_alma_id: 0c19e227-1c01-4108-a6ca-6dceba5d18f1 
+image_alma_id: 0c19e227-1c01-4108-a6ca-6dceba5d18f1
 
 network: bioinf
 network_id: 7de249b6-6d32-44e3-b50c-291939868d2f
