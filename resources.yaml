@@ -37,7 +37,8 @@ nodes_inventory:
   c1.c36m975d50: 14
   c1.c60m1975d50: 1
   c1.c120m225d50: 12
-  c1.c120m425d50: 36
+  c1.c120m425d50: 22
+  c1.c125m425d50: 16
   g1.c7m20g1d50: 8
 
 deployment:
@@ -150,7 +151,7 @@ deployment:
     volume:
       size: 1024
       type: default
-  worker-c125m225:
+  worker-c120m225:
     count: 12 #12
     flavor: c1.c120m225d50
     group: compute
@@ -161,8 +162,8 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c125m425-alma:
-    count: 2 #36
+  worker-c120m425-alma:
+    count: 2 #22
     flavor: c1.c120m425d50
     group: compute
     docker_ready: true
@@ -173,9 +174,20 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c125m425:
-    count: 34 #36
+  worker-c120m425:
+    count: 20 #22
     flavor: c1.c120m425d50
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+  worker-c125m425:
+    count: 16 #16
+    flavor: c1.c125m425d50
     group: compute
     docker_ready: true
     volume:
