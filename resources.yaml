@@ -278,3 +278,9 @@ deployment:
     start: 2023-07-24
     end: 2023-07-28
     group: training-fr-july24
+  training-gcc2:
+    count: 3
+    flavor: c1.c28m225
+    start: 2023-07-13
+    end: 2023-07-13
+    group: training-gcc23-vgp
