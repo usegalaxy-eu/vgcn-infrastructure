@@ -31,15 +31,18 @@ pubkeys:
 nodes_inventory:
   c1.c28m225d50: 7
   c1.c28m475d50: 19
-  c1.c36m100d50: 30
+  c1.c36m100d50: 32
   c1.c36m225d50: 15
   c1.c36m900d50: 1
-  c1.c36m975d50: 14
+  c1.c36m975d50: 8
   c1.c60m1975d50: 1
   c1.c120m225d50: 12
   c1.c120m425d50: 22
   c1.c125m425d50: 16
-  g1.c7m20g1d50: 8
+  c1.c28m935d50: 4
+  c1.c28m875d50: 2
+  g1.c14m40g1d50: 4
+  g1.c8m40g1d50: 4
 
 deployment:
   worker-maintenance:
@@ -100,7 +103,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c36m100:
-    count: 20 #30
+    count: 22 #32
     flavor: c1.c36m100d50
     group: compute
     docker_ready: true
@@ -133,8 +136,30 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 2048
   worker-c36m975:
-    count: 14 #14
+    count: 8 #8
     flavor: c1.c36m975d50
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
+  worker-c28m935:
+    count: 4 #4
+    flavor: c1.c28m935d50
+    group: compute
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
+  worker-c28m875:
+    count: 2 #2
+    flavor: c1.c28m875d50
     group: compute
     docker_ready: true
     volume:
@@ -196,9 +221,22 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-gpu:
-    count: 8 #16
-    flavor: g1.c7m20g1d50
+  worker-c14m40g1:
+    count: 4 #4
+    flavor: g1.c14m40g1d50
+    group: compute_gpu
+    gpu_ready: true
+    docker_ready: true
+    volume:
+      size: 1024
+      type: default
+      boot: true
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 1024
+  worker-c8m40g1:
+    count: 4 #4
+    flavor: g1.c8m40g1d50
     group: compute_gpu
     gpu_ready: true
     docker_ready: true
