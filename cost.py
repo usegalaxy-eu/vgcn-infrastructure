@@ -1,6 +1,5 @@
 import sys
 
-
 ec2 = {
     'CVRPW534R69RUEMP': {'name': 't3.nano', 'mem': 0.5, 'price': 0.006, 'priceunit': 'Hrs', 'vcpus': 2, 'cpu': 'Intel Skylake E5 2686 v5 (2.5 GHz)'},
     'BXS2CDUKEC83Q4SH': {'name': 'm5.xlarge', 'mem': 16.0, 'price': 0.23, 'priceunit': 'Hrs', 'vcpus': 4, 'cpu': 'Intel Xeon Platinum 8175'},

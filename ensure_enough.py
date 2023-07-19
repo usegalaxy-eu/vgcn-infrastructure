@@ -5,14 +5,14 @@ import datetime
 import json
 import logging
 import os
-import paramiko
 import random
 import re
 import subprocess
 import tempfile
 import time
-import yaml
 
+import paramiko
+import yaml
 
 logging.basicConfig(level=logging.INFO)
 

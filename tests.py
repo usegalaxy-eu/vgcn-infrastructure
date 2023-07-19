@@ -1,5 +1,6 @@
 import os
 import sys
+
 import yaml
 
 os.environ.update({
@@ -95,6 +96,7 @@ sys.modules['glanceclient'] = MockGlance
 
 
 import ensure_enough  # noqa
+
 ensure_enough.CURRENT_IMAGE_NAME = 'vgcnbwc7-22'
 ensure_enough.CURRENT_IMAGE = {'id': 'dead-beef-cafe'}
 
