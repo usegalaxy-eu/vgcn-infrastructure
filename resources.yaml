@@ -255,13 +255,6 @@ deployment:
   #    start: 2022-10-13
   #    end: 2023-12-02
   #    group: training-bio00058m
-  training-ruas:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-03-07
-    end: 2023-07-11
-    group: training-ruas-skarp-mls
-
   training-cclc:
     count: 1
     flavor: c1.c28m225d50
@@ -292,33 +285,27 @@ deployment:
     start: 2023-08-29
     end: 2023-08-30
     group: training-bme-certh
-  training-omit:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-07-05
-    end: 2023-07-06
-    group: training-omitreen-rna-seq
   training-ur-s:
     count: 3
     flavor: c1.c28m225d50
     start: 2023-07-24
     end: 2023-07-28
     group: training-ur-ss23
-  training-frj1:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-07-17
-    end: 2023-07-21
-    group: training-fr-july17
   training-frj2:
     count: 1
     flavor: c1.c28m225d50
     start: 2023-07-24
     end: 2023-07-28
     group: training-fr-july24
-  training-gcc2:
-    count: 3
+  training-padu:
+    count: 2
     flavor: c1.c28m225d50
-    start: 2023-07-13
-    end: 2023-07-13
-    group: training-gcc23-vgp
+    start: 2023-07-25
+    end: 2023-07-26
+    group: training-padua-july-23
+  training-epfl:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-10-26
+    end: 2023-10-27
+    group: training-epfl2023
