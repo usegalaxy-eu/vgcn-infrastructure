@@ -328,3 +328,9 @@ deployment:
     start: 2023-07-25
     end: 2023-07-26
     group: training-padua-july-23
+  training-epfl:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-10-26
+    end: 2023-10-27
+    group: training-epfl2023
