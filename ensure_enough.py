@@ -202,8 +202,20 @@ class StateManagement:
 
         return current_image_name
 
-    def launch_server(self, name, flavor, group, is_training=False, cgroups=False, cgroups_args=None,
-                      docker_ready=False, gpu_ready=False, secure_ready=False, alma_ready=False):
+    def launch_server(
+            self,
+            name,
+            flavor,
+            group,
+            is_training=False,
+            cgroups=False,
+            cgroups_args=None,
+            resource_secgroups=None,
+            docker_ready=False,
+            gpu_ready=False,
+            secure_ready=False,
+            alma_ready=False,
+    ):
         """
         Launch a server with a given name + flavor.
 
@@ -235,7 +247,8 @@ class StateManagement:
             '--user-data', f.name,
         ]
 
-        for sg in self.config['secgroups']:
+        resource_secgroups = resource_secgroups or []
+        for sg in self.config['secgroups'] + resource_secgroups:
             args.append('--security-group')
             args.append(sg)
 
@@ -251,9 +264,23 @@ class StateManagement:
         # Wait for this server to become 'ACTIVE'
         return self.wait_for_state(name, 'ACTIVE', escape_states=['ERROR'])
 
-    def launch_server_volume(self, name, flavor, group, is_training=False, cgroups=False, cgroups_args=None,
-                             docker_ready=False, gpu_ready=False, secure_ready=False, alma_ready=False,
-                             vol_size=12, vol_type='default', vol_boot=False):
+    def launch_server_volume(
+            self,
+            name,
+            flavor,
+            group,
+            is_training=False,
+            cgroups=False,
+            cgroups_args=None,
+            resource_secgroups=None,
+            docker_ready=False,
+            gpu_ready=False,
+            secure_ready=False,
+            alma_ready=False,
+            vol_size=12,
+            vol_type='default',
+            vol_boot=False
+    ):
         """
         Launch a server with a given name + flavor.
 
@@ -283,7 +310,8 @@ class StateManagement:
             '--nic', 'net-id=%s' % self.config['network_id'],
             '--user-data', f.name
         ]
-        for sg in self.config['secgroups']:
+        resource_secgroups = resource_secgroups or []
+        for sg in self.config['secgroups'] + resource_secgroups:
             args.append('--security-group')
             args.append(sg)
 
@@ -388,8 +416,22 @@ class StateManagement:
                 break
             time.sleep(10)
 
-    def top_up(self, desired_instances, prefix, flavor, group, volume=False, volume_args=None,
-               cgroups=False, cgroups_args=None, docker_ready=False, gpu_ready=False, secure_ready=False, alma_ready=False):
+    def top_up(
+            self,
+            desired_instances,
+            prefix,
+            flavor,
+            group,
+            volume=False,
+            volume_args=None,
+            cgroups=False,
+            cgroups_args=None,
+            resource_secgroups=None,
+            docker_ready=False,
+            gpu_ready=False,
+            secure_ready=False,
+            alma_ready=False
+    ):
         """
         :param int desired_instances: Number of instances of this type to launch
 
@@ -424,7 +466,8 @@ class StateManagement:
                 'docker_ready': docker_ready,
                 'gpu_ready': gpu_ready,
                 'secure_ready': secure_ready,
-                'alma_ready': alma_ready
+                'alma_ready': alma_ready,
+                'resource_secgroups': resource_secgroups,
             }
 
             if volume:
@@ -535,6 +578,7 @@ class StateManagement:
                             volume_args=resource.get('volume', None),
                             cgroups=True if 'cgroups' in resource else False,
                             cgroups_args=resource.get('cgroups', None),
+                            resource_secgroups=resource.get('secgroups', []),
                             docker_ready=resource.get('docker_ready', False),
                             gpu_ready=resource.get('gpu_ready', False),
                             secure_ready=resource.get('secure_ready', False),
@@ -549,6 +593,7 @@ class StateManagement:
                         volume_args=resource.get('volume', None),
                         cgroups=True if 'cgroups' in resource else False,
                         cgroups_args=resource.get('cgroups', None),
+                        resource_secgroups=resource.get('secgroups', []),
                         docker_ready=resource.get('docker_ready', False),
                         gpu_ready=resource.get('gpu_ready', False),
                         secure_ready=resource.get('secure_ready', False),

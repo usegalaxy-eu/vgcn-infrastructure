@@ -126,6 +126,11 @@ mapping:
                                 required: true
                                 range:
                                     min: 1024
+                    "secgroups":
+                        type: seq
+                        required: false
+                        sequence:
+                            - type: str
                     "docker_ready":
                         type: bool
                     "gpu_ready":
