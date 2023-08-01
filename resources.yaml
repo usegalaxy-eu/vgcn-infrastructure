@@ -17,9 +17,10 @@ network: bioinf
 network_id: 7de249b6-6d32-44e3-b50c-291939868d2f
 image_replace: false
 
+# interactive-egress: A reduced more stringent egress rule for all nodes
 secgroups:
   - ufr-ingress
-  - egress
+  - interactive-egress
 
 graceful: false
 sshkey: cloud3
