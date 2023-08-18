@@ -1,8 +1,9 @@
 # VGCN infrastructure management
 
 This repository defines and manages the
-[VGNC](https://github.com/usegalaxy-eu/vgcn) compute nodes in the
-[bwCloud](https://www.bw-cloud.org/) for [usegalaxy.eu](usegalaxy.eu)
+[Virtual Galaxy Compute Nodes](https://github.com/usegalaxy-eu/vgcn) on
+[bwCloud](https://www.bw-cloud.org/)/[de.NBI-cloud](https://www.denbi.de/)
+for [usegalaxy.eu](https://usegalaxy.eu/)
 
 The compute nodes are defined in [`resources.yaml`](#resourcesyaml), which 
 conforms to [`schema.yaml`](schema.yaml).

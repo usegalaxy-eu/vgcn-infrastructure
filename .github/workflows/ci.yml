@@ -4,15 +4,15 @@ name: CI
   pull_request:
   push:
     branches:
-      - master
+      - main
 
 defaults:
   run:
     working-directory: 'vgcn-infrastructure'
 
 jobs:
-  lint:
-    name: Lint
+  yamllint:
+    name: yamllint
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
@@ -23,31 +23,29 @@ jobs:
       - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.9'
 
-      - name: Install test dependencies.
-        run: pip3 install yamllint
-
-      - name: Lint code.
-        run: |
-          yamllint .
-  validate:
-    name: Validate
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
-        with:
-          path: 'vgcn-infrastructure'
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install test dependencies.
+      - name: Install requirements.
         run: pip install -r requirements.txt
 
-      - name: Validate code.
-        run: |
-          pykwalify -d resources.yaml -s schema.yaml
+      - name: Lint code.
+        run: yamllint .
+  schema:
+    name: Validate resource definition
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'vgcn-infrastructure'
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install requirements.
+        run: pip install -r requirements.txt
+
+      - name: Validate resource definition.
+        run: pykwalify -d resources.yaml -s schema.yaml
