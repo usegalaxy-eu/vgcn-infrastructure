@@ -1,37 +1,16 @@
 ---
 type: map
 mapping:
-    "image":
-        type: str
-        required: true
-    "image_id":
-        type: str
-        required: true
-    "image_gpu":
-        type: str
-        required: true
-    "image_gpu_id":
-        type: str
-        required: true
-    "image_secure":
-        type: str
-        required: true
-    "image_secure_id":
-        type: str
-        required: true
-    "image_alma":
-        type: str
-        required: true
-    "image_alma_id":
-        type: str
-        required: true
-    "image_replace":
-        type: bool
-        required: true
+    # Global configuration of computing nodes.
+    "images":
+        type: map
+        mapping:
+            "default":
+                type: str
+                required: true
+            "=":
+                type: str
     "network":
-        type: str
-        required: true
-    "network_id":
         type: str
         required: true
     "secgroups":
@@ -39,9 +18,6 @@ mapping:
         required: true
         sequence:
             - type: str
-    "graceful":
-        type: bool
-        required: true
     "sshkey":
         type: str
         required: true
@@ -49,12 +25,17 @@ mapping:
         type: seq
         sequence:
             - type: str
+    "graceful":
+        type: bool
+        required: true
+    # Inventory.
     "nodes_inventory":
         type: map
         matching-rule: all
         mapping:
             regex;([a-z][0-9].*):
                 type: int
+    # Resource group definitions.
     "deployment":
         type: map
         mapping:
@@ -99,6 +80,9 @@ mapping:
                         format: "%Y-%m-%d"
                     "group":
                         type: str
+                    "image":
+                        type: str
+                        required: false
                     "volume":
                         type: map
                         'mapping':
@@ -126,11 +110,5 @@ mapping:
                                 required: true
                                 range:
                                     min: 1024
-                    "docker_ready":
-                        type: bool
-                    "gpu_ready":
-                        type: bool
-                    "secure_ready":
-                        type: bool
-                    "alma_ready":
+                    "docker":
                         type: bool

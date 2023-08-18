@@ -1,0 +1,74 @@
+#cloud-config
+{% if image == "gpu" %}
+packages:
+  - cuda-10-1
+  - nvidia-container-toolkit
+{% endif %}
+write_files:
+  - content: |
+      # BEGIN MANAGED BLOCK
+      ETC = /etc/condor
+      CONDOR_HOST = condor-cm.galaxyproject.eu
+      ALLOW_WRITE = 10.5.68.0/24, 132.230.223.0/24
+      ALLOW_READ = $(ALLOW_WRITE)
+      ALLOW_ADMINISTRATOR = 10.5.68.0/24, 132.230.223.239
+      ALLOW_NEGOTIATOR = $(ALLOW_ADMINISTRATOR)
+      ALLOW_CONFIG = $(ALLOW_ADMINISTRATOR)
+      ALLOW_DAEMON = $(ALLOW_ADMINISTRATOR)
+      ALLOW_OWNER = $(ALLOW_ADMINISTRATOR)
+      ALLOW_CLIENT = *
+      DAEMON_LIST = MASTER, STARTD
+      FILESYSTEM_DOMAIN = bi.uni-freiburg.de
+      UID_DOMAIN = bi.uni-freiburg.de
+      TRUST_UID_DOMAIN = True
+      SOFT_UID_DOMAIN = True
+      CLAIM_PARTITIONABLE_LEFTOVERS = True
+      NUM_SLOTS = 1
+      NUM_SLOTS_TYPE_1 = 1
+      SLOT_TYPE_1 = 100%
+      SLOT_TYPE_1_PARTITIONABLE = True
+      ALLOW_PSLOT_PREEMPTION = False
+      STARTD.PROPORTIONAL_SWAP_ASSIGNMENT = True
+      MASTER_UPDATE_INTERVAL = 150
+      UPDATE_INTERVAL = 120
+      # END MANAGED BLOCK
+      {% if image == "gpu" %}
+      # Advertise the GPUs
+      use feature : GPUs
+      GPU_DISCOVERY_EXTRA = -extra
+      {% endif %}
+      GalaxyTraining = {{ "training" in name }}
+      GalaxyGroup = {{ group }}
+      GalaxyCluster = denbi
+      GalaxyDockerHack = {{ docker }}
+      STARTD_ATTRS = GalaxyTraining, GalaxyGroup, GalaxyCluster, GalaxyDockerHack
+      Rank = StringListMember(MY.GalaxyGroup, TARGET.Group)
+      {% if cgroups is defined %}
+      BASE_CGROUP = /system.slice/condor.service
+      {% if cgroups.mem_limit_policy is defined %}
+      CGROUP_MEMORY_LIMIT_POLICY = {{ cgroups.mem_limit_policy }}
+      {% endif %}
+      {% if cgroups.mem_reserved_size is defined %}
+      RESERVED_MEMORY = {{ cgroups.mem_reserved_size }}
+      {% else %}
+      RESERVED_MEMORY = 1024
+      {% endif %}
+      {% endif %}
+    owner: root:root
+    path: /etc/condor/condor_config.local
+    permissions: "0644"
+  - content: |
+      [[outputs.influxdb]]
+        urls = ["https://influxdb.galaxyproject.eu:8086"]
+        database = "{{ influxdb.database }}"
+        username = "{{ influxdb.username }}"
+        password = "{{ influxdb.password }}"
+    owner: telegraf:telegraf
+    path: /etc/telegraf/telegraf.d/output.conf
+    permissions: "0640"
+  - content: |
+      /data           /etc/auto.data          nfsvers=3
+      /-              /etc/auto.usrlocal      nfsvers=3
+    owner: root:root
+    path: /etc/auto.master.d/data.autofs
+    permissions: "0644"
