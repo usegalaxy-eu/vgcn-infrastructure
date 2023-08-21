@@ -754,9 +754,21 @@ def create_server(
 
     server = cloud.compute.create_server(**kwargs)
 
-    return (
-        wait_for_state(server, {"ACTIVE", "ERROR"}, cloud) if block else server
-    )
+    if block:
+        server = wait_for_state(server, {"ACTIVE", "ERROR"}, cloud)
+        if server["status"] == "ERROR":
+            logging.error(f"OpenStack error while spawning {name}")
+            # OpenStack is not returning the fault (except when attempting to
+            # get it manually).
+            # if "fault" in server:
+            #     logging.error(
+            #         f"OpenStack error {server['fault']['code']}: "
+            #         f"{server['fault']['message']}"
+            #     )
+            # else:
+            #     logging.error(f"OpenStack error while spawning {name}")
+
+    return server
 
 
 def synchronize_infrastructure(
