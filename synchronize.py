@@ -458,7 +458,7 @@ def gracefully_terminate(
         shutdown_process.terminate()
 
     # remove server
-    delete_and_wait(server, cloud)
+    delete_and_wait(server, cloud, interval=1)
 
 
 def compute_increment(
@@ -548,7 +548,7 @@ def remove_server(server: Server, config: dict, cloud: Connection) -> None:
                 f"Could not gracefully terminate {server['name']}."
             )
     else:
-        delete_and_wait(server, cloud)
+        delete_and_wait(server, cloud, interval=1)
 
 
 def template_userdata(
@@ -765,7 +765,9 @@ def create_server(
     server = cloud.compute.create_server(**kwargs)
 
     if block:
-        server = wait_for_state(server, {"ACTIVE", "ERROR"}, cloud)
+        server = wait_for_state(
+            server, {"ACTIVE", "ERROR"}, cloud, interval=1
+        )
         if server["status"] == "ERROR":
             logging.error(f"OpenStack error while spawning {name}")
             # OpenStack is not returning the fault (except when attempting to
