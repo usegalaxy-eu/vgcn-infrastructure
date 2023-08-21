@@ -962,7 +962,7 @@ if __name__ == "__main__":
 
     synchronize_infrastructure(
         config=yaml.safe_load(open(command_args.resources_file)),
-        user_data=command_args.userdata_file,
+        user_data=Path(command_args.userdata_file),
         cloud=openstack_cloud,
         dry_run=command_args.dry_run,
     )
