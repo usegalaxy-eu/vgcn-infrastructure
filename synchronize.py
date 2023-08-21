@@ -876,7 +876,7 @@ def synchronize_infrastructure(
                 )
                 server_names.add(name)
                 logging.info(f"Creating server {name}...")
-                create_server(
+                server = create_server(
                     name=name,
                     config=config,
                     group_config=config["deployment"][group],
@@ -885,6 +885,9 @@ def synchronize_infrastructure(
                     user_data=user_data,
                     vars_files=vars_files,
                 )
+                if server["status"] == "ERROR":
+                    delete_and_wait(server, cloud, interval=1)
+
         elif increment < 0:  # remove servers
             for server in removals[group]:
                 logging.info(f"Deleting server {server['name']}...")
@@ -899,7 +902,7 @@ def synchronize_infrastructure(
     ):
         logging.info(f"Replacing image for server {flagged_server['name']}...")
         remove_server(flagged_server, config, cloud)
-        create_server(
+        server = create_server(
             name=flagged_server["name"],
             config=config,
             group_config=config["deployment"][group],
@@ -908,6 +911,8 @@ def synchronize_infrastructure(
             user_data=user_data,
             vars_files=vars_files,
         )
+        if server["status"] == "ERROR":
+            delete_and_wait(server, cloud, interval=1)
 
 
 def make_parser() -> argparse.ArgumentParser:
