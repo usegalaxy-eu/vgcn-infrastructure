@@ -784,7 +784,12 @@ def synchronize_infrastructure(
         group: [
             server
             for server in servers
-            if server["name"].startswith(f"{PREFIX}{group}")
+            if all(
+                (
+                    server["name"].startswith(f"{PREFIX}{group}-"),
+                    len(server["name"]) == len(f"{PREFIX}{group}-") + 4,
+                )
+            )
         ]
         for group in config["deployment"]
     }
