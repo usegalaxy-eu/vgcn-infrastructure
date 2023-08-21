@@ -742,14 +742,24 @@ def create_server(
 
     if volume:
         kwargs["block_device_mapping_v2"] = [
+            # the image -> local entry is needed, see
+            # https://bugs.launchpad.net/nova/+bug/1433609
+            # for more info
             {
-                "boot_index": "0" if volume.get("boot", False) else -1,
+                "uuid": image,
+                "boot_index": "-1" if volume.get("boot", False) else "0",
+                "source_type": "image",
+                "destination_type": "local",
+                "delete_on_termination": True,
+            },
+            {
+                "boot_index": "0" if volume.get("boot", False) else "-1",
                 "source_type": "blank",
                 "destination_type": "volume",
                 "volume_size": volume.get("size", 12),
                 "volume_type": volume.get("type", "default"),
                 "delete_on_termination": True,
-            }
+            },
         ]
 
     server = cloud.compute.create_server(**kwargs)
