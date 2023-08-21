@@ -1,5 +1,5 @@
 #cloud-config
-{% if image == "gpu" %}
+{% if image is defined and image == "gpu" %}
 packages:
   - cuda-10-1
   - nvidia-container-toolkit
@@ -32,7 +32,7 @@ write_files:
       MASTER_UPDATE_INTERVAL = 150
       UPDATE_INTERVAL = 120
       # END MANAGED BLOCK
-      {% if image == "gpu" %}
+      {% if image is defined and image == "gpu" %}
       # Advertise the GPUs
       use feature : GPUs
       GPU_DISCOVERY_EXTRA = -extra
