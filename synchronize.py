@@ -14,8 +14,8 @@ import socket
 import time
 from base64 import b64encode
 from functools import reduce
-from multiprocessing import Process
 from pathlib import Path
+from threading import Thread
 from typing import (
     Any,
     Callable,
@@ -27,7 +27,6 @@ from typing import (
     Sequence,
     Set,
     Tuple,
-    Union,
 )
 from uuid import UUID
 
@@ -418,6 +417,8 @@ def gracefully_terminate(
     server: Mapping,
     cloud: Connection,
     timeout: int = 300,
+    *args,
+    **kwargs,
 ) -> None:
     """Delete a server gracefully.
 
@@ -429,6 +430,8 @@ def gracefully_terminate(
         cloud: OpenStack Connection object connected to the server's cloud.
         timeout: Maximum time to wait for Condor to be shut down before
             removing the server.
+        args: Any extra arguments to pass to `SSHClient.connect`.
+        kwargs: Any extra keyword arguments to pass to `SSHClient.connect`.
 
     Raises:
         CondorShutdownException: Condor could not be shut down after `timeout`
@@ -442,21 +445,18 @@ def gracefully_terminate(
         # do not verify the host key: no private information is sent
         client.set_missing_host_key_policy(AutoAddPolicy)
 
-        connect_ssh(client, server)
+        connect_ssh(client, server, *args, **kwargs)
 
-        client.connect(ip, port=SSH_PORT, username=SSH_USERNAME)
-        shutdown_process = Process(
-            target=lambda: condor_graceful_shutdown(client, timeout=timeout)
+        shutdown_thread = Thread(
+            target=condor_graceful_shutdown, args=(client, timeout)
         )
-        shutdown_process.run()
-        shutdown_process.join(timeout=timeout)
+        shutdown_thread.start()
+        shutdown_thread.join(timeout=timeout)
 
-        if shutdown_process.exitcode is None:
+        if shutdown_thread.is_alive():
             raise CondorShutdownException(
                 f"HTCondor shutdown timed out after {timeout} seconds."
             )
-
-        shutdown_process.terminate()
 
     # remove server
     delete_and_wait(server, cloud, interval=1)
@@ -530,7 +530,13 @@ def filter_incorrect_images(
     ]
 
 
-def remove_server(server: Server, config: dict, cloud: Connection) -> None:
+def remove_server(
+        server: Server,
+        config: dict,
+        cloud: Connection,
+        *args,
+        **kwargs,
+) -> None:
     """Remove a server.
 
     Args:
@@ -538,12 +544,16 @@ def remove_server(server: Server, config: dict, cloud: Connection) -> None:
             `resources.yaml`.
         server: OpenStack server to be removed.
         cloud: OpenStack connection object.
+        args: Any extra arguments to pass to `SSHClient.connect` (graceful
+            shutdown).
+        kwargs: Any extra keyword arguments to pass to `SSHClient.connect`
+            (graceful shutdown).
     """
     graceful = config["graceful"]
 
     if graceful:
         try:
-            gracefully_terminate(server, cloud=cloud)
+            gracefully_terminate(server, *args, cloud=cloud, **kwargs)
         except NoValidConnectionsError:
             logging.warning(
                 f"Could not gracefully terminate {server['name']}."

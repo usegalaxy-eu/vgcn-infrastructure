@@ -214,6 +214,13 @@ class SSHServer(ServerInterface):
     that further tests depend on.
     """
 
+    client_key: Optional[PKey] = None
+
+    def __init__(self, client_key: Optional[PKey] = None):
+        """Initialize the SSH server."""
+        super().__init__()
+        self.client_key = client_key
+
     def check_channel_request(self, kind: str, chanid: int) -> int:
         """Allow channel requests of kind `session`."""
         if kind == "session":
@@ -223,7 +230,7 @@ class SSHServer(ServerInterface):
 
     def check_auth_publickey(self, username: str, key: PKey) -> int:
         """Allow only clients created for the test to authenticate."""
-        if key == CLIENT_KEY and username == SSH_USERNAME:
+        if key == (self.client_key or CLIENT_KEY) and username == SSH_USERNAME:
             return AUTH_SUCCESSFUL
 
         return AUTH_FAILED
@@ -664,10 +671,18 @@ def openstack_condor_set_up():
         tests = (folder / "tests.py").absolute()
         requirements = (folder / "requirements.txt").absolute()
 
+        private_key = io.StringIO()
+        CLIENT_KEY.write_private_key(private_key)
+        private_key.seek(0)
+
         sftp_client = client.open_sftp()
         sftp_client.put(str(synchronize), f"/home/test/{synchronize.name}")
         sftp_client.put(str(tests), f"/home/test/{tests.name}")
         sftp_client.put(str(requirements), f"/home/test/{requirements.name}")
+        sftp_client.putfo(
+            io.BytesIO(private_key.read().encode("utf-8")),
+            "/home/test/client_key",
+        )
         python_script = textwrap.dedent(
             """
             #!/usr/bin/env python
@@ -685,6 +700,9 @@ def openstack_condor_set_up():
 
             from tests import CondorServer
 
+            CLIENT_KEY = ECDSAKey.from_private_key_file(
+                "/home/test/client_key"
+            )
             HOST_KEY = ECDSAKey.from_private_key_file(
                 "/etc/ssh/ssh_host_ecdsa_key"
             )
@@ -693,6 +711,8 @@ def openstack_condor_set_up():
             server_socket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
             server_socket.bind(("0.0.0.0", 22))
             server_socket.listen(60)
+            file = open("/home/test/server_is_up", "w")
+            file.close()
             client, address = server_socket.accept()
 
             transport = Transport(client)
@@ -700,7 +720,7 @@ def openstack_condor_set_up():
             transport.load_server_moduli()
             transport.add_server_key(HOST_KEY)
 
-            server = CondorServer()
+            server = CondorServer(client_key=CLIENT_KEY)
             transport.start_server(server=server)
             channel = transport.accept(timeout=60)
 
@@ -727,12 +747,18 @@ def openstack_condor_set_up():
                 "chmod +x /home/test/condor_server.py", client, log=True
             )
             remote_command("sudo systemctl stop sshd", client, log=True)
+            client.exec_command("nohup sudo /home/test/condor_server.py &")
+            remote_command(
+                "WAIT=0; "
+                "until [ -f /home/test/server_is_up ] || [ $WAIT -eq 30 ]; "
+                "do sleep $(( WAIT++ )); done",
+                client,
+                log=True,
+            )
         except RemoteCommandError as exception:
             logging.error(exception.stdout.decode("utf-8"))
             logging.error(exception.stderr.decode("utf-8"))
             raise exception
-
-        client.exec_command("nohup sudo /home/test/condor_server.py &")
 
         client.close()
 
@@ -1242,7 +1268,7 @@ def test_gracefully_terminate(
     try:
         openstack_condor_set_up(server, cloud)
 
-        gracefully_terminate(server, cloud, timeout=30)
+        gracefully_terminate(server, cloud, timeout=30, pkey=CLIENT_KEY)
     finally:
         delete_and_wait(server, cloud)
 
@@ -1367,7 +1393,7 @@ def test_remove_server(openstack_server, openstack_condor_set_up) -> None:
         openstack_condor_set_up(server, cloud)
 
         config = {"graceful": True}
-        remove_server(server, config, cloud)
+        remove_server(server, config, cloud, pkey=CLIENT_KEY)
     finally:
         delete_and_wait(server, cloud)
 
