@@ -71,7 +71,7 @@ def print_stream(
     for line in stream:
         if isinstance(line, str):
             line = line.encode("utf-8")
-        print_function(line)
+        print_function(line if not line.endswith(b"\n") else line[:-1])
         if save:
             stream_copy.write(line)
     stream_copy.seek(0)

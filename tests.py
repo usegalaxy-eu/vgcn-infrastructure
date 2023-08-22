@@ -775,7 +775,7 @@ def test_print_stream() -> None:
     # Write the output in real time to a queue object (line-by-line).
     printer = Thread(
         target=print_stream,
-        args=(stdout, lambda line: queue_stdout.put(line), False),
+        args=(stdout, lambda line: queue_stdout.put(line + b"\n"), False),
     )
     printer.start()
 
@@ -814,7 +814,7 @@ def test_print_stream() -> None:
         future = executor.submit(
             print_stream,
             stdout,
-            print_function=lambda line: queue_stdout.put(line),
+            print_function=lambda line: queue_stdout.put(line + b"\n"),
             save=True,
         )
 
@@ -879,8 +879,8 @@ def test_print_streams() -> None:
         args=(
             (stdout, stderr),
             (
-                lambda line: queue_stdout.put(line),
-                lambda line: queue_stderr.put(line),
+                lambda line: queue_stdout.put(line + b"\n"),
+                lambda line: queue_stderr.put(line + b"\n"),
             ),
             (False, False),
         ),
