@@ -60,10 +60,10 @@ from synchronize import (
     condor_drain,
     condor_graceful_shutdown,
     condor_off,
+    connect_ssh,
     create_server,
     delete_and_wait,
     filter_incorrect_images,
-    get_ssh_access_address,
     gracefully_terminate,
     print_stream,
     print_streams,
@@ -210,7 +210,7 @@ class SSHServer(ServerInterface):
     can be contacted to run two predefined commands that produce specific
     outputs.
 
-    This class is used to test, for example, `get_ssh_access_address` and
+    This class is used to test, for example, `connect_ssh` and
     `remote_command`. It is also inherited by another class `CondorServer`,
     that further tests depend on.
     """
@@ -633,7 +633,7 @@ def openstack_condor_set_up():
         start = time.time()
         while time.time() - start < timeout_ssh_online:
             try:
-                ip = get_ssh_access_address(
+                ip = connect_ssh(
                     client,
                     server,
                     port=22,
@@ -1027,9 +1027,9 @@ def test_unique_name() -> None:
     assert name not in existing_names
 
 
-def test_get_ssh_access_address(caplog, ssh_server, ssh_client) -> None:
-    """Test `get_ssh_access_address`."""
-    # Running `get_ssh_access_address` on `server1` will always fail, because
+def test_connect_ssh(caplog, ssh_server, ssh_client) -> None:
+    """Test `connect_ssh`."""
+    # Running `connect_ssh` on `server1` will always fail, because
     # all the IP addresses belong to unusable network prefixes.
     server1 = {
         "name": "server-4492",
@@ -1085,7 +1085,7 @@ def test_get_ssh_access_address(caplog, ssh_server, ssh_client) -> None:
     # (socket errors).
     # - verify that the correct exception is raised
     with pytest.raises(RuntimeError) as exception_info:
-        get_ssh_access_address(
+        connect_ssh(
             client,
             server1,
             timeout=5,
@@ -1099,7 +1099,7 @@ def test_get_ssh_access_address(caplog, ssh_server, ssh_client) -> None:
         if all(
             (
                 record.module == "synchronize",
-                record.funcName == "get_ssh_access_address",
+                record.funcName == "connect_ssh",
             )
         )
     )
@@ -1133,7 +1133,7 @@ def test_get_ssh_access_address(caplog, ssh_server, ssh_client) -> None:
     )
     # - run a test that will fail because the wrong username is provided
     with pytest.raises(RuntimeError) as exception_info:
-        get_ssh_access_address(
+        connect_ssh(
             client,
             server2,
             port=port,
@@ -1149,7 +1149,7 @@ def test_get_ssh_access_address(caplog, ssh_server, ssh_client) -> None:
         if all(
             (
                 record.module == "synchronize",
-                record.funcName == "get_ssh_access_address",
+                record.funcName == "connect_ssh",
             )
         )
     )
@@ -1171,7 +1171,7 @@ def test_get_ssh_access_address(caplog, ssh_server, ssh_client) -> None:
         key=HOST_KEY,
     )
     # - attempt to connect
-    ip = get_ssh_access_address(
+    ip = connect_ssh(
         client,
         server2,
         port=port,

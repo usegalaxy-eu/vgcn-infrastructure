@@ -233,7 +233,7 @@ def unique_name(prefix: str, existing_names: Set[str] = None) -> str:
     return name
 
 
-def get_ssh_access_address(
+def connect_ssh(
     client: SSHClient,
     server: Mapping,
     port: int = SSH_PORT,
@@ -241,7 +241,7 @@ def get_ssh_access_address(
     *args,
     **kwargs,
 ) -> str:
-    """Determine an ip address where an OpenStack server is reachable via SSH.
+    """Connect to an OpenStack server on any IP where it is reachable via SSH.
 
     Servers can have multiple network interfaces and thus possess several ip
     addresses. This function tries to ssh all of them to find one where the
@@ -441,7 +441,7 @@ def gracefully_terminate(
         # do not verify the host key: no private information is sent
         client.set_missing_host_key_policy(AutoAddPolicy)
 
-        ip = get_ssh_access_address(client, server)
+        connect_ssh(client, server)
 
         client.connect(ip, port=SSH_PORT, username=SSH_USERNAME)
         shutdown_process = Process(
