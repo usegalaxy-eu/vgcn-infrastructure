@@ -72,7 +72,6 @@ from synchronize import (
     synchronize_infrastructure,
     template_userdata,
     unique_name,
-    wait_for_state,
 )
 
 # OpenStack's parameters and parameters for servers spawned during the tests.
@@ -615,8 +614,11 @@ def openstack_condor_set_up():
         server: Server,
         cloud: Connection,
     ) -> None:
-        server = wait_for_state(
-            server, {"ACTIVE"}, cloud, timeout_server_active
+        server = cloud.compute.wait_for_server(
+            server,
+            status="ACTIVE",
+            interval=1,
+            wait=timeout_server_active,
         )
 
         client = SSHClient()
@@ -1470,38 +1472,6 @@ def test_template_userdata() -> None:
             group_config,
             Path(user_data_file.name),
         )
-
-
-def test_wait_for_state(openstack_server) -> None:
-    """Test `wait_for_state`."""
-    cloud = connect()
-
-    # Set timeout to zero, an exception should be raised.
-    server = openstack_server(cloud=cloud)
-    try:
-        with pytest.raises(RuntimeError):
-            wait_for_state(
-                server=server,
-                target_states={"ACTIVE"},
-                cloud=cloud,
-                timeout=0,
-                interval=2,
-            )
-    finally:
-        delete_and_wait(server, cloud)
-
-    # Should pass.
-    server = openstack_server(cloud=cloud)
-    try:
-        wait_for_state(
-            server=server,
-            target_states={"ACTIVE"},
-            cloud=cloud,
-            timeout=30,
-            interval=2,
-        )
-    finally:
-        delete_and_wait(server, cloud)
 
 
 def test_delete_and_wait(openstack_server) -> None:

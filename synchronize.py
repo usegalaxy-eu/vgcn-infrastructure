@@ -36,6 +36,7 @@ import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from openstack.compute.v2.server import Server
 from openstack.connection import Connection
+from openstack.exceptions import ResourceFailure
 from paramiko import SSHClient
 from paramiko.client import AutoAddPolicy
 from paramiko.file import BufferedFile
@@ -606,46 +607,6 @@ def template_userdata(
     )
 
 
-def wait_for_state(
-    server: Mapping,
-    target_states: Set[Union[str, None]],
-    cloud: Connection,
-    timeout: int = 600,
-    interval: int = 10,
-) -> Server:
-    """Wait for a server to reach specific states.
-
-    Args:
-        server: OpenStack `Server` object (which is an instance of a Mapping).
-        target_states: A set of strings from
-            https://docs.openstack.org/nova/latest/reference/vm-states.html.
-            In addition, the state `None` is also accepted and stands for the
-            server no longer being listed in OpenStack.
-        cloud: OpenStack Connection object.
-        timeout: The maximum number of seconds to wait before exiting.
-        interval: Time between requests to OpenStack.
-
-    Raises:
-        RuntimeError: The server did not reach any of the target states.
-
-    Returns:
-        The server in its target status.
-    """
-    start = time.time()
-    while time.time() - start < timeout:
-        server = cloud.compute.find_server(server["id"])
-
-        if (server["status"] if server is not None else None) in target_states:
-            return server
-
-        time.sleep(interval)
-
-    raise RuntimeError(
-        f"Server {server['name']} did not reach any of the target states"
-        f"({', '.join(target_states)}) within {timeout} seconds."
-    )
-
-
 def delete_and_wait(server, cloud, timeout=60, interval=2) -> None:
     """Delete a server and wait for OpenStack to complete the operation.
 
@@ -659,13 +620,7 @@ def delete_and_wait(server, cloud, timeout=60, interval=2) -> None:
         RuntimeError: Timed out while waiting for the server to be deleted.
     """
     cloud.compute.delete_server(server)
-    wait_for_state(
-        server,
-        target_states={None},
-        cloud=cloud,
-        timeout=timeout,
-        interval=interval,
-    )
+    cloud.compute.wait_for_delete(server, interval=interval, wait=timeout)
 
 
 def create_server(
@@ -693,6 +648,13 @@ def create_server(
         user_data: User data file Jinja template for cloud-init.
         vars_files: Extra variable files to be used when rendering the
             template.
+
+    Returns:
+        Newly created OpenStack server.
+
+    Raises:
+        ResourceFailure: OpenStack exception while waiting for the server to be
+            created (only raised when `block is True`).
     """
     vars_files = frozenset(vars_files)
 
@@ -765,20 +727,19 @@ def create_server(
     server = cloud.compute.create_server(**kwargs)
 
     if block:
-        server = wait_for_state(
-            server, {"ACTIVE", "ERROR"}, cloud, interval=1
-        )
-        if server["status"] == "ERROR":
-            logging.error(f"OpenStack error while spawning {name}")
-            # OpenStack is not returning the fault (except when attempting to
-            # get it manually).
-            # if "fault" in server:
-            #     logging.error(
-            #         f"OpenStack error {server['fault']['code']}: "
-            #         f"{server['fault']['message']}"
-            #     )
-            # else:
-            #     logging.error(f"OpenStack error while spawning {name}")
+        try:
+            server = cloud.compute.wait_for_server(
+                server, status="ACTIVE", interval=1
+            )
+        except ResourceFailure as exception:
+            server = cloud.compute.get_server(server["id"])
+            delete_and_wait(server, cloud, interval=1)
+            if "fault" in server:
+                logging.error(
+                    f"OpenStack error {server['fault']['code']}: "
+                    f"{server['fault']['message']}"
+                )
+            raise exception
 
     return server
 
@@ -876,18 +837,18 @@ def synchronize_infrastructure(
                 )
                 server_names.add(name)
                 logging.info(f"Creating server {name}...")
-                server = create_server(
-                    name=name,
-                    config=config,
-                    group_config=config["deployment"][group],
-                    cloud=cloud,
-                    block=True,
-                    user_data=user_data,
-                    vars_files=vars_files,
-                )
-                if server["status"] == "ERROR":
-                    delete_and_wait(server, cloud, interval=1)
-
+                try:
+                    create_server(
+                        name=name,
+                        config=config,
+                        group_config=config["deployment"][group],
+                        cloud=cloud,
+                        block=True,
+                        user_data=user_data,
+                        vars_files=vars_files,
+                    )
+                except ResourceFailure:
+                    logging.error(f"OpenStack error while spawning {name}")
         elif increment < 0:  # remove servers
             for server in removals[group]:
                 logging.info(f"Deleting server {server['name']}...")
@@ -902,17 +863,20 @@ def synchronize_infrastructure(
     ):
         logging.info(f"Replacing image for server {flagged_server['name']}...")
         remove_server(flagged_server, config, cloud)
-        server = create_server(
-            name=flagged_server["name"],
-            config=config,
-            group_config=config["deployment"][group],
-            cloud=cloud,
-            block=True,
-            user_data=user_data,
-            vars_files=vars_files,
-        )
-        if server["status"] == "ERROR":
-            delete_and_wait(server, cloud, interval=1)
+        try:
+            create_server(
+                name=flagged_server["name"],
+                config=config,
+                group_config=config["deployment"][group],
+                cloud=cloud,
+                block=True,
+                user_data=user_data,
+                vars_files=vars_files,
+            )
+        except ResourceFailure:
+            logging.error(
+                f"OpenStack error while spawning {flagged_server['name']}"
+            )
 
 
 def make_parser() -> argparse.ArgumentParser:
