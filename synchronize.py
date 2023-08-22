@@ -747,13 +747,13 @@ def create_server(
             # for more info
             {
                 "uuid": image,
-                "boot_index": "-1" if volume.get("boot", False) else "0",
+                "boot_index": "0",
                 "source_type": "image",
                 "destination_type": "local",
                 "delete_on_termination": True,
             },
             {
-                "boot_index": "0" if volume.get("boot", False) else "-1",
+                "boot_index": "-1",
                 "source_type": "blank",
                 "destination_type": "volume",
                 "volume_size": volume.get("size", 12),

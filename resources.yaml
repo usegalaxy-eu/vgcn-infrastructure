@@ -220,7 +220,6 @@ deployment:
     volume:
       size: 1024
       type: default
-      boot: true
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
@@ -233,7 +232,6 @@ deployment:
     volume:
       size: 1024
       type: default
-      boot: true
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
