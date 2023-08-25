@@ -2,7 +2,7 @@
 # Global configuration of computing nodes.
 images:
   default: vggp-v60-j322-692e75a7c101-main
-  gpu: vggp-v60-gpu-j322-692e75a7c101-main
+  gpu: vggp-v60-gpu-j322-692e75a7c101-main-kernel-4.18.0-477.21.1.el8_8-nvidia
   secure: vggp-v60-secure-j322-692e75a7c101-main
   alma: vggp-v60-j342-4c09f3ebbeac-alma
 network: bioinf
