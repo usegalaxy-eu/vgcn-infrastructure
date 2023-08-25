@@ -5,17 +5,17 @@ This repository defines and manages the
 [bwCloud](https://www.bw-cloud.org/)/[de.NBI-cloud](https://www.denbi.de/)
 for [usegalaxy.eu](https://usegalaxy.eu/)
 
-The compute nodes are defined in [`resources.yaml`](#resourcesyaml), which conforms to
-[`schema.yaml`](schema.yaml). [`userdata.yaml`](userdata.yaml) contains actions
-that will be run by
+The compute nodes are defined in [`resources.yaml`](#resourcesyaml), which 
+conforms to [`schema.yaml`](schema.yaml).
+[`userdata.yaml.j2`](userdata.yaml.j2) contains actions that will be run by
 [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) during the
 first boot of the virtual machines (see 
 [cloud-init docs](https://cloudinit.readthedocs.io/en/23.2.1/explanation/format.html)).
 
 The Jenkins project 
 [vgcn-infrastructure](https://build.galaxyproject.eu/job/usegalaxy-eu/job/vgcn-infrastructure/)
-runs [`ensure_enough.py`](ensure_enough.py) periodically to deploy the
-configured compute nodes.
+runs [`synchronize.py`](synchronize.py) periodically to deploy the configured
+compute nodes.
 
 ## `resources.yaml`
 
@@ -36,13 +36,13 @@ specify that `count: 4` VMs of the
 [flavor](https://docs.openstack.org/nova/rocky/user/flavors.html)
 c.c10m55 should be running. If there are fewer than this number, the 
 [vgcn-infrastructure Jenkins project](https://build.galaxyproject.eu/job/usegalaxy-eu/job/vgcn-infrastructure/)
-will launch [`ensure_enough.py`](ensure_enough.py) to ensure the actual 
-capacity matches the definition.
+will launch [`synchronize.py`](synchronize.py) to ensure the actual capacity
+matches the definition.
 
 Additionally, `start` and `end` parameters may be supplied. VMs will be 
-launched after the `start` date, and will be (gracefully) killed after the
-`end` date. This permits defining resources ahead of the time they will be 
-needed and releases them automatically when they are no longer in use.
+launched after the `start` date, and will be killed after the `end` date. This
+permits defining resources ahead of the time they will be needed and releases
+them automatically when they are no longer in use.
 
 A formal definition of the schema is available within 
 [`schema.yaml`](schema.yaml).
