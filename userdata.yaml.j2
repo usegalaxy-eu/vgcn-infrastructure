@@ -1,9 +1,4 @@
 #cloud-config
-{% if image is defined and image == "gpu" %}
-packages:
-  - cuda-10-1
-  - nvidia-container-toolkit
-{% endif %}
 write_files:
   - content: |
       # BEGIN MANAGED BLOCK
