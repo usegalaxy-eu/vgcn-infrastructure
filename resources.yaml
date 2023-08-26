@@ -315,3 +315,9 @@ deployment:
     start: 2023-09-04
     end: 2023-09-06
     group: training-nril-lesotho2023
+  training-msc-:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-09-04
+    end: 2023-09-20
+    group: training-msc-tmr-ws23
