@@ -531,11 +531,11 @@ def filter_incorrect_images(
 
 
 def remove_server(
-        server: Server,
-        config: dict,
-        cloud: Connection,
-        *args,
-        **kwargs,
+    server: Server,
+    config: dict,
+    cloud: Connection,
+    *args,
+    **kwargs,
 ) -> None:
     """Remove a server.
 
@@ -745,7 +745,10 @@ def create_server(
     if block:
         try:
             server = cloud.compute.wait_for_server(
-                server, status="ACTIVE", interval=1, wait=300,
+                server,
+                status="ACTIVE",
+                interval=1,
+                wait=300,
             )
         except ResourceFailure as exception:
             server = cloud.compute.get_server(server["id"])
