@@ -4,6 +4,7 @@ mapping:
     # Global configuration of computing nodes.
     "images":
         type: map
+        required: true
         mapping:
             "default":
                 type: str
@@ -38,6 +39,7 @@ mapping:
     # Resource group definitions.
     "deployment":
         type: map
+        required: true
         mapping:
             "=":
                 type: map
@@ -74,17 +76,21 @@ mapping:
                             - m1.xxlarge
                     "start":
                         type: date
+                        required: false
                         format: "%Y-%m-%d"
                     "end":
                         type: date
+                        required: false
                         format: "%Y-%m-%d"
                     "group":
                         type: str
+                        required: true
                     "image":
                         type: str
                         required: false
                     "volume":
                         type: map
+                        required: false
                         'mapping':
                             "size":
                                 type: int
@@ -99,6 +105,7 @@ mapping:
                                 type: bool
                     "cgroups":
                         type: map
+                        required: false
                         'mapping':
                             "mem_limit_policy":
                                 type: str
@@ -112,3 +119,4 @@ mapping:
                                     min: 1024
                     "docker":
                         type: bool
+                        required: false
