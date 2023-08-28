@@ -9,8 +9,10 @@ import argparse
 import concurrent.futures
 import datetime
 import io
+import json
 import logging
 import socket
+import textwrap
 import time
 from base64 import b64encode
 from functools import reduce
@@ -36,6 +38,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from openstack.compute.v2.server import Server
 from openstack.connection import Connection
 from openstack.exceptions import ResourceFailure
+from openstack.resource import Resource
 from paramiko import SSHClient
 from paramiko.client import AutoAddPolicy
 from paramiko.file import BufferedFile
@@ -516,11 +519,10 @@ def filter_incorrect_images(
         The servers running an image that does not match the one defined in
         their resource group.
     """
-    image = config["images"][group_config.get("image", "default")]
-    try:
-        UUID(hex=image)
-    except ValueError:  # find image by name
-        image = cloud.compute.find_image(image)["id"]
+    image = get_uuid(
+        config["images"][group_config.get("image", "default")],
+        cloud.compute.find_image,
+    )
 
     return [
         server
@@ -639,6 +641,58 @@ def delete_and_wait(server, cloud, timeout=60, interval=2) -> None:
     cloud.compute.wait_for_delete(server, interval=interval, wait=timeout)
 
 
+def get_uuid(
+    name_or_uuid: str,
+    function: Callable[[str], Resource],
+) -> str:
+    """Transform an OpenStack resource name into a resource UUID.
+
+    Transform an OpenStack resource name into a resource UUID, using `function`
+    as transformation. No transformation is applied if the input is already a
+    UUID.
+
+    Args:
+        name_or_uuid: String to convert to a resource UUID.
+        function: Function that transforms resource names into resource UUIDs.
+
+    Return:
+        An OpenStack resource UUID.
+    """
+    try:
+        UUID(hex=name_or_uuid)
+    except ValueError:
+        target = function(name_or_uuid)["id"]
+    else:
+        target = name_or_uuid
+    return target
+
+
+def get_name(
+    name_or_uuid: str,
+    function: Callable[[str], Resource],
+) -> str:
+    """Transform an OpenStack resource UUID into a resource name.
+
+    Transform an OpenStack resource UUID into a resource name, using `function`
+    as transformation. No transformation is applied if the input is already a
+    name.
+
+    Args:
+        name_or_uuid: String to convert to a resource name.
+        function: Function that transforms resource UUIDs into resource names.
+
+    Return:
+        An OpenStack resource name.
+    """
+    try:
+        UUID(hex=name_or_uuid)
+    except ValueError:
+        target = name_or_uuid
+    else:
+        target = function(name_or_uuid)["name"]
+    return target
+
+
 def create_server(
     name: str,
     config: Mapping,
@@ -674,22 +728,19 @@ def create_server(
     """
     vars_files = frozenset(vars_files)
 
-    flavor = group_config["flavor"]
-    try:
-        UUID(hex=flavor)
-    except ValueError:  # find flavor by name
-        flavor = cloud.compute.find_flavor(flavor)["id"]
-    image = config["images"][group_config.get("image", "default")]
-    try:
-        UUID(hex=image)
-    except ValueError:  # find image by name
-        image = cloud.compute.find_image(image)["id"]
+    flavor = get_uuid(
+        group_config["flavor"],
+        cloud.compute.find_flavor,
+    )
+    image = get_uuid(
+        config["images"][group_config.get("image", "default")],
+        cloud.compute.find_image,
+    )
     key = config["sshkey"]
-    network = config["network"]
-    try:
-        UUID(hex=network)
-    except ValueError:  # find network by name
-        network = cloud.network.find_network(network)["id"]
+    network = get_uuid(
+        config["network"],
+        cloud.network.find_network,
+    )
     security_groups = config.get("secgroups")
     volume = group_config.get("volume")
     if user_data is not None:
@@ -849,18 +900,30 @@ def synchronize_infrastructure(
     # Add or remove servers.
     server_names = {server["name"] for server in servers}
     for group, increment in increments.items():
+        group_config = config["deployment"][group]
         if increment > 0:  # add servers
             for i in range(0, increment):
                 name = unique_name(
                     prefix=f"{PREFIX}{group}", existing_names=server_names
                 )
                 server_names.add(name)
-                logging.info(f"Creating server {name}...")
+                logging.info(
+                    "Creating server {name} ({flavor}){with_volume}...".format(
+                        name=name,
+                        flavor=get_name(
+                            group_config["flavor"],
+                            cloud.compute.find_flavor,
+                        ),
+                        with_volume=" with volume "
+                        if "volume" in group_config
+                        else "",
+                    )
+                )
                 try:
-                    create_server(
+                    server = create_server(
                         name=name,
                         config=config,
-                        group_config=config["deployment"][group],
+                        group_config=group_config,
                         cloud=cloud,
                         block=True,
                         user_data=user_data,
@@ -868,6 +931,41 @@ def synchronize_infrastructure(
                     )
                 except ResourceFailure:
                     logging.error(f"OpenStack error while spawning {name}")
+                else:
+                    logging_transformations = {
+                        "id": None,
+                        "status": None,
+                        "addresses": lambda addresses: (
+                            {
+                                network: [
+                                    address["addr"] for address in address_list
+                                ]
+                                for network, address_list in addresses.items()
+                            }
+                        ),
+                        "image": lambda image: get_name(
+                            image["id"],
+                            cloud.compute.find_image,
+                        ),
+                        "flavor": lambda flavor: flavor["original_name"],
+                    }
+                    log_dict = {
+                        key: transformation(server[key])
+                        if transformation
+                        else server[key]
+                        for key, transformation in (
+                            logging_transformations.items()
+                        )
+                    }
+                    logging.info(
+                        "Launched {name}:\n{log_dict}".format(
+                            name=name,
+                            log_dict=textwrap.indent(
+                                json.dumps(log_dict, sort_keys=True, indent=4),
+                                " " * 2,
+                            ),
+                        )
+                    )
         elif increment < 0:  # remove servers
             for server in removals[group]:
                 logging.info(f"Deleting server {server['name']}...")
