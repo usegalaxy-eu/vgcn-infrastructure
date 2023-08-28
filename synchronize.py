@@ -592,14 +592,6 @@ def template_userdata(
             rendering the template.
     """
     vars_files = frozenset(vars_files)
-    vars_from_files = (
-        reduce(
-            lambda x, y: x.update(y),
-            (yaml.safe_load(open(file, "r")) for file in vars_files),
-        )
-        if vars_files
-        else {}
-    )
 
     environment = Environment(
         loader=FileSystemLoader(user_data_file.parent),
@@ -609,11 +601,25 @@ def template_userdata(
         user_data_file.name,
     )
 
+    group_defaults = {
+        "docker": False,
+    }
+    vars_from_files = (
+        reduce(
+            lambda x, y: x.update(y),
+            (yaml.safe_load(open(file, "r")) for file in vars_files),
+        )
+        if vars_files
+        else {}
+    )
+
+    variables = {}
+    for vars_group in (group_defaults, config, group_config, vars_from_files):
+        variables.update(vars_group)
+
     return template.render(
         name=name,
-        **config,
-        **group_config,
-        **vars_from_files,
+        **variables,
     )
 
 

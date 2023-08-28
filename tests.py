@@ -1440,6 +1440,7 @@ def test_template_userdata() -> None:
             owner: root:root
             path: /etc/configuration_file
             permissions: "0644"
+            docker: {{ docker }}
     """
     )[1:]
 
@@ -1481,6 +1482,7 @@ def test_template_userdata() -> None:
             owner: root:root
             path: /etc/configuration_file
             permissions: "0644"
+            docker: False
     """
     )[1:-1]
     assert templated == expected
