@@ -315,3 +315,9 @@ deployment:
     start: 2023-10-23
     end: 2023-10-24
     group: training-2023ngsmastermicro3
+  training-debr:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-09-18
+    end: 2023-10-20
+    group: training-debrecen2023
