@@ -309,3 +309,9 @@ deployment:
     start: 2023-10-03
     end: 2023-10-06
     group: training-2023ngsmastermicro2
+  training-2023:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-10-23
+    end: 2023-10-24
+    group: training-2023ngsmastermicro3
