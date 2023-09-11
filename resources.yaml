@@ -297,3 +297,9 @@ deployment:
     start: 2023-09-12
     end: 2023-09-13
     group: training-dhaka-viral-ngs-2023
+  training-2023:
+    count: 1
+    flavor: c1.c28m225
+    start: 2023-09-26
+    end: 2023-09-29
+    group: training-2023masterngsmicro
