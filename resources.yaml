@@ -303,3 +303,9 @@ deployment:
     start: 2023-11-13
     end: 2023-12-01
     group: training-gqa23
+  training-fhnw:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2023-12-06
+    end: 2023-12-13
+    group: training-fhnw-genomics-2023
