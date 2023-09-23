@@ -285,3 +285,9 @@ deployment:
     start: 2023-10-01
     end: 2023-10-10
     group: training-posers2023
+  training-mtb-:
+    count: 3
+    flavor: c1.c28m225d50
+    start: 2023-10-02
+    end: 2023-10-06
+    group: training-mtb-ngs-october2023
