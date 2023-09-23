@@ -291,3 +291,9 @@ deployment:
     start: 2023-10-02
     end: 2023-10-06
     group: training-mtb-ngs-october2023
+  training-tbge:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-10-04
+    end: 2023-12-30
+    group: training-tbgenom2324
