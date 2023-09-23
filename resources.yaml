@@ -279,3 +279,9 @@ deployment:
     start: 2023-09-18
     end: 2023-10-20
     group: training-debrecen2023
+  training-pose:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-10-01
+    end: 2023-10-10
+    group: training-posers2023
