@@ -315,3 +315,9 @@ deployment:
     start: 2024-01-28
     end: 2024-02-03
     group: training-ga-embo24
+  training-denb:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2023-09-26
+    end: 2023-09-26
+    group: training-denbi-summer-2023
