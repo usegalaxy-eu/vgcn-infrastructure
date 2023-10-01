@@ -327,3 +327,9 @@ deployment:
     start: 2023-10-19
     end: 2023-10-20
     group: training-internat23
+  training-fr-s:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-10-09
+    end: 2023-10-13
+    group: training-fr-sc-oct23
