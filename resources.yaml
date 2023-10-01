@@ -321,3 +321,9 @@ deployment:
     start: 2023-09-26
     end: 2023-09-26
     group: training-denbi-summer-2023
+  training-inte:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2023-10-19
+    end: 2023-10-20
+    group: training-internat23
