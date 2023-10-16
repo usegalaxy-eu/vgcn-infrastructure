@@ -244,7 +244,7 @@ deployment:
   #    end: 2023-12-02
   #    group: training-bio00058m
   training-epfl:
-    count: 1
+    count: 2
     flavor: c1.c28m225d50
     start: 2023-10-26
     end: 2023-10-27
@@ -255,12 +255,6 @@ deployment:
     start: 2023-08-28
     end: 2023-12-17
     group: training-bma231-ht23
-  training-2023b:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-10-03
-    end: 2023-10-06
-    group: training-2023ngsmastermicro2
   training-2023c:
     count: 1
     flavor: c1.c28m225d50
@@ -273,18 +267,6 @@ deployment:
     start: 2023-09-18
     end: 2023-10-20
     group: training-debrecen2023
-  training-pose:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-10-01
-    end: 2023-10-10
-    group: training-posers2023
-  training-mtb-:
-    count: 3
-    flavor: c1.c28m225d50
-    start: 2023-10-02
-    end: 2023-10-06
-    group: training-mtb-ngs-october2023
   training-tbge:
     count: 1
     flavor: c1.c28m225d50
@@ -315,9 +297,3 @@ deployment:
     start: 2023-10-19
     end: 2023-10-20
     group: training-internat23
-  training-fr-s:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2023-10-09
-    end: 2023-10-13
-    group: training-fr-sc-oct23
