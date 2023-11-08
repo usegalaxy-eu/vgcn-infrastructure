@@ -1061,5 +1061,5 @@ if __name__ == "__main__":
         user_data=command_args.userdata_file,
         cloud=openstack_cloud,
         dry_run=command_args.dry_run,
-        vars_files=(Path("secrets.yml"), *command_args.vars_files),
+        vars_files=(Path("secrets.yaml"), *command_args.vars_files),
     )
