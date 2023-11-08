@@ -608,7 +608,7 @@ def template_userdata(
     }
     vars_from_files = (
         reduce(
-            lambda x, y: x.update(y),
+            lambda x, y: x | y,
             (yaml.safe_load(open(file, "r")) for file in vars_files),
         )
         if vars_files
