@@ -67,3 +67,21 @@ write_files:
     owner: root:root
     path: /etc/auto.master.d/data.autofs
     permissions: "0644"
+  - content: |
+      {% for mount in dnb.values() -%}
+        {{ mount.name }}	-{{ mount.nfs_options | join(',') }}	{{ mount.export }}
+      {% endfor -%}
+      {% for mount in jwd.values() -%}
+        {{ mount.name }}	-{{ mount.nfs_options | join(',') }}	{{ mount.export }}
+      {% endfor %}
+    owner: root:root
+    path: /etc/auto.data
+    permissions: "0644"
+  - content: |
+      {% for mount in tools.values() -%}
+        {{ mount.path }}      -{{ mount.nfs_options | join(',') }}		{{ mount.export }}
+      {% endfor -%}
+        {{ sync.gxkey.path }}	-{{ sync.gxkey.nfs_options | join(',') }}	{{ sync.gxkey.export }}
+    owner: root:root
+    path: /etc/auto.usrlocal
+    permissions: "0644"
