@@ -1003,10 +1003,18 @@ def make_parser() -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
+        "-v",
+        "--vars-file",
+        dest="vars_files",
+        action="append",
+        default=[],
+        type=Path,
+    )
+    parser.add_argument(
         "-r",
         "--resources-file",
         dest="resources_file",
-        type=str,
+        type=Path,
         metavar="PATH",
         help="Resources file",
         default="resources.yaml",
@@ -1015,7 +1023,7 @@ def make_parser() -> argparse.ArgumentParser:
         "-u",
         "--userdata-file",
         dest="userdata_file",
-        type=str,
+        type=Path,
         metavar="PATH",
         help="Userdata file",
         default="userdata.yaml.j2",
@@ -1050,7 +1058,8 @@ if __name__ == "__main__":
 
     synchronize_infrastructure(
         config=yaml.safe_load(open(command_args.resources_file)),
-        user_data=Path(command_args.userdata_file),
+        user_data=command_args.userdata_file,
         cloud=openstack_cloud,
         dry_run=command_args.dry_run,
+        vars_files=(Path("secrets.yml"), *command_args.vars_files),
     )
