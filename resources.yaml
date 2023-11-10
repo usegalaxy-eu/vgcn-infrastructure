@@ -36,6 +36,20 @@ nodes_inventory:
   g1.c8m40g1d50: 4
 
 deployment:
+  # worker-c120m225-htcondor-secondary:
+  #   count: 1 #12
+  #   flavor: c1.c120m225d50
+  #   group: compute
+  #   docker: true
+  #   image: htcondor-secondary
+  #   secondary_htcondor_cluster: true
+  #   volume:
+  #     size: 1024
+  #     type: default
+  #   cgroups:
+  #     mem_limit_policy: hard
+  #     mem_reserved_size: 2048
+
   worker-maintenance:
     count: 1
     flavor: m1.large
