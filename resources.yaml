@@ -330,3 +330,9 @@ deployment:
     start: 2023-11-13
     end: 2023-11-17
     group: training-arghackathon
+  training-rna-:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2023-11-27
+    end: 2023-12-22
+    group: training-rna-seq-vu
