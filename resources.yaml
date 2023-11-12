@@ -258,30 +258,12 @@ deployment:
   #    start: 2022-10-13
   #    end: 2023-12-02
   #    group: training-bio00058m
-  training-epfl:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2023-10-26
-    end: 2023-10-27
-    group: training-epfl2023
   training-bma2:
     count: 1
     flavor: c1.c28m225d50
     start: 2023-08-28
     end: 2023-12-17
     group: training-bma231-ht23
-  training-2023c:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-10-23
-    end: 2023-10-24
-    group: training-2023ngsmastermicro3
-  training-debr:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-09-18
-    end: 2023-10-20
-    group: training-debrecen2023
   training-tbge:
     count: 1
     flavor: c1.c28m225d50
@@ -306,24 +288,6 @@ deployment:
     start: 2024-01-28
     end: 2024-02-03
     group: training-ga-embo24
-  training-inte:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2023-10-19
-    end: 2023-10-20
-    group: training-internat23
-  training-qub-:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-10-19
-    end: 2023-10-23
-    group: training-qub-glxy-23
-  training-gm2-:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-11-01
-    end: 2023-11-03
-    group: training-gm2-practicals
   training-argh:
     count: 2
     flavor: c1.c28m225d50
