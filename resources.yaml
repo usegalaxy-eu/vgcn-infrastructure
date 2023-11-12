@@ -324,3 +324,9 @@ deployment:
     start: 2023-11-01
     end: 2023-11-03
     group: training-gm2-practicals
+  training-argh:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2023-11-13
+    end: 2023-11-17
+    group: training-arghackathon
