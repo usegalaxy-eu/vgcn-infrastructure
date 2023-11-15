@@ -50,10 +50,6 @@ deployment:
   #     mem_limit_policy: hard
   #     mem_reserved_size: 2048
 
-  worker-fastturnaround:
-    count: 1
-    flavor: m1.xlarge
-    group: fast-turnaround
   worker-fetch:
     count: 1
     flavor: c1.c36m100d50
