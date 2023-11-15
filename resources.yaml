@@ -50,10 +50,6 @@ deployment:
   #     mem_limit_policy: hard
   #     mem_reserved_size: 2048
 
-  worker-maintenance:
-    count: 1
-    flavor: m1.large
-    group: maintenance
   worker-fastturnaround:
     count: 1
     flavor: m1.xlarge
