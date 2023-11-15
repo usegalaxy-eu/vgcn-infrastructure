@@ -1,50 +1,62 @@
 ---
-# The latest image we want deployed. If images are running that have an
-# appropriate prefix but are not running this image, they will be removed.
-image: vggp-v60-j322-692e75a7c101-main
-image_id: 4c864d3b-6651-4bb3-a329-4a7c8c18a8fa
-
-image_gpu: vggp-v60-gpu-j322-692e75a7c101-main
-image_gpu_id: f5b82cb0-03b4-44f0-8ce5-33f15c53f89b
-
-image_secure: vggp-v60-secure-j322-692e75a7c101-main
-image_secure_id: 02b59caf-374d-4cef-aafc-d86fe0aeb9ce
-
+# Global configuration of computing nodes.
+images:
+  default: vggp-v60-j322-692e75a7c101-main
+  gpu: vggp-v60-gpu-j322-692e75a7c101-main-kernel-4.18.0-477.21.1.el8_8-nvidia
+  secure: vggp-v60-secure-j322-692e75a7c101-main
+  alma: vggp-v60-j342-4c09f3ebbeac-alma
+  htcondor-secondary: vgcn~workers+internal~rockylinux-8.6-x86_64~2023-10-26-43739-htcondor-secondary~ebb20b8~kysrpex_local_build
 network: bioinf
-network_id: 7de249b6-6d32-44e3-b50c-291939868d2f
-image_replace: false
-
 secgroups:
   - ufr-ingress
-  - egress
-
-graceful: false
+  # interactive-egress: A reduced more stringent egress rule for all nodes
+  - interactive-egress
 sshkey: cloud3
-
-# The public key(s) we will accept when SSHing to a machine.
 pubkeys:
+  # The public key(s) that will be accepted when SSHing to a machine.
   - "AAAAB3NzaC1yc2EAAAABIwAAAQEAuSG1VOumQhbJfOyalJjS4lPC8eeeL02ld/VI2BFApyMfwbB1QxehY3lMBXt/cBTzqU3MxgJQVzNr/AgjHa5rKn2hSGMfKAdaX2tG686k715bBjRm9rJNhmc8KSH9tVS35M0HwRXMfiGvSmb5qJ6utWRZe6RM2JMIbqqI5Oc4tbzPPVKk1+yvT1JdYuyqAOp2yvQbOqKaXmqOhPdPNaJZMI4o+UHmmb8FH6OTDY27G7X7u07ZPwVi1j+6ZFVMQZqg1RhUdg9kmHpHwMX7P6NcD4G9GsISHIh92eva9xgWYGiS0wUsmOWTNgAzzsfRZjMFep+jB2wup6QN7XpMw97eTw=="
 
+# Behavior of `synchronize.py''
+graceful: false
+
 nodes_inventory:
-  c1.c28m225: 7
-  c1.c28m475: 19
-  c1.c36m100: 31
-  c1.c36m225: 15
-  c1.c36m900: 1
-  c1.c36m975: 14
-  c1.c60m1975: 1
-  c1.c125m225: 12
-  c1.c125m425: 36
-  g1.c7m20g1: 8
+  c1.c28m225d50: 7
+  c1.c28m475d50: 19
+  c1.c36m100d50: 32
+  c1.c36m225d50: 15
+  c1.c36m900d50: 1
+  c1.c36m975d50: 8
+  c1.c60m1975d50: 1
+  c1.c120m225d50: 12
+  c1.c120m425d50: 22
+  c1.c125m425d50: 16
+  c1.c28m935d50: 4
+  c1.c28m875d50: 2
+  g1.c14m40g1d50: 4
+  g1.c8m40g1d50: 4
 
 deployment:
+  # worker-c120m225-htcondor-secondary:
+  #   count: 1 #12
+  #   flavor: c1.c120m225d50
+  #   group: compute
+  #   docker: true
+  #   image: htcondor-secondary
+  #   secondary_htcondor_cluster: true
+  #   volume:
+  #     size: 1024
+  #     type: default
+  #   cgroups:
+  #     mem_limit_policy: hard
+  #     mem_reserved_size: 2048
+
   worker-fastturnaround:
     count: 1
     flavor: m1.xlarge
     group: fast-turnaround
   worker-fetch:
     count: 1
-    flavor: c1.c36m100
+    flavor: c1.c36m100d50
     group: upload
   worker-metadata:
     count: 1
@@ -55,25 +67,25 @@ deployment:
       mem_reserved_size: 1024
   worker-interactive:
     count: 8 #8
-    flavor: c1.c36m100
+    flavor: c1.c36m100d50
     group: interactive
-    docker_ready: true
-    secure_ready: true
+    docker: true
+    image: secure
     volume:
       size: 1024
       type: default
-  worker-mothur:
-    count: 3
-    flavor: c1.c28m475
-    group: compute_mothur
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
+  #  worker-mothur:
+  #    count: 3
+  #    flavor: c1.c28m475d50
+  #    group: compute_mothur
+  #    cgroups:
+  #      mem_limit_policy: hard
+  #      mem_reserved_size: 2048
   worker-c28m475:
     count: 12 #19
-    flavor: c1.c28m475
+    flavor: c1.c28m475d50
     group: compute
-    docker_ready: true
+    docker: true
     volume:
       size: 1024
       type: default
@@ -82,9 +94,9 @@ deployment:
       mem_reserved_size: 2048
   worker-c28m225:
     count: 0 #7
-    flavor: c1.c28m225
+    flavor: c1.c28m225d50
     group: compute_test
-    docker_ready: true
+    docker: true
     volume:
       size: 1024
       type: default
@@ -92,10 +104,10 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c36m100:
-    count: 21 #31
-    flavor: c1.c36m100
+    count: 22 #32
+    flavor: c1.c36m100d50
     group: compute
-    docker_ready: true
+    docker: true
     volume:
       size: 1024
       type: default
@@ -104,9 +116,9 @@ deployment:
       mem_reserved_size: 2048
   worker-c36m225:
     count: 15 #15
-    flavor: c1.c36m225
+    flavor: c1.c36m225d50
     group: compute
-    docker_ready: true
+    docker: true
     volume:
       size: 1024
       type: default
@@ -114,10 +126,10 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c36m900:
-    count: 1 #1 it's a c1.c36m975 host with probably a faulty memory bank
-    flavor: c1.c36m900
+    count: 1 #1 it's a c1.c36m975d50 host with probably a faulty memory bank
+    flavor: c1.c36m900d50
     group: compute
-    docker_ready: true
+    docker: true
     volume:
       size: 1024
       type: default
@@ -125,10 +137,32 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 2048
   worker-c36m975:
-    count: 14 #14
-    flavor: c1.c36m975
+    count: 8 #8
+    flavor: c1.c36m975d50
     group: compute
-    docker_ready: true
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
+  worker-c28m935:
+    count: 4 #4
+    flavor: c1.c28m935d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
+  worker-c28m875:
+    count: 2 #2
+    flavor: c1.c28m875d50
+    group: compute
+    docker: true
     volume:
       size: 1024
       type: default
@@ -137,17 +171,40 @@ deployment:
       mem_reserved_size: 2048
   worker-c64m2:
     count: 1 #1
-    flavor: c1.c60m1975
+    flavor: c1.c60m1975d50
     group: compute
-    docker_ready: true
+    docker: true
     volume:
       size: 1024
       type: default
-  worker-c125m225:
+  worker-c120m225:
     count: 12 #12
-    flavor: c1.c125m225
+    flavor: c1.c120m225d50
     group: compute
-    docker_ready: true
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+  worker-c120m425-alma:
+    count: 2 #22
+    flavor: c1.c120m425d50
+    group: compute
+    docker: true
+    image: alma
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+  worker-c120m425:
+    count: 20 #22
+    flavor: c1.c120m425d50
+    group: compute
+    docker: true
     volume:
       size: 1024
       type: default
@@ -155,105 +212,87 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c125m425:
-    count: 36 #36
-    flavor: c1.c125m425
+    count: 16 #16
+    flavor: c1.c125m425d50
     group: compute
-    docker_ready: true
+    docker: true
     volume:
       size: 1024
       type: default
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-gpu:
-    count: 8 #16
-    flavor: g1.c7m20g1
+  worker-c14m40g1:
+    count: 4 #4
+    flavor: g1.c14m40g1d50
     group: compute_gpu
-    gpu_ready: true
-    docker_ready: true
+    image: gpu
+    docker: true
     volume:
       size: 1024
       type: default
-      boot: true
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
+  worker-c8m40g1:
+    count: 4 #4
+    flavor: g1.c8m40g1d50
+    group: compute_gpu
+    image: gpu
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 1024
+
   # Training
-  training-debr:
+  #  training-bio0:
+  #    count: 1
+  #    flavor: c1.c28m225d50
+  #    start: 2022-10-13
+  #    end: 2023-12-02
+  #    group: training-bio00058m
+  training-bma2:
     count: 1
-    flavor: c1.c28m225
-    start: 2022-09-19
-    end: 2023-01-31
-    group: training-debrecen2022
-  training-bio0:
+    flavor: c1.c28m225d50
+    start: 2023-08-28
+    end: 2023-12-17
+    group: training-bma231-ht23
+  training-tbge:
     count: 1
-    flavor: c1.c28m225
-    start: 2022-10-13
-    end: 2023-12-02
-    group: training-bio00058m
-  training-sing:
+    flavor: c1.c28m225d50
+    start: 2023-10-04
+    end: 2023-12-30
+    group: training-tbgenom2324
+  training-gqa2:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-11-13
+    end: 2023-12-01
+    group: training-gqa23
+  training-fhnw:
     count: 2
-    flavor: c1.c28m225
-    start: 2023-02-06
-    end: 2023-02-10
-    group: training-singlecell23
-#  training-uca_:
-#    count: 1
-#    flavor: c1.c28m225
-#    start: 2022-10-10
-#    end: 2023-02-01
-#    group: training-uca_bioanalysis2022
-  training-mtbn:
+    flavor: c1.c28m225d50
+    start: 2023-12-06
+    end: 2023-12-13
+    group: training-fhnw-genomics-2023
+  training-ga-e:
+    count: 3
+    flavor: c1.c28m225d50
+    start: 2024-01-28
+    end: 2024-02-03
+    group: training-ga-embo24
+  training-argh:
     count: 2
-    flavor: c1.c28m225
-    start: 2023-01-09
-    end: 2023-01-13
-    group: training-mtbngs
-  training-bioi:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-01-14
-    end: 2023-01-24
-    group: training-bioinfo-fmx-2023
-  training-unit:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-01-23
-    end: 2023-03-03
-    group: training-unito-labbiomol
-  training-path:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-02-02
-    end: 2023-02-02
-    group: training-pathog-detect-2023
-  training-msc-:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-13
-    end: 2023-05-12
-    group: training-msc-bioinf-exeter
-  training-sib2:
+    flavor: c1.c28m225d50
+    start: 2023-11-13
+    end: 2023-11-17
+    group: training-arghackathon
+  training-rna-:
     count: 2
-    flavor: c1.c28m225
-    start: 2023-04-25
-    end: 2023-04-26
-    group: training-sib2023
-  training-pag2:
-    count: 2
-    flavor: c1.c28m225
-    start: 2023-01-17
-    end: 2023-01-18
-    group: training-pag2023
-  training-npdn:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-03-27
-    end: 2023-03-29
-    group: training-npdn-hts1
-  training-npdn:
-    count: 1
-    flavor: c1.c28m225
-    start: 2023-04-27
-    end: 2023-04-27
-    group: training-npdn-hts2
+    flavor: c1.c28m225d50
+    start: 2023-11-27
+    end: 2023-12-22
+    group: training-rna-seq-vu
