@@ -1,31 +1,17 @@
 ---
 type: map
 mapping:
-    "image":
-        type: str
+    # Global configuration of computing nodes.
+    "images":
+        type: map
         required: true
-    "image_id":
-        type: str
-        required: true
-    "image_gpu":
-        type: str
-        required: true
-    "image_gpu_id":
-        type: str
-        required: true
-    "image_secure":
-        type: str
-        required: true
-    "image_secure_id":
-        type: str
-        required: true
-    "image_replace":
-        type: bool
-        required: true
+        mapping:
+            "default":
+                type: str
+                required: true
+            "=":
+                type: str
     "network":
-        type: str
-        required: true
-    "network_id":
         type: str
         required: true
     "secgroups":
@@ -33,9 +19,6 @@ mapping:
         required: true
         sequence:
             - type: str
-    "graceful":
-        type: bool
-        required: true
     "sshkey":
         type: str
         required: true
@@ -43,14 +26,20 @@ mapping:
         type: seq
         sequence:
             - type: str
+    "graceful":
+        type: bool
+        required: true
+    # Inventory.
     "nodes_inventory":
         type: map
         matching-rule: all
         mapping:
             regex;([a-z][0-9].*):
                 type: int
+    # Resource group definitions.
     "deployment":
         type: map
+        required: true
         mapping:
             "=":
                 type: map
@@ -64,17 +53,20 @@ mapping:
                         type: str
                         required: true
                         enum:
-                            - c1.c28m225
-                            - c1.c28m475
-                            - c1.c36m100
-                            - c1.c36m225
-                            - c1.c36m900
-                            - c1.c36m975
-                            - c1.c60m1975
-                            - c1.c125m225
-                            - c1.c125m425
-                            - g1.c36m100g1
-                            - g1.c7m20g1
+                            - c1.c28m225d50
+                            - c1.c28m475d50
+                            - c1.c36m100d50
+                            - c1.c36m225d50
+                            - c1.c36m900d50
+                            - c1.c36m975d50
+                            - c1.c60m1975d50
+                            - c1.c120m225d50
+                            - c1.c120m425d50
+                            - c1.c125m425d50
+                            - c1.c28m935d50
+                            - c1.c28m875d50
+                            - g1.c14m40g1d50
+                            - g1.c8m40g1d50
                             - m1.large
                             - m1.medium
                             - m1.nano
@@ -84,14 +76,21 @@ mapping:
                             - m1.xxlarge
                     "start":
                         type: date
+                        required: false
                         format: "%Y-%m-%d"
                     "end":
                         type: date
+                        required: false
                         format: "%Y-%m-%d"
                     "group":
                         type: str
+                        required: true
+                    "image":
+                        type: str
+                        required: false
                     "volume":
                         type: map
+                        required: false
                         'mapping':
                             "size":
                                 type: int
@@ -106,6 +105,7 @@ mapping:
                                 type: bool
                     "cgroups":
                         type: map
+                        required: false
                         'mapping':
                             "mem_limit_policy":
                                 type: str
@@ -117,9 +117,6 @@ mapping:
                                 required: true
                                 range:
                                     min: 1024
-                    "docker_ready":
+                    "docker":
                         type: bool
-                    "gpu_ready":
-                        type: bool
-                    "secure_ready":
-                        type: bool
+                        required: false

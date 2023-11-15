@@ -5,7 +5,7 @@ export LC_NUMERIC="en_US.UTF-8"
 if ([ $# -lt 5 ]); then
     echo "Usage:"
     echo
-    echo "  $0 <training-identifier> <vm-size (e.g. c.c32m240)> <vm-count> <start in YYYY-mm-dd> <end in YYYY-mm-dd> [--donotautocommitpush]"
+    echo "  $0 <training-identifier> <vm-size (e.g. c1.c28m225d50)> <vm-count> <start in YYYY-mm-dd> <end in YYYY-mm-dd> [--donotautocommitpush]"
     echo
     exit 1;
 fi

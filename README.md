@@ -1,13 +1,26 @@
-# VGCN Infrastructure Management
+# VGCN infrastructure management
 
-This repository allows for definition and management of VGNC resources in the
-bwCloud for usegalaxy.eu
+This repository defines and manages the
+[Virtual Galaxy Compute Nodes](https://github.com/usegalaxy-eu/vgcn) on
+[bwCloud](https://www.bw-cloud.org/)/[de.NBI-cloud](https://www.denbi.de/)
+for [usegalaxy.eu](https://usegalaxy.eu/)
+
+The compute nodes are defined in [`resources.yaml`](#resourcesyaml), which 
+conforms to [`schema.yaml`](schema.yaml).
+[`userdata.yaml.j2`](userdata.yaml.j2) contains actions that will be run by
+[cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) during the
+first boot of the virtual machines (see 
+[cloud-init docs](https://cloudinit.readthedocs.io/en/23.2.1/explanation/format.html)).
+
+The Jenkins project 
+[vgcn-infrastructure](https://build.galaxyproject.eu/job/usegalaxy-eu/job/vgcn-infrastructure/)
+runs [`synchronize.py`](synchronize.py) periodically to deploy the configured
+compute nodes.
 
 ## `resources.yaml`
 
-This file defines resources that should be running on our cluster and scales
-our infrastructure accordingly. The format is described fairly well within the
-yaml file, but an example is below for reference:
+This file defines the resources that should be allocated on the cluster, and it
+is used to scale the infrastructure accordingly. An example is shown below
 
 ```yaml
 training_event:
@@ -18,23 +31,27 @@ training_event:
     end:  2017-10-02
 ```
 
-the label `training_event` is arbitrary but must be unique in the file. We
-specify that we want `count=4` VMs of the flavor c.c10m55 running. If we have
-fewer than this number, this project will launch enough to ensure we're at
-capacity.
+The label `training_event` is arbitrary but must be unique in the file. We
+specify that `count: 4` VMs of the 
+[flavor](https://docs.openstack.org/nova/rocky/user/flavors.html)
+c.c10m55 should be running. If there are fewer than this number, the 
+[vgcn-infrastructure Jenkins project](https://build.galaxyproject.eu/job/usegalaxy-eu/job/vgcn-infrastructure/)
+will launch [`synchronize.py`](synchronize.py) to ensure the actual capacity
+matches the definition.
 
-The `tag` must be specified and is used in constructing the name of the image.
-For a tag of `upload`, images will be named `vgcnbwc-upload-{number}`
+Additionally, `start` and `end` parameters may be supplied. VMs will be 
+launched after the `start` date, and will be killed after the `end` date. This
+permits defining resources ahead of the time they will be needed and releases
+them automatically when they are no longer in use.
 
-We additionally allow supplying a `start` and `end` parameter for the VMs.
-Before this time the VMs will not be launched. After this time, the VMs will
-all be (gracefully) killed on sight. This permits being rather lazy about
-adding and removing defintions and we can be sure that resources are not
-needlessly wasted.
+A formal definition of the schema is available within 
+[`schema.yaml`](schema.yaml).
 
-## Multiple Flavors
+### Multiple flavors
 
-If you want multiple flavors in a group, just create N different groups with different tags. E.g.
+Unfortunately, only a single flavor can be assigned to a group. As a workaround
+to using multiple flavors in a group, just create N different groups with
+different tags. E.g.
 
 ```
 compute_nodes_small:
@@ -47,7 +64,3 @@ compute_nodes_large:
     flavor: c.c24m120
     tag: compute-large
 ```
-
-## LICENSE
-
-GPLv3
