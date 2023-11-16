@@ -36,19 +36,48 @@ nodes_inventory:
   g1.c8m40g1d50: 4
 
 deployment:
-  # worker-c120m225-htcondor-secondary:
-  #   count: 1 #12
-  #   flavor: c1.c120m225d50
-  #   group: compute
-  #   docker: true
-  #   image: htcondor-secondary
-  #   secondary_htcondor_cluster: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   cgroups:
-  #     mem_limit_policy: hard
-  #     mem_reserved_size: 2048
+  worker-fetch-htcondor-secondary:
+    count: 1
+    flavor: c1.c36m100d50
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+    group: upload
+  worker-interactive-htcondor-secondary:
+    count: 1
+    flavor: c1.c36m100d50
+    group: interactive
+    docker: true
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+    volume:
+      size: 1024
+      type: default
+  worker-c36m100-htcondor-secondary:
+    count: 1
+    flavor: c1.c36m100d50
+    group: compute
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+  worker-c8m40g1-htcondor-secondary:
+    count: 1
+    flavor: g1.c8m40g1d50
+    group: compute_gpu
+    image: htcondor-secondary-gpu
+    secondary_htcondor_cluster: true
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 1024
 
   worker-fastturnaround:
     count: 1
