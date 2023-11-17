@@ -55,7 +55,7 @@ write_files:
     permissions: "0644"
   {% else -%}
   - content: |
-      {% if image is defined and image == "gpu" -%}
+      {% if image is defined and image.endswith("gpu") -%}
       # Advertise the GPUs
       use feature : GPUs
       GPU_DISCOVERY_EXTRA = -extra
