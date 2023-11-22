@@ -80,21 +80,10 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 1024
 
-  worker-fastturnaround:
-    count: 1
-    flavor: m1.xlarge
-    group: fast-turnaround
   worker-fetch:
     count: 1
     flavor: c1.c36m100d50
     group: upload
-  worker-metadata:
-    count: 1
-    flavor: m1.large
-    group: metadata
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 1024
   worker-interactive:
     count: 8 #8
     flavor: c1.c36m100d50
@@ -104,13 +93,6 @@ deployment:
     volume:
       size: 1024
       type: default
-  #  worker-mothur:
-  #    count: 3
-  #    flavor: c1.c28m475d50
-  #    group: compute_mothur
-  #    cgroups:
-  #      mem_limit_policy: hard
-  #      mem_reserved_size: 2048
   worker-c28m475:
     count: 12 #19
     flavor: c1.c28m475d50
