@@ -55,7 +55,7 @@ deployment:
     flavor: c1.c36m100d50
     group: upload
   worker-interactive:
-    count: 8 #8
+    count: 13 #8
     flavor: c1.c36m100d50
     group: interactive
     docker: true
@@ -86,7 +86,7 @@ deployment:
       mem_limit_policy: hard
       mem_reserved_size: 2048
   worker-c36m100:
-    count: 22 #32
+    count: 17 #32
     flavor: c1.c36m100d50
     group: compute
     docker: true
