@@ -302,3 +302,9 @@ deployment:
     start: 2023-12-27
     end: 2023-12-27
     group: training-inep2023
+  training-asse:
+    count: 3
+    flavor: c1.c28m225d50
+    start: 2024-03-18
+    end: 2024-03-22
+    group: training-assemblyannotation
