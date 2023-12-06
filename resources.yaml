@@ -290,3 +290,9 @@ deployment:
     start: 2023-12-18
     end: 2023-12-22
     group: training-heh-meta-omic
+  training-ngs-:
+    count: 4
+    flavor: c1.c28m225d50
+    start: 2023-12-19
+    end: 2023-12-19
+    group: training-ngs-bmwbic
