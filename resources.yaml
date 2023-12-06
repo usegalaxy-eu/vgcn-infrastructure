@@ -284,3 +284,9 @@ deployment:
     start: 2023-12-12
     end: 2023-12-12
     group: training-apollo-sophia
+  training-heh-:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-12-18
+    end: 2023-12-22
+    group: training-heh-meta-omic
