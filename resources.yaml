@@ -296,3 +296,9 @@ deployment:
     start: 2023-12-19
     end: 2023-12-19
     group: training-ngs-bmwbic
+  training-inep:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-12-27
+    end: 2023-12-27
+    group: training-inep2023
