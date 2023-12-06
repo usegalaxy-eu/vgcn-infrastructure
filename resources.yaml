@@ -272,3 +272,9 @@ deployment:
     start: 2023-12-08
     end: 2023-12-08
     group: training-ont-msc
+  training-gdaw:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-12-11
+    end: 2023-12-30
+    group: training-gdawg2023
