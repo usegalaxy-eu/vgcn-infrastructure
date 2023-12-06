@@ -236,12 +236,6 @@ deployment:
     start: 2023-10-04
     end: 2023-12-30
     group: training-tbgenom2324
-  training-gqa2:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2023-11-13
-    end: 2023-12-01
-    group: training-gqa23
   training-fhnw:
     count: 2
     flavor: c1.c28m225d50
@@ -254,15 +248,51 @@ deployment:
     start: 2024-01-28
     end: 2024-02-03
     group: training-ga-embo24
-  training-argh:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2023-11-13
-    end: 2023-11-17
-    group: training-arghackathon
   training-rna-:
     count: 2
     flavor: c1.c28m225d50
     start: 2023-11-27
     end: 2023-12-22
     group: training-rna-seq-vu
+  training-ont-:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2023-12-08
+    end: 2023-12-08
+    group: training-ont-msc
+  training-gdaw:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-12-11
+    end: 2023-12-30
+    group: training-gdawg2023
+  training-apol:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-12-12
+    end: 2023-12-12
+    group: training-apollo-sophia
+  training-heh-:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-12-18
+    end: 2023-12-22
+    group: training-heh-meta-omic
+  training-ngs-:
+    count: 4
+    flavor: c1.c28m225d50
+    start: 2023-12-19
+    end: 2023-12-19
+    group: training-ngs-bmwbic
+  training-inep:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2023-12-27
+    end: 2023-12-27
+    group: training-inep2023
+  training-asse:
+    count: 3
+    flavor: c1.c28m225d50
+    start: 2024-03-18
+    end: 2024-03-22
+    group: training-assemblyannotation
