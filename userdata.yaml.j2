@@ -67,7 +67,7 @@ write_files:
       STARTD_ATTRS = GalaxyTraining, GalaxyGroup, GalaxyCluster, GalaxyDockerHack
       Rank = StringListMember(MY.GalaxyGroup, TARGET.Group)
       {% if cgroups is defined -%}
-      BASE_CGROUP = /system.slice/condor.service
+      BASE_CGROUP = system.slice/condor.service
       {% if cgroups.mem_limit_policy is defined -%}
       CGROUP_MEMORY_LIMIT_POLICY = {{ cgroups.mem_limit_policy }}
       {% endif -%}
