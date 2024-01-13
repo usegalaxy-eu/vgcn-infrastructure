@@ -236,3 +236,9 @@ deployment:
     start: 2024-01-19
     end: 2024-01-19
     group: training-test-embo24
+  training-embo:
+    count: 10
+    flavor: c1.c28m225d50
+    start: 2024-01-28
+    end: 2024-02-03
+    group: training-embo-genomeass24
