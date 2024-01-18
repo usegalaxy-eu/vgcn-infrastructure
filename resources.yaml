@@ -309,3 +309,9 @@ deployment:
       start: 2024-02-12
       end: 2024-02-16
       group: training-ur-ws24
+    training-htge:
+      count: 1
+      flavor: c1.c28m225d50
+      start: 2024-01-29
+      end: 2024-01-30
+      group: training-htgeno
