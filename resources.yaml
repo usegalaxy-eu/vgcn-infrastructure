@@ -303,3 +303,9 @@ deployment:
       start: 2022-12-05
       end: 2022-12-09
       group: training-fmx-anses-wgs-2022
+    training-ur-w:
+      count: 3
+      flavor: c1.c28m225d50
+      start: 2024-02-12
+      end: 2024-02-16
+      group: training-ur-ws24
