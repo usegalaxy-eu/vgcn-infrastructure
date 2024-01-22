@@ -50,21 +50,24 @@ deployment:
   #     mem_limit_policy: hard
   #     mem_reserved_size: 2048
 
-  worker-fetch:
+  worker-fetch-htcondor-secondary:
     count: 1
     flavor: c1.c36m100d50
     group: upload
-  worker-interactive:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-interactive-htcondor-secondary:
     count: 13 #8
     flavor: c1.c36m100d50
     group: interactive
     docker: true
-    image: secure
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
     volume:
       size: 1024
       type: default
-  worker-c28m475:
-    count: 12 #19
+  worker-c28m475-htcondor-secondary:
+    count: 10 #19
     flavor: c1.c28m475d50
     group: compute
     docker: true
@@ -74,7 +77,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c28m225:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c28m225-htcondor-secondary:
     count: 0 #7
     flavor: c1.c28m225d50
     group: compute_test
@@ -85,7 +90,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c36m100:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c36m100-htcondor-secondary:
     count: 17 #32
     flavor: c1.c36m100d50
     group: compute
@@ -96,8 +103,10 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c36m225:
-    count: 15 #15
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c36m225-htcondor-secondary:
+    count: 14 #15
     flavor: c1.c36m225d50
     group: compute
     docker: true
@@ -107,7 +116,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c36m900:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c36m900-htcondor-secondary:
     count: 1 #1 it's a c1.c36m975d50 host with probably a faulty memory bank
     flavor: c1.c36m900d50
     group: compute
@@ -118,7 +129,9 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-  worker-c36m975:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c36m975-htcondor-secondary:
     count: 8 #8
     flavor: c1.c36m975d50
     group: compute
@@ -129,7 +142,9 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-  worker-c28m935:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c28m935-htcondor-secondary:
     count: 4 #4
     flavor: c1.c28m935d50
     group: compute
@@ -140,7 +155,9 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-  worker-c28m875:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c28m875-htcondor-secondary:
     count: 2 #2
     flavor: c1.c28m875d50
     group: compute
@@ -151,7 +168,9 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-  worker-c64m2:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c64m2-htcondor-secondary:
     count: 1 #1
     flavor: c1.c60m1975d50
     group: compute
@@ -159,7 +178,9 @@ deployment:
     volume:
       size: 1024
       type: default
-  worker-c120m225:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c120m225-htcondor-secondary:
     count: 12 #12
     flavor: c1.c120m225d50
     group: compute
@@ -170,7 +191,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c120m425:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c120m425-htcondor-secondary:
     count: 22
     flavor: c1.c120m425d50
     group: compute
@@ -181,7 +204,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c125m425:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c125m425-htcondor-secondary:
     count: 16 #16
     flavor: c1.c125m425d50
     group: compute
@@ -192,11 +217,12 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-  worker-c14m40g1:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  worker-c14m40g1-htcondor-secondary:
     count: 4 #4
     flavor: g1.c14m40g1d50
     group: compute_gpu
-    image: gpu
     docker: true
     volume:
       size: 1024
@@ -204,11 +230,12 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
-  worker-c8m40g1:
+    image: htcondor-secondary-gpu
+    secondary_htcondor_cluster: true
+  worker-c8m40g1-htcondor-secondary:
     count: 4 #4
     flavor: g1.c8m40g1d50
     group: compute_gpu
-    image: gpu
     docker: true
     volume:
       size: 1024
@@ -216,7 +243,8 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
-
+    image: htcondor-secondary-gpu
+    secondary_htcondor_cluster: true
 
   training-ga-e:
     count: 3
