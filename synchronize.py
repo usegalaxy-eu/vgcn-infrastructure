@@ -44,10 +44,6 @@ from paramiko.client import AutoAddPolicy
 from paramiko.file import BufferedFile
 from paramiko.ssh_exception import NoValidConnectionsError, SSHException
 
-from htcondor_migration import (
-    allocate_resources as htcondor_migration_resource_allocation,
-)
-
 # server names are constructed as
 #   vgcnbwc-{group_identifier}-{unique_id}
 PREFIX: str = "vgcnbwc-"
@@ -1039,16 +1035,6 @@ def make_parser() -> argparse.ArgumentParser:
         type=str,
         help="OpenStack cloud name in clouds.yaml",
     )
-    # HTCondor 23 migration
-    parser.add_argument(
-        "-f",
-        "--fraction",
-        dest="resource_fraction",
-        type=float,
-        metavar="resource_fraction",
-        help="fraction of resources to be allocated to the secondary cluster",
-        default=0.0,
-    )
     parser.add_argument(
         "-d",
         "--dry-run",
@@ -1070,19 +1056,8 @@ if __name__ == "__main__":
         load_envvars=False,
     )
 
-    # HTCondor 23 migration
-    resources = yaml.safe_load(open(command_args.resources_file))
-    resources = htcondor_migration_resource_allocation(
-        resources,
-        fraction=command_args.resource_fraction,
-    )
-    logging.info(
-        f"Modified `resources.yaml` for the HTCondor 23 migration:\n"
-        f"{yaml.dump(resources, sort_keys=False)}"
-    )
-
     synchronize_infrastructure(
-        config=resources,
+        config=yaml.safe_load(open(command_args.resources_file)),
         user_data=command_args.userdata_file,
         cloud=openstack_cloud,
         dry_run=command_args.dry_run,
