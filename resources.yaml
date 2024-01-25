@@ -67,7 +67,7 @@ deployment:
       size: 1024
       type: default
   worker-c28m475-htcondor-secondary:
-    count: 10 #19
+    count: 8 #19
     flavor: c1.c28m475d50
     group: compute
     docker: true
@@ -254,6 +254,14 @@ deployment:
     group: training-ga-embo24
     image: htcondor-secondary
     secondary_htcondor_cluster: true
+  training-ga-e2:
+    count: 1
+    flavor: c1.c28m475d50
+    start: 2024-01-28
+    end: 2024-02-03
+    group: training-ga-embo24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
   training-asse:
     count: 3
     flavor: c1.c28m225d50
@@ -281,6 +289,14 @@ deployment:
   training-embo-fs2:
     count: 6
     flavor: c1.c36m225d50
+    start: 2024-01-28
+    end: 2024-02-03
+    group: training-embo-genomeass24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-embo-fs3:
+    count: 1
+    flavor: c1.c28m475d50
     start: 2024-01-28
     end: 2024-02-03
     group: training-embo-genomeass24
