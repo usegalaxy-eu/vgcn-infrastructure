@@ -252,7 +252,7 @@ deployment:
     start: 2024-01-28
     end: 2024-02-03
     group: training-ga-embo24
-    image: htcondor-secondary-gpu
+    image: htcondor-secondary
     secondary_htcondor_cluster: true
   training-asse:
     count: 3
@@ -260,7 +260,7 @@ deployment:
     start: 2024-03-18
     end: 2024-03-22
     group: training-assemblyannotation
-    image: htcondor-secondary-gpu
+    image: htcondor-secondary
     secondary_htcondor_cluster: true
   training-test:
     count: 4
@@ -268,7 +268,7 @@ deployment:
     start: 2024-01-15
     end: 2024-01-19
     group: training-test-embo24
-    image: htcondor-secondary-gpu
+    image: htcondor-secondary
     secondary_htcondor_cluster: true
   training-embo-fs1:
     count: 4
@@ -276,7 +276,7 @@ deployment:
     start: 2024-01-28
     end: 2024-02-03
     group: training-embo-genomeass24
-    image: htcondor-secondary-gpu
+    image: htcondor-secondary
     secondary_htcondor_cluster: true
   training-embo-fs2:
     count: 6
@@ -284,5 +284,5 @@ deployment:
     start: 2024-01-28
     end: 2024-02-03
     group: training-embo-genomeass24
-    image: htcondor-secondary-gpu
+    image: htcondor-secondary
     secondary_htcondor_cluster: true
