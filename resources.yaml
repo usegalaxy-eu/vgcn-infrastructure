@@ -23,7 +23,7 @@ nodes_inventory:
   c1.c28m225d50: 7
   c1.c28m475d50: 19
   c1.c36m100d50: 32
-  c1.c36m225d50: 15
+  c1.c36m225d50: 11
   c1.c36m900d50: 1
   c1.c36m975d50: 8
   c1.c60m1975d50: 1
@@ -67,7 +67,7 @@ deployment:
       size: 1024
       type: default
   worker-c28m475-htcondor-secondary:
-    count: 10 #19
+    count: 8 #19
     flavor: c1.c28m475d50
     group: compute
     docker: true
@@ -106,7 +106,7 @@ deployment:
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   worker-c36m225-htcondor-secondary:
-    count: 14 #15
+    count: 4 #11
     flavor: c1.c36m225d50
     group: compute
     docker: true
@@ -252,21 +252,53 @@ deployment:
     start: 2024-01-28
     end: 2024-02-03
     group: training-ga-embo24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-ga-e2:
+    count: 1
+    flavor: c1.c28m475d50
+    start: 2024-01-28
+    end: 2024-02-03
+    group: training-ga-embo24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
   training-asse:
     count: 3
     flavor: c1.c28m225d50
     start: 2024-03-18
     end: 2024-03-22
     group: training-assemblyannotation
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
   training-test:
     count: 4
     flavor: c1.c28m225d50
     start: 2024-01-15
     end: 2024-01-19
     group: training-test-embo24
-  training-embo:
-    count: 10
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-embo-fs1:
+    count: 4
     flavor: c1.c28m225d50
     start: 2024-01-28
     end: 2024-02-03
     group: training-embo-genomeass24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-embo-fs2:
+    count: 6
+    flavor: c1.c36m225d50
+    start: 2024-01-28
+    end: 2024-02-03
+    group: training-embo-genomeass24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-embo-fs3:
+    count: 1
+    flavor: c1.c28m475d50
+    start: 2024-01-28
+    end: 2024-02-03
+    group: training-embo-genomeass24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
