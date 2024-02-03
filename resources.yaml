@@ -67,7 +67,7 @@ deployment:
       size: 1024
       type: default
   worker-c28m475-htcondor-secondary:
-    count: 8 #19
+    count: 10 #19
     flavor: c1.c28m475d50
     group: compute
     docker: true
@@ -80,7 +80,7 @@ deployment:
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   worker-c28m225-htcondor-secondary:
-    count: 0 #7
+    count: 7
     flavor: c1.c28m225d50
     group: compute_test
     docker: true
@@ -106,7 +106,7 @@ deployment:
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   worker-c36m225-htcondor-secondary:
-    count: 4 #11
+    count: 10 #11
     flavor: c1.c36m225d50
     group: compute
     docker: true
@@ -245,52 +245,11 @@ deployment:
       mem_reserved_size: 1024
     image: htcondor-secondary-gpu
     secondary_htcondor_cluster: true
-
-  training-htgeno:
-    count: 3
-    flavor: c1.c28m225d50
-    start: 2024-01-29
-    end: 2024-02-03
-    group: training-htgeno
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
   training-asse:
     count: 3
     flavor: c1.c28m225d50
     start: 2024-03-18
     end: 2024-03-22
     group: training-assemblyannotation
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-test:
-    count: 4
-    flavor: c1.c28m225d50
-    start: 2024-01-15
-    end: 2024-01-19
-    group: training-test-embo24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-embo-fs1:
-    count: 4
-    flavor: c1.c28m225d50
-    start: 2024-01-28
-    end: 2024-02-03
-    group: training-embo-genomeass24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-embo-fs2:
-    count: 6
-    flavor: c1.c36m225d50
-    start: 2024-01-28
-    end: 2024-02-03
-    group: training-embo-genomeass24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-embo-fs3:
-    count: 2
-    flavor: c1.c28m475d50
-    start: 2024-01-28
-    end: 2024-02-03
-    group: training-embo-genomeass24
     image: htcondor-secondary
     secondary_htcondor_cluster: true
