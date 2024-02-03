@@ -80,7 +80,7 @@ deployment:
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   worker-c28m225-htcondor-secondary:
-    count: 7
+    count: 0
     flavor: c1.c28m225d50
     group: compute_test
     docker: true
