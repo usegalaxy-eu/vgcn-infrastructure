@@ -106,7 +106,7 @@ deployment:
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   worker-c36m225-htcondor-secondary:
-    count: 10 #11
+    count: 11 #11
     flavor: c1.c36m225d50
     group: compute
     docker: true
@@ -245,6 +245,8 @@ deployment:
       mem_reserved_size: 1024
     image: htcondor-secondary-gpu
     secondary_htcondor_cluster: true
+
+  # Trainings
   training-asse:
     count: 3
     flavor: c1.c28m225d50
