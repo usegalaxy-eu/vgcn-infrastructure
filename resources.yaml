@@ -57,7 +57,7 @@ deployment:
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   worker-interactive-htcondor-secondary:
-    count: 13 #8
+    count: 4 #8
     flavor: c1.c36m100d50
     group: interactive
     docker: true
@@ -93,7 +93,7 @@ deployment:
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   worker-c36m100-htcondor-secondary:
-    count: 17 #32
+    count: 26 #32
     flavor: c1.c36m100d50
     group: compute
     docker: true
