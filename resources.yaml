@@ -267,3 +267,9 @@ deployment:
     start: 2024-02-19
     end: 2024-02-26
     group: training-mastervhir2024
+  training-kmb6:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-03-01
+    end: 2024-05-17
+    group: training-kmb615
