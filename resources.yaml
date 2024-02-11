@@ -273,3 +273,9 @@ deployment:
     start: 2024-03-01
     end: 2024-05-17
     group: training-kmb615
+  training-hts-:
+    count: 3
+    flavor: c1.c28m225d50
+    start: 2024-03-04
+    end: 2024-03-08
+    group: training-hts-fr
