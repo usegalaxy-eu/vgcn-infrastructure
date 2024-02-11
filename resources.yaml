@@ -261,3 +261,9 @@ deployment:
     start: 2024-02-19
     end: 2024-02-23
     group: training-om02-2024-rb
+  training-mast:
+    count: 3
+    flavor: c1.c28m225d50
+    start: 2024-02-19
+    end: 2024-02-26
+    group: training-mastervhir2024
