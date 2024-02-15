@@ -51,7 +51,7 @@ deployment:
   #     mem_reserved_size: 2048
 
   worker-fetch-htcondor-secondary:
-    count: 1
+    count: 0
     flavor: c1.c36m100d50
     group: upload
     image: htcondor-secondary
