@@ -307,3 +307,9 @@ deployment:
     start: 2024-03-07
     end: 2024-03-20
     group: training-msc-exeter
+  training-cais:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-02-28
+    end: 2024-02-29
+    group: training-caismd
