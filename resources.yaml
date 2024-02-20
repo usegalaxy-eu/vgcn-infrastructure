@@ -295,33 +295,43 @@ deployment:
     group: training-gie-0324
     image: htcondor-secondary
     secondary_htcondor_cluster: true
-  training-msc-:
+  training-msc-exe:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-03-06
     end: 2024-03-06
     group: training-msc-exe
-  training-msc-:
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-msc-exeter:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-03-07
     end: 2024-03-20
     group: training-msc-exeter
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
   training-cais:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-02-28
     end: 2024-02-29
     group: training-caismd
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
   training-nort:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-06-07
     end: 2024-06-07
     group: training-northumbria-7jun24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
   training-joca:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-04-12
     end: 2024-04-12
     group: training-joca-epigenomics-24
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
