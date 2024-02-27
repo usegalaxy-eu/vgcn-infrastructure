@@ -335,3 +335,9 @@ deployment:
     group: training-joca-epigenomics-24
     image: htcondor-secondary
     secondary_htcondor_cluster: true
+  training-ufz-:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 200~2024-02-27
+    end: 2024-02-30
+    group: training-ufz-trans-2024
