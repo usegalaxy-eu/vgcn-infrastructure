@@ -255,22 +255,6 @@ deployment:
     group: training-assemblyannotation
     image: htcondor-secondary
     secondary_htcondor_cluster: true
-  training-om02:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-02-19
-    end: 2024-02-23
-    group: training-om02-2024-rb
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-mast:
-    count: 3
-    flavor: c1.c28m225d50
-    start: 2024-02-19
-    end: 2024-02-26
-    group: training-mastervhir2024
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
   training-kmb6:
     count: 1
     flavor: c1.c28m225d50
@@ -341,5 +325,13 @@ deployment:
     start: 2024-02-27
     end: 2024-03-01
     group: training-ufz-trans-2024
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-path-gen-march-24:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-03-04
+    end: 2024-03-15
+    group: training-path-gen-march-24
     image: htcondor-secondary
     secondary_htcondor_cluster: true
