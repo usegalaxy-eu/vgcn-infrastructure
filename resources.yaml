@@ -295,6 +295,14 @@ deployment:
     group: training-msc-exeter
     image: htcondor-secondary
     secondary_htcondor_cluster: true
+  training-cais:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-02-28
+    end: 2024-02-29
+    group: training-caismd
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
   training-nort:
     count: 2
     flavor: c1.c28m225d50
