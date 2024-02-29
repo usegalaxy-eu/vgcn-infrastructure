@@ -283,7 +283,7 @@ deployment:
   training-msc-exeter:
     count: 1
     flavor: c1.c28m225d50
-    start: 2024-03-07
+    start: 2024-03-06
     end: 2024-03-20
     group: training-msc-exeter
     image: htcondor-secondary
