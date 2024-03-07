@@ -247,7 +247,7 @@ deployment:
     secondary_htcondor_cluster: true
 
   # Trainings
-  # These will overlap on Mar 6
+  # These will overlap Mar 6-8
   training-kmb6:
     count: 1
     flavor: c1.c28m225d50
@@ -272,16 +272,8 @@ deployment:
     group: training-path-gen-march-24
     image: htcondor-secondary
     secondary_htcondor_cluster: true
-  training-msc-exe:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-03-06
-    end: 2024-03-06
-    group: training-msc-exe
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
   training-msc-exeter:
-    count: 1
+    count: 2
     flavor: c1.c28m225d50
     start: 2024-03-06
     end: 2024-03-20
@@ -305,14 +297,6 @@ deployment:
     group: training-gie-0324
     image: htcondor-secondary
     secondary_htcondor_cluster: true
-  training-cais:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-02-28
-    end: 2024-02-29
-    group: training-caismd
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
   training-nort:
     count: 2
     flavor: c1.c28m225d50
@@ -327,13 +311,5 @@ deployment:
     start: 2024-04-12
     end: 2024-04-12
     group: training-joca-epigenomics-24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-ufz-:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-02-27
-    end: 2024-03-01
-    group: training-ufz-trans-2024
     image: htcondor-secondary
     secondary_htcondor_cluster: true
