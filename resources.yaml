@@ -247,13 +247,7 @@ deployment:
     secondary_htcondor_cluster: true
 
   # Trainings
-  # These will overlap Mar 12-15
-  training-eml:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-03-12
-    end: 2024-03-18
-    group: training-eml
+  # These will overlap Mar 26-Apr 5
   training-kmb6:
     count: 2
     flavor: c1.c28m225d50
@@ -262,39 +256,18 @@ deployment:
     group: training-kmb615
     image: htcondor-secondary
     secondary_htcondor_cluster: true
-  training-path-gen-march-24:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-03-04
-    end: 2024-03-15
-    group: training-path-gen-march-24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-msc-exeter:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-03-06
-    end: 2024-03-20
-    group: training-msc-exeter
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-
-  training-asse:
+  training-heh-:
     count: 1
     flavor: c1.c28m225d50
-    start: 2024-03-18
-    end: 2024-03-22
-    group: training-assemblyannotation
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-gie-:
+    start: 2024-04-01
+    end: 2024-04-05
+    group: training-heh-genome
+  training-tp-m:
     count: 1
     flavor: c1.c28m225d50
-    start: 2024-03-18
-    end: 2024-03-19
-    group: training-gie-0324
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    start: 2024-03-26
+    end: 2024-04-17
+    group: training-tp-master1-chip-seq
 
   training-nort:
     count: 2
