@@ -299,7 +299,7 @@ deployment:
   training-gmc:
     count: 1
     flavor: c1.c28m225d50
-    start: 2024-03-18
+    start: 2024-03-19
     end: 2024-03-26
     group: training-gmc
     image: htcondor-secondary
