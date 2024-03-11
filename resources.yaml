@@ -254,6 +254,8 @@ deployment:
     start: 2024-03-12
     end: 2024-03-18
     group: training-eml
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
   training-kmb6:
     count: 2
     flavor: c1.c28m225d50
