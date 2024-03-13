@@ -328,6 +328,6 @@ deployment:
     flavor: c1.c28m225d50
     start: 2024-03-13
     end: 2024-03-20
-    group: training-joca-epigenomics-24
+    group: training-rocky9-test
     image: rocky-9
     secondary_htcondor_cluster: true
