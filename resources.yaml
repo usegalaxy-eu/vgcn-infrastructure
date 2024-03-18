@@ -231,7 +231,7 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
-    image: htcondor-secondary-gpu
+    image: gpu
     secondary_htcondor_cluster: true
   worker-c8m40g1-htcondor-secondary:
     count: 4 #4
@@ -244,7 +244,7 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
-    image: gpu
+    image: htcondor-secondary-gpu
     secondary_htcondor_cluster: true
 
   # Trainings
