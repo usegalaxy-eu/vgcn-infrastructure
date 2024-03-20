@@ -1,11 +1,9 @@
 ---
 # Global configuration of computing nodes.
 images:
-  default: vggp-v60-j322-692e75a7c101-main
-  gpu: vggp-v60-gpu-j322-692e75a7c101-main-kernel-4.18.0-477.21.1.el8_8-nvidia
   secure: vggp-v60-secure-j322-692e75a7c101-main
-  htcondor-secondary: vgcn~workers+internal~rockylinux-8.6-x86_64~2023-10-26~43739~htcondor-secondary~ebb20b8~kysrpex_local_build
-  htcondor-secondary-gpu: vgcn~workers-gpu+internal~rockylinux-8.6-x86_64~2023-11-16~34096~htcondor-secondary~a23fbb0~kysrpex_local_build
+  default: vgcn~workers+internal~rockylinux-8.6-x86_64~2023-10-26~43739~htcondor-secondary~ebb20b8~kysrpex_local_build
+  gpu: vgcn~workers-gpu+internal~rockylinux-8.6-x86_64~2023-11-16~34096~htcondor-secondary~a23fbb0~kysrpex_local_build
 network: bioinf
 secgroups:
   - ufr-ingress
@@ -41,7 +39,7 @@ deployment:
   #   flavor: c1.c120m225d50
   #   group: compute
   #   docker: true
-  #   image: htcondor-secondary
+  #   image: default
   #   secondary_htcondor_cluster: true
   #   volume:
   #     size: 1024
@@ -54,15 +52,15 @@ deployment:
     count: 0
     flavor: c1.c36m100d50
     group: upload
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-interactive-htcondor-secondary:
     count: 4 #8
     flavor: c1.c36m100d50
     group: interactive
     docker: true
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
     volume:
       size: 1024
       type: default
@@ -77,8 +75,8 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c28m225-htcondor-secondary:
     count: 0
     flavor: c1.c28m225d50
@@ -90,8 +88,8 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c36m100-htcondor-secondary:
     count: 26 #32
     flavor: c1.c36m100d50
@@ -103,8 +101,8 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c36m225-htcondor-secondary:
     count: 11 #11
     flavor: c1.c36m225d50
@@ -116,8 +114,8 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c36m900-htcondor-secondary:
     count: 1 #1 it's a c1.c36m975d50 host with probably a faulty memory bank
     flavor: c1.c36m900d50
@@ -129,8 +127,8 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c36m975-htcondor-secondary:
     count: 8 #8
     flavor: c1.c36m975d50
@@ -142,8 +140,8 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c28m935-htcondor-secondary:
     count: 4 #4
     flavor: c1.c28m935d50
@@ -155,8 +153,8 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c28m875-htcondor-secondary:
     count: 2 #2
     flavor: c1.c28m875d50
@@ -168,8 +166,8 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c64m2-htcondor-secondary:
     count: 1 #1
     flavor: c1.c60m1975d50
@@ -178,8 +176,8 @@ deployment:
     volume:
       size: 1024
       type: default
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c120m225-htcondor-secondary:
     count: 12 #12
     flavor: c1.c120m225d50
@@ -191,8 +189,8 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c120m425-htcondor-secondary:
     count: 22
     flavor: c1.c120m425d50
@@ -204,8 +202,8 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c125m425-htcondor-secondary:
     count: 16 #16
     flavor: c1.c125m425d50
@@ -217,8 +215,8 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   worker-c14m40g1-htcondor-secondary:
     count: 4 #4
     flavor: g1.c14m40g1d50
@@ -230,8 +228,8 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
-    image: htcondor-secondary-gpu
-    secondary_htcondor_cluster: true
+    image: gpu
+
   worker-c8m40g1-htcondor-secondary:
     count: 4 #4
     flavor: g1.c8m40g1d50
@@ -243,8 +241,8 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
-    image: htcondor-secondary-gpu
-    secondary_htcondor_cluster: true
+    image: gpu
+
 
   # Trainings
   # These will overlap Mar 12-15
@@ -254,32 +252,32 @@ deployment:
     start: 2024-03-12
     end: 2024-03-18
     group: training-eml
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   training-kmb6:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-03-01
     end: 2024-05-17
     group: training-kmb615
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   training-path-gen-march-24:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-03-04
     end: 2024-03-15
     group: training-path-gen-march-24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   training-msc-exeter:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-03-06
     end: 2024-03-20
     group: training-msc-exeter
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
 
   training-asse:
     count: 1
@@ -287,37 +285,37 @@ deployment:
     start: 2024-03-18
     end: 2024-03-22
     group: training-assemblyannotation
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   training-gie-:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-03-18
     end: 2024-03-19
     group: training-gie-0324
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   training-geno:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-05-07
     end: 2024-05-10
     group: training-genome-assembly-2024
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   training-nort:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-06-07
     end: 2024-06-07
     group: training-northumbria-7jun24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
   training-joca:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-04-12
     end: 2024-04-12
     group: training-joca-epigenomics-24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
