@@ -34,13 +34,12 @@ nodes_inventory:
   g1.c8m40g1d50: 4
 
 deployment:
-  # worker-c120m225-htcondor-secondary:
+  # worker-c120m225:
   #   count: 1 #12
   #   flavor: c1.c120m225d50
   #   group: compute
   #   docker: true
   #   image: default
-  #   secondary_htcondor_cluster: true
   #   volume:
   #     size: 1024
   #     type: default
@@ -48,13 +47,13 @@ deployment:
   #     mem_limit_policy: hard
   #     mem_reserved_size: 2048
 
-  worker-fetch-htcondor-secondary:
+  worker-fetch:
     count: 0
     flavor: c1.c36m100d50
     group: upload
     image: default
 
-  worker-interactive-htcondor-secondary:
+  worker-interactive:
     count: 4 #8
     flavor: c1.c36m100d50
     group: interactive
@@ -64,7 +63,7 @@ deployment:
     volume:
       size: 1024
       type: default
-  worker-c28m475-htcondor-secondary:
+  worker-c28m475:
     count: 10 #19
     flavor: c1.c28m475d50
     group: compute
@@ -77,7 +76,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c28m225-htcondor-secondary:
+  worker-c28m225:
     count: 0
     flavor: c1.c28m225d50
     group: compute_test
@@ -90,7 +89,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c36m100-htcondor-secondary:
+  worker-c36m100:
     count: 26 #32
     flavor: c1.c36m100d50
     group: compute
@@ -103,7 +102,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c36m225-htcondor-secondary:
+  worker-c36m225:
     count: 11 #11
     flavor: c1.c36m225d50
     group: compute
@@ -116,7 +115,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c36m900-htcondor-secondary:
+  worker-c36m900:
     count: 1 #1 it's a c1.c36m975d50 host with probably a faulty memory bank
     flavor: c1.c36m900d50
     group: compute
@@ -129,7 +128,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c36m975-htcondor-secondary:
+  worker-c36m975:
     count: 8 #8
     flavor: c1.c36m975d50
     group: compute
@@ -142,7 +141,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c28m935-htcondor-secondary:
+  worker-c28m935:
     count: 4 #4
     flavor: c1.c28m935d50
     group: compute
@@ -155,7 +154,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c28m875-htcondor-secondary:
+  worker-c28m875:
     count: 2 #2
     flavor: c1.c28m875d50
     group: compute
@@ -168,7 +167,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c64m2-htcondor-secondary:
+  worker-c64m2:
     count: 1 #1
     flavor: c1.c60m1975d50
     group: compute
@@ -178,7 +177,7 @@ deployment:
       type: default
     image: default
 
-  worker-c120m225-htcondor-secondary:
+  worker-c120m225:
     count: 12 #12
     flavor: c1.c120m225d50
     group: compute
@@ -191,7 +190,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c120m425-htcondor-secondary:
+  worker-c120m425:
     count: 22
     flavor: c1.c120m425d50
     group: compute
@@ -204,7 +203,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c125m425-htcondor-secondary:
+  worker-c125m425:
     count: 16 #16
     flavor: c1.c125m425d50
     group: compute
@@ -217,7 +216,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  worker-c14m40g1-htcondor-secondary:
+  worker-c14m40g1:
     count: 4 #4
     flavor: g1.c14m40g1d50
     group: compute_gpu
@@ -230,7 +229,7 @@ deployment:
       mem_reserved_size: 1024
     image: gpu
 
-  worker-c8m40g1-htcondor-secondary:
+  worker-c8m40g1:
     count: 4 #4
     flavor: g1.c8m40g1d50
     group: compute_gpu
@@ -253,7 +252,6 @@ deployment:
     end: 2024-03-18
     group: training-eml
     image: default
-
   training-kmb6:
     count: 1
     flavor: c1.c28m225d50
@@ -261,7 +259,6 @@ deployment:
     end: 2024-05-17
     group: training-kmb615
     image: default
-
   training-path-gen-march-24:
     count: 2
     flavor: c1.c28m225d50
@@ -269,7 +266,6 @@ deployment:
     end: 2024-03-15
     group: training-path-gen-march-24
     image: default
-
   training-msc-exeter:
     count: 1
     flavor: c1.c28m225d50
@@ -277,8 +273,6 @@ deployment:
     end: 2024-03-20
     group: training-msc-exeter
     image: default
-
-
   training-asse:
     count: 2
     flavor: c1.c28m225d50
@@ -286,7 +280,6 @@ deployment:
     end: 2024-03-22
     group: training-assemblyannotation
     image: default
-
   training-gie-:
     count: 1
     flavor: c1.c28m225d50
@@ -294,26 +287,20 @@ deployment:
     end: 2024-03-19
     group: training-gie-0324
     image: default
-
-
-
   training-e5020:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-03-19
     end: 2024-03-19
     group: training-e5020-2024-03-19
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
   training-gmc:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-03-19
     end: 2024-03-26
     group: training-gmc
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-
+    image: default
   training-geno:
     count: 2
     flavor: c1.c28m225d50
@@ -329,7 +316,6 @@ deployment:
     end: 2024-06-07
     group: training-northumbria-7jun24
     image: default
-
   training-joca:
     count: 2
     flavor: c1.c28m225d50
@@ -337,4 +323,3 @@ deployment:
     end: 2024-04-12
     group: training-joca-epigenomics-24
     image: default
-
