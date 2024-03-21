@@ -301,7 +301,7 @@ deployment:
   training-rock:
     count: 1
     flavor: c1.c28m225d50
-    start: 2024-04-09
-    end: 2024-03-22
+    start: 2024-03-21
+    end: 2024-03-26
     group: training-rocky9-test
     secondary_htcondor_cluster: true
