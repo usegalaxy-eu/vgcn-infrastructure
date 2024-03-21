@@ -1,12 +1,11 @@
 ---
 # Global configuration of computing nodes.
 images:
-  default: vggp-v60-j322-692e75a7c101-main
+  default: vgcn~rockylinux-9-latest-x86_64~+generic+workers+internal~20240321~41538~HEAD~4766217
   gpu: vgcn~rockylinux-9-latest-x86_64~+generic+workers-gpu+internal~20240318~65722~dev~220eac2~with_latest_drivers
   secure: vggp-v60-secure-j322-692e75a7c101-main
   htcondor-secondary: vgcn~workers+internal~rockylinux-8.6-x86_64~2023-10-26~43739~htcondor-secondary~ebb20b8~kysrpex_local_build
   htcondor-secondary-gpu: vgcn~workers-gpu+internal~rockylinux-8.6-x86_64~2023-11-16~34096~htcondor-secondary~a23fbb0~kysrpex_local_build
-  rocky-9: vgcn~rockylinux-9-latest-x86_64~+generic+workers+internal~20240314~40429~dev~9f80854~2nd_test_no_kernel_lt_by_mira
 network: bioinf
 secgroups:
   - ufr-ingress
@@ -298,4 +297,11 @@ deployment:
     end: 2024-04-12
     group: training-joca-epigenomics-24
     image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-rock:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-03-21
+    end: 2024-03-26
+    group: training-rocky9-test
     secondary_htcondor_cluster: true
