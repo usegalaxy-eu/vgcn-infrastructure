@@ -257,7 +257,7 @@ deployment:
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   training-asse:
-    count: 4
+    count: 3
     flavor: c1.c28m225d50
     start: 2024-03-18
     end: 2024-03-22
@@ -271,6 +271,13 @@ deployment:
     end: 2024-03-26
     group: training-gmc
     image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-rock:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-03-21
+    end: 2024-03-26
+    group: training-rocky9-test
     secondary_htcondor_cluster: true
 
   training-geno:
@@ -297,11 +304,4 @@ deployment:
     end: 2024-04-12
     group: training-joca-epigenomics-24
     image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-rock:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-03-21
-    end: 2024-03-26
-    group: training-rocky9-test
     secondary_htcondor_cluster: true
