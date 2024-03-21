@@ -255,8 +255,12 @@ deployment:
     start: 2024-03-01
     end: 2024-05-17
     group: training-kmb615
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+  training-tp-m:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-03-26
+    end: 2024-04-17
+    group: training-tp-master1-chip-seq
   training-woco:
     count: 1
     flavor: c1.c28m225d50
@@ -264,7 +268,7 @@ deployment:
     end: 2024-05-10
     group: training-woco2024
   training-e502:
-    count: 1
+    count: 2
     flavor: c1.c28m225d50
     start: 2024-04-09
     end: 2024-04-09
@@ -275,8 +279,6 @@ deployment:
     start: 2024-04-12
     end: 2024-04-12
     group: training-joca-epigenomics-24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
 
   training-geno:
     count: 2
@@ -284,8 +286,6 @@ deployment:
     start: 2024-05-07
     end: 2024-05-10
     group: training-genome-assembly-2024
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
 
   training-nort:
     count: 2
@@ -293,5 +293,3 @@ deployment:
     start: 2024-06-07
     end: 2024-06-07
     group: training-northumbria-7jun24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
