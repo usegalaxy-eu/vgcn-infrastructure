@@ -247,7 +247,8 @@ deployment:
     secondary_htcondor_cluster: true
 
   # Trainings
-  # These will overlap Mar 18 and partly Mar 21-22
+  # These will overlap Mar 26-Apr 5
+
   training-kmb6:
     count: 1
     flavor: c1.c28m225d50
@@ -256,12 +257,20 @@ deployment:
     group: training-kmb615
     image: htcondor-secondary
     secondary_htcondor_cluster: true
-  training-asse:
-    count: 3
+  training-heh-:
+    count: 1
     flavor: c1.c28m225d50
-    start: 2024-03-18
-    end: 2024-03-22
-    group: training-assemblyannotation
+    start: 2024-04-01
+    end: 2024-04-05
+    group: training-heh-genome
+    image: htcondor-secondary
+    secondary_htcondor_cluster: true
+  training-tp-m:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-03-26
+    end: 2024-04-17
+    group: training-tp-master1-chip-seq
     image: htcondor-secondary
     secondary_htcondor_cluster: true
   training-gmc:
