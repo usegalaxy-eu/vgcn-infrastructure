@@ -2,7 +2,7 @@
 # Global configuration of computing nodes.
 images:
   default: vgcn~rockylinux-9-latest-x86_64~+generic+workers+internal~20240321~66731~HEAD~60854e6
-  gpu: vgcn~rockylinux-9-latest-x86_64~+generic+workers-gpu+internal~20240321~66731~HEAD~60854e6
+  gpu: vgcn~rockylinux-9-latest-x86_64~+generic+workers-gpu+internal~20240327~34401~HEAD~2a80ce3
   secure: vggp-v60-secure-j322-692e75a7c101-main
   htcondor-secondary: vgcn~workers+internal~rockylinux-8.6-x86_64~2023-10-26~43739~htcondor-secondary~ebb20b8~kysrpex_local_build
   htcondor-secondary-gpu: vgcn~workers-gpu+internal~rockylinux-8.6-x86_64~2023-11-16~34096~htcondor-secondary~a23fbb0~kysrpex_local_build
