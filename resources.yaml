@@ -1,9 +1,10 @@
 ---
 # Global configuration of computing nodes.
 images:
+  default: vgcn~rockylinux-9-latest-x86_64~+generic+workers+internal~20240321~66731~HEAD~60854e6
+  gpu: vgcn~rockylinux-9-latest-x86_64~+generic+workers-gpu+internal~20240327~34401~HEAD~2a80ce3
   secure: vggp-v60-secure-j322-692e75a7c101-main
-  default: vgcn~workers+internal~rockylinux-8.6-x86_64~2023-10-26~43739~htcondor-secondary~ebb20b8~kysrpex_local_build
-  gpu: vgcn~workers-gpu+internal~rockylinux-8.6-x86_64~2023-11-16~34096~htcondor-secondary~a23fbb0~kysrpex_local_build
+
 network: bioinf
 secgroups:
   - ufr-ingress
@@ -244,14 +245,7 @@ deployment:
 
 
   # Trainings
-  # These will overlap Mar 18 and partly Mar 19-22
-  training-eml:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-03-12
-    end: 2024-03-18
-    group: training-eml
-    image: default
+  # These will overlap Mar 26-Apr 5
   training-kmb6:
     count: 1
     flavor: c1.c28m225d50
@@ -259,48 +253,28 @@ deployment:
     end: 2024-05-17
     group: training-kmb615
     image: default
-  training-path-gen-march-24:
+  training-heh-:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-04-01
+    end: 2024-04-05
+    group: training-heh-genome
+    image: default
+  training-tp-m:
     count: 2
     flavor: c1.c28m225d50
-    start: 2024-03-04
-    end: 2024-03-15
-    group: training-path-gen-march-24
+    start: 2024-03-26
+    end: 2024-04-17
+    group: training-tp-master1-chip-seq
     image: default
-  training-msc-exeter:
+  training-rock:
     count: 1
     flavor: c1.c28m225d50
-    start: 2024-03-06
-    end: 2024-03-20
-    group: training-msc-exeter
+    start: 2024-03-27
+    end: 2024-03-29
+    group: training-rocky9-test
     image: default
-  training-asse:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-03-18
-    end: 2024-03-22
-    group: training-assemblyannotation
-    image: default
-  training-gie-:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-03-18
-    end: 2024-03-19
-    group: training-gie-0324
-    image: default
-  training-e5020:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-03-19
-    end: 2024-03-19
-    group: training-e5020-2024-03-19
-    image: default
-  training-gmc:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-03-19
-    end: 2024-03-26
-    group: training-gmc
-    image: default
+
   training-geno:
     count: 2
     flavor: c1.c28m225d50
