@@ -4,8 +4,7 @@ images:
   default: vgcn~rockylinux-9-latest-x86_64~+generic+workers+internal~20240321~66731~HEAD~60854e6
   gpu: vgcn~rockylinux-9-latest-x86_64~+generic+workers-gpu+internal~20240327~34401~HEAD~2a80ce3
   secure: vggp-v60-secure-j322-692e75a7c101-main
-  htcondor-secondary: vgcn~workers+internal~rockylinux-8.6-x86_64~2023-10-26~43739~htcondor-secondary~ebb20b8~kysrpex_local_build
-  htcondor-secondary-gpu: vgcn~workers-gpu+internal~rockylinux-8.6-x86_64~2023-11-16~34096~htcondor-secondary~a23fbb0~kysrpex_local_build
+
 network: bioinf
 secgroups:
   - ufr-ingress
@@ -36,13 +35,12 @@ nodes_inventory:
   g1.c8m40g1d50: 4
 
 deployment:
-  # worker-c120m225-htcondor-secondary:
+  # worker-c120m225:
   #   count: 1 #12
   #   flavor: c1.c120m225d50
   #   group: compute
   #   docker: true
-  #   image: htcondor-secondary
-  #   secondary_htcondor_cluster: true
+  #   image: default
   #   volume:
   #     size: 1024
   #     type: default
@@ -50,23 +48,23 @@ deployment:
   #     mem_limit_policy: hard
   #     mem_reserved_size: 2048
 
-  worker-fetch-htcondor-secondary:
+  worker-fetch:
     count: 0
     flavor: c1.c36m100d50
     group: upload
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-interactive-htcondor-secondary:
+    image: default
+
+  worker-interactive:
     count: 4 #8
     flavor: c1.c36m100d50
     group: interactive
     docker: true
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
+
     volume:
       size: 1024
       type: default
-  worker-c28m475-htcondor-secondary:
+  worker-c28m475:
     count: 10 #19
     flavor: c1.c28m475d50
     group: compute
@@ -77,9 +75,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c28m225-htcondor-secondary:
+    image: default
+
+  worker-c28m225:
     count: 0
     flavor: c1.c28m225d50
     group: compute_test
@@ -90,9 +88,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c36m100-htcondor-secondary:
+    image: default
+
+  worker-c36m100:
     count: 26 #32
     flavor: c1.c36m100d50
     group: compute
@@ -103,9 +101,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c36m225-htcondor-secondary:
+    image: default
+
+  worker-c36m225:
     count: 11 #11
     flavor: c1.c36m225d50
     group: compute
@@ -116,9 +114,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c36m900-htcondor-secondary:
+    image: default
+
+  worker-c36m900:
     count: 1 #1 it's a c1.c36m975d50 host with probably a faulty memory bank
     flavor: c1.c36m900d50
     group: compute
@@ -129,9 +127,9 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c36m975-htcondor-secondary:
+    image: default
+
+  worker-c36m975:
     count: 8 #8
     flavor: c1.c36m975d50
     group: compute
@@ -142,9 +140,9 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c28m935-htcondor-secondary:
+    image: default
+
+  worker-c28m935:
     count: 4 #4
     flavor: c1.c28m935d50
     group: compute
@@ -155,9 +153,9 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c28m875-htcondor-secondary:
+    image: default
+
+  worker-c28m875:
     count: 2 #2
     flavor: c1.c28m875d50
     group: compute
@@ -168,9 +166,9 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c64m2-htcondor-secondary:
+    image: default
+
+  worker-c64m2:
     count: 1 #1
     flavor: c1.c60m1975d50
     group: compute
@@ -178,9 +176,9 @@ deployment:
     volume:
       size: 1024
       type: default
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c120m225-htcondor-secondary:
+    image: default
+
+  worker-c120m225:
     count: 12 #12
     flavor: c1.c120m225d50
     group: compute
@@ -191,9 +189,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c120m425-htcondor-secondary:
+    image: default
+
+  worker-c120m425:
     count: 22
     flavor: c1.c120m425d50
     group: compute
@@ -204,9 +202,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c125m425-htcondor-secondary:
+    image: default
+
+  worker-c125m425:
     count: 16 #16
     flavor: c1.c125m425d50
     group: compute
@@ -217,9 +215,9 @@ deployment:
     cgroups:
       mem_limit_policy: hard
       mem_reserved_size: 2048
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  worker-c14m40g1-htcondor-secondary:
+    image: default
+
+  worker-c14m40g1:
     count: 4 #4
     flavor: g1.c14m40g1d50
     group: compute_gpu
@@ -231,8 +229,8 @@ deployment:
       mem_limit_policy: soft
       mem_reserved_size: 1024
     image: gpu
-    secondary_htcondor_cluster: true
-  worker-c8m40g1-htcondor-secondary:
+
+  worker-c8m40g1:
     count: 4 #4
     flavor: g1.c8m40g1d50
     group: compute_gpu
@@ -243,51 +241,39 @@ deployment:
     cgroups:
       mem_limit_policy: soft
       mem_reserved_size: 1024
-    image: htcondor-secondary-gpu
-    secondary_htcondor_cluster: true
+    image: gpu
+
 
   # Trainings
   # These will overlap Mar 26-Apr 5
-
   training-kmb6:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-03-01
     end: 2024-05-17
     group: training-kmb615
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
   training-heh-:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-04-01
     end: 2024-04-05
     group: training-heh-genome
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
   training-tp-m:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-03-26
     end: 2024-04-17
     group: training-tp-master1-chip-seq
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
-  training-gmc:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-03-19
-    end: 2024-03-26
-    group: training-gmc
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
   training-rock:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-03-27
     end: 2024-03-29
     group: training-rocky9-test
-    secondary_htcondor_cluster: true
+    image: default
 
   training-geno:
     count: 2
@@ -295,8 +281,7 @@ deployment:
     start: 2024-05-07
     end: 2024-05-10
     group: training-genome-assembly-2024
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
 
   training-nort:
     count: 2
@@ -304,13 +289,11 @@ deployment:
     start: 2024-06-07
     end: 2024-06-07
     group: training-northumbria-7jun24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default
   training-joca:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-04-12
     end: 2024-04-12
     group: training-joca-epigenomics-24
-    image: htcondor-secondary
-    secondary_htcondor_cluster: true
+    image: default

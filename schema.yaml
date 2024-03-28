@@ -120,6 +120,3 @@ mapping:
                     "docker":
                         type: bool
                         required: false
-                    "secondary_htcondor_cluster":
-                        type: bool
-                        required: false
