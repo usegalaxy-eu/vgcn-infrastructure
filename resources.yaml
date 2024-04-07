@@ -245,20 +245,13 @@ deployment:
 
 
   # Trainings
-  # These will overlap Mar 26-Apr 5
+  # These will overlap April 8-17
   training-kmb6:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-03-01
     end: 2024-05-17
     group: training-kmb615
-    image: default
-  training-heh-:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-04-01
-    end: 2024-04-05
-    group: training-heh-genome
     image: default
   training-tp-m:
     count: 2
@@ -267,14 +260,6 @@ deployment:
     end: 2024-04-17
     group: training-tp-master1-chip-seq
     image: default
-  training-rock:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-03-27
-    end: 2024-03-29
-    group: training-rocky9-test
-    image: default
-
   training-geno:
     count: 2
     flavor: c1.c28m225d50
@@ -282,7 +267,6 @@ deployment:
     end: 2024-05-10
     group: training-genome-assembly-2024
     image: default
-
   training-nort:
     count: 2
     flavor: c1.c28m225d50
@@ -296,4 +280,18 @@ deployment:
     start: 2024-04-12
     end: 2024-04-12
     group: training-joca-epigenomics-24
+    image: default
+  training-woco:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-04-08
+    end: 2024-05-10
+    group: training-woco2024
+    image: default
+  training-e502:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-04-09
+    end: 2024-04-09
+    group: training-e5020-2024-04-09
     image: default
