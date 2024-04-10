@@ -205,7 +205,7 @@ deployment:
   #   image: default
 
   worker-c125m425:
-    count: 4 #16
+    count: 16 #16
     flavor: c1.c125m425d50
     group: compute
     docker: true
