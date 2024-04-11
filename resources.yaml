@@ -60,10 +60,9 @@ deployment:
     group: interactive
     docker: true
     image: default
-
-  #   volume:
-  #     size: 1024
-  #     type: default
+    volume:
+      size: 1024
+      type: default
   # worker-c28m475:
   #   count: 10 #19
   #   flavor: c1.c28m475d50
