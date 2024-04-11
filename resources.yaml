@@ -54,12 +54,12 @@ deployment:
   #   group: upload
   #   image: default
 
-  # worker-interactive:
-  #   count: 4 #8
-  #   flavor: c1.c36m100d50
-  #   group: interactive
-  #   docker: true
-  #   image: default
+  worker-interactive:
+    count: 1 #8
+    flavor: c1.c36m100d50
+    group: interactive
+    docker: true
+    image: default
 
   #   volume:
   #     size: 1024
