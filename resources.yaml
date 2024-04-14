@@ -353,3 +353,9 @@ deployment:
     start: 2024-04-22
     end: 2024-04-22
     group: training-semesterproject-day1
+  training-seme:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-04-25
+    end: 2024-04-25
+    group: training-semesterproject-day2
