@@ -63,18 +63,18 @@ deployment:
     volume:
       size: 1024
       type: default
-  # worker-c28m475:
-  #   count: 10 #19
-  #   flavor: c1.c28m475d50
-  #   group: compute
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   cgroups:
-  #     mem_limit_policy: hard
-  #     mem_reserved_size: 2048
-  #   image: default
+  worker-c28m475:
+    count: 10 #19
+    flavor: c1.c28m475d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+    image: default
 
   # worker-c28m225:
   #   count: 0
@@ -190,18 +190,18 @@ deployment:
   #     mem_reserved_size: 2048
   #   image: default
 
-  # worker-c120m425:
-  #   count: 22
-  #   flavor: c1.c120m425d50
-  #   group: compute
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   cgroups:
-  #     mem_limit_policy: hard
-  #     mem_reserved_size: 2048
-  #   image: default
+  worker-c120m425:
+    count: 18 #22
+    flavor: c1.c120m425d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+    image: default
 
   worker-c125m425:
     count: 16 #16
