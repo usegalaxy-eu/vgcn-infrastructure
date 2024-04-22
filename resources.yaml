@@ -19,7 +19,7 @@ pubkeys:
 graceful: false
 
 nodes_inventory:
-  c1.c28m225d50: 7
+  c1.c28m225d50: 5 #(16.04.2024: RZ swapped the underlying servers for a 4 in 1 node and this will be of a different flavor and we need to wait to get the hardware)
   c1.c28m475d50: 19
   c1.c36m100d50: 32
   c1.c36m225d50: 11
@@ -64,7 +64,7 @@ deployment:
       size: 1024
       type: default
   worker-c28m475:
-    count: 10 #19
+    count: 19 #19
     flavor: c1.c28m475d50
     group: compute
     docker: true
@@ -80,7 +80,7 @@ deployment:
   # and since we do not have enough compute for Galaxy in the new cloud yet, let's redirect the
   # training VMs resources to the Galaxy and deploy them as compute nodes for now.
   worker-c28m225:
-    count: 7 #0
+    count: 5 #0
     flavor: c1.c28m225d50
     group: compute # compute_test
     docker: true
@@ -105,44 +105,44 @@ deployment:
   #     mem_reserved_size: 2048
   #   image: default
 
-  # worker-c36m225:
-  #   count: 11 #11
-  #   flavor: c1.c36m225d50
-  #   group: compute
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   cgroups:
-  #     mem_limit_policy: hard
-  #     mem_reserved_size: 2048
-  #   image: default
+  worker-c36m225:
+    count: 8 #11
+    flavor: c1.c36m225d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+    image: default
 
-  # worker-c36m900:
-  #   count: 1 #1 it's a c1.c36m975d50 host with probably a faulty memory bank
-  #   flavor: c1.c36m900d50
-  #   group: compute
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   cgroups:
-  #     mem_limit_policy: soft
-  #     mem_reserved_size: 2048
-  #   image: default
+  worker-c36m900:
+    count: 1 #1 it's a c1.c36m975d50 host with probably a faulty memory bank
+    flavor: c1.c36m900d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
+    image: default
 
-  # worker-c36m975:
-  #   count: 8 #8
-  #   flavor: c1.c36m975d50
-  #   group: compute
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   cgroups:
-  #     mem_limit_policy: soft
-  #     mem_reserved_size: 2048
-  #   image: default
+  worker-c36m975:
+    count: 7 #8
+    flavor: c1.c36m975d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
+    image: default
 
   # worker-c28m935:
   #   count: 4 #4
