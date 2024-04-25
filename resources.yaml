@@ -21,8 +21,8 @@ graceful: false
 nodes_inventory:
   c1.c28m225d50: 5 #(16.04.2024: RZ swapped the underlying servers for a 4 in 1 node and this will be of a different flavor and we need to wait to get the hardware)
   c1.c28m475d50: 19
-  c1.c36m100d50: 32
-  c1.c36m225d50: 11
+  c1.c36m100d50: 30
+  c1.c36m225d50: 15
   c1.c36m900d50: 1
   c1.c36m975d50: 8
   c1.c60m1975d50: 1
@@ -55,7 +55,7 @@ deployment:
   #   image: default
 
   worker-interactive:
-    count: 1 #8
+    count: 3 #8
     flavor: c1.c36m100d50
     group: interactive
     docker: true
@@ -64,7 +64,7 @@ deployment:
       size: 1024
       type: default
   worker-c28m475:
-    count: 19 #19
+    count: 19
     flavor: c1.c28m475d50
     group: compute
     docker: true
@@ -80,7 +80,7 @@ deployment:
   # and since we do not have enough compute for Galaxy in the new cloud yet, let's redirect the
   # training VMs resources to the Galaxy and deploy them as compute nodes for now.
   worker-c28m225:
-    count: 5 #0
+    count: 5
     flavor: c1.c28m225d50
     group: compute # compute_test
     docker: true
@@ -92,21 +92,21 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
-  # worker-c36m100:
-  #   count: 26 #32
-  #   flavor: c1.c36m100d50
-  #   group: compute
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   cgroups:
-  #     mem_limit_policy: hard
-  #     mem_reserved_size: 2048
-  #   image: default
+  worker-c36m100:
+    count: 25
+    flavor: c1.c36m100d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    cgroups:
+      mem_limit_policy: hard
+      mem_reserved_size: 2048
+    image: default
 
   worker-c36m225:
-    count: 8 #11
+    count: 15
     flavor: c1.c36m225d50
     group: compute
     docker: true
@@ -132,7 +132,7 @@ deployment:
     image: default
 
   worker-c36m975:
-    count: 7 #8
+    count: 8
     flavor: c1.c36m975d50
     group: compute
     docker: true
@@ -144,6 +144,8 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
+  # 24.04.2024: Flavors c1.c28m935d50 and c1.c28m875d50 will be available once
+  # moved to the new cloud along with the GPU flavors.
   # worker-c28m935:
   #   count: 4 #4
   #   flavor: c1.c28m935d50
@@ -170,15 +172,15 @@ deployment:
   #     mem_reserved_size: 2048
   #   image: default
 
-  # worker-c64m2:
-  #   count: 1 #1
-  #   flavor: c1.c60m1975d50
-  #   group: compute
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   image: default
+  worker-c64m2:
+    count: 1
+    flavor: c1.c60m1975d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    image: default
 
   # worker-c120m225:
   #   count: 12 #12
@@ -219,6 +221,7 @@ deployment:
       mem_reserved_size: 2048
     image: default
 
+  # 24.04.2024: GPU VMs are deployed (manually) in the old cloud for now
   # worker-c14m40g1:
   #   count: 4 #4
   #   flavor: g1.c14m40g1d50
@@ -244,7 +247,6 @@ deployment:
   #     mem_limit_policy: soft
   #     mem_reserved_size: 1024
   #   image: gpu
-
 
   # Trainings
   # These will overlap April 8-17
