@@ -296,3 +296,9 @@ deployment:
   #   end: 2024-04-09
   #   group: training-e5020-2024-04-09
   #   image: default
+  training-denb:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-05-15
+    end: 2024-05-15
+    group: training-denbi-genomics
