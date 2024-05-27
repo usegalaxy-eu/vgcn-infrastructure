@@ -308,3 +308,9 @@ deployment:
     start: 2024-05-28
     end: 2024-05-31
     group: training-sunu-dbs-prac3-2024
+  training-mtb-:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-06-10
+    end: 2024-06-14
+    group: training-mtb-ngs-2024
