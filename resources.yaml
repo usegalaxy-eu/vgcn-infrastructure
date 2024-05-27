@@ -314,3 +314,21 @@ deployment:
     start: 2024-06-10
     end: 2024-06-14
     group: training-mtb-ngs-2024
+  training-fr-j:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-06-17
+    end: 2024-06-21
+    group: training-fr-june24
+  training-frju:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-07-22
+    end: 2024-07-26
+    group: training-fr-july-24
+  training-prac:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-07-16
+    end: 2024-07-19
+    group: training-prac5-sunu-2024
