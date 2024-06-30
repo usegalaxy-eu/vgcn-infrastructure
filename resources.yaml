@@ -353,3 +353,9 @@ deployment:
     start: 2024-07-01
     end: 2024-07-01
     group: training-240701-tokyo
+  training-rnas:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-08-28
+    end: 2024-08-31
+    group: training-rnaseq
