@@ -347,3 +347,9 @@ deployment:
     start: 2024-07-04
     end: 2024-07-05
     group: training-ihpe-epi-cours
+  training-2407:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-07-01
+    end: 2024-07-01
+    group: training-240701-tokyo
