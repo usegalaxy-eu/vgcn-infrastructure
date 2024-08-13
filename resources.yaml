@@ -377,3 +377,9 @@ deployment:
     start: 2024-09-16
     end: 2024-09-20
     group: training-oubb
+  training-mse-:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-10-10
+    end: 2024-10-10
+    group: training-mse-2024
