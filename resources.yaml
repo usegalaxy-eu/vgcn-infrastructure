@@ -365,3 +365,9 @@ deployment:
     start: 2024-09-10
     end: 2024-09-13
     group: training-biont-rnaseq
+  training-tb-g:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-09-25
+    end: 22024-11-30
+    group: training-tb-genom2425
