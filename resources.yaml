@@ -359,3 +359,9 @@ deployment:
     start: 2024-08-28
     end: 2024-08-31
     group: training-rnaseq
+  training-bion:
+    count: 3
+    flavor: c1.c28m225d50
+    start: 2024-09-10
+    end: 2024-09-13
+    group: training-biont-rnaseq
