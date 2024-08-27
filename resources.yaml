@@ -395,3 +395,9 @@ deployment:
     start: 2024-09-11
     end: 2024-09-12
     group: training-microbiology-2024
+  training-bm42:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-09-25
+    end: 2024-10-02
+    group: training-bm425-workshop1-2024
