@@ -389,7 +389,7 @@ deployment:
     start: 2024-09-18
     end: 2024-09-19
     group: training-microbiology2-2024
-  training-micr:
+  training-micr2:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-09-11
