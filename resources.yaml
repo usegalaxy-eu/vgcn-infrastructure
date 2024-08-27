@@ -336,7 +336,7 @@ deployment:
     end: 2024-09-12
     group: training-microbiology-2024
   training-bm42:
-    count: 2
+    count: 1
     flavor: c1.c28m225d50
     start: 2024-09-25
     end: 2024-10-02
@@ -348,7 +348,7 @@ deployment:
     end: 2024-10-10
     group: training-fair-go
   training-bege:
-    count: 4
+    count: 2
     flavor: c1.c28m225d50
     start: 2024-09-23
     end: 2024-09-27
