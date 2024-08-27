@@ -287,72 +287,12 @@ deployment:
   #   end: 2024-04-09
   #   group: training-e5020-2024-04-09
   #   image: default
-  training-denb:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-05-15
-    end: 2024-05-15
-    group: training-denbi-genomics
-  training-sunu:
-    count: 4
-    flavor: c1.c28m225d50
-    start: 2024-05-28
-    end: 2024-05-31
-    group: training-sunu-dbs-prac3-2024
-  training-mtb-:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-06-10
-    end: 2024-06-14
-    group: training-mtb-ngs-2024
-  training-fr-j:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-06-17
-    end: 2024-06-21
-    group: training-fr-june24
-  training-frju:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-07-22
-    end: 2024-07-26
-    group: training-fr-july-24
-  training-prac:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-07-16
-    end: 2024-07-19
-    group: training-prac5-sunu-2024
-  training-ghos:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-06-18
-    end: 2024-06-18
-    group: training-ghoshd
-  training-eebg:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-07-02
-    end: 2024-07-02
-    group: training-eebg-romania-24
   training-bma2:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-08-19
     end: 2024-12-17
     group: training-bma231-ht24
-  training-ihpe:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-07-04
-    end: 2024-07-05
-    group: training-ihpe-epi-cours
-  training-2407:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-07-01
-    end: 2024-07-01
-    group: training-240701-tokyo
   training-rnas:
     count: 1
     flavor: c1.c28m225d50
@@ -369,7 +309,7 @@ deployment:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-09-25
-    end: 22024-11-30
+    end: 2024-11-30
     group: training-tb-genom2425
   training-oubb:
     count: 2
@@ -395,3 +335,21 @@ deployment:
     start: 2024-09-11
     end: 2024-09-12
     group: training-microbiology-2024
+  training-bm42:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-09-25
+    end: 2024-10-02
+    group: training-bm425-workshop1-2024
+  training-fair:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-10-09
+    end: 2024-10-10
+    group: training-fair-go
+  training-bege:
+    count: 2
+    flavor: c1.c28m225d50
+    start: 2024-09-23
+    end: 2024-09-27
+    group: training-begendivgenomics2024
