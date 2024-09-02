@@ -353,3 +353,9 @@ deployment:
     start: 2024-09-23
     end: 2024-09-27
     group: training-begendivgenomics2024
+  training-gta2:
+    count: 4
+    flavor: c1.c28m225d50
+    start: 2024-10-07
+    end: 2024-10-11
+    group: training-gta2024
