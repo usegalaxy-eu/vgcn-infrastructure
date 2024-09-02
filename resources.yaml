@@ -354,7 +354,7 @@ deployment:
     end: 2024-09-27
     group: training-begendivgenomics2024
   training-gta2:
-    count: 4
+    count: 0  ## we need the entire cluster eitherway
     flavor: c1.c28m225d50
     start: 2024-10-07
     end: 2024-10-11
