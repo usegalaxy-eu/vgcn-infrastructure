@@ -365,3 +365,9 @@ deployment:
     start: 2024-09-04
     end: 2024-09-04
     group: training-community-summit-24
+  training-debr:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-09-16
+    end: 2024-12-15
+    group: training-debrecen2024
