@@ -312,11 +312,15 @@ deployment:
     end: 2024-11-30
     group: training-tb-genom2425
   training-oubb:
-    count: 2
+    count: 3
     flavor: c1.c28m225d50
     start: 2024-09-16
     end: 2024-09-20
     group: training-oubb
+    docker: true
+    volume:
+      size: 1024
+      type: default
   training-mse-:
     count: 1
     flavor: c1.c28m225d50
