@@ -237,68 +237,12 @@ deployment:
   #   image: gpu
 
   # Trainings
-  # These will overlap April 8-17
-  # training-kmb6:
-  #   count: 1
-  #   flavor: c1.c28m225d50
-  #   start: 2024-03-01
-  #   end: 2024-05-17
-  #   group: training-kmb615
-  #   image: default
-  # training-tp-m:
-  #   count: 2
-  #   flavor: c1.c28m225d50
-  #   start: 2024-03-26
-  #   end: 2024-04-17
-  #   group: training-tp-master1-chip-seq
-  #   image: default
-  # training-geno:
-  #   count: 2
-  #   flavor: c1.c28m225d50
-  #   start: 2024-05-07
-  #   end: 2024-05-10
-  #   group: training-genome-assembly-2024
-  #   image: default
-  # training-nort:
-  #   count: 2
-  #   flavor: c1.c28m225d50
-  #   start: 2024-06-07
-  #   end: 2024-06-07
-  #   group: training-northumbria-7jun24
-  #   image: default
-  # training-joca:
-  #   count: 2
-  #   flavor: c1.c28m225d50
-  #   start: 2024-04-12
-  #   end: 2024-04-12
-  #   group: training-joca-epigenomics-24
-  #   image: default
-  # training-woco:
-  #   count: 1
-  #   flavor: c1.c28m225d50
-  #   start: 2024-04-08
-  #   end: 2024-05-10
-  #   group: training-woco2024
-  #   image: default
-  # training-e502:
-  #   count: 2
-  #   flavor: c1.c28m225d50
-  #   start: 2024-04-09
-  #   end: 2024-04-09
-  #   group: training-e5020-2024-04-09
-  #   image: default
   training-bma2:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-08-19
     end: 2024-12-17
     group: training-bma231-ht24
-  training-rnas:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-08-28
-    end: 2024-08-31
-    group: training-rnaseq
   training-bion:
     count: 3
     flavor: c1.c28m225d50
