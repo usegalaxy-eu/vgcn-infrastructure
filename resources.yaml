@@ -51,6 +51,9 @@ deployment:
     volume:
       size: 1024
       type: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
   worker-c28m475:
     count: 19
     flavor: c1.c28m475d50
@@ -166,6 +169,9 @@ deployment:
       size: 1024
       type: default
     image: default
+    cgroups:
+      mem_limit_policy: soft
+      mem_reserved_size: 2048
 
   # 18/06/24: Hardware is still connected to the old cloud
   # worker-c120m225:
