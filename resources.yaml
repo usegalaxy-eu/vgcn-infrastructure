@@ -51,9 +51,6 @@ deployment:
     volume:
       size: 1024
       type: default
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 2048
   worker-c28m475:
     count: 19
     flavor: c1.c28m475d50
@@ -62,9 +59,6 @@ deployment:
     volume:
       size: 1024
       type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
     image: default
 
   worker-c28m225:
@@ -75,9 +69,6 @@ deployment:
     volume:
       size: 1024
       type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
     image: default
 
   worker-c36m100:
@@ -88,9 +79,6 @@ deployment:
     volume:
       size: 1024
       type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
     image: default
 
   worker-c36m225:
@@ -101,9 +89,6 @@ deployment:
     volume:
       size: 1024
       type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
     image: default
 
   worker-c36m900:
@@ -114,9 +99,6 @@ deployment:
     volume:
       size: 1024
       type: default
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 2048
     image: default
 
   worker-c36m975:
@@ -127,9 +109,6 @@ deployment:
     volume:
       size: 1024
       type: default
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 2048
     image: default
 
   # 18/06/24: Hardware is still connected to the old cloud
@@ -141,9 +120,6 @@ deployment:
   #   volume:
   #     size: 1024
   #     type: default
-  #   cgroups:
-  #     mem_limit_policy: soft
-  #     mem_reserved_size: 2048
   #   image: default
 
   # 18/06/24: Hardware is still connected to the old cloud
@@ -155,9 +131,6 @@ deployment:
   #   volume:
   #     size: 1024
   #     type: default
-  #   cgroups:
-  #     mem_limit_policy: soft
-  #     mem_reserved_size: 2048
   #   image: default
 
   worker-c64m2:
@@ -169,9 +142,6 @@ deployment:
       size: 1024
       type: default
     image: default
-    cgroups:
-      mem_limit_policy: soft
-      mem_reserved_size: 2048
 
   # 18/06/24: Hardware is still connected to the old cloud
   # worker-c120m225:
@@ -182,9 +152,6 @@ deployment:
   #   volume:
   #     size: 1024
   #     type: default
-  #   cgroups:
-  #     mem_limit_policy: hard
-  #     mem_reserved_size: 2048
   #   image: default
 
   # 18/06/24: Hardware is still connected to the old cloud
@@ -196,9 +163,6 @@ deployment:
   #   volume:
   #     size: 1024
   #     type: default
-  #   cgroups:
-  #     mem_limit_policy: hard
-  #     mem_reserved_size: 2048
   #   image: default
 
   worker-c125m425:
@@ -209,9 +173,6 @@ deployment:
     volume:
       size: 1024
       type: default
-    cgroups:
-      mem_limit_policy: hard
-      mem_reserved_size: 2048
     image: default
 
   # 18/06/24: Hardware is still connected to the old cloud.
@@ -223,9 +184,6 @@ deployment:
   #   volume:
   #     size: 1024
   #     type: default
-  #   cgroups:
-  #     mem_limit_policy: soft
-  #     mem_reserved_size: 1024
   #   image: gpu
 
   # 18/06/24: Hardware is still connected to the old cloud. This GPU flavor shares the host with the flavor c1.c28m935d50.
@@ -237,9 +195,6 @@ deployment:
   #   volume:
   #     size: 1024
   #     type: default
-  #   cgroups:
-  #     mem_limit_policy: soft
-  #     mem_reserved_size: 1024
   #   image: gpu
 
   # Trainings

@@ -12,17 +12,9 @@ write_files:
       GalaxyDockerHack = {{ docker }}
       STARTD_ATTRS = GalaxyTraining, GalaxyGroup, GalaxyCluster, GalaxyDockerHack
       Rank = StringListMember(MY.GalaxyGroup, TARGET.Group)
-      {% if cgroups is defined -%}
       BASE_CGROUP = htcondor
-      {% if cgroups.mem_limit_policy is defined -%}
-      CGROUP_MEMORY_LIMIT_POLICY = {{ cgroups.mem_limit_policy }}
-      {% endif -%}
-      {% if cgroups.mem_reserved_size is defined -%}
-      RESERVED_MEMORY = {{ cgroups.mem_reserved_size }}
-      {% else -%}
-      RESERVED_MEMORY = 1024
-      {% endif -%}
-      {% endif %}
+      CGROUP_MEMORY_LIMIT_POLICY = hard
+      RESERVED_MEMORY = 2048
     owner: root:root
     path: /etc/condor/config.d/99-cloud-init.conf
     permissions: "0644"
