@@ -321,3 +321,9 @@ deployment:
       start: 2024-11-04
       end: 2024-11-29
       group: training-gqa24
+    training-epfl:
+      count: 2
+      flavor: c1.c28m225d50
+      start: 2024-11-14
+      end: 2024-11-15
+      group: training-epfl2024
