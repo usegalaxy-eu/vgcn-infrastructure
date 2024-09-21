@@ -327,3 +327,9 @@ deployment:
       start: 2024-11-14
       end: 2024-11-15
       group: training-epfl2024
+    training-hbig:
+      count: 2
+      flavor: c1.c28m225d50
+      start: 2024-10-20
+      end: 2024-10-22
+      group: training-hbigs
