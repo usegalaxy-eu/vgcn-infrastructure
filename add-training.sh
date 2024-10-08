@@ -57,9 +57,9 @@ Subject: UseGalaxy.eu TIaaS Request: Approved
 
 Dear **X**,
 
-Thanks for submitting your TIaaS request! Based on your choice, we have allocated ${vm_count} servers, each with ${vm_cpu} cores and ${vm_mem} GB of RAM. If you find that it is not enough for your training, please contact us and we can update that at any time. 
+Thanks for submitting your TIaaS request! Based on your choice, we have allocated ${vm_count} servers, each with ${vm_cpu} cores and ${vm_mem} GB of RAM. If you find that it is not enough for your training, please contact us and we can update that at any time.
 
-TIaaS provides a private queue for your training in addition to the regular one, which should make your jobs run a bit faster. To make use of it, we have created a training group for you that is accessible at 
+TIaaS provides a private queue for your training in addition to the regular one, which should make your jobs run a bit faster. To make use of it, we have created a training group for you that is accessible at
 
 https://usegalaxy.eu/join-training/${training_identifier}
 
@@ -69,7 +69,7 @@ Queue Status:
 If you find yourself wondering where your students are during the training, you can use the queue status page to see which jobs are being run by people in your training: https://usegalaxy.eu/join-training/${training_identifier}/status
 
 Support:
-If during the workshop you experience issues with the server, you can ask for support in the Galaxy Europe Gitter channel: https://gitter.im/usegalaxy-eu/Lobby
+If during the workshop you experience issues with the server, you can ask for support in the Galaxy Europe Gitter channel: https://matrix.to/#/#usegalaxy-eu_Lobby:gitter.im
 
 AWS Estimate:
 If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id}machine(s), it would cost ${price_int} USD.
@@ -78,7 +78,7 @@ Workshop Feedback:
 When your workshop is over, if you used GTN materials, please let us know how it went on the workshop feedback issue: https://github.com/galaxyproject/training-material/issues/1452
 
 TIaaS Feedback:
-We encourage you to send us a short review sharing your experience, tips for other instructors,... that we will publish in https://galaxyproject.eu/news?tag=TIaaS. Your feedback is very valuable to keep this service up and running for free. 
+We encourage you to send us a short review sharing your experience, tips for other instructors,... that we will publish in https://galaxyproject.eu/news?tag=TIaaS. Your feedback is very valuable to keep this service up and running for free.
 
 We really appreciate your support. Thank you very much for using Galaxy and don't hesitate to contact us if you have any questions!
 
