@@ -292,7 +292,7 @@ deployment:
     start: 2024-12-02
     end: 2024-12-06
     group: training-ki-bioinfo-dna-2024
-  training-gala:
+  training-gngs:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-10-29
