@@ -82,7 +82,7 @@ deployment:
     image: default
 
   worker-c36m225:
-    count: 15
+    count: 14
     flavor: c1.c36m225d50
     group: compute
     docker: true
@@ -294,7 +294,7 @@ deployment:
     group: training-ki-bioinfo-dna-2024
   training-gngs:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c36m225d50
     start: 2024-10-29
     end: 2024-10-31
     group: training-galaxyngs24
