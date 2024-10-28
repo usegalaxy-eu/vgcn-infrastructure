@@ -82,7 +82,7 @@ deployment:
     image: default
 
   worker-c36m225:
-    count: 14
+    count: 13
     flavor: c1.c36m225d50
     group: compute
     docker: true
@@ -248,7 +248,7 @@ deployment:
     group: training-geneexpressgalaxy24
   training-gala:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c36m225d50
     start: 2024-10-30
     end: 2024-11-04
     group: training-galaxy24
