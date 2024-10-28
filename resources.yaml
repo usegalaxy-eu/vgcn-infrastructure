@@ -210,40 +210,6 @@ deployment:
     start: 2024-09-25
     end: 2024-11-30
     group: training-tb-genom2425
-  training-oubb:
-    count: 3
-    flavor: c1.c28m225d50
-    start: 2024-09-16
-    end: 2024-09-20
-    group: training-oubb
-    docker: true
-    volume:
-      size: 1024
-      type: default
-  training-mse-:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-10-10
-    end: 2024-10-10
-    group: training-mse-2024
-  training-bm42:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-09-25
-    end: 2024-10-02
-    group: training-bm425-workshop1-2024
-  training-fair:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-10-09
-    end: 2024-10-10
-    group: training-fair-go
-  training-bege:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-09-23
-    end: 2024-09-27
-    group: training-begendivgenomics2024
   training-gta2:
     count: 0  ## we need the entire cluster eitherway
     flavor: c1.c28m225d50
@@ -257,7 +223,7 @@ deployment:
     end: 2024-11-29
     group: training-gqa24
   training-epfl:
-    count: 2
+    count: 1
     flavor: c1.c28m225d50
     start: 2024-11-14
     end: 2024-11-15
