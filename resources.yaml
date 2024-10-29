@@ -234,12 +234,6 @@ deployment:
     start: 2024-10-20
     end: 2024-10-22
     group: training-hbigs
-  training-sacc:
-    count: 0
-    flavor: c1.c28m225d50
-    start: 2024-10-10
-    end: 2024-12-20
-    group: training-saccharomyces
   training-gene:
     count: 1
     flavor: c1.c28m225d50
