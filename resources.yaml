@@ -274,5 +274,5 @@ deployment:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-11-01
-    end: 2024-11-06
+    end: 2024-12-06
     group: training-msc-tmr-ws24
