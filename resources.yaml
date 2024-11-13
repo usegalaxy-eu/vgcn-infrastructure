@@ -82,7 +82,7 @@ deployment:
     image: default
 
   worker-c36m225:
-    count: 13
+    count: 14
     flavor: c1.c36m225d50
     group: compute
     docker: true
@@ -212,7 +212,7 @@ deployment:
     group: training-gqa24
   training-epfl:
     count: 1
-    flavor: c1.c36m225d50
+    flavor: c1.c28m225d50
     start: 2024-11-14
     end: 2024-11-15
     group: training-epfl2024
