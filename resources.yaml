@@ -198,24 +198,12 @@ deployment:
   #   image: gpu
 
   # Trainings
-  training-bma2:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-08-19
-    end: 2024-12-17
-    group: training-bma231-ht24
   training-tb-g:
     count: 1
     flavor: c1.c28m225d50
     start: 2024-09-25
     end: 2024-11-30
     group: training-tb-genom2425
-  training-gta2:
-    count: 0  ## we need the entire cluster eitherway
-    flavor: c1.c28m225d50
-    start: 2024-10-07
-    end: 2024-10-11
-    group: training-gta2024
   training-gqa2:
     count: 1
     flavor: c1.c28m225d50
@@ -228,36 +216,12 @@ deployment:
     start: 2024-11-14
     end: 2024-11-15
     group: training-epfl2024
-  training-hbig:
-    count: 2
-    flavor: c1.c28m225d50
-    start: 2024-10-20
-    end: 2024-10-22
-    group: training-hbigs
-  training-gene:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-10-24
-    end: 2024-11-01
-    group: training-geneexpressgalaxy24
-  training-gala:
-    count: 1
-    flavor: c1.c36m225d50
-    start: 2024-10-30
-    end: 2024-11-04
-    group: training-galaxy24
   training-ki-b:
     count: 2
     flavor: c1.c28m225d50
     start: 2024-12-02
     end: 2024-12-06
     group: training-ki-bioinfo-dna-2024
-  training-gngs:
-    count: 1
-    flavor: c1.c36m225d50
-    start: 2024-10-29
-    end: 2024-10-31
-    group: training-galaxyngs24
   training-kmb6:
     count: 1
     flavor: c1.c28m225d50
@@ -270,3 +234,9 @@ deployment:
     start: 2024-11-01
     end: 2024-12-06
     group: training-msc-tmr-ws24
+  training-hand:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-11-18
+    end: 2024-12-20
+    group: training-hands-on-plus
