@@ -234,3 +234,9 @@ deployment:
     start: 2024-11-01
     end: 2024-12-06
     group: training-msc-tmr-ws24
+  training-hand:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-11-18
+    end: 2024-12-20
+    group: training-hands-on-plus
