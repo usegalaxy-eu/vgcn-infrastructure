@@ -198,12 +198,6 @@ deployment:
   #   image: gpu
 
   # Trainings
-  training-bma2:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-08-19
-    end: 2024-12-17
-    group: training-bma231-ht24
   training-tb-g:
     count: 1
     flavor: c1.c28m225d50
