@@ -154,16 +154,15 @@ deployment:
   #     type: default
   #   image: default
 
-  # 18/06/24: Hardware is still connected to the old cloud
-  # worker-c120m425:
-  #   count: 18 #22
-  #   flavor: c1.c120m425d50
-  #   group: compute
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   image: default
+  worker-c120m425:
+    count: 22
+    flavor: c1.c120m425d50
+    group: compute
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    image: default
 
   worker-c125m425:
     count: 16 #16
