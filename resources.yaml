@@ -198,12 +198,6 @@ deployment:
   #   image: gpu
 
   # Trainings
-  training-tb-g:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-09-25
-    end: 2024-11-30
-    group: training-tb-genom2425
   training-gqa2:
     count: 1
     flavor: c1.c28m225d50
@@ -240,3 +234,9 @@ deployment:
     start: 2024-11-18
     end: 2024-12-20
     group: training-hands-on-plus
+  training-rnr-:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-11-25
+    end: 2024-12-20
+    group: training-rnr-sekoskaita
