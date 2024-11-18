@@ -184,16 +184,15 @@ deployment:
   #     type: default
   #   image: gpu
 
-  # 18/06/24: Hardware is still connected to the old cloud. This GPU flavor shares the host with the flavor c1.c28m935d50.
-  # worker-c8m40g1:
-  #   count: 4 #4
-  #   flavor: g1.c8m40g1d50
-  #   group: compute_gpu
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   image: gpu
+  worker-c8m40g1:
+    count: 14
+    flavor: g1.c8m40g1d50
+    group: compute_gpu
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    image: gpu
 
   # Trainings
   training-gqa2:
