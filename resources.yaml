@@ -43,7 +43,7 @@ deployment:
   #   image: default
 
   worker-interactive:
-    count: 3 #8
+    count: 2 #3
     flavor: c1.c36m100d50
     group: interactive
     docker: true
