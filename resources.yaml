@@ -173,16 +173,15 @@ deployment:
       type: default
     image: default
 
-  # 18/06/24: Hardware is still connected to the old cloud.
-  # worker-c14m40g1:
-  #   count: 4 #4
-  #   flavor: g1.c14m40g1d50
-  #   group: compute_gpu
-  #   docker: true
-  #   volume:
-  #     size: 1024
-  #     type: default
-  #   image: gpu
+  worker-c14m40g1:
+    count: 4
+    flavor: g1.c14m40g1d50
+    group: compute_gpu
+    docker: true
+    volume:
+      size: 1024
+      type: default
+    image: gpu
 
   worker-c8m40g1:
     count: 14
