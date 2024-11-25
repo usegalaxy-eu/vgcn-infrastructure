@@ -242,3 +242,9 @@ deployment:
     start: 2024-12-16
     end: 2024-12-20
     group: training-heh-mag2024
+  training-gdaw:
+    count: 1
+    flavor: c1.c28m225d50
+    start: 2024-12-10
+    end: 2024-12-30
+    group: training-gdawg2024
