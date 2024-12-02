@@ -144,7 +144,7 @@ deployment:
     image: default
 
   worker-c120m205:
-    count: 10
+    count: 5
     flavor: c1.c120m205d50
     group: compute
     docker: true
@@ -194,63 +194,51 @@ deployment:
     image: gpu
 
   # Trainings
-  training-gqa2:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-11-04
-    end: 2024-11-29
-    group: training-gqa24
-  training-epfl:
-    count: 1
-    flavor: c1.c28m225d50
-    start: 2024-11-14
-    end: 2024-11-15
-    group: training-epfl2024
   training-ki-b:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c120m205d50
     start: 2024-12-02
     end: 2024-12-06
     group: training-ki-bioinfo-dna-2024
   training-kmb6:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c120m205d50
     start: 2024-10-28
     end: 2024-12-19
     group: training-kmb613-2
   training-msc-:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c120m205d50
     start: 2024-11-01
     end: 2024-12-06
     group: training-msc-tmr-ws24
   training-hand:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c120m205d50
     start: 2024-11-18
     end: 2024-12-20
     group: training-hands-on-plus
   training-rnr-:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c120m205d50
     start: 2024-11-25
     end: 2024-12-20
     group: training-rnr-sekoskaita
   training-heh-:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c120m205d50
     start: 2024-12-16
     end: 2024-12-20
     group: training-heh-mag2024
   training-gdaw:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c120m205d50
     start: 2024-12-10
     end: 2024-12-30
     group: training-gdawg2024
   training-ga-f:
     count: 1
-    flavor: c1.c28m225d50
+    flavor: c1.c120m205d50 #Maybe change?
     start: 2025-02-17
     end: 2025-03-01
     group: training-ga-fcen-uba-2025
