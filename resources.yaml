@@ -144,7 +144,7 @@ deployment:
     image: default
 
   worker-c120m205:
-    count: 5
+    count: 6
     flavor: c1.c120m205d50
     group: compute
     docker: true
@@ -194,24 +194,12 @@ deployment:
     image: gpu
 
   # Trainings
-  training-ki-b:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2024-12-02
-    end: 2024-12-06
-    group: training-ki-bioinfo-dna-2024
   training-kmb6:
     count: 1
     flavor: c1.c120m205d50
     start: 2024-10-28
     end: 2024-12-19
     group: training-kmb613-2
-  training-msc-:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2024-11-01
-    end: 2024-12-06
-    group: training-msc-tmr-ws24
   training-hand:
     count: 1
     flavor: c1.c120m205d50
