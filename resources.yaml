@@ -52,7 +52,7 @@ deployment:
       size: 1024
       type: default
   worker-c28m475:
-    count: 19
+    count: 25
     flavor: c1.c28m475d50
     group: compute
     docker: true
@@ -144,7 +144,7 @@ deployment:
     image: default
 
   worker-c120m205:
-    count: 6
+    count: 10
     flavor: c1.c120m205d50
     group: compute
     docker: true
@@ -194,30 +194,6 @@ deployment:
     image: gpu
 
   # Trainings
-  training-kmb6:
-    count: 0
-    flavor: c1.c120m205d50
-    start: 2024-10-28
-    end: 2024-12-19
-    group: training-kmb613-2
-  training-hand:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2024-11-18
-    end: 2024-12-20
-    group: training-hands-on-plus
-  training-rnr-:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2024-11-25
-    end: 2024-12-20
-    group: training-rnr-sekoskaita
-  training-heh-:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2024-12-16
-    end: 2024-12-20
-    group: training-heh-mag2024
   training-gdaw:
     count: 1
     flavor: c1.c120m205d50
