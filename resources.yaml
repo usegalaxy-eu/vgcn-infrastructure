@@ -33,7 +33,7 @@ nodes_inventory:
   c1.c28m935d50: 0
   c1.c28m875d50: 0
   g1.c14m40g1d50: 4
-  g1.c8m40g1d50: 8
+  g1.c8m40g1d50: 10
 
 deployment:
   # worker-fetch:
