@@ -52,7 +52,7 @@ deployment:
       size: 1024
       type: default
   worker-c28m475:
-    count: 25
+    count: 19
     flavor: c1.c28m475d50
     group: compute
     docker: true
@@ -194,12 +194,6 @@ deployment:
     image: gpu
 
   # Trainings
-  training-gdaw:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2024-12-10
-    end: 2024-12-30
-    group: training-gdawg2024
   training-ga-f:
     count: 1
     flavor: c1.c120m205d50 #Maybe change?
@@ -212,3 +206,9 @@ deployment:
     start: 2025-02-26
     end: 2025-02-27
     group: training-wimanet-course-1
+  training-htsd:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-01-22
+    end: 2025-01-29
+    group: training-htsd
