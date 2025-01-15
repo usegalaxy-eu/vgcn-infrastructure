@@ -144,7 +144,7 @@ deployment:
     image: default
 
   worker-c120m205:
-    count: 10
+    count: 8
     flavor: c1.c120m205d50
     group: compute
     docker: true
@@ -206,3 +206,9 @@ deployment:
     start: 2025-02-17
     end: 2025-03-01
     group: training-ga-fcen-uba-2025
+  training-wima:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-02-26
+    end: 2025-02-27
+    group: training-wimanet-course-1
