@@ -52,7 +52,7 @@ deployment:
       size: 1024
       type: default
   worker-c28m475:
-    count: 25
+    count: 19
     flavor: c1.c28m475d50
     group: compute
     docker: true
