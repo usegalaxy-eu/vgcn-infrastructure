@@ -212,3 +212,9 @@ deployment:
     start: 2025-01-22
     end: 2025-01-29
     group: training-htsd
+  training-bge-:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-02-05
+    end: 2025-02-09
+    group: training-bge-lodz-assembly-25
