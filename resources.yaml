@@ -32,7 +32,7 @@ nodes_inventory:
   c1.c125m425d50: 16
   c1.c28m935d50: 4
   c1.c28m875d50: 2
-  c1.c186m1490d50: 15
+  c1.c186m1450d50: 17
   g1.c14m40g1d50: 4
   g1.c8m40g1d50: 14
 
@@ -195,9 +195,9 @@ deployment:
     image: gpu
 
   # 17/01/2025: New Genoa nodes are added to the cloud
-  worker-c186m1490:
-    count: 15
-    flavor: c1.c186m1490d50
+  worker-c186m1450:
+    count: 2 #17
+    flavor: c1.c186m1450d50
     group: compute
     docker: true
     volume:
