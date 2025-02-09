@@ -272,3 +272,9 @@ deployment:
     start: 2025-03-12
     end: 2025-03-12
     group: training-bioinformatics-exe2
+  training-bioi:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-19
+    end: 2025-03-19
+    group: training-bioinformatics-exe3
