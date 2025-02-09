@@ -230,3 +230,9 @@ deployment:
     start: 2025-02-05
     end: 2025-02-09
     group: training-bge-lodz-assembly-25
+  training-mast:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-02-14
+    end: 2025-02-22
+    group: training-master2025
