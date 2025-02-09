@@ -278,3 +278,9 @@ deployment:
     start: 2025-03-19
     end: 2025-03-19
     group: training-bioinformatics-exe3
+  training-geno:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-17
+    end: 2025-03-21
+    group: training-genome-assembly-phys
