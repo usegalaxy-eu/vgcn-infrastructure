@@ -260,3 +260,9 @@ deployment:
     start: 2025-03-03
     end: 2025-03-07
     group: training-ur-ws2025
+  training-bioi:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-05
+    end: 2025-03-05
+    group: training-bioinformatics-exe
