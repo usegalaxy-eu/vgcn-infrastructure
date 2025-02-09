@@ -248,3 +248,9 @@ deployment:
     start: 2025-02-20
     end: 2025-02-20
     group: training-nucleosomas2025
+  training-musg:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-02-21
+    end: 2025-02-24
+    group: training-musg2025-hoes-p1
