@@ -230,3 +230,57 @@ deployment:
     start: 2025-02-05
     end: 2025-02-09
     group: training-bge-lodz-assembly-25
+  training-mast:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-02-14
+    end: 2025-02-22
+    group: training-master2025
+  training-meta:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-02-14
+    end: 2025-02-14
+    group: training-metap-intro
+  training-nucl:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-02-20
+    end: 2025-02-20
+    group: training-nucleosomas2025
+  training-musg:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-02-21
+    end: 2025-02-24
+    group: training-musg2025-hoes-p1
+  training-ur-w:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-03
+    end: 2025-03-07
+    group: training-ur-ws2025
+  training-bioi:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-05
+    end: 2025-03-05
+    group: training-bioinformatics-exe
+  training-bioi-exe-two:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-12
+    end: 2025-03-12
+    group: training-bioinformatics-exe2
+  training-bioi-exe-three:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-19
+    end: 2025-03-19
+    group: training-bioinformatics-exe3
+  training-geno:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-17
+    end: 2025-03-21
+    group: training-genome-assembly-phys
