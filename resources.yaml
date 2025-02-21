@@ -224,30 +224,12 @@ deployment:
     start: 2025-01-22
     end: 2025-01-29
     group: training-htsd
-  training-bge-lodz:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-02-05
-    end: 2025-02-09
-    group: training-bge-lodz-assembly-25
   training-mast:
     count: 1
     flavor: c1.c120m205d50
     start: 2025-02-14
     end: 2025-02-22
     group: training-master2025
-  training-meta:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-02-14
-    end: 2025-02-14
-    group: training-metap-intro
-  training-nucl:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-02-20
-    end: 2025-02-20
-    group: training-nucleosomas2025
   training-musg:
     count: 1
     flavor: c1.c120m205d50
