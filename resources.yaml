@@ -22,7 +22,7 @@ graceful: false
 nodes_inventory:
   c1.c28m225d50: 0 # (18.12.2024: decommisioned) (16.04.2024: RZ swapped the underlying servers for a 4 in 1 node and this will be of a different flavor and we need to wait to get the hardware)
   c1.c28m475d50: 19
-  c1.c36m100d50: 0
+  c1.c36m100d50: 4
   c1.c36m225d50: 0
   c1.c36m900d50: 1
   c1.c36m975d50: 8
@@ -43,7 +43,7 @@ deployment:
   #   image: default
 
   worker-interactive:
-    count: 0 # decommisioned hardware
+    count: 2 # decommisioned hardware
     flavor: c1.c36m100d50
     group: interactive
     docker: true
@@ -72,7 +72,7 @@ deployment:
     image: default
 
   worker-c36m100:
-    count: 0
+    count: 2
     flavor: c1.c36m100d50
     group: compute
     docker: true
