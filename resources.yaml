@@ -196,7 +196,7 @@ deployment:
 
   # 17/01/2025: New Genoa nodes are added to the cloud
   worker-c186m1450:
-    count: 14 #17
+    count: 15 #17
     flavor: c1.c186m1450d50
     group: compute
     docker: true
@@ -218,12 +218,6 @@ deployment:
     start: 2025-02-26
     end: 2025-02-27
     group: training-wimanet-course-1
-  training-htsd:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-01-22
-    end: 2025-01-29
-    group: training-htsd
   training-mast:
     count: 1
     flavor: c1.c120m205d50
@@ -266,9 +260,3 @@ deployment:
     start: 2025-03-17
     end: 2025-03-21
     group: training-genome-assembly-phys
-  training-bm32:
-    count: 1
-    flavor: c1.c186m1450d50
-    start: 2025-02-21
-    end: 2025-02-21
-    group: training-bm327-workshop-1
