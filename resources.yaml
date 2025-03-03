@@ -206,30 +206,6 @@ deployment:
     image: default
 
   # Trainings
-  training-ga-f:
-    count: 1
-    flavor: c1.c120m205d50 #Maybe change?
-    start: 2025-02-17
-    end: 2025-03-01
-    group: training-ga-fcen-uba-2025
-  training-wima:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-02-26
-    end: 2025-02-27
-    group: training-wimanet-course-1
-  training-mast:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-02-14
-    end: 2025-02-22
-    group: training-master2025
-  training-musg:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-02-21
-    end: 2025-02-24
-    group: training-musg2025-hoes-p1
   training-ur-w:
     count: 1
     flavor: c1.c120m205d50
@@ -260,3 +236,9 @@ deployment:
     start: 2025-03-17
     end: 2025-03-21
     group: training-genome-assembly-phys
+  training-fr-h:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-10
+    end: 2025-03-14
+    group: training-fr-hts-march-2025
