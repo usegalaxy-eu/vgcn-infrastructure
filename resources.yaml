@@ -242,3 +242,9 @@ deployment:
     start: 2025-03-10
     end: 2025-03-14
     group: training-fr-hts-march-2025
+  training-tim-:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-17
+    end: 2025-03-20
+    group: training-tim-bioimage-tools
