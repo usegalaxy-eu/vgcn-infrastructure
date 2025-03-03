@@ -145,7 +145,7 @@ deployment:
     image: default
 
   worker-c120m205:
-    count: 7
+    count: 6
     flavor: c1.c120m205d50
     group: compute
     docker: true
@@ -248,3 +248,9 @@ deployment:
     start: 2025-03-17
     end: 2025-03-20
     group: training-tim-bioimage-tools
+  training-ucph:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-19
+    end: 2025-03-20
+    group: training-ucph-gwea2025
