@@ -196,7 +196,7 @@ deployment:
 
   # 17/01/2025: New Genoa nodes are added to the cloud
   worker-c186m1450:
-    count: 15 #17
+    count: 17
     flavor: c1.c186m1450d50
     group: compute
     docker: true
