@@ -40,6 +40,12 @@ write_files:
       {% for mount in jwd.values() -%}
         {{ mount.name }}	-{{ mount.nfs_options | join(',') }}	{{ mount.export }}
       {% endfor %}
+      {% for mount in cache.values() -%}
+        {{ mount.name }}	-{{ mount.nfs_options | join(',') }}	{{ mount.export }}
+      {% endfor %}
+      {% for mount in misc.values() -%}
+        {{ mount.name }}	-{{ mount.nfs_options | join(',') }}	{{ mount.export }}
+      {% endfor %}
     owner: root:root
     path: /etc/auto.data
     permissions: "0644"
