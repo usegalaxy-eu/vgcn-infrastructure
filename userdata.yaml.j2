@@ -28,8 +28,8 @@ write_files:
     path: /etc/telegraf/telegraf.d/output.conf
     permissions: "0640"
   - content: |
-      /data           /etc/auto.data          nfsvers=3
-      /-              /etc/auto.usrlocal      nfsvers=3
+      /data           /etc/auto.data
+      /-              /etc/auto.usrlocal
     owner: root:root
     path: /etc/auto.master.d/data.autofs
     permissions: "0644"
