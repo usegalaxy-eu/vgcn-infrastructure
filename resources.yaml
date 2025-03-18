@@ -260,3 +260,9 @@ deployment:
     start: 2025-03-19
     end: 2025-03-20
     group: training-ucph-gwea2025
+  training-rnas:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-21
+    end: 2025-03-21
+    group: training-rnaseqpariscite
