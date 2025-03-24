@@ -145,7 +145,7 @@ deployment:
     image: default
 
   worker-c120m205:
-    count: 5
+    count: 8
     flavor: c1.c120m205d50
     group: compute
     docker: true
@@ -206,39 +206,15 @@ deployment:
     image: default
 
   # Trainings
-  training-bioi-exe-three:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-03-19
-    end: 2025-03-19
-    group: training-bioinformatics-exe3
-  training-geno:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-03-17
-    end: 2025-03-21
-    group: training-genome-assembly-phys
-  training-tim-:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-03-17
-    end: 2025-03-20
-    group: training-tim-bioimage-tools
-  training-ucph:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-03-19
-    end: 2025-03-20
-    group: training-ucph-gwea2025
-  training-rnas:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-03-21
-    end: 2025-03-21
-    group: training-rnaseqpariscite
   training-rnas2:
     count: 1
     flavor: c1.c120m205d50
     start: 2025-03-28
     end: 2025-03-28
     group: training-rnaseqpariscited2
+  training-mcbb:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-03-25
+    end: 2025-04-15
+    group: training-mcbbi-aeg-2025
