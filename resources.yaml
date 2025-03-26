@@ -218,3 +218,9 @@ deployment:
     start: 2025-03-25
     end: 2025-03-25
     group: training-mcbbi-aeg-2025
+  training-mcbb:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-04-15
+    end: 2025-04-15
+    group: training-mcbbi-aeg2025
