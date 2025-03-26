@@ -206,6 +206,12 @@ deployment:
     image: default
 
   # Trainings
+  training-mrsa:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-04-14
+    end: 2025-04-15
+    group: training-mrsaproject-day1
   training-mcbb:
     count: 2
     flavor: c1.c120m205d50
