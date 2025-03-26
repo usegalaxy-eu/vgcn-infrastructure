@@ -145,7 +145,7 @@ deployment:
     image: default
 
   worker-c120m205:
-    count: 8
+    count: 7
     flavor: c1.c120m205d50
     group: compute
     docker: true
@@ -206,21 +206,15 @@ deployment:
     image: default
 
   # Trainings
-  training-rnas2:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-03-28
-    end: 2025-03-28
-    group: training-rnaseqpariscited2
-  training-mcbb:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-03-25
-    end: 2025-03-25
-    group: training-mcbbi-aeg-2025
   training-mrsa:
     count: 1
     flavor: c1.c120m205d50
     start: 2025-04-14
     end: 2025-04-15
     group: training-mrsaproject-day1
+  training-mcbb:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-04-15
+    end: 2025-04-15
+    group: training-mcbbi-aeg2025
