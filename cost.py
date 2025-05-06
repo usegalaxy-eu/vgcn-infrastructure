@@ -609,6 +609,14 @@ ec2 = {
         "vcpus": 4,
         "cpu": "Intel Xeon E5-2670 v2 (Ivy Bridge/Sandy Bridge)",
     },
+    "AAAAAAAAAAAAAAAA": {
+        "name": "c6id.32xlarge",
+        "mem": 256.0,
+        "price": 6.451,
+        "priceunit": "Hrs",
+        "vcpus": 120,
+        "cpu": "Intel Xeon 8375C (Ice Lake) (3.5 GHz)",
+    },
 }
 
 
