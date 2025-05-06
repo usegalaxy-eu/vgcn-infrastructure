@@ -206,24 +206,12 @@ deployment:
     image: default
 
   # Trainings
-  training-mrsa1:
+  training-mbru:
     count: 1
     flavor: c1.c120m205d50
-    start: 2025-04-14
-    end: 2025-04-15
-    group: training-mrsaproject-day1
-  training-mcbb:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-04-15
-    end: 2025-04-15
-    group: training-mcbbi-aeg2025
-  training-mrsa2:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-04-24
-    end: 2025-04-25
-    group: training-mrsaproject-day2
+    start: 2025-05-19
+    end: 2025-05-23
+    group: training-mbru2025
   training-sunu:
     count: 2
     flavor: c1.c120m205d50
