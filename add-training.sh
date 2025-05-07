@@ -73,7 +73,7 @@ We recommend to use Galaxy's short-term storage during the training. This will h
 
 Support:
 If during the workshop you experience issues with the server, you can ask for support in the Galaxy Europe Gitter channel: https://matrix.to/#/#usegalaxy-eu_Lobby:gitter.im
-or via email: galaxy-ops@informatik.uni-freiburg.de
+or via email: contact@usegalaxy.eu
 
 
 Please keep in mind that usegalaxy.eu is a free service and we do not charge any fees to our users. We do our best to maintain a highly available and reliable cluster, but there may still be outages we cannot control. We would like to ask you to be lenient in such cases.
