@@ -76,7 +76,7 @@ If during the workshop you experience issues with the server, you can ask for su
 or via email: galaxy-ops@informatik.uni-freiburg.de
 
 
-Please keep in mind that usegalaxy.eu is a free service and we do not charge any fees to our users. We do our best to maintain a highly available and reliable cluster, but as this is an academic project, there may still be outages we cannot control. We would like to ask you to be lenient in such cases.
+Please keep in mind that usegalaxy.eu is a free service and we do not charge any fees to our users. We do our best to maintain a highly available and reliable cluster, but there may still be outages we cannot control. We would like to ask you to be lenient in such cases.
 You can view our service status here: https://status.galaxyproject.org/
 
 In case of prolonged unexpected server outage, you could consider using one of the other usegalaxy.* instances. You can find them on the status page mentioned above. Keep in mind that your registered TIaaS session with the dashboard and separate queue is only available on usegalaxy.eu.
