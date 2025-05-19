@@ -207,7 +207,7 @@ deployment:
 
   # Trainings
   training-mbru:
-    count: 2
+    count: 3
     flavor: c1.c120m205d50
     start: 2025-05-19
     end: 2025-05-23
