@@ -224,7 +224,7 @@ deployment:
     start: 2025-05-21
     end: 2025-05-22
     group: training-mrsaproject-day4
-  training-mrsa:
+  training-mrsa5:
     count: 1
     flavor: c1.c120m205d50
     start: 2025-05-28
