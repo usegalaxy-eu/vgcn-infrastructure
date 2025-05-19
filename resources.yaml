@@ -230,3 +230,9 @@ deployment:
     start: 2025-05-28
     end: 2025-05-29
     group: training-mrsaproject-day5
+  training-cinv:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-05-28
+    end: 2025-06-13
+    group: training-cinvestav-cicy
