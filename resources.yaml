@@ -213,8 +213,14 @@ deployment:
     end: 2025-06-13
     group: training-cinvestav-cicy
   training-mtb-:
-    count: 3
+    count: 2
     flavor: c1.c120m205d50
     start: 2025-06-10
     end: 2025-06-16
     group: training-mtb-ngs-made-easy
+  training-radb:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-06-04
+    end: 2025-06-19
+    group: training-radboudumcbmw2
