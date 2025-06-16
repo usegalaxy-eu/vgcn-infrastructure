@@ -236,3 +236,9 @@ deployment:
     start: 2025-06-25
     end: 2025-06-26
     group: training-ipepgen
+  training-gala:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-06-30
+    end: 2025-07-04
+    group: training-galaxy-fr-jun-25
