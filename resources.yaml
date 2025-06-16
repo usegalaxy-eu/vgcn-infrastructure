@@ -224,3 +224,9 @@ deployment:
     start: 2025-06-04
     end: 2025-06-19
     group: training-radboudumcbmw2
+  training-jupy:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-06-22
+    end: 2025-06-22
+    group: training-jupytergis-lps25
