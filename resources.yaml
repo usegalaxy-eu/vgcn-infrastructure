@@ -230,3 +230,9 @@ deployment:
     start: 2025-06-22
     end: 2025-06-22
     group: training-jupytergis-lps25
+  training-ipep:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-06-25
+    end: 2025-06-26
+    group: training-ipepgen
