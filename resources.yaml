@@ -242,3 +242,9 @@ deployment:
     start: 2025-06-30
     end: 2025-07-04
     group: training-galaxy-fr-jun-25
+  training-sose:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-07-21
+    end: 2025-08-08
+    group: training-sose25-hts
