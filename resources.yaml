@@ -206,30 +206,6 @@ deployment:
     image: default
 
   # Trainings
-  training-cinv:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-05-28
-    end: 2025-06-13
-    group: training-cinvestav-cicy
-  training-mtb-:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-06-10
-    end: 2025-06-16
-    group: training-mtb-ngs-made-easy
-  training-radb:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-06-04
-    end: 2025-06-19
-    group: training-radboudumcbmw2
-  training-jupy:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-06-22
-    end: 2025-06-22
-    group: training-jupytergis-lps25
   training-ipep:
     count: 1
     flavor: c1.c120m205d50
@@ -237,7 +213,7 @@ deployment:
     end: 2025-06-26
     group: training-ipepgen
   training-gala:
-    count: 1
+    count: 4
     flavor: c1.c120m205d50
     start: 2025-06-30
     end: 2025-07-04
