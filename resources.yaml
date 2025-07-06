@@ -236,3 +236,9 @@ deployment:
     start: 2025-07-14
     end: 2025-07-14
     group: training-tokyo-qb2025
+  training-eegb:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-07-07
+    end: 2025-07-07
+    group: training-eegb25
