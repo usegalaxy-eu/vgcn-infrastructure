@@ -241,4 +241,4 @@ deployment:
     flavor: c1.c120m205d50
     start: 2025-07-07
     end: 2025-07-07
-    group: training-eegb25
+    group: training-eebg25
