@@ -218,3 +218,27 @@ deployment:
     start: 2025-07-14
     end: 2025-07-14
     group: training-tokyo-qb2025
+  training-bio5:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-07-28
+    end: 2025-08-03
+    group: training-bio2174-prac5
+  training-nahl:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-07-28
+    end: 2025-08-01
+    group: training-nahln-ngs
+  training-ur-s:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-08-04
+    end: 2025-08-08
+    group: training-ur-ss2025
+  training-bio4:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-07-29
+    end: 2025-08-01
+    group: training-bio2174-prac4
