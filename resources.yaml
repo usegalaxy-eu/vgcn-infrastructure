@@ -218,3 +218,9 @@ deployment:
     start: 2025-08-04
     end: 2025-08-08
     group: training-ur-ss2025
+  training-gda2:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-08-11
+    end: 2025-08-31
+    group: training-gda2025
