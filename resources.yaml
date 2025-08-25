@@ -206,21 +206,57 @@ deployment:
     image: default
 
   # Trainings
-  training-sose:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-07-21
-    end: 2025-08-08
-    group: training-sose25-hts
-  training-ur-s:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-08-04
-    end: 2025-08-08
-    group: training-ur-ss2025
   training-gda2:
     count: 1
     flavor: c1.c120m205d50
     start: 2025-08-11
     end: 2025-08-31
     group: training-gda2025
+  training-lumc:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-08
+    end: 2025-09-08
+    group: training-lumc-metagen-minor25
+  training-ngs-:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-10
+    end: 2025-09-10
+    group: training-ngs-bdm-j1
+  training-rnII:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-16
+    end: 2025-09-16
+    group: training-rnaseq-marmara-25
+  training-epps:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-17
+    end: 2025-09-17
+    group: training-eppspyth-denbi-wggc
+  training-ngII:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-09-17
+    end: 2025-09-17
+    group: training-ngs-bdm-j2
+  training-sing:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-22
+    end: 2025-09-23
+    group: training-single-cell-bsg-2025
+  training-gala:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-24
+    end: 2025-09-26
+    group: training-galaxy-graz
+  training-rnas:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-16
+    end: 2025-09-16
+    group: training-rnaseq-marmara-2025
