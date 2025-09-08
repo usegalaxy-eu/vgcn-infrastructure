@@ -231,7 +231,7 @@ deployment:
     end: 2025-09-16
     group: training-rnaseq-marmara-25
   training-epps:
-    count: 2
+    count: 1
     flavor: c1.c120m205d50
     start: 2025-09-11
     end: 2025-09-17
@@ -255,7 +255,7 @@ deployment:
     end: 2025-09-26
     group: training-galaxy-graz
   training-rnas:
-    count: 2
+    count: 1
     flavor: c1.c120m205d50
     start: 2025-09-16
     end: 2025-09-16
