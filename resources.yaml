@@ -272,9 +272,3 @@ deployment:
     start: 2025-09-08
     end: 2025-09-12
     group: training-embo-assembly-2025
-  training-scho:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-09-15
-    end: 2025-09-15
-    group: training-scholtz
