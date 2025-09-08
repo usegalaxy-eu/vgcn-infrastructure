@@ -233,7 +233,7 @@ deployment:
   training-epps:
     count: 2
     flavor: c1.c120m205d50
-    start: 2025-09-17
+    start: 2025-09-11
     end: 2025-09-17
     group: training-eppspyth-denbi-wggc
   training-ngII:
