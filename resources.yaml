@@ -221,8 +221,8 @@ deployment:
   training-ngs-:
     count: 2
     flavor: c1.c120m205d50
-    start: 2025-09-10
-    end: 2025-09-10
+    start: 2025-09-11
+    end: 2025-09-11
     group: training-ngs-bdm-j1
   training-rnII:
     count: 2
@@ -267,7 +267,7 @@ deployment:
     end: 2025-09-25
     group: training-ngs-bdm-j2-1
   training-embo:
-    count: 2
+    count: 1
     flavor: c1.c120m205d50
     start: 2025-09-08
     end: 2025-09-12
