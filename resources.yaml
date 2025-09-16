@@ -206,24 +206,6 @@ deployment:
     image: default
 
   # Trainings
-  training-gda2:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-08-11
-    end: 2025-08-31
-    group: training-gda2025
-  training-lumc:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-09-08
-    end: 2025-09-08
-    group: training-lumc-metagen-minor25
-  training-ngs-:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-09-11
-    end: 2025-09-11
-    group: training-ngs-bdm-j1
   training-rnII:
     count: 2
     flavor: c1.c120m205d50
@@ -266,9 +248,75 @@ deployment:
     start: 2025-09-25
     end: 2025-09-25
     group: training-ngs-bdm-j2-1
-  training-embo:
-    count: 1
+  raining-scho1769:
+    count: 2
     flavor: c1.c120m205d50
-    start: 2025-09-08
-    end: 2025-09-12
-    group: training-embo-assembly-2025
+    start: 2025-09-19
+    end: 2025-09-19
+    group: training-scholtz
+  training-scho9944:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-22
+    end: 2025-09-22
+    group: training-scholtz
+  training-scho2224:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-26
+    end: 2025-09-26
+    group: training-scholtz
+  training-scho1089:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-09-29
+    end: 2025-09-29
+    group: training-scholtz
+  training-scho3962:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-03
+    end: 2025-10-03
+    group: training-scholtz
+  training-scho2762:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-06
+    end: 2025-10-06
+    group: training-scholtz
+  training-scho4844:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-10
+    end: 2025-10-10
+    group: training-scholtz
+  training-scho7124:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-13
+    end: 2025-10-13
+    group: training-scholtz
+  training-scho5047:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-17
+    end: 2025-10-17
+    group: training-scholtz
+  training-scho2262:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-20
+    end: 2025-10-20
+    group: training-scholtz
+  training-scho4077:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-24
+    end: 2025-10-24
+    group: training-scholtz
+  training-scho4012:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-27
+    end: 2025-10-27
+    group: training-scholtz
