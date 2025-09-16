@@ -362,3 +362,9 @@ deployment:
     start: 2025-10-27
     end: 2025-10-27
     group: training-tbg2526
+  training-bids3851:
+    count: 1
+    flavor: c1.c120m205d50
+    start: 2025-09-30
+    end: 2025-09-30
+    group: training-bids25-jupytergis
