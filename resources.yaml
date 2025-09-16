@@ -248,7 +248,7 @@ deployment:
     start: 2025-09-25
     end: 2025-09-25
     group: training-ngs-bdm-j2-1
-  raining-scho1769:
+  training-scho1769:
     count: 2
     flavor: c1.c120m205d50
     start: 2025-09-19
