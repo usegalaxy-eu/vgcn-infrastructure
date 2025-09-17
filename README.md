@@ -64,3 +64,9 @@ compute_nodes_large:
     flavor: c.c24m120
     tag: compute-large
 ```
+
+### Why is this not simply using Terraform?
+> Because terraform couldn't downsize a cluster by chosing specific VMs, it had to be via count, which meant removing VMs from the "end".
+thus I wrote ensure-enough [now synchronize.py] so we could remove unused VMs that weren't at the end of the count variable, and shrink the cluster more easily. hence non-linear numbering, it's part of the expectation that they'll get added or removed randomly, based on usage. (But then I spent most of the time with a fixed sized cluster because the Cloud isn't actually dynamic, at least in Freiburg. But that was before we were committed to taking up a large number of nodes) -- <cite>[@hexylena][1]</cite>
+
+[1]: https://github.com/hexylena
