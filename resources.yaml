@@ -371,6 +371,6 @@ deployment:
   training-nicd:
     count: 4
     flavor: c1.c120m205d50
-    start: 2025-10-17
-    end: 2025-10-17
+    start: 2025-10-18
+    end: 2025-10-18
     group: training-nicd-sep25
