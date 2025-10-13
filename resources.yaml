@@ -206,30 +206,6 @@ deployment:
     image: default
 
   # Trainings
-  training-scho1089:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-09-29
-    end: 2025-09-29
-    group: training-scholtz
-  training-scho3962:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-03
-    end: 2025-10-03
-    group: training-scholtz
-  training-scho2762:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-06
-    end: 2025-10-06
-    group: training-scholtz
-  training-scho4844:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-10
-    end: 2025-10-10
-    group: training-scholtz
   training-scho7124:
     count: 2
     flavor: c1.c120m205d50
@@ -260,18 +236,6 @@ deployment:
     start: 2025-10-27
     end: 2025-10-27
     group: training-scholtz
-  training-tbg27027:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-03
-    end: 2025-10-03
-    group: training-tbg2526
-  training-tbg23161:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-06
-    end: 2025-10-06
-    group: training-tbg2526
   training-tbg26039:
     count: 2
     flavor: c1.c120m205d50
@@ -302,39 +266,39 @@ deployment:
     start: 2025-10-27
     end: 2025-10-27
     group: training-tbg2526
-  training-bids3851:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-09-30
-    end: 2025-09-30
-    group: training-bids25-jupytergis
   training-gs-18052:
     count: 2
     flavor: c1.c120m205d50
     start: 2025-10-15
     end: 2025-10-17
     group: training-gs-1025-3
-  training-ngs-2543:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-10
-    end: 2025-10-10
-    group: training-ngs-mm-j2
   training-ngs-4710:
     count: 2
     flavor: c1.c120m205d50
     start: 2025-10-21
     end: 2025-10-21
     group: training-ngs-mse-j12
-  training-inte:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-08
-    end: 2025-10-09
-    group: training-internat25
   training-food:
     count: 2
     flavor: c1.c120m205d50
     start: 2025-10-14
     end: 2025-10-14
     group: training-foodborne-muttenz
+  training-kmb6:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-23
+    end: 2025-10-23
+    group: training-kmb613-25
+  training-8051-1:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-23
+    end: 2025-10-26
+    group: training-8051-galaxy-aut25
+  training-8051-2:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-28
+    end: 2025-10-30
+    group: training-8051-galaxy-aut25
