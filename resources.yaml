@@ -145,7 +145,7 @@ deployment:
     image: default
 
   worker-c120m205:
-    count: 6
+    count: 4
     flavor: c1.c120m205d50
     group: compute
     docker: true
