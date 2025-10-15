@@ -206,12 +206,6 @@ deployment:
     image: default
 
   # Trainings
-  training-scho7124:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-13
-    end: 2025-10-13
-    group: training-scholtz
   training-scho5047:
     count: 2
     flavor: c1.c120m205d50
@@ -236,12 +230,6 @@ deployment:
     start: 2025-10-27
     end: 2025-10-27
     group: training-scholtz
-  training-tbg26039:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-14
-    end: 2025-10-14
-    group: training-tbg2526
   training-tbg24901:
     count: 2
     flavor: c1.c120m205d50
@@ -278,12 +266,6 @@ deployment:
     start: 2025-10-21
     end: 2025-10-21
     group: training-ngs-mse-j12
-  training-food:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-14
-    end: 2025-10-14
-    group: training-foodborne-muttenz
   training-kmb6:
     count: 2
     flavor: c1.c120m205d50
@@ -302,3 +284,21 @@ deployment:
     start: 2025-10-28
     end: 2025-10-30
     group: training-8051-galaxy-aut25
+  training-scrn7727:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-27
+    end: 2025-10-29
+    group: training-scrna-beyrouth-2025
+  training-gala7077:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-29
+    end: 2025-10-31
+    group: training-galaxyngs25
+  training-hera8708:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-28
+    end: 2025-10-28
+    group: training-hera2
