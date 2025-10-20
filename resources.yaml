@@ -299,6 +299,6 @@ deployment:
   training-hera8708:
     count: 2
     flavor: c1.c120m205d50
-    start: 2025-10-28
+    start: 2025-10-27
     end: 2025-10-28
     group: training-hera2
