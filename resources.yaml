@@ -285,9 +285,15 @@ deployment:
     end: 2025-10-30
     group: training-8051-galaxy-aut25
   training-scrn7727:
-    count: 2
+    count: 1
     flavor: c1.c120m205d50
     start: 2025-10-27
+    end: 2025-10-27
+    group: training-scrna-beyrouth-2025
+  training-scrn7728:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-10-28
     end: 2025-10-29
     group: training-scrna-beyrouth-2025
   training-gala7077:
