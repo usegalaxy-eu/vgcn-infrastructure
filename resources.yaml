@@ -308,3 +308,21 @@ deployment:
     start: 2025-10-27
     end: 2025-10-28
     group: training-hera2
+  training-wggc6859:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-11-27
+    end: 2025-11-27
+    group: training-wggc-bioinfo-intro
+  training-unig9494:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-11-27
+    end: 2025-11-28
+    group: training-unige2025
+  training-fabi8391:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2026-02-09
+    end: 2026-02-12
+    group: training-fabiogen
