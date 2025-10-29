@@ -212,12 +212,6 @@ deployment:
     start: 2025-10-28
     end: 2025-10-30
     group: training-8051-galaxy-aut25
-  training-scrn7727:
-    count: 1
-    flavor: c1.c120m205d50
-    start: 2025-10-27
-    end: 2025-10-27
-    group: training-scrna-beyrouth-2025
   training-scrn7728:
     count: 2
     flavor: c1.c120m205d50
@@ -230,12 +224,6 @@ deployment:
     start: 2025-10-29
     end: 2025-10-31
     group: training-galaxyngs25
-  training-hera8708:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-27
-    end: 2025-10-28
-    group: training-hera2
   training-wggc6859:
     count: 2
     flavor: c1.c120m205d50
@@ -254,3 +242,39 @@ deployment:
     start: 2026-02-09
     end: 2026-02-12
     group: training-fabiogen
+  training-bioi1579:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-11-24
+    end: 2025-11-26
+    group: training-bioinfo-rnaseq
+  training-gm2-4063:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-11-12
+    end: 2025-11-14
+    group: training-gm2-2025
+  training-ki-b5152:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-12-01
+    end: 2025-12-04
+    group: training-ki-bioinfo-2025
+  training-msc-2288:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-11-10
+    end: 2025-11-10
+    group: training-msc-tmr-ws25-4
+  training-msc-1299:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-11-17
+    end: 2025-11-17
+    group: training-msc-tmr-ws25-5
+  training-heh-4515:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-12-15
+    end: 2025-12-19
+    group: training-heh-mag2025
