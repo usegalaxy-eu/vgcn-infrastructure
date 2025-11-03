@@ -206,24 +206,6 @@ deployment:
     image: default
 
   # Trainings
-  training-8051-2:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-28
-    end: 2025-10-30
-    group: training-8051-galaxy-aut25
-  training-scrn7728:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-28
-    end: 2025-10-29
-    group: training-scrna-beyrouth-2025
-  training-gala7077:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-10-29
-    end: 2025-10-31
-    group: training-galaxyngs25
   training-wggc6859:
     count: 2
     flavor: c1.c120m205d50
@@ -251,7 +233,7 @@ deployment:
   training-gm2-4063:
     count: 2
     flavor: c1.c120m205d50
-    start: 2025-11-12
+    start: 2025-11-11
     end: 2025-11-14
     group: training-gm2-2025
   training-ki-b5152:
@@ -282,5 +264,11 @@ deployment:
     count: 2
     flavor: c1.c120m205d50
     start: 2025-10-31
-    end: 2025-11-07
+    end: 2025-11-14
     group: training-nova-project
+  training-aku-4163:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-12-09
+    end: 2025-12-12
+    group: training-aku-microbiome
