@@ -1,106 +1,137 @@
 #!/bin/bash
 
-export LC_NUMERIC="en_US.UTF-8"
+source validation.sh
 
-if ([ $# -lt 5 ]); then
-    echo "Usage:"
-    echo
-    echo "  $0 <training-identifier> <vm-size (e.g. c1.c28m225d50)> <vm-count> <start in YYYY-mm-dd> <end in YYYY-mm-dd> [--donotautocommitpush]"
-    echo
-    exit 1;
+# Forcing buffered output to stderr in interactive mode
+say() { echo "$@" >&2; }
+
+# Help option
+if [[ "$1" == "-h" ]]; then
+    show_help
 fi
 
-training_identifier=$(echo "$1" | tr '[:upper:]' '[:lower:]')
-vm_size=${2:-c.c10m55}
-vm_count=${3:-1}
-start=$4
-end=$5
-autopush=1
-if [[ "$6" == "--donotautocommitpush" ]]; then
-	autopush=0
+if [ "$1" == "--interactive" ] || [ "$1" == "-i" ]; then
+	# Interactive mode: multiple trainings
+	# add-training.sh -i($1) <training-identifier>($2) <vm-size>($3) <vm-count>($4) 
+	# <trainer name>($5) <trainer-email>($6) --donotautocommitpush($7)
+	if ([ $# -gt 7 ] || [ $# -lt 6 ]); then
+		echo "Usage:"
+		echo
+		echo "  $0 -i <training-identifier> <vm-size (e.g. c1.c120m205d50)> <vm-count> <"trainer name"> <"trainer email"> [--donotautocommitpush]"
+		echo
+		exit 1;
+	fi
+	training_identifier=$(echo "$2" | tr '[:upper:]' '[:lower:]')
+	vm_size=${3:-c.c10m55}
+	vm_count=${4:-1}
+	trainer_name=$5
+	trainer_mail_address=$6
+	autopush=1
+	if [[ "$7" == "--donotautocommitpush" ]]; then
+		autopush=0
+	fi
+
+	short=$(echo "$training_identifier" | cut -c1-4)
+    
+	# Interactive mode - prompt for multiple date pairs
+	echo "Interactive mode: Enter date pairs (press Enter on empty line to finish)"
+	dates=()
+	while true; do
+		# Start date
+		read -p "Enter start date (YYYY-MM-DD) or press Enter to finish: " start
+		[ -z "$start" ] && break
+		say "Validating start date: $start" >&2
+		if validate_date "$start"; then
+			say "Start date '$start' is valid."
+		else
+			say "Invalid start date. Please try again." >&2
+			continue
+		fi
+		# End date
+		read -p "Enter end date (YYYY-MM-DD): " end
+		if validate_date "$end"; then
+			say "Start date '$end' is valid."
+		else
+			say "Invalid end date. Please try again."
+			continue
+		fi
+		dates+=("$start,$end")
+	done
+	# Process the dates
+	array_length=${#dates[@]}
+	number_of_lines=$((array_length * 6))
+for date_pair in "${dates[@]}"; do
+    IFS=',' read -r start end <<< "$date_pair"
+	randnum=$(shuf -i 1000-9999 -n 1)
+	# Adding the training to resources.yaml
+	cat >> resources.yaml <<-EOF
+	  training-${short}${randnum}:
+	    count: ${vm_count}
+	    flavor: ${vm_size}
+	    start: ${start}
+	    end: ${end}
+	    group: training-${training_identifier}
+	EOF
+done
+	# Check for conflicts
+	check_conflicts
+	# Create the mail draft for Thunderbird. However, Thunderbird is not always the standard mail client and it is not clear how Thunderbird was configured on the target system (sandboxed vs. system install and which profile to use etc.).
+	#flatpak run net.thunderbird.Thunderbird -P default-esr -compose "to='$6',cc='galaxy-ops@informatik.uni-freiburg.de',subject='$subject',body='$body'"
+	# Create a multi-platform mail draft independent of a specific mail client
+	source mail_template_eml.sh
+else
+	# Non-interactive mode for single training - expect at least seven arguments
+	# add-training.sh <training-identifier>($1) c1.c120m205d50($2) <anzahl der vms>($3) yyyy-mm-dd($4) (start) 
+	# yyyy-mm-dd($5) (end) <"trainer name">($6) <"trainer-email">($7) --donotautocommitpush ($8))
+	if ([ $# -lt 7 ]); then
+		echo "Usage:"
+		echo
+		echo "  $0 <training-identifier> <vm-size (e.g. c1.c120m205d50)> <vm-count> <start in YYYY-mm-dd> <end in YYYY-mm-dd> <"trainer name"> <"trainer email"> [--donotautocommitpush]"
+		echo
+		exit 1;
+	fi
+	training_identifier=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+	vm_size=${2:-c.c10m55}
+	vm_count=${3:-1}
+	start=$4
+	end=$5
+	trainer_name=$6
+	trainer_mail_address=$7
+	autopush=1
+	if [[ "$8" == "--donotautocommitpush" ]]; then
+		autopush=0
+	fi
+
+	short=$(echo "$training_identifier" | cut -c1-4)
+
+	# Validate dates
+	while true; do
+		if validate_date "$start"; then
+			echo "Start date '$start' is valid."
+		else
+			echo "Invalid start date. Please try again."
+			exit 1
+		fi
+		if validate_date "$end"; then
+			echo "End date '$end' is valid."
+			break
+		else
+			echo "Invalid end date. Please try again."
+			exit 1
+		fi
+	done
+   # Adding the training to resources.yaml
+   	randnum=$(shuf -i 1000-9999 -n 1)
+	cat >> resources.yaml <<-EOF
+	  training-${short}${randnum}:
+	    count: ${vm_count}
+	    flavor: ${vm_size}
+	    start: ${start}
+	    end: ${end}
+	    group: training-${training_identifier}
+	EOF
+	# Creating the mail draft
+	number_of_lines=6
+	check_conflicts
+	source mail_template_eml.sh
 fi
-
-short=$(echo "$training_identifier" | cut -c1-4)
-
-output="instance_training-${training_identifier}.tf"
-
-cat >> resources.yaml <<-EOF
-  training-${short}:
-    count: ${vm_count}
-    flavor: ${vm_size}
-    start: ${start}
-    end: ${end}
-    group: training-${training_identifier}
-EOF
-
-if (( autopush == 1 )); then
-	git add resources.yaml
-	git commit -m 'New training'
-	git push
-fi
-
-vm_cpu=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $2}')
-vm_mem=$(echo $vm_size | sed 's/[^0-9]/ /g' | awk '{print $3}')
-
-ts_end=$(date -d "$end 23:59" +%s)
-ts_stt=$(date -d "$start 00:00" +%s)
-vm_seconds=$(( ts_end - ts_stt ))
-price=$(python3 cost.py $vm_cpu $vm_mem $vm_seconds | head -n 1)
-machines=$(python3 cost.py $vm_cpu $vm_mem $vm_seconds | tail -n 1)
-aws_id=$(echo $machines | sed "s/'/\"/g" | jq .name -r)
-price=$(echo "$price * $vm_count" | bc -l)
-price_int=$(printf "%0.2f" $price)
-yourname=$(git config --global --get user.name)
-
-printf "
-Subject: UseGalaxy.eu TIaaS Request: Approved
-
-Dear **X**,
-
-Thanks for submitting your TIaaS request! Based on your choice, we have allocated ${vm_count} servers, each with ${vm_cpu} cores and ${vm_mem} GB of RAM. If you find that it is not enough for your training, please contact us and we can update that at any time.
-
-TIaaS provides a private queue for your training in addition to the regular one, which should make your jobs run a bit faster. To make use of it, we have created a training group for you that is accessible at
-
-https://usegalaxy.eu/join-training/${training_identifier}
-
-Please ask your users to go to that URL during your training (from ${start} to ${end}). Once it is over, the link will not be usable anymore but the users can still access their data at usegalaxy.eu.
-
-Queue Status:
-If you find yourself wondering where your students are during the training, you can use the queue status page to see which jobs are being run by people in your training: https://usegalaxy.eu/join-training/${training_identifier}/status
-
-Storage:
-We recommend to use Galaxy's short-term storage during the training. This will help us in cleaning up unused data and offer Galaxy as a more sustainable service. For more information please consult our [storage page](https://galaxyproject.org/eu/storage/).
-
-Support:
-If during the workshop you experience issues with the server, you can ask for support in the Galaxy Europe Gitter channel: https://matrix.to/#/#usegalaxy-eu_Lobby:gitter.im
-or via email: contact@usegalaxy.eu
-
-
-Please keep in mind that usegalaxy.eu is a free service and we do not charge any fees to our users. We do our best to maintain a highly available and reliable cluster, but there may still be outages we cannot control. We would like to ask you to be lenient in such cases.
-You can view our service status here: https://status.galaxyproject.org/
-
-In case of prolonged unexpected server outage, you could consider using one of the other usegalaxy.* instances. You can find them on the status page mentioned above. Keep in mind that your registered TIaaS session with the dashboard and separate queue is only available on usegalaxy.eu.
-
-AWS Estimate:
-If you wanted to run a similar training on AWS, we estimate that for ${vm_count} ${aws_id}machine(s), it would cost ${price_int} USD.
-
-Workshop Feedback:
-When your workshop is over, if you used GTN materials, please let us know how it went on the workshop feedback issue: https://github.com/galaxyproject/training-material/issues/1452
-
-TIaaS Feedback:
-We encourage you to send us a short review sharing your experience, tips for other instructors,... that we will publish in https://galaxyproject.eu/news?tag=TIaaS. Your feedback is very valuable to keep this service up and running for free.
-
-We really appreciate your support. Thank you very much for using Galaxy and don't hesitate to contact us if you have any questions!
-
-Kind regards,
-
-${yourname}
-
---
-UseGalaxy.eu
-Bioinformatics Group
-Department of Computer Science
-Albert-Ludwigs-University Freiburg
-Georges-Köhler-Allee 106
-79110 Freiburg, Germany
-"
