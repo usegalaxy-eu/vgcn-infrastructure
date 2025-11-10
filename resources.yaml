@@ -244,7 +244,7 @@ deployment:
     group: training-ki-bioinfo-2025
   training-msc-2288:
     count: 2
-    flavor: c1.c120m205d50
+    flavor: c1.c120m405d50
     start: 2025-11-12
     end: 2025-11-12
     group: training-msc-tmr-ws25-4
