@@ -272,3 +272,21 @@ deployment:
     start: 2025-12-09
     end: 2025-12-12
     group: training-aku-microbiome
+  training-rdmt8493:
+    count: 1
+    flavor: c1.c120m405d50
+    start: 2025-11-18
+    end: 2025-11-18
+    group: training-rdmtraining4nfdi
+  training-omit2279:
+    count: 1
+    flavor: c1.c120m405d50
+    start: 2025-11-14
+    end: 2025-11-14
+    group: training-omitreen-gtn-1
+  training-afri1329:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-12-08
+    end: 2025-12-12
+    group: training-africa-cdc-ibt-2025
