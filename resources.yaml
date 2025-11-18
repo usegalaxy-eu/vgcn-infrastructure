@@ -35,7 +35,7 @@ nodes_inventory:
   c1.c186m1450d50: 17
   g1.c14m40g1d50: 4
   g1.c8m40g1d50: 14
-  m1.xlarge	: 1
+  m1.xlarge: 1
 
 
 deployment:
