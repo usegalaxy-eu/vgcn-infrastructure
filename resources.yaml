@@ -65,11 +65,12 @@ deployment:
       type: default
     image: default
 
-  # Temporary Compute Node for Stefane tests
+  # Temporary Compute Node for Stefan's tests
+  # https://github.com/usegalaxy-eu/issues/issues/822#issuecomment-3532937103
   worker-xlarge:
     count: 1
     flavor: m1.xlarge
-    group: compute
+    group: sj213
     docker: true
     volume:
       size: 1024
