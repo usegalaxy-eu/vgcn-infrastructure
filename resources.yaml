@@ -251,12 +251,6 @@ deployment:
     start: 2025-12-01
     end: 2025-12-04
     group: training-ki-bioinfo-2025
-  training-msc-1299:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-11-17
-    end: 2025-11-17
-    group: training-msc-tmr-ws25-5
   training-heh-4515:
     count: 2
     flavor: c1.c120m205d50
@@ -269,12 +263,6 @@ deployment:
     start: 2025-12-09
     end: 2025-12-12
     group: training-aku-microbiome
-  training-rdmt8493:
-    count: 1
-    flavor: c1.c120m405d50
-    start: 2025-11-18
-    end: 2025-11-18
-    group: training-rdmtraining4nfdi
   training-afri1329:
     count: 2
     flavor: c1.c120m205d50
@@ -287,3 +275,9 @@ deployment:
     start: 2025-11-27
     end: 2025-11-27
     group: training-evolucion-sj
+  training-hefd5422:
+    count: 2
+    flavor: c1.c120m205d50
+    start: 2025-12-03
+    end: 2025-12-03
+    group: training-hefdi-galaxy
