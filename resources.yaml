@@ -159,15 +159,15 @@ deployment:
       type: default
     image: default
 
-  worker-c120m205:
-    count: 0
-    flavor: c1.c120m205d50
-    group: compute
-    docker: true
-    volume:
-      size: 1024
-      type: default
-    image: default
+#  worker-c120m205:
+#    count: 0
+#    flavor: c1.c120m205d50
+#    group: compute
+#    docker: true
+#    volume:
+#      size: 1024
+#      type: default
+#    image: default
 
   worker-c120m405:
     count: 20
