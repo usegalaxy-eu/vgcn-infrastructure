@@ -227,12 +227,12 @@ deployment:
     start: 2026-02-09
     end: 2026-02-12
     group: training-fabiogen
-  training-ki-b5152:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-12-01
-    end: 2025-12-04
-    group: training-ki-bioinfo-2025
+  # training-ki-b5152:
+  #   count: 2
+  #   flavor: c1.c120m205d50
+  #   start: 2025-12-01
+  #   end: 2025-12-04
+  #   group: training-ki-bioinfo-2025
   training-heh-4515:
     count: 2
     flavor: c1.c120m205d50
@@ -251,9 +251,9 @@ deployment:
     start: 2025-12-08
     end: 2025-12-12
     group: training-africa-cdc-ibt-2025
-  training-hefd5422:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-12-03
-    end: 2025-12-03
-    group: training-hefdi-galaxy
+  # training-hefd5422:
+  #   count: 2
+  #   flavor: c1.c120m205d50
+  #   start: 2025-12-03
+  #   end: 2025-12-03
+  #   group: training-hefdi-galaxy
