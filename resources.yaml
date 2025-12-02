@@ -221,30 +221,12 @@ deployment:
     image: default
 
   # Trainings
-  training-wggc6859:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-11-27
-    end: 2025-11-27
-    group: training-wggc-bioinfo-intro
-  training-unig9494:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-11-27
-    end: 2025-11-28
-    group: training-unige2025
   training-fabi8391:
     count: 2
     flavor: c1.c120m205d50
     start: 2026-02-09
     end: 2026-02-12
     group: training-fabiogen
-  training-bioi1579:
-    count: 2
-    flavor: c1.c120m205d50
-    start: 2025-11-24
-    end: 2025-11-26
-    group: training-bioinfo-rnaseq
   training-ki-b5152:
     count: 2
     flavor: c1.c120m205d50
@@ -269,12 +251,6 @@ deployment:
     start: 2025-12-08
     end: 2025-12-12
     group: training-africa-cdc-ibt-2025
-  training-evol:
-    count: 1
-    flavor: c1.c120m405d50
-    start: 2025-11-27
-    end: 2025-11-27
-    group: training-evolucion-sj
   training-hefd5422:
     count: 2
     flavor: c1.c120m205d50
