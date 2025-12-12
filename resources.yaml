@@ -68,3 +68,15 @@ deployment:
     start: 2025-12-08
     end: 2025-12-12
     group: training-africa-cdc-ibt-2025
+  training-gdaw6949:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2025-12-15
+    end: 2025-12-31
+    group: training-gdawg2025
+  training-om-05038:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-02-10
+    end: 2026-02-13
+    group: training-om-02-2026
