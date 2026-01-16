@@ -44,39 +44,15 @@ deployment:
     group: compute
 
   # Trainings
-  training-fabi8391:
-    count: 2
-    flavor: c1.c62m240d50
-    start: 2026-02-09
-    end: 2026-02-12
-    group: training-fabiogen
-  training-heh-4515:
-    count: 2
-    flavor: c1.c62m240d50
-    start: 2025-12-15
-    end: 2025-12-19
-    group: training-heh-mag2025
-  training-aku-4163:
-    count: 2
-    flavor: c1.c62m240d50
-    start: 2025-12-09
-    end: 2025-12-12
-    group: training-aku-microbiome
-  training-afri1329:
-    count: 2
-    flavor: c1.c62m240d50
-    start: 2025-12-08
-    end: 2025-12-12
-    group: training-africa-cdc-ibt-2025
-  training-gdaw6949:
-    count: 2
-    flavor: c1.c62m240d50
-    start: 2025-12-15
-    end: 2025-12-31
-    group: training-gdawg2025
   training-om-05038:
     count: 2
     flavor: c1.c62m240d50
     start: 2026-02-10
     end: 2026-02-13
     group: training-om-02-2026
+  training-htg22143:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-01-21
+    end: 2026-01-28
+    group: training-htg26
