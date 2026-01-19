@@ -44,6 +44,12 @@ deployment:
     group: compute
 
   # Trainings
+  training-fabi8391:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-02-09
+    end: 2026-02-12
+    group: training-fabiogen
   training-om-05038:
     count: 2
     flavor: c1.c62m240d50
