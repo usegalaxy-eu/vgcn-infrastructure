@@ -62,3 +62,9 @@ deployment:
     start: 2026-01-21
     end: 2026-01-28
     group: training-htg26
+  training-tran:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-01-21
+    end: 2026-01-23
+    group: training-transcriptomics
