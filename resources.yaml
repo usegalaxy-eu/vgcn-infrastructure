@@ -67,4 +67,4 @@ deployment:
     flavor: c1.c62m240d50
     start: 2026-02-04
     end: 2026-03-04
-    group: training-ga-uba
+    group: training-ga-uba-2026
