@@ -69,8 +69,33 @@ deployment:
     end: 2026-03-04
     group: training-ga-uba
   training-mastervhir2026:
-    count: 1
+  training-mastervhir2026-3026:
+    count: 2
     flavor: c1.c62m240d50
     start: 2026-02-09
-    end: 2026-02-26
+    end: 2026-02-09
+    group: training-mastervhir2026
+  training-mastervhir2026-4837:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-02-18
+    end: 2026-02-18
+    group: training-mastervhir2026
+  training-mastervhir2026-7294:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-02-19
+    end: 2026-02-19
+    group: training-mastervhir2026
+  training-mastervhir2026-1608:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-02-23
+    end: 2026-02-23
+    group: training-mastervhir2026
+  training-mastervhir2026-9452:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-02-25
+    end: 2026-02-25
     group: training-mastervhir2026
