@@ -98,6 +98,12 @@ deployment:
     start: 2026-02-25
     end: 2026-02-25
     group: training-mastervhir2026
+  training-ur-ws2026-8471:
+    count: 2
+    flavor: c1.c62m240d50
+    start: 2026-02-16
+    end: 2026-02-20
+    group: training-ur-ws2026
   training-genome-assembly-26-8341:
     count: 2
     flavor: c1.c62m240d50
