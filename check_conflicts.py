@@ -1,3 +1,9 @@
+'''
+Script to check for conflicts in resource allocation for TIaaS training events.
+Reads a YAML configuration file and verifies that the requested training nodes
+do not exceed the available nodes on any given day. 
+'''
+
 import yaml
 import pandas as pd
 
@@ -26,6 +32,8 @@ def check_conflicts(file_path):
         grouped = training_df.groupby(["flavor", "date"]).agg(
             {"count": "sum", "resource_group": "unique"}
         ).reset_index()
+        # Output TIaaS schedule
+        print(grouped)
         # Check requested training nodes against available nodes
         grouped["available_nodes"] = grouped["flavor"].map(available_nodes).fillna(0)
         grouped["conflict"] = grouped["count"] > grouped["available_nodes"]
@@ -42,4 +50,3 @@ def check_conflicts(file_path):
 
 if __name__ == "__main__":
     check_conflicts("resources.yaml")
-
