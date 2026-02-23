@@ -35,14 +35,6 @@ deployment:
   #     type: default
   #   image: default
 
-  # VGCN Cloud Workers
-  worker-c62m240:
-    count: 6
-    docker: true
-    flavor: c1.c62m240d50
-    image: default
-    group: compute
-
   # Trainings
   training-fabi8391:
     count: 2
